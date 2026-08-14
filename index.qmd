@@ -1,0 +1,25 @@
+---
+title: "Scrooge McDuck"
+listing:
+  id: analysis_1
+  contents: analysis_1
+  type: table
+  fields: [title, description]
+  sort: title
+
+---
+
+Welcome. This is a small site about the **Scrooge McDuck**.
+
+Head to the **[analysis 1](analysis_1.qmd)** for the figures and a summary table.
+
+Head to the **[analysis 2](analysis_2.qmd)** for the figures and a summary table.
+
+Head to the **[analysis 2](analysis_2.qmd)** for the figures and a summary table.
+
+Head to the **[analysis 2](analysis_2.qmd)** for the figures and a summary table.
+
+
+> This folder is your starting point for the Day-2 lab: four pages that render on their own but are
+> **not yet a project**. Your job is to add a `_quarto.yml` (and a `_brand.yml`) that turn them into a
+> navigable, branded website, then prepare it for publishing.

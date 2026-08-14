@@ -1,0 +1,37 @@
+[
+  {
+    "objectID": "analysis_4.html",
+    "href": "analysis_4.html",
+    "title": "Analysis 1",
+    "section": "",
+    "text": "library(dplyr)\nlibrary(ggplot2)\nlibrary(ggokabeito)   # color-blind-safe (Okabe-Ito) scale\n\n\ncat(format(Sys.time()))\n\n2026-08-14 16:00:35"
+  },
+  {
+    "objectID": "analysis_3.html",
+    "href": "analysis_3.html",
+    "title": "Analysis 1",
+    "section": "",
+    "text": "library(dplyr)\nlibrary(ggplot2)\nlibrary(ggokabeito)   # color-blind-safe (Okabe-Ito) scale\n\n\ncat(format(Sys.time()))\n\n2026-08-14 16:00:30"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Scrooge McDuck",
+    "section": "",
+    "text": "Welcome. This is a small site about the Scrooge McDuck.\nHead to the analysis 1 for the figures and a summary table.\nHead to the analysis 2 for the figures and a summary table.\nHead to the analysis 2 for the figures and a summary table.\nHead to the analysis 2 for the figures and a summary table.\n\nThis folder is your starting point for the Day-2 lab: four pages that render on their own but are not yet a project. Your job is to add a _quarto.yml (and a _brand.yml) that turn them into a navigable, branded website, then prepare it for publishing.\n\n\n\n\n\n\n\n    \n      \n      \n    \n\n\n\n\nTitle\nDescription\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "analysis_1.html",
+    "href": "analysis_1.html",
+    "title": "Analysis 1",
+    "section": "",
+    "text": "library(dplyr)\nlibrary(ggplot2)\nlibrary(ggokabeito)   # color-blind-safe (Okabe-Ito) scale\n\n\ncat(format(Sys.time()))\n\n2026-08-14 16:00:27"
+  },
+  {
+    "objectID": "analysis_2.html",
+    "href": "analysis_2.html",
+    "title": "Analysis 1",
+    "section": "",
+    "text": "library(dplyr)\nlibrary(ggplot2)\nlibrary(ggokabeito)   # color-blind-safe (Okabe-Ito) scale\n\n\ncat(format(Sys.time()))\n\n2026-08-14 16:00:32"
+  }
+]

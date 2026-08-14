@@ -1,0 +1,10 @@
+color:
+  palette:
+    teal: "#4C979F"
+  primary: teal
+typography:
+  fonts:
+    - family: Albert Sans
+      source: google
+  base:
+    family: Albert Sans

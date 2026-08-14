@@ -1,0 +1,12 @@
+color:
+  palette:
+    teal: "#7FC4CB"      # lighter — #4C979F is low-contrast on dark
+  primary: teal
+  background: "#1d1f21"
+  foreground: "#e8e8e8"
+typography:              # must be repeated, not inherited
+  fonts:
+    - family: Albert Sans
+      source: google
+  base:
+    family: Albert Sans

@@ -1,0 +1,25 @@
+project:
+  type: website
+  output-dir: _site
+  brand: 
+    light: _brand.yml
+    dark: _brand-dark.yml
+website:
+  title: "Scrooge McDuck"
+  navbar:              # list the entries yourself
+    left:
+      - href: index.qmd
+        text: Home
+      - href: analysis_1.qmd
+        text: Analysis 1
+      - href: analysis_2.qmd
+        text: Analysis 2
+      - href: analysis_3.qmd
+        text: Analysis 3
+      - href: analysis_4.qmd
+        text: Analysis 4
+format:
+  html:
+    theme: [cosmo, brand]
+execute:
+  freeze: auto

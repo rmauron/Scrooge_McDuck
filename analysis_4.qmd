@@ -1,0 +1,20 @@
+---
+title: "Analysis 1"
+---
+
+```{r}
+#| label: setup
+#| message: false
+#| cache: true
+library(dplyr)
+library(ggplot2)
+library(ggokabeito)   # color-blind-safe (Okabe-Ito) scale
+
+```
+
+
+```{r}
+#| label: print-time
+#| message: false
+cat(format(Sys.time()))
+```
