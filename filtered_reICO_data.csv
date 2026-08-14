@@ -1,0 +1,1360 @@
+REF_AREA,Reference area,VAR,Indicator,OBS_VALUE,OBS_STATUS_1,Observation status
+CZE,Czechia,PHD_TOC_PERMXPHD_TOC,"Doctorate holders in indefinite contracts, % of employees with a doctorate",93.87874815,A,Normal value
+CZE,Czechia,PHD_TOC_PERM_35_44XPHD_TOC_35_44,"Doctorate holders aged 35-44 in indefinite contracts, % of employees with a doctorate aged 35-44",92.75702896,A,Normal value
+CZE,Czechia,MAS_TOC_PERMXMAS_TOC,"Master's degree holders in indefinite contracts, % of employees with a master's degree",95.16429425,A,Normal value
+CZE,Czechia,MAS_TOC_PERM_25_34XMAS_TOC_25_34,"Master's degree holders aged 25-34 in indefinite contracts, % of employees with a master's degree aged 25-34",92.59208372,A,Normal value
+CZE,Czechia,MAS_TOC_PERM_35_44XMAS_TOC_35_44,"Master's degree holders aged 35-44 in indefinite contracts, % of employees with a master's degree aged 35-44",93.93539855,A,Normal value
+CZE,Czechia,MAS_TOC_PERM_55_64XMAS_TOC_55_64,"Master's degree holders aged 55-64 in indefinite contracts, % of employees with a master's degree aged 55-64",98.37774708,A,Normal value
+CZE,Czechia,MAS_TOC_PERM_45_54XMAS_TOC_45_54,"Master's degree holders aged 45-54 in indefinite contracts, % of employees with a master's degree aged 45-54",96.66851477,A,Normal value
+CZE,Czechia,PHD_TOC_PERM_45_54XPHD_TOC_45_54,"Doctorate holders aged 45-54 in indefinite contracts, % of employees with a doctorate aged 45-54",94.52415813,A,Normal value
+NLD,Netherlands,MAS_TOC_PERM_45_54XMAS_TOC_45_54,"Master's degree holders aged 45-54 in indefinite contracts, % of employees with a master's degree aged 45-54",90.54255711,A,Normal value
+NLD,Netherlands,MAS_TOC_PERM_25_34XMAS_TOC_25_34,"Master's degree holders aged 25-34 in indefinite contracts, % of employees with a master's degree aged 25-34",65.75185792,A,Normal value
+NLD,Netherlands,MAS_TOC_PERM_35_44XMAS_TOC_35_44,"Master's degree holders aged 35-44 in indefinite contracts, % of employees with a master's degree aged 35-44",85.28834414,A,Normal value
+NLD,Netherlands,PHD_TOC_PERM_35_44XPHD_TOC_35_44,"Doctorate holders aged 35-44 in indefinite contracts, % of employees with a doctorate aged 35-44",74.90725734,A,Normal value
+NLD,Netherlands,PHD_TOC_PERMXPHD_TOC,"Doctorate holders in indefinite contracts, % of employees with a doctorate",76.37913557,A,Normal value
+NLD,Netherlands,PHD_TOC_PERM_45_54XPHD_TOC_45_54,"Doctorate holders aged 45-54 in indefinite contracts, % of employees with a doctorate aged 45-54",94.33621934,A,Normal value
+NLD,Netherlands,MAS_TOC_PERM_55_64XMAS_TOC_55_64,"Master's degree holders aged 55-64 in indefinite contracts, % of employees with a master's degree aged 55-64",90.76045994,A,Normal value
+NLD,Netherlands,PHD_TOC_PERM_25_34XPHD_TOC_25_34,"Doctorate holders aged 25-34 in indefinite contracts, % of employees with a doctorate aged 25-34",41.9547911,A,Normal value
+NLD,Netherlands,PHD_TOC_PERM_55_64XPHD_TOC_55_64,"Doctorate holders aged 55-64 in indefinite contracts, % of employees with a doctorate aged 55-64",92.34215886,A,Normal value
+CHE,Switzerland,MAS_TOC_PERM_45_54XMAS_TOC_45_54,"Master's degree holders aged 45-54 in indefinite contracts, % of employees with a master's degree aged 45-54",95.66379274,A,Normal value
+CHE,Switzerland,MAS_TOC_PERM_35_44XMAS_TOC_35_44,"Master's degree holders aged 35-44 in indefinite contracts, % of employees with a master's degree aged 35-44",92.79724108,A,Normal value
+CHE,Switzerland,MAS_TOC_PERM_55_64XMAS_TOC_55_64,"Master's degree holders aged 55-64 in indefinite contracts, % of employees with a master's degree aged 55-64",92.60413808,A,Normal value
+CHE,Switzerland,MAS_TOC_PERMXMAS_TOC,"Master's degree holders in indefinite contracts, % of employees with a master's degree",88.97081256,A,Normal value
+CHE,Switzerland,MAS_TOC_PERM_25_34XMAS_TOC_25_34,"Master's degree holders aged 25-34 in indefinite contracts, % of employees with a master's degree aged 25-34",78.56235032,A,Normal value
+CHE,Switzerland,PHD_TOC_PERMXPHD_TOC,"Doctorate holders in indefinite contracts, % of employees with a doctorate",77.79580947,A,Normal value
+BEL,Belgium,MAS_TOC_PERM_25_34XMAS_TOC_25_34,"Master's degree holders aged 25-34 in indefinite contracts, % of employees with a master's degree aged 25-34",85.60773027,A,Normal value
+BEL,Belgium,MAS_TOC_PERM_55_64XMAS_TOC_55_64,"Master's degree holders aged 55-64 in indefinite contracts, % of employees with a master's degree aged 55-64",97.93337129,A,Normal value
+BEL,Belgium,MAS_TOC_PERM_45_54XMAS_TOC_45_54,"Master's degree holders aged 45-54 in indefinite contracts, % of employees with a master's degree aged 45-54",96.04189188,A,Normal value
+BEL,Belgium,MAS_TOC_PERM_35_44XMAS_TOC_35_44,"Master's degree holders aged 35-44 in indefinite contracts, % of employees with a master's degree aged 35-44",94.15295633,A,Normal value
+TUR,Türkiye,MAS_TOC_PERM_35_44XMAS_TOC_35_44,"Master's degree holders aged 35-44 in indefinite contracts, % of employees with a master's degree aged 35-44",99.30361581,A,Normal value
+TUR,Türkiye,MAS_TOC_PERM_45_54XMAS_TOC_45_54,"Master's degree holders aged 45-54 in indefinite contracts, % of employees with a master's degree aged 45-54",99.12351703,A,Normal value
+TUR,Türkiye,MAS_TOC_PERM_55_64XMAS_TOC_55_64,"Master's degree holders aged 55-64 in indefinite contracts, % of employees with a master's degree aged 55-64",100,A,Normal value
+TUR,Türkiye,MAS_TOC_PERM_25_34XMAS_TOC_25_34,"Master's degree holders aged 25-34 in indefinite contracts, % of employees with a master's degree aged 25-34",98.76948723,A,Normal value
+NOR,Norway,MAS_TOC_PERMXMAS_TOC,"Master's degree holders in indefinite contracts, % of employees with a master's degree",93.66829116,A,Normal value
+NOR,Norway,PHD_TOC_PERMXPHD_TOC,"Doctorate holders in indefinite contracts, % of employees with a doctorate",93.34679481,A,Normal value
+NOR,Norway,MAS_TOC_PERM_45_54XMAS_TOC_45_54,"Master's degree holders aged 45-54 in indefinite contracts, % of employees with a master's degree aged 45-54",96.75413022,A,Normal value
+NOR,Norway,PHD_TOC_PERM_35_44XPHD_TOC_35_44,"Doctorate holders aged 35-44 in indefinite contracts, % of employees with a doctorate aged 35-44",85.36311955,A,Normal value
+NOR,Norway,MAS_TOC_PERM_55_64XMAS_TOC_55_64,"Master's degree holders aged 55-64 in indefinite contracts, % of employees with a master's degree aged 55-64",100,A,Normal value
+NOR,Norway,PHD_TOC_PERM_45_54XPHD_TOC_45_54,"Doctorate holders aged 45-54 in indefinite contracts, % of employees with a doctorate aged 45-54",98.61449324,A,Normal value
+NOR,Norway,MAS_TOC_PERM_35_44XMAS_TOC_35_44,"Master's degree holders aged 35-44 in indefinite contracts, % of employees with a master's degree aged 35-44",94.59042878,A,Normal value
+NOR,Norway,MAS_TOC_PERM_25_34XMAS_TOC_25_34,"Master's degree holders aged 25-34 in indefinite contracts, % of employees with a master's degree aged 25-34",87.87731985,A,Normal value
+FIN,Finland,MAS_TOC_PERM_55_64XMAS_TOC_55_64,"Master's degree holders aged 55-64 in indefinite contracts, % of employees with a master's degree aged 55-64",93.21401276,A,Normal value
+FIN,Finland,MAS_TOC_PERM_25_34XMAS_TOC_25_34,"Master's degree holders aged 25-34 in indefinite contracts, % of employees with a master's degree aged 25-34",70.34841993,A,Normal value
+FIN,Finland,MAS_TOC_PERM_35_44XMAS_TOC_35_44,"Master's degree holders aged 35-44 in indefinite contracts, % of employees with a master's degree aged 35-44",87.41950469,A,Normal value
+FIN,Finland,MAS_TOC_PERM_45_54XMAS_TOC_45_54,"Master's degree holders aged 45-54 in indefinite contracts, % of employees with a master's degree aged 45-54",91.66319734,A,Normal value
+AUT,Austria,MAS_TOC_PERM_45_54XMAS_TOC_45_54,"Master's degree holders aged 45-54 in indefinite contracts, % of employees with a master's degree aged 45-54",95.98737889,A,Normal value
+AUT,Austria,MAS_TOC_PERM_35_44XMAS_TOC_35_44,"Master's degree holders aged 35-44 in indefinite contracts, % of employees with a master's degree aged 35-44",92.93967359,A,Normal value
+AUT,Austria,MAS_TOC_PERM_55_64XMAS_TOC_55_64,"Master's degree holders aged 55-64 in indefinite contracts, % of employees with a master's degree aged 55-64",96.54107726,A,Normal value
+AUT,Austria,MAS_TOC_PERM_25_34XMAS_TOC_25_34,"Master's degree holders aged 25-34 in indefinite contracts, % of employees with a master's degree aged 25-34",77.78043817,A,Normal value
+DNK,Denmark,MAS_TOC_PERM_25_34XMAS_TOC_25_34,"Master's degree holders aged 25-34 in indefinite contracts, % of employees with a master's degree aged 25-34",82.42659946,A,Normal value
+DNK,Denmark,MAS_TOC_PERM_45_54XMAS_TOC_45_54,"Master's degree holders aged 45-54 in indefinite contracts, % of employees with a master's degree aged 45-54",96.60887648,A,Normal value
+DNK,Denmark,MAS_TOC_PERM_55_64XMAS_TOC_55_64,"Master's degree holders aged 55-64 in indefinite contracts, % of employees with a master's degree aged 55-64",94.78310045,A,Normal value
+DNK,Denmark,MAS_TOC_PERM_35_44XMAS_TOC_35_44,"Master's degree holders aged 35-44 in indefinite contracts, % of employees with a master's degree aged 35-44",92.54794371,A,Normal value
+EST,Estonia,MAS_TOC_PERM_35_44XMAS_TOC_35_44,"Master's degree holders aged 35-44 in indefinite contracts, % of employees with a master's degree aged 35-44",98.10013853,A,Normal value
+EST,Estonia,MAS_TOC_PERM_55_64XMAS_TOC_55_64,"Master's degree holders aged 55-64 in indefinite contracts, % of employees with a master's degree aged 55-64",99.12073538,A,Normal value
+EST,Estonia,MAS_TOC_PERM_45_54XMAS_TOC_45_54,"Master's degree holders aged 45-54 in indefinite contracts, % of employees with a master's degree aged 45-54",98.32415775,A,Normal value
+EST,Estonia,MAS_TOC_PERM_25_34XMAS_TOC_25_34,"Master's degree holders aged 25-34 in indefinite contracts, % of employees with a master's degree aged 25-34",95.86352547,A,Normal value
+DEU,Germany,MAS_TOC_PERM_35_44XMAS_TOC_35_44,"Master's degree holders aged 35-44 in indefinite contracts, % of employees with a master's degree aged 35-44",92.13013281,A,Normal value
+DEU,Germany,MAS_TOC_PERM_45_54XMAS_TOC_45_54,"Master's degree holders aged 45-54 in indefinite contracts, % of employees with a master's degree aged 45-54",96.05579867,A,Normal value
+DEU,Germany,MAS_TOC_PERM_55_64XMAS_TOC_55_64,"Master's degree holders aged 55-64 in indefinite contracts, % of employees with a master's degree aged 55-64",96.63308715,A,Normal value
+DEU,Germany,MAS_TOC_PERM_25_34XMAS_TOC_25_34,"Master's degree holders aged 25-34 in indefinite contracts, % of employees with a master's degree aged 25-34",74.62526758,A,Normal value
+GRC,Greece,MAS_TOC_PERM_45_54XMAS_TOC_45_54,"Master's degree holders aged 45-54 in indefinite contracts, % of employees with a master's degree aged 45-54",94.2551152,A,Normal value
+GRC,Greece,MAS_TOC_PERM_55_64XMAS_TOC_55_64,"Master's degree holders aged 55-64 in indefinite contracts, % of employees with a master's degree aged 55-64",96.95602558,A,Normal value
+GRC,Greece,MAS_TOC_PERM_25_34XMAS_TOC_25_34,"Master's degree holders aged 25-34 in indefinite contracts, % of employees with a master's degree aged 25-34",83.17118266,A,Normal value
+GRC,Greece,MAS_TOC_PERM_35_44XMAS_TOC_35_44,"Master's degree holders aged 35-44 in indefinite contracts, % of employees with a master's degree aged 35-44",90.31684019,A,Normal value
+HUN,Hungary,MAS_TOC_PERM_55_64XMAS_TOC_55_64,"Master's degree holders aged 55-64 in indefinite contracts, % of employees with a master's degree aged 55-64",98.88282998,A,Normal value
+HUN,Hungary,MAS_TOC_PERM_35_44XMAS_TOC_35_44,"Master's degree holders aged 35-44 in indefinite contracts, % of employees with a master's degree aged 35-44",98.49120679,A,Normal value
+HUN,Hungary,MAS_TOC_PERM_45_54XMAS_TOC_45_54,"Master's degree holders aged 45-54 in indefinite contracts, % of employees with a master's degree aged 45-54",99.35741679,A,Normal value
+HUN,Hungary,MAS_TOC_PERM_25_34XMAS_TOC_25_34,"Master's degree holders aged 25-34 in indefinite contracts, % of employees with a master's degree aged 25-34",98.22449234,A,Normal value
+IRL,Ireland,MAS_TOC_PERMXMAS_TOC,"Master's degree holders in indefinite contracts, % of employees with a master's degree",95.2966206,A,Normal value
+LVA,Latvia,MAS_TOC_PERM_55_64XMAS_TOC_55_64,"Master's degree holders aged 55-64 in indefinite contracts, % of employees with a master's degree aged 55-64",97.76273404,A,Normal value
+LVA,Latvia,MAS_TOC_PERM_25_34XMAS_TOC_25_34,"Master's degree holders aged 25-34 in indefinite contracts, % of employees with a master's degree aged 25-34",97.97148259,A,Normal value
+LVA,Latvia,MAS_TOC_PERM_35_44XMAS_TOC_35_44,"Master's degree holders aged 35-44 in indefinite contracts, % of employees with a master's degree aged 35-44",97.94425182,A,Normal value
+LVA,Latvia,MAS_TOC_PERM_45_54XMAS_TOC_45_54,"Master's degree holders aged 45-54 in indefinite contracts, % of employees with a master's degree aged 45-54",97.60941126,A,Normal value
+LTU,Lithuania,MAS_TOC_PERM_35_44XMAS_TOC_35_44,"Master's degree holders aged 35-44 in indefinite contracts, % of employees with a master's degree aged 35-44",98.5095682,A,Normal value
+LTU,Lithuania,MAS_TOC_PERM_25_34XMAS_TOC_25_34,"Master's degree holders aged 25-34 in indefinite contracts, % of employees with a master's degree aged 25-34",98.07945732,A,Normal value
+LTU,Lithuania,MAS_TOC_PERM_45_54XMAS_TOC_45_54,"Master's degree holders aged 45-54 in indefinite contracts, % of employees with a master's degree aged 45-54",97.94330183,A,Normal value
+LTU,Lithuania,MAS_TOC_PERM_55_64XMAS_TOC_55_64,"Master's degree holders aged 55-64 in indefinite contracts, % of employees with a master's degree aged 55-64",98.61328125,A,Normal value
+LUX,Luxembourg,MAS_TOC_PERM_25_34XMAS_TOC_25_34,"Master's degree holders aged 25-34 in indefinite contracts, % of employees with a master's degree aged 25-34",90.0307306,A,Normal value
+LUX,Luxembourg,MAS_TOC_PERM_45_54XMAS_TOC_45_54,"Master's degree holders aged 45-54 in indefinite contracts, % of employees with a master's degree aged 45-54",96.03756299,A,Normal value
+LUX,Luxembourg,MAS_TOC_PERM_35_44XMAS_TOC_35_44,"Master's degree holders aged 35-44 in indefinite contracts, % of employees with a master's degree aged 35-44",97.16449926,A,Normal value
+LUX,Luxembourg,MAS_TOC_PERM_55_64XMAS_TOC_55_64,"Master's degree holders aged 55-64 in indefinite contracts, % of employees with a master's degree aged 55-64",94.21039028,A,Normal value
+POL,Poland,MAS_TOC_PERM_35_44XMAS_TOC_35_44,"Master's degree holders aged 35-44 in indefinite contracts, % of employees with a master's degree aged 35-44",93.62815599,A,Normal value
+POL,Poland,MAS_TOC_PERM_55_64XMAS_TOC_55_64,"Master's degree holders aged 55-64 in indefinite contracts, % of employees with a master's degree aged 55-64",94.76368272,A,Normal value
+POL,Poland,MAS_TOC_PERM_25_34XMAS_TOC_25_34,"Master's degree holders aged 25-34 in indefinite contracts, % of employees with a master's degree aged 25-34",85.20228748,A,Normal value
+POL,Poland,MAS_TOC_PERM_45_54XMAS_TOC_45_54,"Master's degree holders aged 45-54 in indefinite contracts, % of employees with a master's degree aged 45-54",96.01729011,A,Normal value
+PRT,Portugal,MAS_TOC_PERM_55_64XMAS_TOC_55_64,"Master's degree holders aged 55-64 in indefinite contracts, % of employees with a master's degree aged 55-64",95.68975468,A,Normal value
+PRT,Portugal,PHD_TOC_PERMXPHD_TOC,"Doctorate holders in indefinite contracts, % of employees with a doctorate",77.62357352,A,Normal value
+PRT,Portugal,MAS_TOC_PERM_35_44XMAS_TOC_35_44,"Master's degree holders aged 35-44 in indefinite contracts, % of employees with a master's degree aged 35-44",83.46447112,A,Normal value
+PRT,Portugal,MAS_TOC_PERM_45_54XMAS_TOC_45_54,"Master's degree holders aged 45-54 in indefinite contracts, % of employees with a master's degree aged 45-54",93.50088168,A,Normal value
+PRT,Portugal,MAS_TOC_PERM_25_34XMAS_TOC_25_34,"Master's degree holders aged 25-34 in indefinite contracts, % of employees with a master's degree aged 25-34",72.88015878,A,Normal value
+SVK,Slovak Republic,MAS_TOC_PERM_25_34XMAS_TOC_25_34,"Master's degree holders aged 25-34 in indefinite contracts, % of employees with a master's degree aged 25-34",95.33083939,A,Normal value
+SVK,Slovak Republic,MAS_TOC_PERM_35_44XMAS_TOC_35_44,"Master's degree holders aged 35-44 in indefinite contracts, % of employees with a master's degree aged 35-44",98.34176007,A,Normal value
+SVK,Slovak Republic,MAS_TOC_PERM_55_64XMAS_TOC_55_64,"Master's degree holders aged 55-64 in indefinite contracts, % of employees with a master's degree aged 55-64",97.93432276,A,Normal value
+SVK,Slovak Republic,MAS_TOC_PERM_45_54XMAS_TOC_45_54,"Master's degree holders aged 45-54 in indefinite contracts, % of employees with a master's degree aged 45-54",98.92260089,A,Normal value
+SVN,Slovenia,MAS_TOC_PERM_55_64XMAS_TOC_55_64,"Master's degree holders aged 55-64 in indefinite contracts, % of employees with a master's degree aged 55-64",97.61450382,A,Normal value
+SVN,Slovenia,MAS_TOC_PERM_25_34XMAS_TOC_25_34,"Master's degree holders aged 25-34 in indefinite contracts, % of employees with a master's degree aged 25-34",80.65198984,A,Normal value
+SVN,Slovenia,MAS_TOC_PERM_35_44XMAS_TOC_35_44,"Master's degree holders aged 35-44 in indefinite contracts, % of employees with a master's degree aged 35-44",94.28571429,A,Normal value
+SVN,Slovenia,MAS_TOC_PERM_45_54XMAS_TOC_45_54,"Master's degree holders aged 45-54 in indefinite contracts, % of employees with a master's degree aged 45-54",96.32305136,A,Normal value
+SWE,Sweden,MAS_TOC_PERM_25_34XMAS_TOC_25_34,"Master's degree holders aged 25-34 in indefinite contracts, % of employees with a master's degree aged 25-34",86.39234224,A,Normal value
+SWE,Sweden,MAS_TOC_PERM_35_44XMAS_TOC_35_44,"Master's degree holders aged 35-44 in indefinite contracts, % of employees with a master's degree aged 35-44",93.98989583,A,Normal value
+SWE,Sweden,MAS_TOC_PERM_45_54XMAS_TOC_45_54,"Master's degree holders aged 45-54 in indefinite contracts, % of employees with a master's degree aged 45-54",95.78969514,A,Normal value
+SWE,Sweden,MAS_TOC_PERM_55_64XMAS_TOC_55_64,"Master's degree holders aged 55-64 in indefinite contracts, % of employees with a master's degree aged 55-64",95.24448274,A,Normal value
+BGR,Bulgaria,MAS_TOC_PERM_35_44XMAS_TOC_35_44,"Master's degree holders aged 35-44 in indefinite contracts, % of employees with a master's degree aged 35-44",98.92343358,A,Normal value
+BGR,Bulgaria,MAS_TOC_PERM_55_64XMAS_TOC_55_64,"Master's degree holders aged 55-64 in indefinite contracts, % of employees with a master's degree aged 55-64",99.51784073,A,Normal value
+BGR,Bulgaria,MAS_TOC_PERM_25_34XMAS_TOC_25_34,"Master's degree holders aged 25-34 in indefinite contracts, % of employees with a master's degree aged 25-34",98.75441234,A,Normal value
+BGR,Bulgaria,MAS_TOC_PERM_45_54XMAS_TOC_45_54,"Master's degree holders aged 45-54 in indefinite contracts, % of employees with a master's degree aged 45-54",98.56975671,A,Normal value
+HRV,Croatia,MAS_TOC_PERM_45_54XMAS_TOC_45_54,"Master's degree holders aged 45-54 in indefinite contracts, % of employees with a master's degree aged 45-54",97.43370823,A,Normal value
+HRV,Croatia,MAS_TOC_PERM_55_64XMAS_TOC_55_64,"Master's degree holders aged 55-64 in indefinite contracts, % of employees with a master's degree aged 55-64",95.114727920000007,A,Normal value
+HRV,Croatia,MAS_TOC_PERM_35_44XMAS_TOC_35_44,"Master's degree holders aged 35-44 in indefinite contracts, % of employees with a master's degree aged 35-44",94.88090581,A,Normal value
+HRV,Croatia,MAS_TOC_PERM_25_34XMAS_TOC_25_34,"Master's degree holders aged 25-34 in indefinite contracts, % of employees with a master's degree aged 25-34",71.78593539,A,Normal value
+CYP,Cyprus,MAS_TOC_PERM_25_34XMAS_TOC_25_34,"Master's degree holders aged 25-34 in indefinite contracts, % of employees with a master's degree aged 25-34",87.22508399,A,Normal value
+CYP,Cyprus,MAS_TOC_PERM_45_54XMAS_TOC_45_54,"Master's degree holders aged 45-54 in indefinite contracts, % of employees with a master's degree aged 45-54",96.24443545,A,Normal value
+CYP,Cyprus,MAS_TOC_PERM_55_64XMAS_TOC_55_64,"Master's degree holders aged 55-64 in indefinite contracts, % of employees with a master's degree aged 55-64",95.06135434,A,Normal value
+CYP,Cyprus,MAS_TOC_PERM_35_44XMAS_TOC_35_44,"Master's degree holders aged 35-44 in indefinite contracts, % of employees with a master's degree aged 35-44",90.50344078,A,Normal value
+MLT,Malta,MAS_TOC_PERM_35_44XMAS_TOC_35_44,"Master's degree holders aged 35-44 in indefinite contracts, % of employees with a master's degree aged 35-44",96.09612292,A,Normal value
+MLT,Malta,MAS_TOC_PERM_45_54XMAS_TOC_45_54,"Master's degree holders aged 45-54 in indefinite contracts, % of employees with a master's degree aged 45-54",85.17376105,A,Normal value
+MLT,Malta,MAS_TOC_PERM_25_34XMAS_TOC_25_34,"Master's degree holders aged 25-34 in indefinite contracts, % of employees with a master's degree aged 25-34",95.89956916,A,Normal value
+MLT,Malta,MAS_TOC_PERMXMAS_TOC,"Master's degree holders in indefinite contracts, % of employees with a master's degree",94.21173875,A,Normal value
+ROU,Romania,MAS_TOC_PERM_25_34XMAS_TOC_25_34,"Master's degree holders aged 25-34 in indefinite contracts, % of employees with a master's degree aged 25-34",99.38163191,A,Normal value
+ROU,Romania,MAS_TOC_PERM_35_44XMAS_TOC_35_44,"Master's degree holders aged 35-44 in indefinite contracts, % of employees with a master's degree aged 35-44",99.74917152,A,Normal value
+ROU,Romania,MAS_TOC_PERM_55_64XMAS_TOC_55_64,"Master's degree holders aged 55-64 in indefinite contracts, % of employees with a master's degree aged 55-64",99.83784224,A,Normal value
+ROU,Romania,MAS_TOC_PERM_45_54XMAS_TOC_45_54,"Master's degree holders aged 45-54 in indefinite contracts, % of employees with a master's degree aged 45-54",99.8466,A,Normal value
+ITA,Italy,PHD_TOC_PERM_35_44XPHD_TOC_35_44,"Doctorate holders aged 35-44 in indefinite contracts, % of employees with a doctorate aged 35-44",71.90305393,A,Normal value
+ITA,Italy,PHD_TOC_PERM_45_54XPHD_TOC_45_54,"Doctorate holders aged 45-54 in indefinite contracts, % of employees with a doctorate aged 45-54",92.65126171,A,Normal value
+ITA,Italy,MAS_TOC_PERMXMAS_TOC,"Master's degree holders in indefinite contracts, % of employees with a master's degree",85.98164834,A,Normal value
+ITA,Italy,MAS_TOC_PERM_25_34XMAS_TOC_25_34,"Master's degree holders aged 25-34 in indefinite contracts, % of employees with a master's degree aged 25-34",65.07368508,A,Normal value
+ITA,Italy,MAS_TOC_PERM_35_44XMAS_TOC_35_44,"Master's degree holders aged 35-44 in indefinite contracts, % of employees with a master's degree aged 35-44",87.89643784,A,Normal value
+ITA,Italy,PHD_TOC_PERMXPHD_TOC,"Doctorate holders in indefinite contracts, % of employees with a doctorate",80.13478674,A,Normal value
+ITA,Italy,PHD_TOC_PERM_55_64XPHD_TOC_55_64,"Doctorate holders aged 55-64 in indefinite contracts, % of employees with a doctorate aged 55-64",95.53996599,A,Normal value
+ITA,Italy,MAS_TOC_PERM_55_64XMAS_TOC_55_64,"Master's degree holders aged 55-64 in indefinite contracts, % of employees with a master's degree aged 55-64",96.38267391,A,Normal value
+ITA,Italy,MAS_TOC_PERM_45_54XMAS_TOC_45_54,"Master's degree holders aged 45-54 in indefinite contracts, % of employees with a master's degree aged 45-54",92.97298887,A,Normal value
+AUT,Austria,PHD_TOC_PERMXPHD_TOC,"Doctorate holders in indefinite contracts, % of employees with a doctorate",82.6187646,A,Normal value
+AUT,Austria,MAS_TOC_PERMXMAS_TOC,"Master's degree holders in indefinite contracts, % of employees with a master's degree",90.02001583,A,Normal value
+BEL,Belgium,PHD_TOC_PERM_35_44XPHD_TOC_35_44,"Doctorate holders aged 35-44 in indefinite contracts, % of employees with a doctorate aged 35-44",82.07661478,A,Normal value
+BEL,Belgium,PHD_TOC_PERM_45_54XPHD_TOC_45_54,"Doctorate holders aged 45-54 in indefinite contracts, % of employees with a doctorate aged 45-54",92.88228991,A,Normal value
+BEL,Belgium,MAS_TOC_PERMXMAS_TOC,"Master's degree holders in indefinite contracts, % of employees with a master's degree",92.48214759,A,Normal value
+BEL,Belgium,PHD_TOC_PERMXPHD_TOC,"Doctorate holders in indefinite contracts, % of employees with a doctorate",86.83699933,A,Normal value
+BEL,Belgium,PHD_TOC_PERM_25_34XPHD_TOC_25_34,"Doctorate holders aged 25-34 in indefinite contracts, % of employees with a doctorate aged 25-34",81.71730515,A,Normal value
+DNK,Denmark,MAS_TOC_PERMXMAS_TOC,"Master's degree holders in indefinite contracts, % of employees with a master's degree",89.93212609,A,Normal value
+DNK,Denmark,PHD_TOC_PERMXPHD_TOC,"Doctorate holders in indefinite contracts, % of employees with a doctorate",85.65264293,A,Normal value
+EST,Estonia,MAS_TOC_PERMXMAS_TOC,"Master's degree holders in indefinite contracts, % of employees with a master's degree",97.87482074,A,Normal value
+FIN,Finland,PHD_TOC_PERMXPHD_TOC,"Doctorate holders in indefinite contracts, % of employees with a doctorate",70.79179243,A,Normal value
+FIN,Finland,MAS_TOC_PERMXMAS_TOC,"Master's degree holders in indefinite contracts, % of employees with a master's degree",85.15443419,A,Normal value
+DEU,Germany,PHD_TOC_PERM_45_54XPHD_TOC_45_54,"Doctorate holders aged 45-54 in indefinite contracts, % of employees with a doctorate aged 45-54",91.73718002,A,Normal value
+DEU,Germany,PHD_TOC_PERM_35_44XPHD_TOC_35_44,"Doctorate holders aged 35-44 in indefinite contracts, % of employees with a doctorate aged 35-44",82.12220367,A,Normal value
+DEU,Germany,PHD_TOC_PERM_55_64XPHD_TOC_55_64,"Doctorate holders aged 55-64 in indefinite contracts, % of employees with a doctorate aged 55-64",92.98552811,A,Normal value
+DEU,Germany,PHD_TOC_PERM_25_34XPHD_TOC_25_34,"Doctorate holders aged 25-34 in indefinite contracts, % of employees with a doctorate aged 25-34",54.20913199,A,Normal value
+DEU,Germany,PHD_TOC_PERMXPHD_TOC,"Doctorate holders in indefinite contracts, % of employees with a doctorate",82.91620195,A,Normal value
+DEU,Germany,MAS_TOC_PERMXMAS_TOC,"Master's degree holders in indefinite contracts, % of employees with a master's degree",88.34926626,A,Normal value
+GRC,Greece,PHD_TOC_PERM_45_54XPHD_TOC_45_54,"Doctorate holders aged 45-54 in indefinite contracts, % of employees with a doctorate aged 45-54",96.43508943,A,Normal value
+GRC,Greece,PHD_TOC_PERMXPHD_TOC,"Doctorate holders in indefinite contracts, % of employees with a doctorate",91.02587631,A,Normal value
+GRC,Greece,MAS_TOC_PERMXMAS_TOC,"Master's degree holders in indefinite contracts, % of employees with a master's degree",90.47117291,A,Normal value
+HUN,Hungary,PHD_TOC_PERMXPHD_TOC,"Doctorate holders in indefinite contracts, % of employees with a doctorate",96.06024968,A,Normal value
+HUN,Hungary,PHD_TOC_PERM_35_44XPHD_TOC_35_44,"Doctorate holders aged 35-44 in indefinite contracts, % of employees with a doctorate aged 35-44",97.1169126,A,Normal value
+HUN,Hungary,MAS_TOC_PERMXMAS_TOC,"Master's degree holders in indefinite contracts, % of employees with a master's degree",98.66567376,A,Normal value
+ISL,Iceland,PHD_TOC_PERMXPHD_TOC,"Doctorate holders in indefinite contracts, % of employees with a doctorate",77.62777242,A,Normal value
+LVA,Latvia,MAS_TOC_PERMXMAS_TOC,"Master's degree holders in indefinite contracts, % of employees with a master's degree",97.80859417,A,Normal value
+LTU,Lithuania,MAS_TOC_PERMXMAS_TOC,"Master's degree holders in indefinite contracts, % of employees with a master's degree",98.30914297,A,Normal value
+LTU,Lithuania,PHD_TOC_PERMXPHD_TOC,"Doctorate holders in indefinite contracts, % of employees with a doctorate",89.62388796,A,Normal value
+LUX,Luxembourg,PHD_TOC_PERM_45_54XPHD_TOC_45_54,"Doctorate holders aged 45-54 in indefinite contracts, % of employees with a doctorate aged 45-54",89.18380889,A,Normal value
+LUX,Luxembourg,MAS_TOC_PERMXMAS_TOC,"Master's degree holders in indefinite contracts, % of employees with a master's degree",94.13709422,A,Normal value
+LUX,Luxembourg,PHD_TOC_PERM_55_64XPHD_TOC_55_64,"Doctorate holders aged 55-64 in indefinite contracts, % of employees with a doctorate aged 55-64",77.18684395,A,Normal value
+LUX,Luxembourg,PHD_TOC_PERM_25_34XPHD_TOC_25_34,"Doctorate holders aged 25-34 in indefinite contracts, % of employees with a doctorate aged 25-34",86.13264427,A,Normal value
+LUX,Luxembourg,PHD_TOC_PERMXPHD_TOC,"Doctorate holders in indefinite contracts, % of employees with a doctorate",85.98526201,A,Normal value
+LUX,Luxembourg,PHD_TOC_PERM_35_44XPHD_TOC_35_44,"Doctorate holders aged 35-44 in indefinite contracts, % of employees with a doctorate aged 35-44",88.30445545,A,Normal value
+NLD,Netherlands,MAS_TOC_PERMXMAS_TOC,"Master's degree holders in indefinite contracts, % of employees with a master's degree",80.44545644,A,Normal value
+POL,Poland,MAS_TOC_PERMXMAS_TOC,"Master's degree holders in indefinite contracts, % of employees with a master's degree",92.038855710000007,A,Normal value
+POL,Poland,PHD_TOC_PERM_45_54XPHD_TOC_45_54,"Doctorate holders aged 45-54 in indefinite contracts, % of employees with a doctorate aged 45-54",97.2112144,A,Normal value
+POL,Poland,PHD_TOC_PERMXPHD_TOC,"Doctorate holders in indefinite contracts, % of employees with a doctorate",94.95556036,A,Normal value
+POL,Poland,PHD_TOC_PERM_35_44XPHD_TOC_35_44,"Doctorate holders aged 35-44 in indefinite contracts, % of employees with a doctorate aged 35-44",92.46690877,A,Normal value
+PRT,Portugal,MAS_TOC_PERMXMAS_TOC,"Master's degree holders in indefinite contracts, % of employees with a master's degree",87.17461994,A,Normal value
+SVK,Slovak Republic,PHD_TOC_PERMXPHD_TOC,"Doctorate holders in indefinite contracts, % of employees with a doctorate",95.40621012,A,Normal value
+SVK,Slovak Republic,MAS_TOC_PERMXMAS_TOC,"Master's degree holders in indefinite contracts, % of employees with a master's degree",97.50355217,A,Normal value
+SVK,Slovak Republic,PHD_TOC_PERM_35_44XPHD_TOC_35_44,"Doctorate holders aged 35-44 in indefinite contracts, % of employees with a doctorate aged 35-44",92.8258233,A,Normal value
+SVN,Slovenia,PHD_TOC_PERMXPHD_TOC,"Doctorate holders in indefinite contracts, % of employees with a doctorate",94.71998233,A,Normal value
+SVN,Slovenia,MAS_TOC_PERMXMAS_TOC,"Master's degree holders in indefinite contracts, % of employees with a master's degree",92.79923828,A,Normal value
+SVN,Slovenia,PHD_TOC_PERM_45_54XPHD_TOC_45_54,"Doctorate holders aged 45-54 in indefinite contracts, % of employees with a doctorate aged 45-54",96.40375971,A,Normal value
+SWE,Sweden,PHD_TOC_PERMXPHD_TOC,"Doctorate holders in indefinite contracts, % of employees with a doctorate",88.10333525,A,Normal value
+SWE,Sweden,MAS_TOC_PERMXMAS_TOC,"Master's degree holders in indefinite contracts, % of employees with a master's degree",92.55504071,A,Normal value
+TUR,Türkiye,PHD_TOC_PERM_25_34XPHD_TOC_25_34,"Doctorate holders aged 25-34 in indefinite contracts, % of employees with a doctorate aged 25-34",99.08607199,A,Normal value
+TUR,Türkiye,PHD_TOC_PERM_35_44XPHD_TOC_35_44,"Doctorate holders aged 35-44 in indefinite contracts, % of employees with a doctorate aged 35-44",99.61519604,A,Normal value
+TUR,Türkiye,PHD_TOC_PERMXPHD_TOC,"Doctorate holders in indefinite contracts, % of employees with a doctorate",99.74496847,A,Normal value
+TUR,Türkiye,MAS_TOC_PERMXMAS_TOC,"Master's degree holders in indefinite contracts, % of employees with a master's degree",99.09234412,A,Normal value
+BGR,Bulgaria,MAS_TOC_PERMXMAS_TOC,"Master's degree holders in indefinite contracts, % of employees with a master's degree",98.90980609,A,Normal value
+HRV,Croatia,MAS_TOC_PERMXMAS_TOC,"Master's degree holders in indefinite contracts, % of employees with a master's degree",88.25047493,A,Normal value
+HRV,Croatia,PHD_TOC_PERMXPHD_TOC,"Doctorate holders in indefinite contracts, % of employees with a doctorate",87.07403815,A,Normal value
+CYP,Cyprus,MAS_TOC_PERMXMAS_TOC,"Master's degree holders in indefinite contracts, % of employees with a master's degree",90.90737542,A,Normal value
+CYP,Cyprus,PHD_TOC_PERM_35_44XPHD_TOC_35_44,"Doctorate holders aged 35-44 in indefinite contracts, % of employees with a doctorate aged 35-44",89.29303279,A,Normal value
+CYP,Cyprus,PHD_TOC_PERMXPHD_TOC,"Doctorate holders in indefinite contracts, % of employees with a doctorate",85.18125927,A,Normal value
+ROU,Romania,MAS_TOC_PERMXMAS_TOC,"Master's degree holders in indefinite contracts, % of employees with a master's degree",99.76874497,A,Normal value
+EST,Estonia,PHD_TOC_PERMXPHD_TOC,"Doctorate holders in indefinite contracts, % of employees with a doctorate",100,A,Normal value
+EST,Estonia,PHD_TOC_PERM_35_44XPHD_TOC_35_44,"Doctorate holders aged 35-44 in indefinite contracts, % of employees with a doctorate aged 35-44",100,A,Normal value
+GRC,Greece,PHD_TOC_PERM_55_64XPHD_TOC_55_64,"Doctorate holders aged 55-64 in indefinite contracts, % of employees with a doctorate aged 55-64",100,A,Normal value
+HUN,Hungary,PHD_TOC_PERM_45_54XPHD_TOC_45_54,"Doctorate holders aged 45-54 in indefinite contracts, % of employees with a doctorate aged 45-54",100,A,Normal value
+TUR,Türkiye,PHD_TOC_PERM_45_54XPHD_TOC_45_54,"Doctorate holders aged 45-54 in indefinite contracts, % of employees with a doctorate aged 45-54",100,A,Normal value
+TUR,Türkiye,PHD_TOC_PERM_55_64XPHD_TOC_55_64,"Doctorate holders aged 55-64 in indefinite contracts, % of employees with a doctorate aged 55-64",100,A,Normal value
+CYP,Cyprus,PHD_TOC_PERM_45_54XPHD_TOC_45_54,"Doctorate holders aged 45-54 in indefinite contracts, % of employees with a doctorate aged 45-54",100,A,Normal value
+ROU,Romania,PHD_TOC_PERMXPHD_TOC,"Doctorate holders in indefinite contracts, % of employees with a doctorate",100,A,Normal value
+NOR,Norway,PHD_HW,Average annual hours worked by employed doctorate holders,1705,A,Normal value
+NOR,Norway,PHD_HW_25_34,Average annual hours worked by employed doctorate holders aged 25-34,1695,A,Normal value
+NOR,Norway,PHD_EARNY_25_34,Average gross yearly earnings of employed doctorate holders aged 25-34,76399.42373,A,Normal value
+NOR,Norway,PHD_EARNY,Average gross yearly earnings of employed doctorate holders,99951.15009,A,Normal value
+NOR,Norway,MAS_EARNY_55_64,Average gross yearly earnings of employed master's degree holders aged 55-64,115575.2995,A,Normal value
+NOR,Norway,PHD_TOC_PERMXPHD_TOC,"Doctorate holders in indefinite contracts, % of employees with a doctorate",87.94917829,A,Normal value
+NOR,Norway,MAS_EARNY_35_44,Average gross yearly earnings of employed master's degree holders aged 35-44,97307.7901,A,Normal value
+NOR,Norway,PHD_TOC_PERM_45_54XPHD_TOC_45_54,"Doctorate holders aged 45-54 in indefinite contracts, % of employees with a doctorate aged 45-54",92.83937913,A,Normal value
+NOR,Norway,PHD_HW_55_64,Average annual hours worked by employed doctorate holders aged 55-64,1707,A,Normal value
+NOR,Norway,MAS_HW_55_64,Average annual hours worked by employed master's degree holders aged 55-64,1673,A,Normal value
+NOR,Norway,PHD_TOC_PERM_55_64XPHD_TOC_55_64,"Doctorate holders aged 55-64 in indefinite contracts, % of employees with a doctorate aged 55-64",94.75274725,A,Normal value
+NOR,Norway,PHD_TOC_PERM_25_34XPHD_TOC_25_34,"Doctorate holders aged 25-34 in indefinite contracts, % of employees with a doctorate aged 25-34",69.60926194,A,Normal value
+NOR,Norway,MAS_HW_45_54,Average annual hours worked by employed master's degree holders aged 45-54,1684,A,Normal value
+NOR,Norway,PHD_TOC_PERM_35_44XPHD_TOC_35_44,"Doctorate holders aged 35-44 in indefinite contracts, % of employees with a doctorate aged 35-44",85.62280835,A,Normal value
+NOR,Norway,PHD_HW_35_44,Average annual hours worked by employed doctorate holders aged 35-44,1703,A,Normal value
+NOR,Norway,MAS_EARNY_25_34,Average gross yearly earnings of employed master's degree holders aged 25-34,85265.72411,A,Normal value
+NOR,Norway,PHD_EARNY_55_64,Average gross yearly earnings of employed doctorate holders aged 55-64,116665.662,A,Normal value
+NOR,Norway,PHD_HW_45_54,Average annual hours worked by employed doctorate holders aged 45-54,1709,A,Normal value
+NOR,Norway,PHD_EARNY_45_54,Average gross yearly earnings of employed doctorate holders aged 45-54,107479.6054,A,Normal value
+NOR,Norway,PHD_EARNY_35_44,Average gross yearly earnings of employed doctorate holders aged 35-44,90859.47683,A,Normal value
+NOR,Norway,MAS_EARNY_45_54,Average gross yearly earnings of employed master's degree holders aged 45-54,110191.4846,A,Normal value
+NOR,Norway,MAS_HW_25_34,Average annual hours worked by employed master's degree holders aged 25-34,1681,A,Normal value
+NOR,Norway,MAS_HW,Average annual hours worked by employed master's degree holders,1680,A,Normal value
+NOR,Norway,MAS_HW_35_44,Average annual hours worked by employed master's degree holders aged 35-44,1679,A,Normal value
+NOR,Norway,MAS_EARNY,Average gross yearly earnings of employed master's degree holders,98908.44855,A,Normal value
+NOR,Norway,MAS_TOC_PERMXMAS_TOC,"Master's degree holders in indefinite contracts, % of employees with a master's degree",89.09081913,A,Normal value
+NOR,Norway,MAS_TOC_PERM_55_64XMAS_TOC_55_64,"Master's degree holders aged 55-64 in indefinite contracts, % of employees with a master's degree aged 55-64",95.55060684,A,Normal value
+NOR,Norway,MAS_TOC_PERM_45_54XMAS_TOC_45_54,"Master's degree holders aged 45-54 in indefinite contracts, % of employees with a master's degree aged 45-54",94.63591274,A,Normal value
+NOR,Norway,MAS_TOC_PERM_35_44XMAS_TOC_35_44,"Master's degree holders aged 35-44 in indefinite contracts, % of employees with a master's degree aged 35-44",90.81243787,A,Normal value
+NOR,Norway,MAS_TOC_PERM_25_34XMAS_TOC_25_34,"Master's degree holders aged 25-34 in indefinite contracts, % of employees with a master's degree aged 25-34",80.91897171,A,Normal value
+FIN,Finland,PHD_EARNY_55_64,Average gross yearly earnings of employed doctorate holders aged 55-64,86614.65663,A,Normal value
+FIN,Finland,PHD_EARNY_35_44,Average gross yearly earnings of employed doctorate holders aged 35-44,69228.31124,A,Normal value
+FIN,Finland,PHD_EARNY,Average gross yearly earnings of employed doctorate holders,76920.37795,A,Normal value
+FIN,Finland,PHD_EARNY_25_34,Average gross yearly earnings of employed doctorate holders aged 25-34,59164.01206,A,Normal value
+FIN,Finland,PHD_EARNY_45_54,Average gross yearly earnings of employed doctorate holders aged 45-54,79733.76581,A,Normal value
+DNK,Denmark,MAS_EARNY_35_44,Average gross yearly earnings of employed master's degree holders aged 35-44,74725.46765,A,Normal value
+DNK,Denmark,MAS_EARNY_55_64,Average gross yearly earnings of employed master's degree holders aged 55-64,93320.22977,A,Normal value
+DNK,Denmark,MAS_EARNY_45_54,Average gross yearly earnings of employed master's degree holders aged 45-54,93742.24641,A,Normal value
+DNK,Denmark,MAS_EARNY_25_34,Average gross yearly earnings of employed master's degree holders aged 25-34,52813.6935,A,Normal value
+DNK,Denmark,PHD_EARNY_45_54,Average gross yearly earnings of employed doctorate holders aged 45-54,102477.4924,A,Normal value
+DNK,Denmark,PHD_EARNY_25_34,Average gross yearly earnings of employed doctorate holders aged 25-34,63652.23835,A,Normal value
+DNK,Denmark,PHD_EARNY_55_64,Average gross yearly earnings of employed doctorate holders aged 55-64,105610.7722,A,Normal value
+DNK,Denmark,PHD_EARNY,Average gross yearly earnings of employed doctorate holders,88288.98282,A,Normal value
+DNK,Denmark,MAS_EARNY,Average gross yearly earnings of employed master's degree holders,73391.29693,A,Normal value
+DNK,Denmark,PHD_EARNY_35_44,Average gross yearly earnings of employed doctorate holders aged 35-44,80449.13758,A,Normal value
+NLD,Netherlands,PHD_HW_35_44,Average annual hours worked by employed doctorate holders aged 35-44,1998.346923,A,Normal value
+NLD,Netherlands,PHD_EARNY_35_44,Average gross yearly earnings of employed doctorate holders aged 35-44,124312.3528,A,Normal value
+NLD,Netherlands,MAS_HW_35_44,Average annual hours worked by employed master's degree holders aged 35-44,1882.488378,A,Normal value
+NLD,Netherlands,MAS_HW_45_54,Average annual hours worked by employed master's degree holders aged 45-54,1957.353788,A,Normal value
+NLD,Netherlands,MAS_EARNY_25_34,Average gross yearly earnings of employed master's degree holders aged 25-34,84057.93658,A,Normal value
+NLD,Netherlands,PHD_EARNY_55_64,Average gross yearly earnings of employed doctorate holders aged 55-64,157662.5804,A,Normal value
+NLD,Netherlands,PHD_HW,Average annual hours worked by employed doctorate holders,2008.493471,A,Normal value
+NLD,Netherlands,MAS_HW,Average annual hours worked by employed master's degree holders,1916.533879,A,Normal value
+NLD,Netherlands,MAS_EARNY_45_54,Average gross yearly earnings of employed master's degree holders aged 45-54,123376.572,A,Normal value
+NLD,Netherlands,MAS_EARNY_55_64,Average gross yearly earnings of employed master's degree holders aged 55-64,112308.2243,A,Normal value
+NLD,Netherlands,PHD_EARNY_45_54,Average gross yearly earnings of employed doctorate holders aged 45-54,150000.7919,A,Normal value
+NLD,Netherlands,MAS_HW_25_34,Average annual hours worked by employed master's degree holders aged 25-34,1940.256209,A,Normal value
+NLD,Netherlands,MAS_EARNY_35_44,Average gross yearly earnings of employed master's degree holders aged 35-44,107927.6083,A,Normal value
+NLD,Netherlands,PHD_EARNY_25_34,Average gross yearly earnings of employed doctorate holders aged 25-34,97368.7267,A,Normal value
+NLD,Netherlands,PHD_HW_45_54,Average annual hours worked by employed doctorate holders aged 45-54,2046.852218,A,Normal value
+NLD,Netherlands,MAS_HW_55_64,Average annual hours worked by employed master's degree holders aged 55-64,1861.884338,A,Normal value
+NLD,Netherlands,MAS_EARNY,Average gross yearly earnings of employed master's degree holders,100414.964,A,Normal value
+NLD,Netherlands,PHD_HW_25_34,Average annual hours worked by employed doctorate holders aged 25-34,2030.63046,A,Normal value
+NLD,Netherlands,PHD_EARNY,Average gross yearly earnings of employed doctorate holders,123025.4891,A,Normal value
+NLD,Netherlands,PHD_HW_55_64,Average annual hours worked by employed doctorate holders aged 55-64,1957.702605,A,Normal value
+MLT,Malta,MAS_HW,Average annual hours worked by employed master's degree holders,2080,A,Normal value
+MLT,Malta,MAS_EARNY_55_64,Average gross yearly earnings of employed master's degree holders aged 55-64,55548.61815,A,Normal value
+MLT,Malta,MAS_HW_25_34,Average annual hours worked by employed master's degree holders aged 25-34,2080,A,Normal value
+MLT,Malta,MAS_EARNY,Average gross yearly earnings of employed master's degree holders,54558.39025,A,Normal value
+MLT,Malta,MAS_EARNY_25_34,Average gross yearly earnings of employed master's degree holders aged 25-34,51167.17394,A,Normal value
+MLT,Malta,MAS_EARNY_35_44,Average gross yearly earnings of employed master's degree holders aged 35-44,57911.73381,A,Normal value
+MLT,Malta,MAS_HW_35_44,Average annual hours worked by employed master's degree holders aged 35-44,2106,A,Normal value
+MLT,Malta,MAS_TOC_PERMXMAS_TOC,"Master's degree holders in indefinite contracts, % of employees with a master's degree",91.89189189,A,Normal value
+MLT,Malta,MAS_HW_55_64,Average annual hours worked by employed master's degree holders aged 55-64,1934.4,A,Normal value
+MLT,Malta,MAS_HW_45_54,Average annual hours worked by employed master's degree holders aged 45-54,2095.6,A,Normal value
+MLT,Malta,MAS_EARNY_45_54,Average gross yearly earnings of employed master's degree holders aged 45-54,57025.00131,A,Normal value
+ITA,Italy,PHD_TOC_PERM_45_54XPHD_TOC_45_54,"Doctorate holders aged 45-54 in indefinite contracts, % of employees with a doctorate aged 45-54",92.65126171,A,Normal value
+ITA,Italy,PHD_TOC_PERM_35_44XPHD_TOC_35_44,"Doctorate holders aged 35-44 in indefinite contracts, % of employees with a doctorate aged 35-44",71.82487537,A,Normal value
+ITA,Italy,PHD_TOC_PERM_25_34XPHD_TOC_25_34,"Doctorate holders aged 25-34 in indefinite contracts, % of employees with a doctorate aged 25-34",47.23954877,A,Normal value
+ITA,Italy,PHD_TOC_PERM_55_64XPHD_TOC_55_64,"Doctorate holders aged 55-64 in indefinite contracts, % of employees with a doctorate aged 55-64",95.52601304,A,Normal value
+ITA,Italy,MAS_TOC_PERMXMAS_TOC,"Master's degree holders in indefinite contracts, % of employees with a master's degree",86.47378975,A,Normal value
+ITA,Italy,PHD_TOC_PERMXPHD_TOC,"Doctorate holders in indefinite contracts, % of employees with a doctorate",80.37882357,A,Normal value
+ITA,Italy,MAS_TOC_PERM_55_64XMAS_TOC_55_64,"Master's degree holders aged 55-64 in indefinite contracts, % of employees with a master's degree aged 55-64",96.38233157,A,Normal value
+ITA,Italy,MAS_TOC_PERM_45_54XMAS_TOC_45_54,"Master's degree holders aged 45-54 in indefinite contracts, % of employees with a master's degree aged 45-54",93.0569766,A,Normal value
+ITA,Italy,MAS_TOC_PERM_25_34XMAS_TOC_25_34,"Master's degree holders aged 25-34 in indefinite contracts, % of employees with a master's degree aged 25-34",66.27446998,A,Normal value
+ITA,Italy,MAS_TOC_PERM_35_44XMAS_TOC_35_44,"Master's degree holders aged 35-44 in indefinite contracts, % of employees with a master's degree aged 35-44",87.94616756,A,Normal value
+KOR,Korea,MAS_TOC_PERM_55_64XMAS_TOC_55_64,"Master's degree holders aged 55-64 in indefinite contracts, % of employees with a master's degree aged 55-64",78.16270179,A,Normal value
+KOR,Korea,MAS_TOC_PERM_25_34XMAS_TOC_25_34,"Master's degree holders aged 25-34 in indefinite contracts, % of employees with a master's degree aged 25-34",79.96635525,A,Normal value
+KOR,Korea,MAS_TOC_PERM_45_54XMAS_TOC_45_54,"Master's degree holders aged 45-54 in indefinite contracts, % of employees with a master's degree aged 45-54",83.32226947,A,Normal value
+KOR,Korea,MAS_TOC_PERM_35_44XMAS_TOC_35_44,"Master's degree holders aged 35-44 in indefinite contracts, % of employees with a master's degree aged 35-44",82.26302478,A,Normal value
+KOR,Korea,MAS_HW_35_44,Average annual hours worked by employed master's degree holders aged 35-44,1935.164526,A,Normal value
+KOR,Korea,PHD_TOC_PERM_45_54XPHD_TOC_45_54,"Doctorate holders aged 45-54 in indefinite contracts, % of employees with a doctorate aged 45-54",82.49040152,A,Normal value
+KOR,Korea,PHD_HW_45_54,Average annual hours worked by employed doctorate holders aged 45-54,1899.500527,A,Normal value
+KOR,Korea,MAS_HW_45_54,Average annual hours worked by employed master's degree holders aged 45-54,1938.757275,A,Normal value
+KOR,Korea,MAS_HW_55_64,Average annual hours worked by employed master's degree holders aged 55-64,1857.365903,A,Normal value
+KOR,Korea,MAS_HW_25_34,Average annual hours worked by employed master's degree holders aged 25-34,1941.848703,A,Normal value
+KOR,Korea,PHD_HW,Average annual hours worked by employed doctorate holders,1913.561167,A,Normal value
+KOR,Korea,MAS_TOC_PERMXMAS_TOC,"Master's degree holders in indefinite contracts, % of employees with a master's degree",81.46933982,A,Normal value
+KOR,Korea,PHD_TOC_PERM_35_44XPHD_TOC_35_44,"Doctorate holders aged 35-44 in indefinite contracts, % of employees with a doctorate aged 35-44",81.39314313,A,Normal value
+KOR,Korea,PHD_HW_25_34,Average annual hours worked by employed doctorate holders aged 25-34,1944.437759,A,Normal value
+KOR,Korea,MAS_HW,Average annual hours worked by employed master's degree holders,1922.807725,A,Normal value
+KOR,Korea,PHD_TOC_PERMXPHD_TOC,"Doctorate holders in indefinite contracts, % of employees with a doctorate",80.0874794,A,Normal value
+KOR,Korea,PHD_HW_55_64,Average annual hours worked by employed doctorate holders aged 55-64,1853.644416,A,Normal value
+KOR,Korea,PHD_HW_35_44,Average annual hours worked by employed doctorate holders aged 35-44,1976.388509,A,Normal value
+KOR,Korea,PHD_TOC_PERM_25_34XPHD_TOC_25_34,"Doctorate holders aged 25-34 in indefinite contracts, % of employees with a doctorate aged 25-34",77.38912502,A,Normal value
+KOR,Korea,PHD_TOC_PERM_55_64XPHD_TOC_55_64,"Doctorate holders aged 55-64 in indefinite contracts, % of employees with a doctorate aged 55-64",75.84879876,A,Normal value
+DNK,Denmark,MAS_EARNY_55_64,Average gross yearly earnings of employed master's degree holders aged 55-64,134395.2323,A,Normal value
+DNK,Denmark,MAS_EARNY_35_44,Average gross yearly earnings of employed master's degree holders aged 35-44,86952.30563,A,Normal value
+DNK,Denmark,MAS_EARNY,Average gross yearly earnings of employed master's degree holders,88330.74433,A,Normal value
+DNK,Denmark,MAS_EARNY_45_54,Average gross yearly earnings of employed master's degree holders aged 45-54,116784.095,A,Normal value
+DNK,Denmark,PHD_EARNY,Average gross yearly earnings of employed doctorate holders,104194.2547,A,Normal value
+DNK,Denmark,MAS_EARNY_25_34,Average gross yearly earnings of employed master's degree holders aged 25-34,63055.46334,A,Normal value
+FIN,Finland,PHD_EARNY,Average gross yearly earnings of employed doctorate holders,85620.29727,A,Normal value
+FIN,Finland,MAS_EARNY,Average gross yearly earnings of employed master's degree holders,69721.36346,A,Normal value
+FIN,Finland,PHD_EARNY_35_44,Average gross yearly earnings of employed doctorate holders aged 35-44,74091.05887,A,Normal value
+FIN,Finland,MAS_EARNY_25_34,Average gross yearly earnings of employed master's degree holders aged 25-34,53158.23184,A,Normal value
+FIN,Finland,PHD_EARNY_55_64,Average gross yearly earnings of employed doctorate holders aged 55-64,95970.41696,A,Normal value
+FIN,Finland,MAS_EARNY_55_64,Average gross yearly earnings of employed master's degree holders aged 55-64,80833.51101,A,Normal value
+FIN,Finland,PHD_EARNY_45_54,Average gross yearly earnings of employed doctorate holders aged 45-54,94371.42501,A,Normal value
+FIN,Finland,MAS_EARNY_35_44,Average gross yearly earnings of employed master's degree holders aged 35-44,66398.42688,A,Normal value
+FIN,Finland,MAS_EARNY_45_54,Average gross yearly earnings of employed master's degree holders aged 45-54,85743.72565,A,Normal value
+IRL,Ireland,MAS_EARNY,Average gross yearly earnings of employed master's degree holders,70697.55808,A,Normal value
+IRL,Ireland,PHD_EARNY,Average gross yearly earnings of employed doctorate holders,89037.78026,A,Normal value
+IRL,Ireland,MAS_EARNY_55_64,Average gross yearly earnings of employed master's degree holders aged 55-64,93257.41863,A,Normal value
+IRL,Ireland,MAS_EARNY_25_34,Average gross yearly earnings of employed master's degree holders aged 25-34,62412.29613,A,Normal value
+IRL,Ireland,MAS_EARNY_45_54,Average gross yearly earnings of employed master's degree holders aged 45-54,85917.91849,A,Normal value
+IRL,Ireland,MAS_EARNY_35_44,Average gross yearly earnings of employed master's degree holders aged 35-44,64186.2378,A,Normal value
+ITA,Italy,MAS_EARNY,Average gross yearly earnings of employed master's degree holders,58568.83821,A,Normal value
+ITA,Italy,PHD_EARNY,Average gross yearly earnings of employed doctorate holders,62238.69417,A,Normal value
+ITA,Italy,MAS_EARNY_45_54,Average gross yearly earnings of employed master's degree holders aged 45-54,59849.4123,A,Normal value
+ITA,Italy,MAS_EARNY_55_64,Average gross yearly earnings of employed master's degree holders aged 55-64,70339.64597,A,Normal value
+ITA,Italy,MAS_EARNY_35_44,Average gross yearly earnings of employed master's degree holders aged 35-44,63087.71996,A,Normal value
+ITA,Italy,MAS_EARNY_25_34,Average gross yearly earnings of employed master's degree holders aged 25-34,36512.40123,A,Normal value
+NLD,Netherlands,MAS_EARNY_25_34,Average gross yearly earnings of employed master's degree holders aged 25-34,62324.11762,A,Normal value
+NLD,Netherlands,PHD_EARNY,Average gross yearly earnings of employed doctorate holders,105508.6069,A,Normal value
+NLD,Netherlands,MAS_EARNY,Average gross yearly earnings of employed master's degree holders,84564.03586,A,Normal value
+NLD,Netherlands,MAS_EARNY_55_64,Average gross yearly earnings of employed master's degree holders aged 55-64,111938.1349,A,Normal value
+NLD,Netherlands,MAS_EARNY_45_54,Average gross yearly earnings of employed master's degree holders aged 45-54,110629.5208,A,Normal value
+NLD,Netherlands,MAS_EARNY_35_44,Average gross yearly earnings of employed master's degree holders aged 35-44,88639.40026,A,Normal value
+NOR,Norway,MAS_EARNY_55_64,Average gross yearly earnings of employed master's degree holders aged 55-64,110659.2377,A,Normal value
+NOR,Norway,MAS_EARNY_25_34,Average gross yearly earnings of employed master's degree holders aged 25-34,61392.76646,A,Normal value
+NOR,Norway,MAS_EARNY_35_44,Average gross yearly earnings of employed master's degree holders aged 35-44,72508.66236,A,Normal value
+NOR,Norway,MAS_EARNY_45_54,Average gross yearly earnings of employed master's degree holders aged 45-54,98408.67562,A,Normal value
+NOR,Norway,MAS_EARNY,Average gross yearly earnings of employed master's degree holders,78129.57665,A,Normal value
+NOR,Norway,PHD_EARNY,Average gross yearly earnings of employed doctorate holders,84978.30231,A,Normal value
+CHE,Switzerland,PHD_EARNY_35_44,Average gross yearly earnings of employed doctorate holders aged 35-44,115055.0276,A,Normal value
+CHE,Switzerland,MAS_EARNY_35_44,Average gross yearly earnings of employed master's degree holders aged 35-44,98239.80264,A,Normal value
+CHE,Switzerland,PHD_EARNY_45_54,Average gross yearly earnings of employed doctorate holders aged 45-54,245669.3873,A,Normal value
+CHE,Switzerland,PHD_EARNY,Average gross yearly earnings of employed doctorate holders,161909.7394,A,Normal value
+CHE,Switzerland,MAS_EARNY,Average gross yearly earnings of employed master's degree holders,102017.5806,A,Normal value
+CHE,Switzerland,MAS_EARNY_25_34,Average gross yearly earnings of employed master's degree holders aged 25-34,73029.63461,A,Normal value
+CHE,Switzerland,MAS_EARNY_55_64,Average gross yearly earnings of employed master's degree holders aged 55-64,121464.7819,A,Normal value
+CHE,Switzerland,PHD_EARNY_55_64,Average gross yearly earnings of employed doctorate holders aged 55-64,156013.9598,A,Normal value
+CHE,Switzerland,MAS_EARNY_45_54,Average gross yearly earnings of employed master's degree holders aged 45-54,119151.8688,A,Normal value
+MLT,Malta,MAS_EARNY_45_54,Average gross yearly earnings of employed master's degree holders aged 45-54,82148.99687,A,Normal value
+MLT,Malta,MAS_EARNY_25_34,Average gross yearly earnings of employed master's degree holders aged 25-34,57958.87973,A,Normal value
+MLT,Malta,MAS_EARNY_35_44,Average gross yearly earnings of employed master's degree holders aged 35-44,81039.39721,A,Normal value
+MLT,Malta,MAS_EARNY,Average gross yearly earnings of employed master's degree holders,71271.17319,A,Normal value
+AUT,Austria,MAS_EARNY_25_34,Average gross yearly earnings of employed master's degree holders aged 25-34,53215.882,A,Normal value
+AUT,Austria,PHDWB_FINS_MEDHIGHXPHDWB,"Doctorate holders at least moderately satisfied with financial situation, % of total doctorate holders",94.85,A,Normal value
+AUT,Austria,MAS_EARNY_35_44,Average gross yearly earnings of employed master's degree holders aged 35-44,72847.85534,A,Normal value
+AUT,Austria,PHDWB_HAPPY_GESMTXPHDWB,"Doctorate holders feeling happy, % of total doctorate holders",97.66,A,Normal value
+AUT,Austria,MASWB_HAPPY_GESMTXMASWB,"Master's degree holders feeling happy, % of total master's degree holders",96.82,A,Normal value
+AUT,Austria,MASWB_FINS_MEDHIGHXMASWB,"Master's degree holders at least moderately satisfied with financial situation, % of total master's degree holders",90.89,A,Normal value
+AUT,Austria,MAS_EARNY,Average gross yearly earnings of employed master's degree holders,76931.21599,A,Normal value
+AUT,Austria,MASWB_TIMEUSE_MEDHIGHXMASWB,"Master's degree holders at least moderately satisfied with amount of available leisure time, % of total master's degree holders",75.09,A,Normal value
+AUT,Austria,PHD_EARNY,Average gross yearly earnings of employed doctorate holders,98327.03529,A,Normal value
+AUT,Austria,TOTWB_FINS_MEDHIGHXTOTWB,"Total population at least moderately satisfied with financial situation, % of total population",80.76,A,Normal value
+AUT,Austria,TOTWB_HAPPY_GESMTXTOTWB,"Total population feeling happy, % of total population",93.71,A,Normal value
+AUT,Austria,MAS_EARNY_45_54,Average gross yearly earnings of employed master's degree holders aged 45-54,94959.27455,A,Normal value
+AUT,Austria,PHDWB_TIMEUSE_MEDHIGHXPHDWB,"Doctorate holders at least moderately satisfied with amount of available leisure time, % of total doctorate holders",76.95,A,Normal value
+AUT,Austria,TOTWB_TIMEUSE_MEDHIGHXTOTWB,"Total population at least moderately satisfied with amount of available leisure time, % of total population",80.25,A,Normal value
+AUT,Austria,MAS_EARNY_55_64,Average gross yearly earnings of employed master's degree holders aged 55-64,110780.6835,A,Normal value
+BEL,Belgium,MAS_EARNY_45_54,Average gross yearly earnings of employed master's degree holders aged 45-54,91329.68187,A,Normal value
+BEL,Belgium,PHDWB_HAPPY_GESMTXPHDWB,"Doctorate holders feeling happy, % of total doctorate holders",99.71,A,Normal value
+BEL,Belgium,MAS_EARNY,Average gross yearly earnings of employed master's degree holders,76647.66657,A,Normal value
+BEL,Belgium,MASWB_HAPPY_GESMTXMASWB,"Master's degree holders feeling happy, % of total master's degree holders",98.13,A,Normal value
+BEL,Belgium,PHDWB_TIMEUSE_MEDHIGHXPHDWB,"Doctorate holders at least moderately satisfied with amount of available leisure time, % of total doctorate holders",80.8,A,Normal value
+BEL,Belgium,TOTWB_HAPPY_GESMTXTOTWB,"Total population feeling happy, % of total population",94.82,A,Normal value
+BEL,Belgium,MASWB_FINS_MEDHIGHXMASWB,"Master's degree holders at least moderately satisfied with financial situation, % of total master's degree holders",92.93,A,Normal value
+BEL,Belgium,TOTWB_FINS_MEDHIGHXTOTWB,"Total population at least moderately satisfied with financial situation, % of total population",83.55,A,Normal value
+BEL,Belgium,MAS_EARNY_55_64,Average gross yearly earnings of employed master's degree holders aged 55-64,96791.17202,A,Normal value
+BEL,Belgium,MAS_EARNY_25_34,Average gross yearly earnings of employed master's degree holders aged 25-34,58046.45449,A,Normal value
+BEL,Belgium,MAS_EARNY_35_44,Average gross yearly earnings of employed master's degree holders aged 35-44,78449.95732,A,Normal value
+BEL,Belgium,MASWB_TIMEUSE_MEDHIGHXMASWB,"Master's degree holders at least moderately satisfied with amount of available leisure time, % of total master's degree holders",83.83,A,Normal value
+BEL,Belgium,PHDWB_FINS_MEDHIGHXPHDWB,"Doctorate holders at least moderately satisfied with financial situation, % of total doctorate holders",97.12,A,Normal value
+BEL,Belgium,TOTWB_TIMEUSE_MEDHIGHXTOTWB,"Total population at least moderately satisfied with amount of available leisure time, % of total population",84.66,A,Normal value
+BEL,Belgium,PHD_EARNY,Average gross yearly earnings of employed doctorate holders,104724.7029,A,Normal value
+CZE,Czechia,MAS_EARNY_25_34,Average gross yearly earnings of employed master's degree holders aged 25-34,34849.83545,A,Normal value
+CZE,Czechia,TOTWB_HAPPY_GESMTXTOTWB,"Total population feeling happy, % of total population",82.77,A,Normal value
+CZE,Czechia,PHDWB_HAPPY_GESMTXPHDWB,"Doctorate holders feeling happy, % of total doctorate holders",92.83,A,Normal value
+CZE,Czechia,MAS_EARNY_45_54,Average gross yearly earnings of employed master's degree holders aged 45-54,45837.61696,A,Normal value
+CZE,Czechia,MAS_EARNY,Average gross yearly earnings of employed master's degree holders,41955.54054,A,Normal value
+CZE,Czechia,TOTWB_FINS_MEDHIGHXTOTWB,"Total population at least moderately satisfied with financial situation, % of total population",72.65,A,Normal value
+CZE,Czechia,MASWB_FINS_MEDHIGHXMASWB,"Master's degree holders at least moderately satisfied with financial situation, % of total master's degree holders",85.23,A,Normal value
+CZE,Czechia,MASWB_HAPPY_GESMTXMASWB,"Master's degree holders feeling happy, % of total master's degree holders",88.74,A,Normal value
+CZE,Czechia,PHD_EARNY,Average gross yearly earnings of employed doctorate holders,53125.10695,A,Normal value
+CZE,Czechia,PHDWB_TIMEUSE_MEDHIGHXPHDWB,"Doctorate holders at least moderately satisfied with amount of available leisure time, % of total doctorate holders",60.96,A,Normal value
+CZE,Czechia,MAS_EARNY_35_44,Average gross yearly earnings of employed master's degree holders aged 35-44,42572.38639,A,Normal value
+CZE,Czechia,MAS_EARNY_55_64,Average gross yearly earnings of employed master's degree holders aged 55-64,45043.5078,A,Normal value
+CZE,Czechia,MASWB_TIMEUSE_MEDHIGHXMASWB,"Master's degree holders at least moderately satisfied with amount of available leisure time, % of total master's degree holders",68.8,A,Normal value
+CZE,Czechia,PHDWB_FINS_MEDHIGHXPHDWB,"Doctorate holders at least moderately satisfied with financial situation, % of total doctorate holders",82.97,A,Normal value
+CZE,Czechia,TOTWB_TIMEUSE_MEDHIGHXTOTWB,"Total population at least moderately satisfied with amount of available leisure time, % of total population",70.96,A,Normal value
+DNK,Denmark,PHDWB_FINS_MEDHIGHXPHDWB,"Doctorate holders at least moderately satisfied with financial situation, % of total doctorate holders",90.51,A,Normal value
+DNK,Denmark,MASWB_TIMEUSE_MEDHIGHXMASWB,"Master's degree holders at least moderately satisfied with amount of available leisure time, % of total master's degree holders",76.59,A,Normal value
+DNK,Denmark,TOTWB_HAPPY_GESMTXTOTWB,"Total population feeling happy, % of total population",87.7,A,Normal value
+DNK,Denmark,MASWB_HAPPY_GESMTXMASWB,"Master's degree holders feeling happy, % of total master's degree holders",90.24,A,Normal value
+DNK,Denmark,MASWB_FINS_MEDHIGHXMASWB,"Master's degree holders at least moderately satisfied with financial situation, % of total master's degree holders",86.31,A,Normal value
+DNK,Denmark,TOTWB_FINS_MEDHIGHXTOTWB,"Total population at least moderately satisfied with financial situation, % of total population",75.5,A,Normal value
+DNK,Denmark,PHDWB_HAPPY_GESMTXPHDWB,"Doctorate holders feeling happy, % of total doctorate holders",91.9,A,Normal value
+DNK,Denmark,PHDWB_TIMEUSE_MEDHIGHXPHDWB,"Doctorate holders at least moderately satisfied with amount of available leisure time, % of total doctorate holders",72.62,A,Normal value
+DNK,Denmark,TOTWB_TIMEUSE_MEDHIGHXTOTWB,"Total population at least moderately satisfied with amount of available leisure time, % of total population",79.91,A,Normal value
+EST,Estonia,MAS_EARNY,Average gross yearly earnings of employed master's degree holders,41001.9556,A,Normal value
+EST,Estonia,MASWB_FINS_MEDHIGHXMASWB,"Master's degree holders at least moderately satisfied with financial situation, % of total master's degree holders",73.91,A,Normal value
+EST,Estonia,PHDWB_HAPPY_GESMTXPHDWB,"Doctorate holders feeling happy, % of total doctorate holders",90.29,A,Normal value
+EST,Estonia,TOTWB_FINS_MEDHIGHXTOTWB,"Total population at least moderately satisfied with financial situation, % of total population",64.74,A,Normal value
+EST,Estonia,MAS_EARNY_55_64,Average gross yearly earnings of employed master's degree holders aged 55-64,35308.08758,A,Normal value
+EST,Estonia,MASWB_HAPPY_GESMTXMASWB,"Master's degree holders feeling happy, % of total master's degree holders",88.18,A,Normal value
+EST,Estonia,PHDWB_TIMEUSE_MEDHIGHXPHDWB,"Doctorate holders at least moderately satisfied with amount of available leisure time, % of total doctorate holders",74.41,A,Normal value
+EST,Estonia,TOTWB_HAPPY_GESMTXTOTWB,"Total population feeling happy, % of total population",85.39,A,Normal value
+EST,Estonia,MAS_EARNY_25_34,Average gross yearly earnings of employed master's degree holders aged 25-34,42278.67925,A,Normal value
+EST,Estonia,PHDWB_FINS_MEDHIGHXPHDWB,"Doctorate holders at least moderately satisfied with financial situation, % of total doctorate holders",87.16,A,Normal value
+EST,Estonia,MASWB_TIMEUSE_MEDHIGHXMASWB,"Master's degree holders at least moderately satisfied with amount of available leisure time, % of total master's degree holders",75.73,A,Normal value
+EST,Estonia,MAS_EARNY_35_44,Average gross yearly earnings of employed master's degree holders aged 35-44,43898.14984,A,Normal value
+EST,Estonia,MAS_EARNY_45_54,Average gross yearly earnings of employed master's degree holders aged 45-54,42214.77287,A,Normal value
+EST,Estonia,TOTWB_TIMEUSE_MEDHIGHXTOTWB,"Total population at least moderately satisfied with amount of available leisure time, % of total population",75.06,A,Normal value
+FIN,Finland,MASWB_FINS_MEDHIGHXMASWB,"Master's degree holders at least moderately satisfied with financial situation, % of total master's degree holders",95.66,A,Normal value
+FIN,Finland,TOTWB_FINS_MEDHIGHXTOTWB,"Total population at least moderately satisfied with financial situation, % of total population",88.36,A,Normal value
+FIN,Finland,MASWB_TIMEUSE_MEDHIGHXMASWB,"Master's degree holders at least moderately satisfied with amount of available leisure time, % of total master's degree holders",85.01,A,Normal value
+FIN,Finland,TOTWB_HAPPY_GESMTXTOTWB,"Total population feeling happy, % of total population",93.31,A,Normal value
+FIN,Finland,PHDWB_FINS_MEDHIGHXPHDWB,"Doctorate holders at least moderately satisfied with financial situation, % of total doctorate holders",93.11,A,Normal value
+FIN,Finland,PHDWB_HAPPY_GESMTXPHDWB,"Doctorate holders feeling happy, % of total doctorate holders",99.26,A,Normal value
+FIN,Finland,PHDWB_TIMEUSE_MEDHIGHXPHDWB,"Doctorate holders at least moderately satisfied with amount of available leisure time, % of total doctorate holders",84.24,A,Normal value
+FIN,Finland,TOTWB_TIMEUSE_MEDHIGHXTOTWB,"Total population at least moderately satisfied with amount of available leisure time, % of total population",85.89,A,Normal value
+FIN,Finland,MASWB_HAPPY_GESMTXMASWB,"Master's degree holders feeling happy, % of total master's degree holders",97.02,A,Normal value
+FRA,France,TOTWB_FINS_MEDHIGHXTOTWB,"Total population at least moderately satisfied with financial situation, % of total population",67.31,A,Normal value
+FRA,France,PHDWB_FINS_MEDHIGHXPHDWB,"Doctorate holders at least moderately satisfied with financial situation, % of total doctorate holders",85.36,A,Normal value
+FRA,France,MAS_EARNY_55_64,Average gross yearly earnings of employed master's degree holders aged 55-64,111095.2101,A,Normal value
+FRA,France,PHD_EARNY_35_44,Average gross yearly earnings of employed doctorate holders aged 35-44,70409.91953,A,Normal value
+FRA,France,TOTWB_HAPPY_GESMTXTOTWB,"Total population feeling happy, % of total population",90.69,A,Normal value
+FRA,France,MAS_EARNY,Average gross yearly earnings of employed master's degree holders,76782.11701,A,Normal value
+FRA,France,PHDWB_HAPPY_GESMTXPHDWB,"Doctorate holders feeling happy, % of total doctorate holders",97.06,A,Normal value
+FRA,France,MAS_EARNY_25_34,Average gross yearly earnings of employed master's degree holders aged 25-34,52652.05135,A,Normal value
+FRA,France,MAS_EARNY_35_44,Average gross yearly earnings of employed master's degree holders aged 35-44,75166.34189,A,Normal value
+FRA,France,MASWB_HAPPY_GESMTXMASWB,"Master's degree holders feeling happy, % of total master's degree holders",94.23,A,Normal value
+FRA,France,PHD_EARNY,Average gross yearly earnings of employed doctorate holders,84057.05562,A,Normal value
+FRA,France,PHDWB_TIMEUSE_MEDHIGHXPHDWB,"Doctorate holders at least moderately satisfied with amount of available leisure time, % of total doctorate holders",62.58,A,Normal value
+FRA,France,TOTWB_TIMEUSE_MEDHIGHXTOTWB,"Total population at least moderately satisfied with amount of available leisure time, % of total population",66.9,A,Normal value
+FRA,France,MASWB_TIMEUSE_MEDHIGHXMASWB,"Master's degree holders at least moderately satisfied with amount of available leisure time, % of total master's degree holders",63.22,A,Normal value
+FRA,France,MAS_EARNY_45_54,Average gross yearly earnings of employed master's degree holders aged 45-54,108074.9968,A,Normal value
+FRA,France,MASWB_FINS_MEDHIGHXMASWB,"Master's degree holders at least moderately satisfied with financial situation, % of total master's degree holders",84.69,A,Normal value
+DEU,Germany,MAS_EARNY_25_34,Average gross yearly earnings of employed master's degree holders aged 25-34,74431.53966,A,Normal value
+DEU,Germany,PHD_EARNY,Average gross yearly earnings of employed doctorate holders,136548.2377,A,Normal value
+DEU,Germany,PHD_EARNY_45_54,Average gross yearly earnings of employed doctorate holders aged 45-54,149990.1633,A,Normal value
+DEU,Germany,PHD_EARNY_35_44,Average gross yearly earnings of employed doctorate holders aged 35-44,124714.9057,A,Normal value
+DEU,Germany,PHD_EARNY_25_34,Average gross yearly earnings of employed doctorate holders aged 25-34,97141.47497,A,Normal value
+DEU,Germany,MAS_EARNY_35_44,Average gross yearly earnings of employed master's degree holders aged 35-44,93290.63606,A,Normal value
+DEU,Germany,MAS_EARNY_45_54,Average gross yearly earnings of employed master's degree holders aged 45-54,108905.1964,A,Normal value
+DEU,Germany,MAS_EARNY_55_64,Average gross yearly earnings of employed master's degree holders aged 55-64,105820.4445,A,Normal value
+DEU,Germany,MAS_EARNY,Average gross yearly earnings of employed master's degree holders,92962.37863,A,Normal value
+DEU,Germany,PHD_EARNY_55_64,Average gross yearly earnings of employed doctorate holders aged 55-64,169223.3313,A,Normal value
+GRC,Greece,PHDWB_HAPPY_GESMTXPHDWB,"Doctorate holders feeling happy, % of total doctorate holders",97.66,A,Normal value
+GRC,Greece,TOTWB_HAPPY_GESMTXTOTWB,"Total population feeling happy, % of total population",85.75,A,Normal value
+GRC,Greece,MAS_EARNY_45_54,Average gross yearly earnings of employed master's degree holders aged 45-54,60817.94232,A,Normal value
+GRC,Greece,PHDWB_FINS_MEDHIGHXPHDWB,"Doctorate holders at least moderately satisfied with financial situation, % of total doctorate holders",88.46,A,Normal value
+GRC,Greece,MASWB_FINS_MEDHIGHXMASWB,"Master's degree holders at least moderately satisfied with financial situation, % of total master's degree holders",70.13,A,Normal value
+GRC,Greece,MASWB_HAPPY_GESMTXMASWB,"Master's degree holders feeling happy, % of total master's degree holders",92.65,A,Normal value
+GRC,Greece,TOTWB_FINS_MEDHIGHXTOTWB,"Total population at least moderately satisfied with financial situation, % of total population",47.86,A,Normal value
+GRC,Greece,MAS_EARNY,Average gross yearly earnings of employed master's degree holders,44331.04653,A,Normal value
+GRC,Greece,MASWB_TIMEUSE_MEDHIGHXMASWB,"Master's degree holders at least moderately satisfied with amount of available leisure time, % of total master's degree holders",54.69,A,Normal value
+GRC,Greece,TOTWB_TIMEUSE_MEDHIGHXTOTWB,"Total population at least moderately satisfied with amount of available leisure time, % of total population",52.67,A,Normal value
+GRC,Greece,MAS_EARNY_35_44,Average gross yearly earnings of employed master's degree holders aged 35-44,43198.13753,A,Normal value
+GRC,Greece,PHDWB_TIMEUSE_MEDHIGHXPHDWB,"Doctorate holders at least moderately satisfied with amount of available leisure time, % of total doctorate holders",72.64,A,Normal value
+HUN,Hungary,PHDWB_HAPPY_GESMTXPHDWB,"Doctorate holders feeling happy, % of total doctorate holders",84.41,A,Normal value
+HUN,Hungary,TOTWB_TIMEUSE_MEDHIGHXTOTWB,"Total population at least moderately satisfied with amount of available leisure time, % of total population",68.8,A,Normal value
+HUN,Hungary,MASWB_HAPPY_GESMTXMASWB,"Master's degree holders feeling happy, % of total master's degree holders",93.04,A,Normal value
+HUN,Hungary,PHDWB_FINS_MEDHIGHXPHDWB,"Doctorate holders at least moderately satisfied with financial situation, % of total doctorate holders",81.82,A,Normal value
+HUN,Hungary,MASWB_FINS_MEDHIGHXMASWB,"Master's degree holders at least moderately satisfied with financial situation, % of total master's degree holders",82.35,A,Normal value
+HUN,Hungary,PHDWB_TIMEUSE_MEDHIGHXPHDWB,"Doctorate holders at least moderately satisfied with amount of available leisure time, % of total doctorate holders",71.64,A,Normal value
+HUN,Hungary,MAS_EARNY,Average gross yearly earnings of employed master's degree holders,30086.50454,A,Normal value
+HUN,Hungary,MAS_EARNY_45_54,Average gross yearly earnings of employed master's degree holders aged 45-54,31198.35706,A,Normal value
+HUN,Hungary,TOTWB_FINS_MEDHIGHXTOTWB,"Total population at least moderately satisfied with financial situation, % of total population",59.92,A,Normal value
+HUN,Hungary,TOTWB_HAPPY_GESMTXTOTWB,"Total population feeling happy, % of total population",87.81,A,Normal value
+HUN,Hungary,MAS_EARNY_35_44,Average gross yearly earnings of employed master's degree holders aged 35-44,30449.25519,A,Normal value
+HUN,Hungary,MASWB_TIMEUSE_MEDHIGHXMASWB,"Master's degree holders at least moderately satisfied with amount of available leisure time, % of total master's degree holders",70.52,A,Normal value
+HUN,Hungary,MAS_EARNY_55_64,Average gross yearly earnings of employed master's degree holders aged 55-64,34093.33261,A,Normal value
+HUN,Hungary,MAS_EARNY_25_34,Average gross yearly earnings of employed master's degree holders aged 25-34,26810.96863,A,Normal value
+ISL,Iceland,MASWB_TIMEUSE_MEDHIGHXMASWB,"Master's degree holders at least moderately satisfied with amount of available leisure time, % of total master's degree holders",75.84,A,Normal value
+ISL,Iceland,MAS_EARNY_55_64,Average gross yearly earnings of employed master's degree holders aged 55-64,75255.75683,A,Normal value
+ISL,Iceland,MAS_EARNY,Average gross yearly earnings of employed master's degree holders,68829.81988,A,Normal value
+ISL,Iceland,MAS_EARNY_45_54,Average gross yearly earnings of employed master's degree holders aged 45-54,82996.04193,A,Normal value
+ISL,Iceland,TOTWB_HAPPY_GESMTXTOTWB,"Total population feeling happy, % of total population",93.72,A,Normal value
+ISL,Iceland,TOTWB_TIMEUSE_MEDHIGHXTOTWB,"Total population at least moderately satisfied with amount of available leisure time, % of total population",76.91,A,Normal value
+ISL,Iceland,MASWB_FINS_MEDHIGHXMASWB,"Master's degree holders at least moderately satisfied with financial situation, % of total master's degree holders",90.66,A,Normal value
+ISL,Iceland,MASWB_HAPPY_GESMTXMASWB,"Master's degree holders feeling happy, % of total master's degree holders",95.41,A,Normal value
+ISL,Iceland,MAS_EARNY_35_44,Average gross yearly earnings of employed master's degree holders aged 35-44,66714.61319,A,Normal value
+ISL,Iceland,MAS_EARNY_25_34,Average gross yearly earnings of employed master's degree holders aged 25-34,46659.75352,A,Normal value
+ISL,Iceland,TOTWB_FINS_MEDHIGHXTOTWB,"Total population at least moderately satisfied with financial situation, % of total population",80.65,A,Normal value
+IRL,Ireland,TOTWB_TIMEUSE_MEDHIGHXTOTWB,"Total population at least moderately satisfied with amount of available leisure time, % of total population",75.35,A,Normal value
+IRL,Ireland,PHDWB_TIMEUSE_MEDHIGHXPHDWB,"Doctorate holders at least moderately satisfied with amount of available leisure time, % of total doctorate holders",75.33,A,Normal value
+IRL,Ireland,PHDWB_HAPPY_GESMTXPHDWB,"Doctorate holders feeling happy, % of total doctorate holders",97.41,A,Normal value
+IRL,Ireland,PHDWB_FINS_MEDHIGHXPHDWB,"Doctorate holders at least moderately satisfied with financial situation, % of total doctorate holders",89.47,A,Normal value
+IRL,Ireland,MASWB_TIMEUSE_MEDHIGHXMASWB,"Master's degree holders at least moderately satisfied with amount of available leisure time, % of total master's degree holders",72.78,A,Normal value
+IRL,Ireland,MASWB_HAPPY_GESMTXMASWB,"Master's degree holders feeling happy, % of total master's degree holders",98.18,A,Normal value
+IRL,Ireland,TOTWB_FINS_MEDHIGHXTOTWB,"Total population at least moderately satisfied with financial situation, % of total population",76.15,A,Normal value
+IRL,Ireland,TOTWB_HAPPY_GESMTXTOTWB,"Total population feeling happy, % of total population",95.23,A,Normal value
+IRL,Ireland,MASWB_FINS_MEDHIGHXMASWB,"Master's degree holders at least moderately satisfied with financial situation, % of total master's degree holders",88.86,A,Normal value
+ITA,Italy,MASWB_TIMEUSE_MEDHIGHXMASWB,"Master's degree holders at least moderately satisfied with amount of available leisure time, % of total master's degree holders",83.42,A,Normal value
+ITA,Italy,TOTWB_HAPPY_GESMTXTOTWB,"Total population feeling happy, % of total population",89.02,A,Normal value
+ITA,Italy,PHDWB_HAPPY_GESMTXPHDWB,"Doctorate holders feeling happy, % of total doctorate holders",91.92,A,Normal value
+ITA,Italy,MASWB_FINS_MEDHIGHXMASWB,"Master's degree holders at least moderately satisfied with financial situation, % of total master's degree holders",88.87,A,Normal value
+ITA,Italy,PHDWB_TIMEUSE_MEDHIGHXPHDWB,"Doctorate holders at least moderately satisfied with amount of available leisure time, % of total doctorate holders",85.05,A,Normal value
+ITA,Italy,TOTWB_FINS_MEDHIGHXTOTWB,"Total population at least moderately satisfied with financial situation, % of total population",79.02,A,Normal value
+ITA,Italy,TOTWB_TIMEUSE_MEDHIGHXTOTWB,"Total population at least moderately satisfied with amount of available leisure time, % of total population",78.48,A,Normal value
+ITA,Italy,PHDWB_FINS_MEDHIGHXPHDWB,"Doctorate holders at least moderately satisfied with financial situation, % of total doctorate holders",94.97,A,Normal value
+ITA,Italy,MASWB_HAPPY_GESMTXMASWB,"Master's degree holders feeling happy, % of total master's degree holders",91.68,A,Normal value
+LVA,Latvia,MASWB_TIMEUSE_MEDHIGHXMASWB,"Master's degree holders at least moderately satisfied with amount of available leisure time, % of total master's degree holders",84.5,A,Normal value
+LVA,Latvia,TOTWB_FINS_MEDHIGHXTOTWB,"Total population at least moderately satisfied with financial situation, % of total population",57.76,A,Normal value
+LVA,Latvia,TOTWB_TIMEUSE_MEDHIGHXTOTWB,"Total population at least moderately satisfied with amount of available leisure time, % of total population",82.05,A,Normal value
+LVA,Latvia,MAS_EARNY_55_64,Average gross yearly earnings of employed master's degree holders aged 55-64,32694.57183,A,Normal value
+LVA,Latvia,MASWB_FINS_MEDHIGHXMASWB,"Master's degree holders at least moderately satisfied with financial situation, % of total master's degree holders",73.25,A,Normal value
+LVA,Latvia,MASWB_HAPPY_GESMTXMASWB,"Master's degree holders feeling happy, % of total master's degree holders",81.08,A,Normal value
+LVA,Latvia,TOTWB_HAPPY_GESMTXTOTWB,"Total population feeling happy, % of total population",75.27,A,Normal value
+LVA,Latvia,MAS_EARNY_45_54,Average gross yearly earnings of employed master's degree holders aged 45-54,43001.04513,A,Normal value
+LVA,Latvia,MAS_EARNY_25_34,Average gross yearly earnings of employed master's degree holders aged 25-34,38804.68569,A,Normal value
+LVA,Latvia,MAS_EARNY,Average gross yearly earnings of employed master's degree holders,40624.54252,A,Normal value
+LVA,Latvia,MAS_EARNY_35_44,Average gross yearly earnings of employed master's degree holders aged 35-44,50048.71185,A,Normal value
+LTU,Lithuania,MASWB_HAPPY_GESMTXMASWB,"Master's degree holders feeling happy, % of total master's degree holders",85.55,A,Normal value
+LTU,Lithuania,MAS_EARNY_35_44,Average gross yearly earnings of employed master's degree holders aged 35-44,68777.16007,A,Normal value
+LTU,Lithuania,TOTWB_TIMEUSE_MEDHIGHXTOTWB,"Total population at least moderately satisfied with amount of available leisure time, % of total population",65.95,A,Normal value
+LTU,Lithuania,MAS_EARNY,Average gross yearly earnings of employed master's degree holders,55384.1807,A,Normal value
+LTU,Lithuania,MASWB_TIMEUSE_MEDHIGHXMASWB,"Master's degree holders at least moderately satisfied with amount of available leisure time, % of total master's degree holders",67.71,A,Normal value
+LTU,Lithuania,MAS_EARNY_45_54,Average gross yearly earnings of employed master's degree holders aged 45-54,47735.70981,A,Normal value
+LTU,Lithuania,MASWB_FINS_MEDHIGHXMASWB,"Master's degree holders at least moderately satisfied with financial situation, % of total master's degree holders",81.12,A,Normal value
+LTU,Lithuania,TOTWB_HAPPY_GESMTXTOTWB,"Total population feeling happy, % of total population",80.33,A,Normal value
+LTU,Lithuania,MAS_EARNY_25_34,Average gross yearly earnings of employed master's degree holders aged 25-34,50427.11547,A,Normal value
+LTU,Lithuania,MAS_EARNY_55_64,Average gross yearly earnings of employed master's degree holders aged 55-64,47944.15613,A,Normal value
+LTU,Lithuania,PHDWB_TIMEUSE_MEDHIGHXPHDWB,"Doctorate holders at least moderately satisfied with amount of available leisure time, % of total doctorate holders",79.34,A,Normal value
+LTU,Lithuania,PHDWB_HAPPY_GESMTXPHDWB,"Doctorate holders feeling happy, % of total doctorate holders",84.3,A,Normal value
+LTU,Lithuania,TOTWB_FINS_MEDHIGHXTOTWB,"Total population at least moderately satisfied with financial situation, % of total population",66.26,A,Normal value
+LTU,Lithuania,PHDWB_FINS_MEDHIGHXPHDWB,"Doctorate holders at least moderately satisfied with financial situation, % of total doctorate holders",85.6,A,Normal value
+LUX,Luxembourg,PHDWB_TIMEUSE_MEDHIGHXPHDWB,"Doctorate holders at least moderately satisfied with amount of available leisure time, % of total doctorate holders",71.84,A,Normal value
+LUX,Luxembourg,PHD_EARNY_35_44,Average gross yearly earnings of employed doctorate holders aged 35-44,116062.659,A,Normal value
+LUX,Luxembourg,MAS_EARNY_45_54,Average gross yearly earnings of employed master's degree holders aged 45-54,134492.5435,A,Normal value
+LUX,Luxembourg,MAS_EARNY_55_64,Average gross yearly earnings of employed master's degree holders aged 55-64,142695.719,A,Normal value
+LUX,Luxembourg,MASWB_TIMEUSE_MEDHIGHXMASWB,"Master's degree holders at least moderately satisfied with amount of available leisure time, % of total master's degree holders",65.26,A,Normal value
+LUX,Luxembourg,MAS_EARNY,Average gross yearly earnings of employed master's degree holders,106341.8102,A,Normal value
+LUX,Luxembourg,TOTWB_TIMEUSE_MEDHIGHXTOTWB,"Total population at least moderately satisfied with amount of available leisure time, % of total population",67.49,A,Normal value
+LUX,Luxembourg,PHDWB_HAPPY_GESMTXPHDWB,"Doctorate holders feeling happy, % of total doctorate holders",96.39,A,Normal value
+LUX,Luxembourg,PHD_EARNY,Average gross yearly earnings of employed doctorate holders,132770.8338,A,Normal value
+LUX,Luxembourg,MAS_EARNY_25_34,Average gross yearly earnings of employed master's degree holders aged 25-34,76743.36758,A,Normal value
+LUX,Luxembourg,MAS_EARNY_35_44,Average gross yearly earnings of employed master's degree holders aged 35-44,103469.7883,A,Normal value
+LUX,Luxembourg,MASWB_HAPPY_GESMTXMASWB,"Master's degree holders feeling happy, % of total master's degree holders",94.17,A,Normal value
+LUX,Luxembourg,MASWB_FINS_MEDHIGHXMASWB,"Master's degree holders at least moderately satisfied with financial situation, % of total master's degree holders",84.46,A,Normal value
+LUX,Luxembourg,TOTWB_HAPPY_GESMTXTOTWB,"Total population feeling happy, % of total population",94.12,A,Normal value
+LUX,Luxembourg,PHDWB_FINS_MEDHIGHXPHDWB,"Doctorate holders at least moderately satisfied with financial situation, % of total doctorate holders",85.06,A,Normal value
+LUX,Luxembourg,TOTWB_FINS_MEDHIGHXTOTWB,"Total population at least moderately satisfied with financial situation, % of total population",73.26,A,Normal value
+NLD,Netherlands,MASWB_FINS_MEDHIGHXMASWB,"Master's degree holders at least moderately satisfied with financial situation, % of total master's degree holders",93.87,A,Normal value
+NLD,Netherlands,MASWB_TIMEUSE_MEDHIGHXMASWB,"Master's degree holders at least moderately satisfied with amount of available leisure time, % of total master's degree holders",87.25,A,Normal value
+NLD,Netherlands,TOTWB_TIMEUSE_MEDHIGHXTOTWB,"Total population at least moderately satisfied with amount of available leisure time, % of total population",87.63,A,Normal value
+NLD,Netherlands,MASWB_HAPPY_GESMTXMASWB,"Master's degree holders feeling happy, % of total master's degree holders",96.6,A,Normal value
+NLD,Netherlands,PHDWB_HAPPY_GESMTXPHDWB,"Doctorate holders feeling happy, % of total doctorate holders",97.37,A,Normal value
+NLD,Netherlands,PHDWB_FINS_MEDHIGHXPHDWB,"Doctorate holders at least moderately satisfied with financial situation, % of total doctorate holders",98.76,A,Normal value
+NLD,Netherlands,TOTWB_FINS_MEDHIGHXTOTWB,"Total population at least moderately satisfied with financial situation, % of total population",89.2,A,Normal value
+NLD,Netherlands,PHDWB_TIMEUSE_MEDHIGHXPHDWB,"Doctorate holders at least moderately satisfied with amount of available leisure time, % of total doctorate holders",90.16,A,Normal value
+NLD,Netherlands,TOTWB_HAPPY_GESMTXTOTWB,"Total population feeling happy, % of total population",95.1,A,Normal value
+NOR,Norway,TOTWB_FINS_MEDHIGHXTOTWB,"Total population at least moderately satisfied with financial situation, % of total population",82.39,A,Normal value
+NOR,Norway,PHDWB_TIMEUSE_MEDHIGHXPHDWB,"Doctorate holders at least moderately satisfied with amount of available leisure time, % of total doctorate holders",75.75,A,Normal value
+NOR,Norway,MASWB_TIMEUSE_MEDHIGHXMASWB,"Master's degree holders at least moderately satisfied with amount of available leisure time, % of total master's degree holders",77.52,A,Normal value
+NOR,Norway,PHDWB_HAPPY_GESMTXPHDWB,"Doctorate holders feeling happy, % of total doctorate holders",92.99,A,Normal value
+NOR,Norway,MASWB_FINS_MEDHIGHXMASWB,"Master's degree holders at least moderately satisfied with financial situation, % of total master's degree holders",91.48,A,Normal value
+NOR,Norway,TOTWB_HAPPY_GESMTXTOTWB,"Total population feeling happy, % of total population",88.36,A,Normal value
+NOR,Norway,TOTWB_TIMEUSE_MEDHIGHXTOTWB,"Total population at least moderately satisfied with amount of available leisure time, % of total population",79.84,A,Normal value
+NOR,Norway,MASWB_HAPPY_GESMTXMASWB,"Master's degree holders feeling happy, % of total master's degree holders",91.2,A,Normal value
+NOR,Norway,PHDWB_FINS_MEDHIGHXPHDWB,"Doctorate holders at least moderately satisfied with financial situation, % of total doctorate holders",90.01,A,Normal value
+POL,Poland,MASWB_FINS_MEDHIGHXMASWB,"Master's degree holders at least moderately satisfied with financial situation, % of total master's degree holders",80.54,A,Normal value
+POL,Poland,TOTWB_HAPPY_GESMTXTOTWB,"Total population feeling happy, % of total population",92.21,A,Normal value
+POL,Poland,MAS_EARNY_35_44,Average gross yearly earnings of employed master's degree holders aged 35-44,41107.27685,A,Normal value
+POL,Poland,PHDWB_TIMEUSE_MEDHIGHXPHDWB,"Doctorate holders at least moderately satisfied with amount of available leisure time, % of total doctorate holders",67.34,A,Normal value
+POL,Poland,TOTWB_FINS_MEDHIGHXTOTWB,"Total population at least moderately satisfied with financial situation, % of total population",69.03,A,Normal value
+POL,Poland,MAS_EARNY_55_64,Average gross yearly earnings of employed master's degree holders aged 55-64,43076.67903,A,Normal value
+POL,Poland,MAS_EARNY_25_34,Average gross yearly earnings of employed master's degree holders aged 25-34,37198.44913,A,Normal value
+POL,Poland,TOTWB_TIMEUSE_MEDHIGHXTOTWB,"Total population at least moderately satisfied with amount of available leisure time, % of total population",70.02,A,Normal value
+POL,Poland,MAS_EARNY_45_54,Average gross yearly earnings of employed master's degree holders aged 45-54,42345.75817,A,Normal value
+POL,Poland,MASWB_HAPPY_GESMTXMASWB,"Master's degree holders feeling happy, % of total master's degree holders",94.89,A,Normal value
+POL,Poland,PHD_EARNY,Average gross yearly earnings of employed doctorate holders,45594.36713,A,Normal value
+POL,Poland,PHDWB_HAPPY_GESMTXPHDWB,"Doctorate holders feeling happy, % of total doctorate holders",95.09,A,Normal value
+POL,Poland,MAS_EARNY,Average gross yearly earnings of employed master's degree holders,40349.79652,A,Normal value
+POL,Poland,PHD_EARNY_35_44,Average gross yearly earnings of employed doctorate holders aged 35-44,40957.8904,A,Normal value
+POL,Poland,MASWB_TIMEUSE_MEDHIGHXMASWB,"Master's degree holders at least moderately satisfied with amount of available leisure time, % of total master's degree holders",63.61,A,Normal value
+POL,Poland,PHDWB_FINS_MEDHIGHXPHDWB,"Doctorate holders at least moderately satisfied with financial situation, % of total doctorate holders",86.98,A,Normal value
+PRT,Portugal,MASWB_FINS_MEDHIGHXMASWB,"Master's degree holders at least moderately satisfied with financial situation, % of total master's degree holders",78.12,A,Normal value
+PRT,Portugal,PHDWB_FINS_MEDHIGHXPHDWB,"Doctorate holders at least moderately satisfied with financial situation, % of total doctorate holders",77.99,A,Normal value
+PRT,Portugal,TOTWB_TIMEUSE_MEDHIGHXTOTWB,"Total population at least moderately satisfied with amount of available leisure time, % of total population",71.26,A,Normal value
+PRT,Portugal,MAS_EARNY_25_34,Average gross yearly earnings of employed master's degree holders aged 25-34,32563.86493,A,Normal value
+PRT,Portugal,TOTWB_FINS_MEDHIGHXTOTWB,"Total population at least moderately satisfied with financial situation, % of total population",60.1,A,Normal value
+PRT,Portugal,MAS_EARNY_45_54,Average gross yearly earnings of employed master's degree holders aged 45-54,54363.14504,A,Normal value
+PRT,Portugal,MASWB_TIMEUSE_MEDHIGHXMASWB,"Master's degree holders at least moderately satisfied with amount of available leisure time, % of total master's degree holders",65.03,A,Normal value
+PRT,Portugal,PHDWB_TIMEUSE_MEDHIGHXPHDWB,"Doctorate holders at least moderately satisfied with amount of available leisure time, % of total doctorate holders",65.37,A,Normal value
+PRT,Portugal,MAS_EARNY_55_64,Average gross yearly earnings of employed master's degree holders aged 55-64,71313.92598,A,Normal value
+PRT,Portugal,MAS_EARNY_35_44,Average gross yearly earnings of employed master's degree holders aged 35-44,42892.0814,A,Normal value
+PRT,Portugal,TOTWB_HAPPY_GESMTXTOTWB,"Total population feeling happy, % of total population",90.03,A,Normal value
+PRT,Portugal,MAS_EARNY,Average gross yearly earnings of employed master's degree holders,49292.63536,A,Normal value
+PRT,Portugal,PHD_EARNY,Average gross yearly earnings of employed doctorate holders,77412.92994,A,Normal value
+PRT,Portugal,MASWB_HAPPY_GESMTXMASWB,"Master's degree holders feeling happy, % of total master's degree holders",94.18,A,Normal value
+PRT,Portugal,PHDWB_HAPPY_GESMTXPHDWB,"Doctorate holders feeling happy, % of total doctorate holders",93.64,A,Normal value
+SVK,Slovak Republic,PHDWB_FINS_MEDHIGHXPHDWB,"Doctorate holders at least moderately satisfied with financial situation, % of total doctorate holders",68.42,A,Normal value
+SVK,Slovak Republic,MAS_EARNY_35_44,Average gross yearly earnings of employed master's degree holders aged 35-44,23910.65664,A,Normal value
+SVK,Slovak Republic,MASWB_FINS_MEDHIGHXMASWB,"Master's degree holders at least moderately satisfied with financial situation, % of total master's degree holders",70.98,A,Normal value
+SVK,Slovak Republic,PHDWB_TIMEUSE_MEDHIGHXPHDWB,"Doctorate holders at least moderately satisfied with amount of available leisure time, % of total doctorate holders",69.65,A,Normal value
+SVK,Slovak Republic,MAS_EARNY_55_64,Average gross yearly earnings of employed master's degree holders aged 55-64,23428.03327,A,Normal value
+SVK,Slovak Republic,MAS_EARNY_25_34,Average gross yearly earnings of employed master's degree holders aged 25-34,20553.65167,A,Normal value
+SVK,Slovak Republic,MAS_EARNY,Average gross yearly earnings of employed master's degree holders,22805.94847,A,Normal value
+SVK,Slovak Republic,MASWB_TIMEUSE_MEDHIGHXMASWB,"Master's degree holders at least moderately satisfied with amount of available leisure time, % of total master's degree holders",64.41,A,Normal value
+SVK,Slovak Republic,TOTWB_FINS_MEDHIGHXTOTWB,"Total population at least moderately satisfied with financial situation, % of total population",50.94,A,Normal value
+SVK,Slovak Republic,TOTWB_HAPPY_GESMTXTOTWB,"Total population feeling happy, % of total population",84.58,A,Normal value
+SVK,Slovak Republic,PHD_EARNY,Average gross yearly earnings of employed doctorate holders,24531.15618,A,Normal value
+SVK,Slovak Republic,MASWB_HAPPY_GESMTXMASWB,"Master's degree holders feeling happy, % of total master's degree holders",92.6,A,Normal value
+SVK,Slovak Republic,PHDWB_HAPPY_GESMTXPHDWB,"Doctorate holders feeling happy, % of total doctorate holders",96.65,A,Normal value
+SVK,Slovak Republic,MAS_EARNY_45_54,Average gross yearly earnings of employed master's degree holders aged 45-54,23923.68043,A,Normal value
+SVK,Slovak Republic,TOTWB_TIMEUSE_MEDHIGHXTOTWB,"Total population at least moderately satisfied with amount of available leisure time, % of total population",61.09,A,Normal value
+SVN,Slovenia,TOTWB_HAPPY_GESMTXTOTWB,"Total population feeling happy, % of total population",90.85,A,Normal value
+SVN,Slovenia,PHD_EARNY_45_54,Average gross yearly earnings of employed doctorate holders aged 45-54,85048.90499,A,Normal value
+SVN,Slovenia,MAS_EARNY_45_54,Average gross yearly earnings of employed master's degree holders aged 45-54,66003.53968,A,Normal value
+SVN,Slovenia,PHDWB_TIMEUSE_MEDHIGHXPHDWB,"Doctorate holders at least moderately satisfied with amount of available leisure time, % of total doctorate holders",80.25,A,Normal value
+SVN,Slovenia,TOTWB_FINS_MEDHIGHXTOTWB,"Total population at least moderately satisfied with financial situation, % of total population",74.87,A,Normal value
+SVN,Slovenia,TOTWB_TIMEUSE_MEDHIGHXTOTWB,"Total population at least moderately satisfied with amount of available leisure time, % of total population",80.71,A,Normal value
+SVN,Slovenia,PHD_EARNY_55_64,Average gross yearly earnings of employed doctorate holders aged 55-64,92477.61972,A,Normal value
+SVN,Slovenia,MASWB_FINS_MEDHIGHXMASWB,"Master's degree holders at least moderately satisfied with financial situation, % of total master's degree holders",88.97,A,Normal value
+SVN,Slovenia,PHD_EARNY_35_44,Average gross yearly earnings of employed doctorate holders aged 35-44,63922.08065,A,Normal value
+SVN,Slovenia,MAS_EARNY_25_34,Average gross yearly earnings of employed master's degree holders aged 25-34,40356.59149,A,Normal value
+SVN,Slovenia,PHDWB_FINS_MEDHIGHXPHDWB,"Doctorate holders at least moderately satisfied with financial situation, % of total doctorate holders",93.22,A,Normal value
+SVN,Slovenia,MASWB_TIMEUSE_MEDHIGHXMASWB,"Master's degree holders at least moderately satisfied with amount of available leisure time, % of total master's degree holders",76.28,A,Normal value
+SVN,Slovenia,MASWB_HAPPY_GESMTXMASWB,"Master's degree holders feeling happy, % of total master's degree holders",93.58,A,Normal value
+SVN,Slovenia,MAS_EARNY_35_44,Average gross yearly earnings of employed master's degree holders aged 35-44,51786.63825,A,Normal value
+SVN,Slovenia,PHD_EARNY,Average gross yearly earnings of employed doctorate holders,76627.41011,A,Normal value
+SVN,Slovenia,PHDWB_HAPPY_GESMTXPHDWB,"Doctorate holders feeling happy, % of total doctorate holders",94.86,A,Normal value
+SVN,Slovenia,MAS_EARNY,Average gross yearly earnings of employed master's degree holders,54779.11255,A,Normal value
+SVN,Slovenia,MAS_EARNY_55_64,Average gross yearly earnings of employed master's degree holders aged 55-64,70091.60284,A,Normal value
+ESP,Spain,TOTWB_HAPPY_GESMTXTOTWB,"Total population feeling happy, % of total population",93.24,A,Normal value
+ESP,Spain,MAS_EARNY_45_54,Average gross yearly earnings of employed master's degree holders aged 45-54,69611.6071,A,Normal value
+ESP,Spain,TOTWB_TIMEUSE_MEDHIGHXTOTWB,"Total population at least moderately satisfied with amount of available leisure time, % of total population",69.71,A,Normal value
+ESP,Spain,MASWB_TIMEUSE_MEDHIGHXMASWB,"Master's degree holders at least moderately satisfied with amount of available leisure time, % of total master's degree holders",67.54,A,Normal value
+ESP,Spain,PHD_EARNY_35_44,Average gross yearly earnings of employed doctorate holders aged 35-44,66688.91847,A,Normal value
+ESP,Spain,MAS_EARNY,Average gross yearly earnings of employed master's degree holders,60264.8179,A,Normal value
+ESP,Spain,PHDWB_HAPPY_GESMTXPHDWB,"Doctorate holders feeling happy, % of total doctorate holders",95.28,A,Normal value
+ESP,Spain,MAS_EARNY_25_34,Average gross yearly earnings of employed master's degree holders aged 25-34,40529.23113,A,Normal value
+ESP,Spain,MAS_EARNY_35_44,Average gross yearly earnings of employed master's degree holders aged 35-44,55658.43418,A,Normal value
+ESP,Spain,PHDWB_FINS_MEDHIGHXPHDWB,"Doctorate holders at least moderately satisfied with financial situation, % of total doctorate holders",90.85,A,Normal value
+ESP,Spain,MAS_EARNY_55_64,Average gross yearly earnings of employed master's degree holders aged 55-64,82585.22015,A,Normal value
+ESP,Spain,PHDWB_TIMEUSE_MEDHIGHXPHDWB,"Doctorate holders at least moderately satisfied with amount of available leisure time, % of total doctorate holders",68.02,A,Normal value
+ESP,Spain,TOTWB_FINS_MEDHIGHXTOTWB,"Total population at least moderately satisfied with financial situation, % of total population",69.41,A,Normal value
+ESP,Spain,MASWB_HAPPY_GESMTXMASWB,"Master's degree holders feeling happy, % of total master's degree holders",94.77,A,Normal value
+ESP,Spain,PHD_EARNY_55_64,Average gross yearly earnings of employed doctorate holders aged 55-64,103423.9787,A,Normal value
+ESP,Spain,MASWB_FINS_MEDHIGHXMASWB,"Master's degree holders at least moderately satisfied with financial situation, % of total master's degree holders",83.15,A,Normal value
+ESP,Spain,PHD_EARNY,Average gross yearly earnings of employed doctorate holders,76507.53425,A,Normal value
+ESP,Spain,PHD_EARNY_45_54,Average gross yearly earnings of employed doctorate holders aged 45-54,79622.2632,A,Normal value
+SWE,Sweden,MASWB_HAPPY_GESMTXMASWB,"Master's degree holders feeling happy, % of total master's degree holders",94.02,A,Normal value
+SWE,Sweden,MAS_EARNY_45_54,Average gross yearly earnings of employed master's degree holders aged 45-54,72348.35969,A,Normal value
+SWE,Sweden,MAS_EARNY_25_34,Average gross yearly earnings of employed master's degree holders aged 25-34,50586.13386,A,Normal value
+SWE,Sweden,MAS_EARNY_55_64,Average gross yearly earnings of employed master's degree holders aged 55-64,72108.53948,A,Normal value
+SWE,Sweden,PHDWB_TIMEUSE_MEDHIGHXPHDWB,"Doctorate holders at least moderately satisfied with amount of available leisure time, % of total doctorate holders",83.09,A,Normal value
+SWE,Sweden,MAS_EARNY_35_44,Average gross yearly earnings of employed master's degree holders aged 35-44,62172.66387,A,Normal value
+SWE,Sweden,TOTWB_HAPPY_GESMTXTOTWB,"Total population feeling happy, % of total population",92.99,A,Normal value
+SWE,Sweden,PHD_EARNY,Average gross yearly earnings of employed doctorate holders,74968.78549,A,Normal value
+SWE,Sweden,PHDWB_FINS_MEDHIGHXPHDWB,"Doctorate holders at least moderately satisfied with financial situation, % of total doctorate holders",98.22,A,Normal value
+SWE,Sweden,TOTWB_TIMEUSE_MEDHIGHXTOTWB,"Total population at least moderately satisfied with amount of available leisure time, % of total population",80,A,Normal value
+SWE,Sweden,MAS_EARNY,Average gross yearly earnings of employed master's degree holders,62561.15625,A,Normal value
+SWE,Sweden,PHD_EARNY_35_44,Average gross yearly earnings of employed doctorate holders aged 35-44,61839.89548,A,Normal value
+SWE,Sweden,MASWB_FINS_MEDHIGHXMASWB,"Master's degree holders at least moderately satisfied with financial situation, % of total master's degree holders",87.81,A,Normal value
+SWE,Sweden,PHDWB_HAPPY_GESMTXPHDWB,"Doctorate holders feeling happy, % of total doctorate holders",96.78,A,Normal value
+SWE,Sweden,PHD_EARNY_45_54,Average gross yearly earnings of employed doctorate holders aged 45-54,84637.98408,A,Normal value
+SWE,Sweden,TOTWB_FINS_MEDHIGHXTOTWB,"Total population at least moderately satisfied with financial situation, % of total population",80.97,A,Normal value
+SWE,Sweden,MASWB_TIMEUSE_MEDHIGHXMASWB,"Master's degree holders at least moderately satisfied with amount of available leisure time, % of total master's degree holders",79.39,A,Normal value
+SWE,Sweden,PHD_EARNY_55_64,Average gross yearly earnings of employed doctorate holders aged 55-64,80460.40655,A,Normal value
+CHE,Switzerland,MASWB_TIMEUSE_MEDHIGHXMASWB,"Master's degree holders at least moderately satisfied with amount of available leisure time, % of total master's degree holders",78.34,A,Normal value
+CHE,Switzerland,TOTWB_HAPPY_GESMTXTOTWB,"Total population feeling happy, % of total population",95.4,A,Normal value
+CHE,Switzerland,MASWB_HAPPY_GESMTXMASWB,"Master's degree holders feeling happy, % of total master's degree holders",96.78,A,Normal value
+CHE,Switzerland,TOTWB_TIMEUSE_MEDHIGHXTOTWB,"Total population at least moderately satisfied with amount of available leisure time, % of total population",81.93,A,Normal value
+CHE,Switzerland,PHDWB_HAPPY_GESMTXPHDWB,"Doctorate holders feeling happy, % of total doctorate holders",96.07,A,Normal value
+CHE,Switzerland,MASWB_FINS_MEDHIGHXMASWB,"Master's degree holders at least moderately satisfied with financial situation, % of total master's degree holders",88.18,A,Normal value
+CHE,Switzerland,PHDWB_FINS_MEDHIGHXPHDWB,"Doctorate holders at least moderately satisfied with financial situation, % of total doctorate holders",94.35,A,Normal value
+CHE,Switzerland,PHDWB_TIMEUSE_MEDHIGHXPHDWB,"Doctorate holders at least moderately satisfied with amount of available leisure time, % of total doctorate holders",79.47,A,Normal value
+CHE,Switzerland,TOTWB_FINS_MEDHIGHXTOTWB,"Total population at least moderately satisfied with financial situation, % of total population",83.84,A,Normal value
+TUR,Türkiye,PHDWB_FINS_MEDHIGHXPHDWB,"Doctorate holders at least moderately satisfied with financial situation, % of total doctorate holders",64.7,A,Normal value
+TUR,Türkiye,PHD_EARNY_35_44,Average gross yearly earnings of employed doctorate holders aged 35-44,28408.62891,A,Normal value
+TUR,Türkiye,MAS_EARNY,Average gross yearly earnings of employed master's degree holders,25408.98368,A,Normal value
+TUR,Türkiye,PHD_EARNY,Average gross yearly earnings of employed doctorate holders,32012.51017,A,Normal value
+TUR,Türkiye,TOTWB_FINS_MEDHIGHXTOTWB,"Total population at least moderately satisfied with financial situation, % of total population",33.32,A,Normal value
+TUR,Türkiye,MASWB_HAPPY_GESMTXMASWB,"Master's degree holders feeling happy, % of total master's degree holders",91.05,A,Normal value
+TUR,Türkiye,MASWB_TIMEUSE_MEDHIGHXMASWB,"Master's degree holders at least moderately satisfied with amount of available leisure time, % of total master's degree holders",48.57,A,Normal value
+TUR,Türkiye,PHDWB_TIMEUSE_MEDHIGHXPHDWB,"Doctorate holders at least moderately satisfied with amount of available leisure time, % of total doctorate holders",46.04,A,Normal value
+TUR,Türkiye,MASWB_FINS_MEDHIGHXMASWB,"Master's degree holders at least moderately satisfied with financial situation, % of total master's degree holders",53.7,A,Normal value
+TUR,Türkiye,MAS_EARNY_45_54,Average gross yearly earnings of employed master's degree holders aged 45-54,44557.9862,A,Normal value
+TUR,Türkiye,TOTWB_HAPPY_GESMTXTOTWB,"Total population feeling happy, % of total population",87.29,A,Normal value
+TUR,Türkiye,MAS_EARNY_25_34,Average gross yearly earnings of employed master's degree holders aged 25-34,18497.82591,A,Normal value
+TUR,Türkiye,PHDWB_HAPPY_GESMTXPHDWB,"Doctorate holders feeling happy, % of total doctorate holders",88.32,A,Normal value
+TUR,Türkiye,MAS_EARNY_35_44,Average gross yearly earnings of employed master's degree holders aged 35-44,26830.50576,A,Normal value
+TUR,Türkiye,TOTWB_TIMEUSE_MEDHIGHXTOTWB,"Total population at least moderately satisfied with amount of available leisure time, % of total population",35.37,A,Normal value
+BGR,Bulgaria,MAS_EARNY_35_44,Average gross yearly earnings of employed master's degree holders aged 35-44,75993.25952,A,Normal value
+BGR,Bulgaria,TOTWB_HAPPY_GESMTXTOTWB,"Total population feeling happy, % of total population",74.97,A,Normal value
+BGR,Bulgaria,MAS_EARNY_55_64,Average gross yearly earnings of employed master's degree holders aged 55-64,68624.18596,A,Normal value
+BGR,Bulgaria,MAS_EARNY_25_34,Average gross yearly earnings of employed master's degree holders aged 25-34,52752.81031,A,Normal value
+BGR,Bulgaria,MASWB_TIMEUSE_MEDHIGHXMASWB,"Master's degree holders at least moderately satisfied with amount of available leisure time, % of total master's degree holders",56.36,A,Normal value
+BGR,Bulgaria,TOTWB_TIMEUSE_MEDHIGHXTOTWB,"Total population at least moderately satisfied with amount of available leisure time, % of total population",49.23,A,Normal value
+BGR,Bulgaria,MASWB_FINS_MEDHIGHXMASWB,"Master's degree holders at least moderately satisfied with financial situation, % of total master's degree holders",54.47,A,Normal value
+BGR,Bulgaria,TOTWB_FINS_MEDHIGHXTOTWB,"Total population at least moderately satisfied with financial situation, % of total population",32.56,A,Normal value
+BGR,Bulgaria,MAS_EARNY,Average gross yearly earnings of employed master's degree holders,69257.17126,A,Normal value
+BGR,Bulgaria,MAS_EARNY_45_54,Average gross yearly earnings of employed master's degree holders aged 45-54,71082.49573,A,Normal value
+BGR,Bulgaria,MASWB_HAPPY_GESMTXMASWB,"Master's degree holders feeling happy, % of total master's degree holders",85.42,A,Normal value
+HRV,Croatia,MAS_EARNY_25_34,Average gross yearly earnings of employed master's degree holders aged 25-34,224343.7891,A,Normal value
+HRV,Croatia,MAS_EARNY_45_54,Average gross yearly earnings of employed master's degree holders aged 45-54,346065.4897,A,Normal value
+HRV,Croatia,TOTWB_HAPPY_GESMTXTOTWB,"Total population feeling happy, % of total population",85.01,A,Normal value
+HRV,Croatia,MAS_EARNY_55_64,Average gross yearly earnings of employed master's degree holders aged 55-64,332128.2886,A,Normal value
+HRV,Croatia,MASWB_HAPPY_GESMTXMASWB,"Master's degree holders feeling happy, % of total master's degree holders",91.98,A,Normal value
+HRV,Croatia,MASWB_FINS_MEDHIGHXMASWB,"Master's degree holders at least moderately satisfied with financial situation, % of total master's degree holders",79.03,A,Normal value
+HRV,Croatia,TOTWB_FINS_MEDHIGHXTOTWB,"Total population at least moderately satisfied with financial situation, % of total population",54.2,A,Normal value
+HRV,Croatia,TOTWB_TIMEUSE_MEDHIGHXTOTWB,"Total population at least moderately satisfied with amount of available leisure time, % of total population",63.5,A,Normal value
+HRV,Croatia,MAS_EARNY_35_44,Average gross yearly earnings of employed master's degree holders aged 35-44,318407.7126,A,Normal value
+HRV,Croatia,MASWB_TIMEUSE_MEDHIGHXMASWB,"Master's degree holders at least moderately satisfied with amount of available leisure time, % of total master's degree holders",66.79,A,Normal value
+HRV,Croatia,MAS_EARNY,Average gross yearly earnings of employed master's degree holders,293300.5747,A,Normal value
+CYP,Cyprus,MASWB_TIMEUSE_MEDHIGHXMASWB,"Master's degree holders at least moderately satisfied with amount of available leisure time, % of total master's degree holders",64.45,A,Normal value
+CYP,Cyprus,MAS_EARNY_25_34,Average gross yearly earnings of employed master's degree holders aged 25-34,35771.12411,A,Normal value
+CYP,Cyprus,MAS_EARNY_45_54,Average gross yearly earnings of employed master's degree holders aged 45-54,92841.40498,A,Normal value
+CYP,Cyprus,TOTWB_FINS_MEDHIGHXTOTWB,"Total population at least moderately satisfied with financial situation, % of total population",68.22,A,Normal value
+CYP,Cyprus,PHDWB_FINS_MEDHIGHXPHDWB,"Doctorate holders at least moderately satisfied with financial situation, % of total doctorate holders",91.35,A,Normal value
+CYP,Cyprus,MASWB_HAPPY_GESMTXMASWB,"Master's degree holders feeling happy, % of total master's degree holders",95.5,A,Normal value
+CYP,Cyprus,TOTWB_HAPPY_GESMTXTOTWB,"Total population feeling happy, % of total population",91.44,A,Normal value
+CYP,Cyprus,MAS_EARNY,Average gross yearly earnings of employed master's degree holders,61854.96812,A,Normal value
+CYP,Cyprus,MAS_EARNY_55_64,Average gross yearly earnings of employed master's degree holders aged 55-64,93181.29264,A,Normal value
+CYP,Cyprus,MAS_EARNY_35_44,Average gross yearly earnings of employed master's degree holders aged 35-44,61297.55835,A,Normal value
+CYP,Cyprus,TOTWB_TIMEUSE_MEDHIGHXTOTWB,"Total population at least moderately satisfied with amount of available leisure time, % of total population",66.08,A,Normal value
+CYP,Cyprus,MASWB_FINS_MEDHIGHXMASWB,"Master's degree holders at least moderately satisfied with financial situation, % of total master's degree holders",85.16,A,Normal value
+CYP,Cyprus,PHDWB_TIMEUSE_MEDHIGHXPHDWB,"Doctorate holders at least moderately satisfied with amount of available leisure time, % of total doctorate holders",70.39,A,Normal value
+CYP,Cyprus,PHDWB_HAPPY_GESMTXPHDWB,"Doctorate holders feeling happy, % of total doctorate holders",95.45,A,Normal value
+MLT,Malta,TOTWB_FINS_MEDHIGHXTOTWB,"Total population at least moderately satisfied with financial situation, % of total population",76.21,A,Normal value
+MLT,Malta,MASWB_HAPPY_GESMTXMASWB,"Master's degree holders feeling happy, % of total master's degree holders",92.23,A,Normal value
+MLT,Malta,PHDWB_HAPPY_GESMTXPHDWB,"Doctorate holders feeling happy, % of total doctorate holders",92.05,A,Normal value
+MLT,Malta,MASWB_FINS_MEDHIGHXMASWB,"Master's degree holders at least moderately satisfied with financial situation, % of total master's degree holders",90.91,A,Normal value
+MLT,Malta,TOTWB_TIMEUSE_MEDHIGHXTOTWB,"Total population at least moderately satisfied with amount of available leisure time, % of total population",73.89,A,Normal value
+MLT,Malta,TOTWB_HAPPY_GESMTXTOTWB,"Total population feeling happy, % of total population",90.16,A,Normal value
+MLT,Malta,PHDWB_TIMEUSE_MEDHIGHXPHDWB,"Doctorate holders at least moderately satisfied with amount of available leisure time, % of total doctorate holders",69.73,A,Normal value
+MLT,Malta,MASWB_TIMEUSE_MEDHIGHXMASWB,"Master's degree holders at least moderately satisfied with amount of available leisure time, % of total master's degree holders",71,A,Normal value
+MLT,Malta,PHDWB_FINS_MEDHIGHXPHDWB,"Doctorate holders at least moderately satisfied with financial situation, % of total doctorate holders",91.09,A,Normal value
+ROU,Romania,MASWB_TIMEUSE_MEDHIGHXMASWB,"Master's degree holders at least moderately satisfied with amount of available leisure time, % of total master's degree holders",84.65,A,Normal value
+ROU,Romania,MAS_EARNY_45_54,Average gross yearly earnings of employed master's degree holders aged 45-54,48426.4018,A,Normal value
+ROU,Romania,MAS_EARNY_55_64,Average gross yearly earnings of employed master's degree holders aged 55-64,51289.73838,A,Normal value
+ROU,Romania,TOTWB_FINS_MEDHIGHXTOTWB,"Total population at least moderately satisfied with financial situation, % of total population",73.82,A,Normal value
+ROU,Romania,MAS_EARNY,Average gross yearly earnings of employed master's degree holders,47144.98371,A,Normal value
+ROU,Romania,MASWB_HAPPY_GESMTXMASWB,"Master's degree holders feeling happy, % of total master's degree holders",92.33,A,Normal value
+ROU,Romania,TOTWB_HAPPY_GESMTXTOTWB,"Total population feeling happy, % of total population",82.88,A,Normal value
+ROU,Romania,MAS_EARNY_35_44,Average gross yearly earnings of employed master's degree holders aged 35-44,46821.42713,A,Normal value
+ROU,Romania,TOTWB_TIMEUSE_MEDHIGHXTOTWB,"Total population at least moderately satisfied with amount of available leisure time, % of total population",74.34,A,Normal value
+ROU,Romania,MAS_EARNY_25_34,Average gross yearly earnings of employed master's degree holders aged 25-34,42687.0183,A,Normal value
+ROU,Romania,MASWB_FINS_MEDHIGHXMASWB,"Master's degree holders at least moderately satisfied with financial situation, % of total master's degree holders",89.58,A,Normal value
+USA,United States,MAS_HW_55_64,Average annual hours worked by employed master's degree holders aged 55-64,2057.083,A,Normal value
+USA,United States,PHD_HW_55_64,Average annual hours worked by employed doctorate holders aged 55-64,2179.855,A,Normal value
+USA,United States,PHD_EARNY,Average gross yearly earnings of employed doctorate holders,133226.19,A,Normal value
+USA,United States,MAS_EARNY_55_64,Average gross yearly earnings of employed master's degree holders aged 55-64,115641.38,A,Normal value
+USA,United States,MAS_EARNY_25_34,Average gross yearly earnings of employed master's degree holders aged 25-34,79938.71,A,Normal value
+USA,United States,PHD_EARNY_45_54,Average gross yearly earnings of employed doctorate holders aged 45-54,150072.47,A,Normal value
+USA,United States,MAS_HW_35_44,Average annual hours worked by employed master's degree holders aged 35-44,2098.158,A,Normal value
+USA,United States,MAS_EARNY_45_54,Average gross yearly earnings of employed master's degree holders aged 45-54,119054.84,A,Normal value
+USA,United States,MAS_HW,Average annual hours worked by employed master's degree holders,2092.725,A,Normal value
+USA,United States,PHD_EARNY_55_64,Average gross yearly earnings of employed doctorate holders aged 55-64,146613.28,A,Normal value
+USA,United States,MAS_HW_45_54,Average annual hours worked by employed master's degree holders aged 45-54,2139.398,A,Normal value
+USA,United States,PHD_HW_25_34,Average annual hours worked by employed doctorate holders aged 25-34,2138.805,A,Normal value
+USA,United States,PHD_HW,Average annual hours worked by employed doctorate holders,2186.164,A,Normal value
+USA,United States,PHD_EARNY_25_34,Average gross yearly earnings of employed doctorate holders aged 25-34,95837.65,A,Normal value
+USA,United States,PHD_HW_45_54,Average annual hours worked by employed doctorate holders aged 45-54,2236.876,A,Normal value
+USA,United States,MAS_HW_25_34,Average annual hours worked by employed master's degree holders aged 25-34,2057.748,A,Normal value
+USA,United States,PHD_HW_35_44,Average annual hours worked by employed doctorate holders aged 35-44,2177.936,A,Normal value
+USA,United States,MAS_EARNY_35_44,Average gross yearly earnings of employed master's degree holders aged 35-44,105762.32,A,Normal value
+USA,United States,MAS_EARNY,Average gross yearly earnings of employed master's degree holders,105342.11,A,Normal value
+USA,United States,PHD_EARNY_35_44,Average gross yearly earnings of employed doctorate holders aged 35-44,133457.02,A,Normal value
+GBR,United Kingdom,MAS_TOC_PERM_55_64XMAS_TOC_55_64,"Master's degree holders aged 55-64 in indefinite contracts, % of employees with a master's degree aged 55-64",88.82441948,A,Normal value
+GBR,United Kingdom,MAS_TOC_PERM_45_54XMAS_TOC_45_54,"Master's degree holders aged 45-54 in indefinite contracts, % of employees with a master's degree aged 45-54",94.55061722,A,Normal value
+GBR,United Kingdom,MAS_TOC_PERM_25_34XMAS_TOC_25_34,"Master's degree holders aged 25-34 in indefinite contracts, % of employees with a master's degree aged 25-34",91.16437558,A,Normal value
+GBR,United Kingdom,MAS_TOC_PERM_35_44XMAS_TOC_35_44,"Master's degree holders aged 35-44 in indefinite contracts, % of employees with a master's degree aged 35-44",96.082759480000007,A,Normal value
+GBR,United Kingdom,PHD_TOC_PERMXPHD_TOC,"Doctorate holders in indefinite contracts, % of employees with a doctorate",91.09535497,A,Normal value
+GBR,United Kingdom,MAS_EARNY_25_34,Average gross yearly earnings of employed master's degree holders aged 25-34,57463.2102,A,Normal value
+GBR,United Kingdom,MAS_EARNY_35_44,Average gross yearly earnings of employed master's degree holders aged 35-44,69490.36222,A,Normal value
+GBR,United Kingdom,MAS_EARNY_55_64,Average gross yearly earnings of employed master's degree holders aged 55-64,62706.82678,A,Normal value
+GBR,United Kingdom,PHD_HW,Average annual hours worked by employed doctorate holders,1803.385373,A,Normal value
+GBR,United Kingdom,MAS_HW,Average annual hours worked by employed master's degree holders,1751.074752,A,Normal value
+GBR,United Kingdom,PHD_TOC_PERM_35_44XPHD_TOC_35_44,"Doctorate holders aged 35-44 in indefinite contracts, % of employees with a doctorate aged 35-44",89.50077868,A,Normal value
+GBR,United Kingdom,PHD_EARNY_25_34,Average gross yearly earnings of employed doctorate holders aged 25-34,59594.51791,A,Normal value
+GBR,United Kingdom,PHD_TOC_PERM_55_64XPHD_TOC_55_64,"Doctorate holders aged 55-64 in indefinite contracts, % of employees with a doctorate aged 55-64",94.39856847,A,Normal value
+GBR,United Kingdom,MAS_HW_55_64,Average annual hours worked by employed master's degree holders aged 55-64,1564.31591,A,Normal value
+GBR,United Kingdom,MAS_HW_45_54,Average annual hours worked by employed master's degree holders aged 45-54,1777.593751,A,Normal value
+GBR,United Kingdom,PHD_HW_25_34,Average annual hours worked by employed doctorate holders aged 25-34,1794.611161,A,Normal value
+GBR,United Kingdom,PHD_TOC_PERM_25_34XPHD_TOC_25_34,"Doctorate holders aged 25-34 in indefinite contracts, % of employees with a doctorate aged 25-34",87.46570228,A,Normal value
+GBR,United Kingdom,PHD_EARNY_45_54,Average gross yearly earnings of employed doctorate holders aged 45-54,85096.65311,A,Normal value
+GBR,United Kingdom,MAS_HW_35_44,Average annual hours worked by employed master's degree holders aged 35-44,1778.45183,A,Normal value
+GBR,United Kingdom,MAS_HW_25_34,Average annual hours worked by employed master's degree holders aged 25-34,1784.303785,A,Normal value
+GBR,United Kingdom,MAS_EARNY,Average gross yearly earnings of employed master's degree holders,65457.58612,A,Normal value
+GBR,United Kingdom,PHD_EARNY_55_64,Average gross yearly earnings of employed doctorate holders aged 55-64,82820.39899,A,Normal value
+GBR,United Kingdom,PHD_HW_55_64,Average annual hours worked by employed doctorate holders aged 55-64,1789.49991,A,Normal value
+GBR,United Kingdom,PHD_EARNY,Average gross yearly earnings of employed doctorate holders,75076.63875,A,Normal value
+GBR,United Kingdom,PHD_HW_35_44,Average annual hours worked by employed doctorate holders aged 35-44,1816.408965,A,Normal value
+GBR,United Kingdom,PHD_HW_45_54,Average annual hours worked by employed doctorate holders aged 45-54,1805.252207,A,Normal value
+GBR,United Kingdom,MAS_EARNY_45_54,Average gross yearly earnings of employed master's degree holders aged 45-54,71832.67565,A,Normal value
+GBR,United Kingdom,MAS_TOC_PERMXMAS_TOC,"Master's degree holders in indefinite contracts, % of employees with a master's degree",93.32352242,A,Normal value
+GBR,United Kingdom,PHD_TOC_PERM_45_54XPHD_TOC_45_54,"Doctorate holders aged 45-54 in indefinite contracts, % of employees with a doctorate aged 45-54",94.36912939,A,Normal value
+GBR,United Kingdom,PHD_EARNY_35_44,Average gross yearly earnings of employed doctorate holders aged 35-44,75420.12795,A,Normal value
+ESP,Spain,MAS_TOC_PERM_25_34XMAS_TOC_25_34,"Master's degree holders aged 25-34 in indefinite contracts, % of employees with a master's degree aged 25-34",67.7046934,A,Normal value
+ESP,Spain,MAS_TOC_PERM_45_54XMAS_TOC_45_54,"Master's degree holders aged 45-54 in indefinite contracts, % of employees with a master's degree aged 45-54",87.30550846,A,Normal value
+ESP,Spain,MAS_TOC_PERM_55_64XMAS_TOC_55_64,"Master's degree holders aged 55-64 in indefinite contracts, % of employees with a master's degree aged 55-64",89.7690974,A,Normal value
+ESP,Spain,MAS_TOC_PERM_35_44XMAS_TOC_35_44,"Master's degree holders aged 35-44 in indefinite contracts, % of employees with a master's degree aged 35-44",82.15405404,A,Normal value
+ESP,Spain,PHD_TOC_PERM_55_64XPHD_TOC_55_64,"Doctorate holders aged 55-64 in indefinite contracts, % of employees with a doctorate aged 55-64",91.4838568,A,Normal value
+ESP,Spain,MAS_TOC_PERMXMAS_TOC,"Master's degree holders in indefinite contracts, % of employees with a master's degree",81.4895012,A,Normal value
+ESP,Spain,PHD_TOC_PERM_45_54XPHD_TOC_45_54,"Doctorate holders aged 45-54 in indefinite contracts, % of employees with a doctorate aged 45-54",84.83348232,A,Normal value
+ESP,Spain,PHD_TOC_PERM_35_44XPHD_TOC_35_44,"Doctorate holders aged 35-44 in indefinite contracts, % of employees with a doctorate aged 35-44",69.45431737,A,Normal value
+ESP,Spain,PHD_TOC_PERM_25_34XPHD_TOC_25_34,"Doctorate holders aged 25-34 in indefinite contracts, % of employees with a doctorate aged 25-34",60.29321529,A,Normal value
+ESP,Spain,PHD_TOC_PERMXPHD_TOC,"Doctorate holders in indefinite contracts, % of employees with a doctorate",77.69038432,A,Normal value
+ITA,Italy,MAS_EARNY_55_64,Average gross yearly earnings of employed master's degree holders aged 55-64,70339.5079,A,Normal value
+ITA,Italy,MAS_EARNY_25_34,Average gross yearly earnings of employed master's degree holders aged 25-34,36512.88543,A,Normal value
+ITA,Italy,MAS_EARNY,Average gross yearly earnings of employed master's degree holders,58569.31512,A,Normal value
+ITA,Italy,MAS_EARNY_45_54,Average gross yearly earnings of employed master's degree holders aged 45-54,59848.8485,A,Normal value
+ITA,Italy,MAS_EARNY_35_44,Average gross yearly earnings of employed master's degree holders aged 35-44,63087.8093,A,Normal value
+ITA,Italy,PHD_EARNY,Average gross yearly earnings of employed doctorate holders,62238.32028,A,Normal value
+IRL,Ireland,PHD_EARNY_45_54,Average gross yearly earnings of employed doctorate holders aged 45-54,116280.7028,U,Low reliability
+ITA,Italy,PHD_EARNY_45_54,Average gross yearly earnings of employed doctorate holders aged 45-54,77147.39635,U,Low reliability
+NLD,Netherlands,PHD_EARNY_45_54,Average gross yearly earnings of employed doctorate holders aged 45-54,135622.4442,U,Low reliability
+NOR,Norway,PHD_EARNY_45_54,Average gross yearly earnings of employed doctorate holders aged 45-54,90512.38329,U,Low reliability
+BEL,Belgium,PHD_EARNY_45_54,Average gross yearly earnings of employed doctorate holders aged 45-54,110580.0353,U,Low reliability
+CZE,Czechia,PHD_EARNY_45_54,Average gross yearly earnings of employed doctorate holders aged 45-54,57995.5579,U,Low reliability
+FRA,France,PHD_EARNY_45_54,Average gross yearly earnings of employed doctorate holders aged 45-54,99317.99932,U,Low reliability
+LUX,Luxembourg,PHD_EARNY_45_54,Average gross yearly earnings of employed doctorate holders aged 45-54,166708.3711,U,Low reliability
+POL,Poland,PHD_EARNY_45_54,Average gross yearly earnings of employed doctorate holders aged 45-54,51387.60818,U,Low reliability
+PRT,Portugal,PHD_EARNY_45_54,Average gross yearly earnings of employed doctorate holders aged 45-54,78953.45567,U,Low reliability
+SVK,Slovak Republic,PHD_EARNY_45_54,Average gross yearly earnings of employed doctorate holders aged 45-54,28184.46513,U,Low reliability
+TUR,Türkiye,PHD_EARNY_45_54,Average gross yearly earnings of employed doctorate holders aged 45-54,35529.10735,U,Low reliability
+AUT,Austria,PHD_EARNY_55_64,Average gross yearly earnings of employed doctorate holders aged 55-64,130142.8748,U,Low reliability
+FRA,France,PHD_EARNY_55_64,Average gross yearly earnings of employed doctorate holders aged 55-64,97559.74594,U,Low reliability
+IRL,Ireland,PHD_EARNY_55_64,Average gross yearly earnings of employed doctorate holders aged 55-64,100962.7812,U,Low reliability
+ITA,Italy,PHD_EARNY_55_64,Average gross yearly earnings of employed doctorate holders aged 55-64,98099.12205,U,Low reliability
+NLD,Netherlands,PHD_EARNY_55_64,Average gross yearly earnings of employed doctorate holders aged 55-64,154582.0144,U,Low reliability
+NOR,Norway,PHD_EARNY_55_64,Average gross yearly earnings of employed doctorate holders aged 55-64,122023.2845,U,Low reliability
+POL,Poland,PHD_EARNY_55_64,Average gross yearly earnings of employed doctorate holders aged 55-64,54157.80787,U,Low reliability
+PRT,Portugal,PHD_EARNY_55_64,Average gross yearly earnings of employed doctorate holders aged 55-64,92594.67572,U,Low reliability
+EST,Estonia,PHD_EARNY,Average gross yearly earnings of employed doctorate holders,47389.99167,U,Low reliability
+GRC,Greece,PHD_EARNY,Average gross yearly earnings of employed doctorate holders,59136.12053,U,Low reliability
+HUN,Hungary,PHD_EARNY,Average gross yearly earnings of employed doctorate holders,46978.4527,U,Low reliability
+ISL,Iceland,PHD_EARNY,Average gross yearly earnings of employed doctorate holders,114681.5508,U,Low reliability
+LVA,Latvia,PHD_EARNY,Average gross yearly earnings of employed doctorate holders,108295.8821,U,Low reliability
+LTU,Lithuania,PHD_EARNY,Average gross yearly earnings of employed doctorate holders,81762.95277,U,Low reliability
+BGR,Bulgaria,PHD_EARNY,Average gross yearly earnings of employed doctorate holders,66964.52728,U,Low reliability
+HRV,Croatia,PHD_EARNY,Average gross yearly earnings of employed doctorate holders,422212.3631,U,Low reliability
+CYP,Cyprus,PHD_EARNY,Average gross yearly earnings of employed doctorate holders,75475.20733,U,Low reliability
+MLT,Malta,PHD_EARNY,Average gross yearly earnings of employed doctorate holders,103652.3472,U,Low reliability
+CHE,Switzerland,PHD_EARNY_25_34,Average gross yearly earnings of employed doctorate holders aged 25-34,104751.2948,U,Low reliability
+MLT,Malta,MAS_EARNY_55_64,Average gross yearly earnings of employed master's degree holders aged 55-64,91649.40868,U,Low reliability
+GRC,Greece,MAS_EARNY_55_64,Average gross yearly earnings of employed master's degree holders aged 55-64,53013.17068,U,Low reliability
+GRC,Greece,MAS_EARNY_25_34,Average gross yearly earnings of employed master's degree holders aged 25-34,27954.95489,U,Low reliability
+ISL,Iceland,PHDWB_FINS_MEDHIGHXPHDWB,"Doctorate holders at least moderately satisfied with financial situation, % of total doctorate holders",91.98,U,Low reliability
+ISL,Iceland,PHDWB_TIMEUSE_MEDHIGHXPHDWB,"Doctorate holders at least moderately satisfied with amount of available leisure time, % of total doctorate holders",71.78,U,Low reliability
+ISL,Iceland,PHDWB_HAPPY_GESMTXPHDWB,"Doctorate holders feeling happy, % of total doctorate holders",97.96,U,Low reliability
+LVA,Latvia,PHDWB_TIMEUSE_MEDHIGHXPHDWB,"Doctorate holders at least moderately satisfied with amount of available leisure time, % of total doctorate holders",94.29,U,Low reliability
+LVA,Latvia,PHDWB_HAPPY_GESMTXPHDWB,"Doctorate holders feeling happy, % of total doctorate holders",66.44,U,Low reliability
+LVA,Latvia,PHDWB_FINS_MEDHIGHXPHDWB,"Doctorate holders at least moderately satisfied with financial situation, % of total doctorate holders",90.84,U,Low reliability
+POL,Poland,PHD_EARNY_25_34,Average gross yearly earnings of employed doctorate holders aged 25-34,44701.04605,U,Low reliability
+ESP,Spain,PHD_EARNY_25_34,Average gross yearly earnings of employed doctorate holders aged 25-34,42374.47719,U,Low reliability
+TUR,Türkiye,MAS_EARNY_55_64,Average gross yearly earnings of employed master's degree holders aged 55-64,31229.32471,U,Low reliability
+TUR,Türkiye,PHD_EARNY_25_34,Average gross yearly earnings of employed doctorate holders aged 25-34,35998.25666,U,Low reliability
+BGR,Bulgaria,PHDWB_HAPPY_GESMTXPHDWB,"Doctorate holders feeling happy, % of total doctorate holders",91.36,U,Low reliability
+BGR,Bulgaria,PHDWB_TIMEUSE_MEDHIGHXPHDWB,"Doctorate holders at least moderately satisfied with amount of available leisure time, % of total doctorate holders",64.16,U,Low reliability
+BGR,Bulgaria,PHDWB_FINS_MEDHIGHXPHDWB,"Doctorate holders at least moderately satisfied with financial situation, % of total doctorate holders",55.57,U,Low reliability
+HRV,Croatia,PHDWB_TIMEUSE_MEDHIGHXPHDWB,"Doctorate holders at least moderately satisfied with amount of available leisure time, % of total doctorate holders",58.67,U,Low reliability
+HRV,Croatia,PHDWB_FINS_MEDHIGHXPHDWB,"Doctorate holders at least moderately satisfied with financial situation, % of total doctorate holders",72.72,U,Low reliability
+HRV,Croatia,PHDWB_HAPPY_GESMTXPHDWB,"Doctorate holders feeling happy, % of total doctorate holders",86.61,U,Low reliability
+ROU,Romania,PHDWB_TIMEUSE_MEDHIGHXPHDWB,"Doctorate holders at least moderately satisfied with amount of available leisure time, % of total doctorate holders",87.74,U,Low reliability
+ROU,Romania,PHDWB_FINS_MEDHIGHXPHDWB,"Doctorate holders at least moderately satisfied with financial situation, % of total doctorate holders",90.53,U,Low reliability
+ROU,Romania,PHDWB_HAPPY_GESMTXPHDWB,"Doctorate holders feeling happy, % of total doctorate holders",93.5,U,Low reliability
+DNK,Denmark,PHD_EARNY_35_44,Average gross yearly earnings of employed doctorate holders aged 35-44,101859.664,U,Low reliability
+IRL,Ireland,PHD_EARNY_35_44,Average gross yearly earnings of employed doctorate holders aged 35-44,82402.30435,U,Low reliability
+ITA,Italy,PHD_EARNY_35_44,Average gross yearly earnings of employed doctorate holders aged 35-44,62845.17776,U,Low reliability
+NLD,Netherlands,PHD_EARNY_35_44,Average gross yearly earnings of employed doctorate holders aged 35-44,80590.51413,U,Low reliability
+NOR,Norway,PHD_EARNY_35_44,Average gross yearly earnings of employed doctorate holders aged 35-44,75325.58513,U,Low reliability
+BEL,Belgium,PHD_EARNY_35_44,Average gross yearly earnings of employed doctorate holders aged 35-44,104813.4438,U,Low reliability
+CZE,Czechia,PHD_EARNY_35_44,Average gross yearly earnings of employed doctorate holders aged 35-44,46447.51298,U,Low reliability
+EST,Estonia,PHD_EARNY_35_44,Average gross yearly earnings of employed doctorate holders aged 35-44,46570.60829,U,Low reliability
+PRT,Portugal,PHD_EARNY_35_44,Average gross yearly earnings of employed doctorate holders aged 35-44,52725.88668,U,Low reliability
+CYP,Cyprus,PHD_EARNY_35_44,Average gross yearly earnings of employed doctorate holders aged 35-44,58962.12905,U,Low reliability
+CHE,Switzerland,MAS_TOC_PERM_55_64XMAS_TOC_55_64,"Master's degree holders aged 55-64 in indefinite contracts, % of employees with a master's degree aged 55-64",93.39099155,B,Time series break
+CHE,Switzerland,MAS_TOC_PERM_35_44XMAS_TOC_35_44,"Master's degree holders aged 35-44 in indefinite contracts, % of employees with a master's degree aged 35-44",92.99990583,B,Time series break
+CHE,Switzerland,MAS_TOC_PERM_25_34XMAS_TOC_25_34,"Master's degree holders aged 25-34 in indefinite contracts, % of employees with a master's degree aged 25-34",78.86890196,B,Time series break
+CHE,Switzerland,MAS_TOC_PERM_45_54XMAS_TOC_45_54,"Master's degree holders aged 45-54 in indefinite contracts, % of employees with a master's degree aged 45-54",95.88967645,B,Time series break
+CHE,Switzerland,PHD_EARNY_45_54,Average gross yearly earnings of employed doctorate holders aged 45-54,143466.0887,B,Time series break
+CHE,Switzerland,MAS_EARNY_35_44,Average gross yearly earnings of employed master's degree holders aged 35-44,92608.57781,B,Time series break
+CHE,Switzerland,PHD_TOC_PERM_35_44XPHD_TOC_35_44,"Doctorate holders aged 35-44 in indefinite contracts, % of employees with a doctorate aged 35-44",76.38711044,B,Time series break
+CHE,Switzerland,MAS_EARNY,Average gross yearly earnings of employed master's degree holders,92360.944,B,Time series break
+CHE,Switzerland,PHD_HW_25_34,Average annual hours worked by employed doctorate holders aged 25-34,2007.554,B,Time series break
+CHE,Switzerland,MAS_HW_35_44,Average annual hours worked by employed master's degree holders aged 35-44,1774.246,B,Time series break
+CHE,Switzerland,MAS_EARNY_45_54,Average gross yearly earnings of employed master's degree holders aged 45-54,111703.4015,B,Time series break
+CHE,Switzerland,PHD_EARNY,Average gross yearly earnings of employed doctorate holders,115800.449,B,Time series break
+CHE,Switzerland,PHD_TOC_PERM_55_64XPHD_TOC_55_64,"Doctorate holders aged 55-64 in indefinite contracts, % of employees with a doctorate aged 55-64",89.75858607,B,Time series break
+CHE,Switzerland,PHD_HW_45_54,Average annual hours worked by employed doctorate holders aged 45-54,1917.18,B,Time series break
+CHE,Switzerland,PHD_HW,Average annual hours worked by employed doctorate holders,1911.093,B,Time series break
+CHE,Switzerland,PHD_EARNY_35_44,Average gross yearly earnings of employed doctorate holders aged 35-44,104560.2491,B,Time series break
+CHE,Switzerland,PHD_TOC_PERMXPHD_TOC,"Doctorate holders in indefinite contracts, % of employees with a doctorate",78.35851807,B,Time series break
+CHE,Switzerland,PHD_HW_55_64,Average annual hours worked by employed doctorate holders aged 55-64,1868.575,B,Time series break
+CHE,Switzerland,MAS_HW,Average annual hours worked by employed master's degree holders,1825.942,B,Time series break
+CHE,Switzerland,MAS_HW_25_34,Average annual hours worked by employed master's degree holders aged 25-34,1865.126,B,Time series break
+CHE,Switzerland,MAS_HW_55_64,Average annual hours worked by employed master's degree holders aged 55-64,1798.598,B,Time series break
+CHE,Switzerland,MAS_EARNY_25_34,Average gross yearly earnings of employed master's degree holders aged 25-34,72568.5819,B,Time series break
+CHE,Switzerland,MAS_HW_45_54,Average annual hours worked by employed master's degree holders aged 45-54,1862.965,B,Time series break
+CHE,Switzerland,PHD_HW_35_44,Average annual hours worked by employed doctorate holders aged 35-44,1884.639,B,Time series break
+CHE,Switzerland,PHD_EARNY_25_34,Average gross yearly earnings of employed doctorate holders aged 25-34,81675.3213,B,Time series break
+CHE,Switzerland,PHD_TOC_PERM_45_54XPHD_TOC_45_54,"Doctorate holders aged 45-54 in indefinite contracts, % of employees with a doctorate aged 45-54",93.41638998,B,Time series break
+CHE,Switzerland,MAS_TOC_PERMXMAS_TOC,"Master's degree holders in indefinite contracts, % of employees with a master's degree",89.29913928,B,Time series break
+CHE,Switzerland,PHD_EARNY_55_64,Average gross yearly earnings of employed doctorate holders aged 55-64,140173.6886,B,Time series break
+CHE,Switzerland,MAS_EARNY_55_64,Average gross yearly earnings of employed master's degree holders aged 55-64,104476.8204,B,Time series break
+CHE,Switzerland,PHD_TOC_PERM_25_34XPHD_TOC_25_34,"Doctorate holders aged 25-34 in indefinite contracts, % of employees with a doctorate aged 25-34",51.75506503,B,Time series break
+BRA,Brazil,MAS_EARNY_25_34,Average gross yearly earnings of employed master's degree holders aged 25-34,41123.14051,B,Time series break
+BRA,Brazil,MAS_EARNY_35_44,Average gross yearly earnings of employed master's degree holders aged 35-44,65972.70311,B,Time series break
+COL,Colombia,MAS_HW,Average annual hours worked by employed master's degree holders,2244.12564,V,Unvalidated value
+COL,Colombia,PHD_HW,Average annual hours worked by employed doctorate holders,2190.448549,V,Unvalidated value
+AUT,Austria,PHD_TOC_PERM_55_64XPHD_TOC_55_64,"Doctorate holders aged 55-64 in indefinite contracts, % of employees with a doctorate aged 55-64",88.16088546,U,Low reliability
+AUT,Austria,PHD_TOC_PERM_45_54XPHD_TOC_45_54,"Doctorate holders aged 45-54 in indefinite contracts, % of employees with a doctorate aged 45-54",90.47553411,U,Low reliability
+AUT,Austria,PHD_TOC_PERM_35_44XPHD_TOC_35_44,"Doctorate holders aged 35-44 in indefinite contracts, % of employees with a doctorate aged 35-44",85.53028399,U,Low reliability
+GRC,Greece,PHD_TOC_PERM_35_44XPHD_TOC_35_44,"Doctorate holders aged 35-44 in indefinite contracts, % of employees with a doctorate aged 35-44",81.9680577,U,Low reliability
+HUN,Hungary,PHD_TOC_PERM_25_34XPHD_TOC_25_34,"Doctorate holders aged 25-34 in indefinite contracts, % of employees with a doctorate aged 25-34",85.08220503,U,Low reliability
+LTU,Lithuania,PHD_TOC_PERM_35_44XPHD_TOC_35_44,"Doctorate holders aged 35-44 in indefinite contracts, % of employees with a doctorate aged 35-44",77.77777778,U,Low reliability
+LTU,Lithuania,PHD_TOC_PERM_45_54XPHD_TOC_45_54,"Doctorate holders aged 45-54 in indefinite contracts, % of employees with a doctorate aged 45-54",96.89029657,U,Low reliability
+LTU,Lithuania,PHD_TOC_PERM_55_64XPHD_TOC_55_64,"Doctorate holders aged 55-64 in indefinite contracts, % of employees with a doctorate aged 55-64",98.8028169,U,Low reliability
+POL,Poland,PHD_TOC_PERM_25_34XPHD_TOC_25_34,"Doctorate holders aged 25-34 in indefinite contracts, % of employees with a doctorate aged 25-34",89.73221117,U,Low reliability
+POL,Poland,PHD_TOC_PERM_55_64XPHD_TOC_55_64,"Doctorate holders aged 55-64 in indefinite contracts, % of employees with a doctorate aged 55-64",99.23645908,U,Low reliability
+SVN,Slovenia,PHD_TOC_PERM_35_44XPHD_TOC_35_44,"Doctorate holders aged 35-44 in indefinite contracts, % of employees with a doctorate aged 35-44",95.53721792,U,Low reliability
+SVN,Slovenia,PHD_TOC_PERM_25_34XPHD_TOC_25_34,"Doctorate holders aged 25-34 in indefinite contracts, % of employees with a doctorate aged 25-34",74.09536693,U,Low reliability
+SVN,Slovenia,PHD_TOC_PERM_55_64XPHD_TOC_55_64,"Doctorate holders aged 55-64 in indefinite contracts, % of employees with a doctorate aged 55-64",98.6859788,U,Low reliability
+HRV,Croatia,PHD_TOC_PERM_35_44XPHD_TOC_35_44,"Doctorate holders aged 35-44 in indefinite contracts, % of employees with a doctorate aged 35-44",80.0459594,U,Low reliability
+MLT,Malta,PHD_TOC_PERMXPHD_TOC,"Doctorate holders in indefinite contracts, % of employees with a doctorate",92.12662338,U,Low reliability
+CZE,Czechia,PHD_TOC_PERM_25_34XPHD_TOC_25_34,"Doctorate holders aged 25-34 in indefinite contracts, % of employees with a doctorate aged 25-34",91.01181305,U,Low reliability
+ITA,Italy,PHD_TOC_PERM_25_34XPHD_TOC_25_34,"Doctorate holders aged 25-34 in indefinite contracts, % of employees with a doctorate aged 25-34",46.50764448,U,Low reliability
+MLT,Malta,MAS_TOC_PERM_55_64XMAS_TOC_55_64,"Master's degree holders aged 55-64 in indefinite contracts, % of employees with a master's degree aged 55-64",94.39324117,U,Low reliability
+HRV,Croatia,PHD_TOC_PERM_45_54XPHD_TOC_45_54,"Doctorate holders aged 45-54 in indefinite contracts, % of employees with a doctorate aged 45-54",100,U,Low reliability
+HRV,Croatia,PHD_TOC_PERM_55_64XPHD_TOC_55_64,"Doctorate holders aged 55-64 in indefinite contracts, % of employees with a doctorate aged 55-64",100,U,Low reliability
+BEL,Belgium,PHD_TOC_PERM_55_64XPHD_TOC_55_64,"Doctorate holders aged 55-64 in indefinite contracts, % of employees with a doctorate aged 55-64",100,U,Low reliability
+CZE,Czechia,PHD_TOC_PERM_55_64XPHD_TOC_55_64,"Doctorate holders aged 55-64 in indefinite contracts, % of employees with a doctorate aged 55-64",100,U,Low reliability
+EST,Estonia,PHD_TOC_PERM_45_54XPHD_TOC_45_54,"Doctorate holders aged 45-54 in indefinite contracts, % of employees with a doctorate aged 45-54",100,U,Low reliability
+HUN,Hungary,PHD_TOC_PERM_55_64XPHD_TOC_55_64,"Doctorate holders aged 55-64 in indefinite contracts, % of employees with a doctorate aged 55-64",100,U,Low reliability
+NOR,Norway,PHD_TOC_PERM_55_64XPHD_TOC_55_64,"Doctorate holders aged 55-64 in indefinite contracts, % of employees with a doctorate aged 55-64",100,U,Low reliability
+BGR,Bulgaria,PHD_TOC_PERMXPHD_TOC,"Doctorate holders in indefinite contracts, % of employees with a doctorate",100,U,Low reliability
+BRA,Brazil,PHD_EARNY_25_34,Average gross yearly earnings of employed doctorate holders aged 25-34,49810.42574,B,Time series break
+BRA,Brazil,PHD_EARNY_35_44,Average gross yearly earnings of employed doctorate holders aged 35-44,71977.40893,B,Time series break
+AUT,Austria,PHD_EARNY_35_44,Average gross yearly earnings of employed doctorate holders aged 35-44,NA,Q,Missing value; suppressed
+GRC,Greece,PHD_EARNY_35_44,Average gross yearly earnings of employed doctorate holders aged 35-44,NA,Q,Missing value; suppressed
+ISL,Iceland,PHD_EARNY_35_44,Average gross yearly earnings of employed doctorate holders aged 35-44,NA,Q,Missing value; suppressed
+SVK,Slovak Republic,PHD_EARNY_35_44,Average gross yearly earnings of employed doctorate holders aged 35-44,NA,Q,Missing value; suppressed
+HRV,Croatia,PHD_EARNY_35_44,Average gross yearly earnings of employed doctorate holders aged 35-44,NA,Q,Missing value; suppressed
+ROU,Romania,PHD_EARNY,Average gross yearly earnings of employed doctorate holders,NA,Q,Missing value; suppressed
+DNK,Denmark,PHD_EARNY_55_64,Average gross yearly earnings of employed doctorate holders aged 55-64,NA,Q,Missing value; suppressed
+GRC,Greece,PHD_EARNY_55_64,Average gross yearly earnings of employed doctorate holders aged 55-64,NA,Q,Missing value; suppressed
+LUX,Luxembourg,PHD_EARNY_55_64,Average gross yearly earnings of employed doctorate holders aged 55-64,NA,Q,Missing value; suppressed
+TUR,Türkiye,PHD_EARNY_55_64,Average gross yearly earnings of employed doctorate holders aged 55-64,NA,Q,Missing value; suppressed
+HRV,Croatia,PHD_EARNY_55_64,Average gross yearly earnings of employed doctorate holders aged 55-64,NA,Q,Missing value; suppressed
+AUT,Austria,PHD_EARNY_45_54,Average gross yearly earnings of employed doctorate holders aged 45-54,NA,Q,Missing value; suppressed
+DNK,Denmark,PHD_EARNY_45_54,Average gross yearly earnings of employed doctorate holders aged 45-54,NA,Q,Missing value; suppressed
+GRC,Greece,PHD_EARNY_45_54,Average gross yearly earnings of employed doctorate holders aged 45-54,NA,Q,Missing value; suppressed
+ISL,Iceland,PHD_EARNY_45_54,Average gross yearly earnings of employed doctorate holders aged 45-54,NA,Q,Missing value; suppressed
+LTU,Lithuania,PHD_EARNY_45_54,Average gross yearly earnings of employed doctorate holders aged 45-54,NA,Q,Missing value; suppressed
+HRV,Croatia,PHD_EARNY_45_54,Average gross yearly earnings of employed doctorate holders aged 45-54,NA,Q,Missing value; suppressed
+CYP,Cyprus,PHD_EARNY_45_54,Average gross yearly earnings of employed doctorate holders aged 45-54,NA,Q,Missing value; suppressed
+ROU,Romania,PHD_EARNY_45_54,Average gross yearly earnings of employed doctorate holders aged 45-54,NA,Q,Missing value; suppressed
+AUT,Austria,PHD_EARNY_25_34,Average gross yearly earnings of employed doctorate holders aged 25-34,NA,Q,Missing value; suppressed
+ITA,Italy,PHD_EARNY_25_34,Average gross yearly earnings of employed doctorate holders aged 25-34,NA,Q,Missing value; suppressed
+LUX,Luxembourg,PHD_EARNY_25_34,Average gross yearly earnings of employed doctorate holders aged 25-34,NA,Q,Missing value; suppressed
+NLD,Netherlands,PHD_EARNY_25_34,Average gross yearly earnings of employed doctorate holders aged 25-34,NA,Q,Missing value; suppressed
+PRT,Portugal,PHD_EARNY_25_34,Average gross yearly earnings of employed doctorate holders aged 25-34,NA,Q,Missing value; suppressed
+SVK,Slovak Republic,PHD_EARNY_25_34,Average gross yearly earnings of employed doctorate holders aged 25-34,NA,Q,Missing value; suppressed
+SVN,Slovenia,PHD_EARNY_25_34,Average gross yearly earnings of employed doctorate holders aged 25-34,NA,Q,Missing value; suppressed
+ROU,Romania,PHD_EARNY_25_34,Average gross yearly earnings of employed doctorate holders aged 25-34,NA,Q,Missing value; suppressed
+AUT,Austria,PHD_TOC_PERM_25_34XPHD_TOC_25_34,"Doctorate holders aged 25-34 in indefinite contracts, % of employees with a doctorate aged 25-34",NA,Q,Missing value; suppressed
+GRC,Greece,PHD_TOC_PERM_25_34XPHD_TOC_25_34,"Doctorate holders aged 25-34 in indefinite contracts, % of employees with a doctorate aged 25-34",NA,Q,Missing value; suppressed
+LVA,Latvia,PHD_TOC_PERM_25_34XPHD_TOC_25_34,"Doctorate holders aged 25-34 in indefinite contracts, % of employees with a doctorate aged 25-34",NA,Q,Missing value; suppressed
+LVA,Latvia,PHD_TOC_PERM_35_44XPHD_TOC_35_44,"Doctorate holders aged 35-44 in indefinite contracts, % of employees with a doctorate aged 35-44",NA,Q,Missing value; suppressed
+LVA,Latvia,PHD_TOC_PERMXPHD_TOC,"Doctorate holders in indefinite contracts, % of employees with a doctorate",NA,Q,Missing value; suppressed
+LTU,Lithuania,PHD_TOC_PERM_25_34XPHD_TOC_25_34,"Doctorate holders aged 25-34 in indefinite contracts, % of employees with a doctorate aged 25-34",NA,Q,Missing value; suppressed
+NOR,Norway,PHD_TOC_PERM_25_34XPHD_TOC_25_34,"Doctorate holders aged 25-34 in indefinite contracts, % of employees with a doctorate aged 25-34",NA,Q,Missing value; suppressed
+SVK,Slovak Republic,PHD_TOC_PERM_45_54XPHD_TOC_45_54,"Doctorate holders aged 45-54 in indefinite contracts, % of employees with a doctorate aged 45-54",NA,Q,Missing value; suppressed
+SVK,Slovak Republic,PHD_TOC_PERM_25_34XPHD_TOC_25_34,"Doctorate holders aged 25-34 in indefinite contracts, % of employees with a doctorate aged 25-34",NA,Q,Missing value; suppressed
+SVK,Slovak Republic,PHD_TOC_PERM_55_64XPHD_TOC_55_64,"Doctorate holders aged 55-64 in indefinite contracts, % of employees with a doctorate aged 55-64",NA,Q,Missing value; suppressed
+BGR,Bulgaria,PHD_TOC_PERM_55_64XPHD_TOC_55_64,"Doctorate holders aged 55-64 in indefinite contracts, % of employees with a doctorate aged 55-64",NA,Q,Missing value; suppressed
+CYP,Cyprus,PHD_TOC_PERM_55_64XPHD_TOC_55_64,"Doctorate holders aged 55-64 in indefinite contracts, % of employees with a doctorate aged 55-64",NA,Q,Missing value; suppressed
+CYP,Cyprus,PHD_TOC_PERM_25_34XPHD_TOC_25_34,"Doctorate holders aged 25-34 in indefinite contracts, % of employees with a doctorate aged 25-34",NA,Q,Missing value; suppressed
+MLT,Malta,PHD_TOC_PERM_35_44XPHD_TOC_35_44,"Doctorate holders aged 35-44 in indefinite contracts, % of employees with a doctorate aged 35-44",NA,Q,Missing value; suppressed
+MLT,Malta,PHD_TOC_PERM_25_34XPHD_TOC_25_34,"Doctorate holders aged 25-34 in indefinite contracts, % of employees with a doctorate aged 25-34",NA,Q,Missing value; suppressed
+MLT,Malta,PHD_TOC_PERM_45_54XPHD_TOC_45_54,"Doctorate holders aged 45-54 in indefinite contracts, % of employees with a doctorate aged 45-54",NA,Q,Missing value; suppressed
+ROU,Romania,PHD_TOC_PERM_35_44XPHD_TOC_35_44,"Doctorate holders aged 35-44 in indefinite contracts, % of employees with a doctorate aged 35-44",NA,Q,Missing value; suppressed
+BEL,Belgium,PHD_HW_25_34,Average annual hours worked by employed doctorate holders aged 25-34,1945.84,I,Value imputed by a receiving agency
+DNK,Denmark,PHD_HW_25_34,Average annual hours worked by employed doctorate holders aged 25-34,1882.816,I,Value imputed by a receiving agency
+DEU,Germany,PHD_HW_25_34,Average annual hours worked by employed doctorate holders aged 25-34,2079.792,I,Value imputed by a receiving agency
+ITA,Italy,PHD_HW_25_34,Average annual hours worked by employed doctorate holders aged 25-34,1906.268,I,Value imputed by a receiving agency
+LUX,Luxembourg,PHD_HW_25_34,Average annual hours worked by employed doctorate holders aged 25-34,1835.704,I,Value imputed by a receiving agency
+NLD,Netherlands,PHD_HW_25_34,Average annual hours worked by employed doctorate holders aged 25-34,1913.08,I,Value imputed by a receiving agency
+SWE,Sweden,PHD_HW_25_34,Average annual hours worked by employed doctorate holders aged 25-34,1900.288,I,Value imputed by a receiving agency
+CHE,Switzerland,PHD_HW_25_34,Average annual hours worked by employed doctorate holders aged 25-34,2227.472,I,Value imputed by a receiving agency
+TUR,Türkiye,PHD_HW_25_34,Average annual hours worked by employed doctorate holders aged 25-34,2187.796,I,Value imputed by a receiving agency
+DNK,Denmark,PHD_HW_55_64,Average annual hours worked by employed doctorate holders aged 55-64,2027.324,I,Value imputed by a receiving agency
+ITA,Italy,PHD_HW_55_64,Average annual hours worked by employed doctorate holders aged 55-64,1909.024,I,Value imputed by a receiving agency
+NLD,Netherlands,PHD_HW_55_64,Average annual hours worked by employed doctorate holders aged 55-64,1813.656,I,Value imputed by a receiving agency
+CHE,Switzerland,PHD_HW_55_64,Average annual hours worked by employed doctorate holders aged 55-64,2096.796,I,Value imputed by a receiving agency
+BEL,Belgium,PHD_HW_55_64,Average annual hours worked by employed doctorate holders aged 55-64,2390.076,I,Value imputed by a receiving agency
+FIN,Finland,PHD_HW_55_64,Average annual hours worked by employed doctorate holders aged 55-64,1781.052,I,Value imputed by a receiving agency
+DEU,Germany,PHD_HW_55_64,Average annual hours worked by employed doctorate holders aged 55-64,2157.792,I,Value imputed by a receiving agency
+GRC,Greece,PHD_HW_55_64,Average annual hours worked by employed doctorate holders aged 55-64,1826.708,I,Value imputed by a receiving agency
+ISL,Iceland,PHD_HW_55_64,Average annual hours worked by employed doctorate holders aged 55-64,1950.52,I,Value imputed by a receiving agency
+LUX,Luxembourg,PHD_HW_55_64,Average annual hours worked by employed doctorate holders aged 55-64,2246.504,I,Value imputed by a receiving agency
+SWE,Sweden,PHD_HW_55_64,Average annual hours worked by employed doctorate holders aged 55-64,1991.132,I,Value imputed by a receiving agency
+TUR,Türkiye,PHD_HW_55_64,Average annual hours worked by employed doctorate holders aged 55-64,2077.4,I,Value imputed by a receiving agency
+CZE,Czechia,PHD_HW_45_54,Average annual hours worked by employed doctorate holders aged 45-54,1964.976,I,Value imputed by a receiving agency
+DNK,Denmark,PHD_HW_45_54,Average annual hours worked by employed doctorate holders aged 45-54,1938.248,I,Value imputed by a receiving agency
+ITA,Italy,PHD_HW_45_54,Average annual hours worked by employed doctorate holders aged 45-54,1867.008,I,Value imputed by a receiving agency
+NLD,Netherlands,PHD_HW_45_54,Average annual hours worked by employed doctorate holders aged 45-54,1938.612,I,Value imputed by a receiving agency
+CHE,Switzerland,PHD_HW_45_54,Average annual hours worked by employed doctorate holders aged 45-54,2141.724,I,Value imputed by a receiving agency
+AUT,Austria,PHD_HW_45_54,Average annual hours worked by employed doctorate holders aged 45-54,1891.188,I,Value imputed by a receiving agency
+BEL,Belgium,PHD_HW_45_54,Average annual hours worked by employed doctorate holders aged 45-54,2285.504,I,Value imputed by a receiving agency
+FIN,Finland,PHD_HW_45_54,Average annual hours worked by employed doctorate holders aged 45-54,1813.5,I,Value imputed by a receiving agency
+DEU,Germany,PHD_HW_45_54,Average annual hours worked by employed doctorate holders aged 45-54,2105.584,I,Value imputed by a receiving agency
+GRC,Greece,PHD_HW_45_54,Average annual hours worked by employed doctorate holders aged 45-54,2087.02,I,Value imputed by a receiving agency
+HUN,Hungary,PHD_HW_45_54,Average annual hours worked by employed doctorate holders aged 45-54,2049.32,I,Value imputed by a receiving agency
+LUX,Luxembourg,PHD_HW_45_54,Average annual hours worked by employed doctorate holders aged 45-54,2068.144,I,Value imputed by a receiving agency
+POL,Poland,PHD_HW_45_54,Average annual hours worked by employed doctorate holders aged 45-54,1997.32,I,Value imputed by a receiving agency
+PRT,Portugal,PHD_HW_45_54,Average annual hours worked by employed doctorate holders aged 45-54,2331.524,I,Value imputed by a receiving agency
+SVN,Slovenia,PHD_HW_45_54,Average annual hours worked by employed doctorate holders aged 45-54,2058.628,I,Value imputed by a receiving agency
+SWE,Sweden,PHD_HW_45_54,Average annual hours worked by employed doctorate holders aged 45-54,2049.684,I,Value imputed by a receiving agency
+TUR,Türkiye,PHD_HW_45_54,Average annual hours worked by employed doctorate holders aged 45-54,2092.376,I,Value imputed by a receiving agency
+CYP,Cyprus,PHD_HW_45_54,Average annual hours worked by employed doctorate holders aged 45-54,2155.4,I,Value imputed by a receiving agency
+CZE,Czechia,PHD_HW_35_44,Average annual hours worked by employed doctorate holders aged 35-44,2189.98,I,Value imputed by a receiving agency
+DNK,Denmark,PHD_HW_35_44,Average annual hours worked by employed doctorate holders aged 35-44,1883.856,I,Value imputed by a receiving agency
+ITA,Italy,PHD_HW_35_44,Average annual hours worked by employed doctorate holders aged 35-44,1865.864,I,Value imputed by a receiving agency
+NLD,Netherlands,PHD_HW_35_44,Average annual hours worked by employed doctorate holders aged 35-44,1918.436,I,Value imputed by a receiving agency
+NOR,Norway,PHD_HW_35_44,Average annual hours worked by employed doctorate holders aged 35-44,1912.092,I,Value imputed by a receiving agency
+CHE,Switzerland,PHD_HW_35_44,Average annual hours worked by employed doctorate holders aged 35-44,2125.604,I,Value imputed by a receiving agency
+AUT,Austria,PHD_HW_35_44,Average annual hours worked by employed doctorate holders aged 35-44,1786.2,I,Value imputed by a receiving agency
+BEL,Belgium,PHD_HW_35_44,Average annual hours worked by employed doctorate holders aged 35-44,2080.156,I,Value imputed by a receiving agency
+FIN,Finland,PHD_HW_35_44,Average annual hours worked by employed doctorate holders aged 35-44,1807.78,I,Value imputed by a receiving agency
+DEU,Germany,PHD_HW_35_44,Average annual hours worked by employed doctorate holders aged 35-44,1974.804,I,Value imputed by a receiving agency
+GRC,Greece,PHD_HW_35_44,Average annual hours worked by employed doctorate holders aged 35-44,2055.664,I,Value imputed by a receiving agency
+HUN,Hungary,PHD_HW_35_44,Average annual hours worked by employed doctorate holders aged 35-44,1992.016,I,Value imputed by a receiving agency
+ISL,Iceland,PHD_HW_35_44,Average annual hours worked by employed doctorate holders aged 35-44,2025.296,I,Value imputed by a receiving agency
+LUX,Luxembourg,PHD_HW_35_44,Average annual hours worked by employed doctorate holders aged 35-44,1877.928,I,Value imputed by a receiving agency
+POL,Poland,PHD_HW_35_44,Average annual hours worked by employed doctorate holders aged 35-44,2017.34,I,Value imputed by a receiving agency
+SWE,Sweden,PHD_HW_35_44,Average annual hours worked by employed doctorate holders aged 35-44,1969.188,I,Value imputed by a receiving agency
+TUR,Türkiye,PHD_HW_35_44,Average annual hours worked by employed doctorate holders aged 35-44,2112.76,I,Value imputed by a receiving agency
+CYP,Cyprus,PHD_HW_35_44,Average annual hours worked by employed doctorate holders aged 35-44,1860.664,I,Value imputed by a receiving agency
+CZE,Czechia,PHD_HW,Average annual hours worked by employed doctorate holders,2006.784,I,Value imputed by a receiving agency
+DNK,Denmark,PHD_HW,Average annual hours worked by employed doctorate holders,1921.816,I,Value imputed by a receiving agency
+IRL,Ireland,PHD_HW,Average annual hours worked by employed doctorate holders,1952.756,I,Value imputed by a receiving agency
+ITA,Italy,PHD_HW,Average annual hours worked by employed doctorate holders,1878.5,I,Value imputed by a receiving agency
+NLD,Netherlands,PHD_HW,Average annual hours worked by employed doctorate holders,1901.12,I,Value imputed by a receiving agency
+NOR,Norway,PHD_HW,Average annual hours worked by employed doctorate holders,2090.764,I,Value imputed by a receiving agency
+CHE,Switzerland,PHD_HW,Average annual hours worked by employed doctorate holders,2141.88,I,Value imputed by a receiving agency
+AUT,Austria,PHD_HW,Average annual hours worked by employed doctorate holders,1862.432,I,Value imputed by a receiving agency
+BEL,Belgium,PHD_HW,Average annual hours worked by employed doctorate holders,2153.736,I,Value imputed by a receiving agency
+EST,Estonia,PHD_HW,Average annual hours worked by employed doctorate holders,1954.732,I,Value imputed by a receiving agency
+FIN,Finland,PHD_HW,Average annual hours worked by employed doctorate holders,1815.476,I,Value imputed by a receiving agency
+DEU,Germany,PHD_HW,Average annual hours worked by employed doctorate holders,2075.008,I,Value imputed by a receiving agency
+GRC,Greece,PHD_HW,Average annual hours worked by employed doctorate holders,2017.444,I,Value imputed by a receiving agency
+HUN,Hungary,PHD_HW,Average annual hours worked by employed doctorate holders,2011.048,I,Value imputed by a receiving agency
+ISL,Iceland,PHD_HW,Average annual hours worked by employed doctorate holders,2032.732,I,Value imputed by a receiving agency
+LTU,Lithuania,PHD_HW,Average annual hours worked by employed doctorate holders,1938.3,I,Value imputed by a receiving agency
+LUX,Luxembourg,PHD_HW,Average annual hours worked by employed doctorate holders,1989.52,I,Value imputed by a receiving agency
+POL,Poland,PHD_HW,Average annual hours worked by employed doctorate holders,2012.66,I,Value imputed by a receiving agency
+PRT,Portugal,PHD_HW,Average annual hours worked by employed doctorate holders,2096.172,I,Value imputed by a receiving agency
+SVK,Slovak Republic,PHD_HW,Average annual hours worked by employed doctorate holders,1849.38,I,Value imputed by a receiving agency
+SVN,Slovenia,PHD_HW,Average annual hours worked by employed doctorate holders,2042.404,I,Value imputed by a receiving agency
+SWE,Sweden,PHD_HW,Average annual hours worked by employed doctorate holders,1994.98,I,Value imputed by a receiving agency
+TUR,Türkiye,PHD_HW,Average annual hours worked by employed doctorate holders,2107.56,I,Value imputed by a receiving agency
+HRV,Croatia,PHD_HW,Average annual hours worked by employed doctorate holders,2005.9,I,Value imputed by a receiving agency
+CYP,Cyprus,PHD_HW,Average annual hours worked by employed doctorate holders,1932.268,I,Value imputed by a receiving agency
+ROU,Romania,PHD_HW,Average annual hours worked by employed doctorate holders,1998.464,I,Value imputed by a receiving agency
+CZE,Czechia,MAS_HW_55_64,Average annual hours worked by employed master's degree holders aged 55-64,1969.292,I,Value imputed by a receiving agency
+DNK,Denmark,MAS_HW_55_64,Average annual hours worked by employed master's degree holders aged 55-64,1892.592,I,Value imputed by a receiving agency
+IRL,Ireland,MAS_HW_55_64,Average annual hours worked by employed master's degree holders aged 55-64,1834.664,I,Value imputed by a receiving agency
+ITA,Italy,MAS_HW_55_64,Average annual hours worked by employed master's degree holders aged 55-64,1835.964,I,Value imputed by a receiving agency
+NLD,Netherlands,MAS_HW_55_64,Average annual hours worked by employed master's degree holders aged 55-64,1726.712,I,Value imputed by a receiving agency
+NOR,Norway,MAS_HW_55_64,Average annual hours worked by employed master's degree holders aged 55-64,1910.532,I,Value imputed by a receiving agency
+CHE,Switzerland,MAS_HW_55_64,Average annual hours worked by employed master's degree holders aged 55-64,1978.6,I,Value imputed by a receiving agency
+AUT,Austria,MAS_HW_55_64,Average annual hours worked by employed master's degree holders aged 55-64,1843.66,I,Value imputed by a receiving agency
+BEL,Belgium,MAS_HW_55_64,Average annual hours worked by employed master's degree holders aged 55-64,1978.236,I,Value imputed by a receiving agency
+EST,Estonia,MAS_HW_55_64,Average annual hours worked by employed master's degree holders aged 55-64,1868.412,I,Value imputed by a receiving agency
+FIN,Finland,MAS_HW_55_64,Average annual hours worked by employed master's degree holders aged 55-64,1795.144,I,Value imputed by a receiving agency
+DEU,Germany,MAS_HW_55_64,Average annual hours worked by employed master's degree holders aged 55-64,1905.592,I,Value imputed by a receiving agency
+GRC,Greece,MAS_HW_55_64,Average annual hours worked by employed master's degree holders aged 55-64,2108.964,I,Value imputed by a receiving agency
+HUN,Hungary,MAS_HW_55_64,Average annual hours worked by employed master's degree holders aged 55-64,2014.636,I,Value imputed by a receiving agency
+ISL,Iceland,MAS_HW_55_64,Average annual hours worked by employed master's degree holders aged 55-64,1925.196,I,Value imputed by a receiving agency
+LVA,Latvia,MAS_HW_55_64,Average annual hours worked by employed master's degree holders aged 55-64,1978.704,I,Value imputed by a receiving agency
+LTU,Lithuania,MAS_HW_55_64,Average annual hours worked by employed master's degree holders aged 55-64,1929.876,I,Value imputed by a receiving agency
+LUX,Luxembourg,MAS_HW_55_64,Average annual hours worked by employed master's degree holders aged 55-64,1842.672,I,Value imputed by a receiving agency
+POL,Poland,MAS_HW_55_64,Average annual hours worked by employed master's degree holders aged 55-64,1959.88,I,Value imputed by a receiving agency
+PRT,Portugal,MAS_HW_55_64,Average annual hours worked by employed master's degree holders aged 55-64,1999.816,I,Value imputed by a receiving agency
+SVK,Slovak Republic,MAS_HW_55_64,Average annual hours worked by employed master's degree holders aged 55-64,1912.768,I,Value imputed by a receiving agency
+SVN,Slovenia,MAS_HW_55_64,Average annual hours worked by employed master's degree holders aged 55-64,1992.9,I,Value imputed by a receiving agency
+SWE,Sweden,MAS_HW_55_64,Average annual hours worked by employed master's degree holders aged 55-64,1883.908,I,Value imputed by a receiving agency
+TUR,Türkiye,MAS_HW_55_64,Average annual hours worked by employed master's degree holders aged 55-64,2045.16,I,Value imputed by a receiving agency
+BGR,Bulgaria,MAS_HW_55_64,Average annual hours worked by employed master's degree holders aged 55-64,2007.824,I,Value imputed by a receiving agency
+HRV,Croatia,MAS_HW_55_64,Average annual hours worked by employed master's degree holders aged 55-64,1943.552,I,Value imputed by a receiving agency
+CYP,Cyprus,MAS_HW_55_64,Average annual hours worked by employed master's degree holders aged 55-64,1984.424,I,Value imputed by a receiving agency
+ROU,Romania,MAS_HW_55_64,Average annual hours worked by employed master's degree holders aged 55-64,2040.948,I,Value imputed by a receiving agency
+CZE,Czechia,MAS_HW_35_44,Average annual hours worked by employed master's degree holders aged 35-44,1923.948,I,Value imputed by a receiving agency
+DNK,Denmark,MAS_HW_35_44,Average annual hours worked by employed master's degree holders aged 35-44,1860.872,I,Value imputed by a receiving agency
+IRL,Ireland,MAS_HW_35_44,Average annual hours worked by employed master's degree holders aged 35-44,1913.392,I,Value imputed by a receiving agency
+ITA,Italy,MAS_HW_35_44,Average annual hours worked by employed master's degree holders aged 35-44,1829.308,I,Value imputed by a receiving agency
+NLD,Netherlands,MAS_HW_35_44,Average annual hours worked by employed master's degree holders aged 35-44,1764.412,I,Value imputed by a receiving agency
+NOR,Norway,MAS_HW_35_44,Average annual hours worked by employed master's degree holders aged 35-44,1872.416,I,Value imputed by a receiving agency
+CHE,Switzerland,MAS_HW_35_44,Average annual hours worked by employed master's degree holders aged 35-44,1970.332,I,Value imputed by a receiving agency
+MLT,Malta,MAS_HW_35_44,Average annual hours worked by employed master's degree holders aged 35-44,1951.248,I,Value imputed by a receiving agency
+AUT,Austria,MAS_HW_35_44,Average annual hours worked by employed master's degree holders aged 35-44,1750.112,I,Value imputed by a receiving agency
+BEL,Belgium,MAS_HW_35_44,Average annual hours worked by employed master's degree holders aged 35-44,1965.6,I,Value imputed by a receiving agency
+EST,Estonia,MAS_HW_35_44,Average annual hours worked by employed master's degree holders aged 35-44,1933.724,I,Value imputed by a receiving agency
+FIN,Finland,MAS_HW_35_44,Average annual hours worked by employed master's degree holders aged 35-44,1778.088,I,Value imputed by a receiving agency
+DEU,Germany,MAS_HW_35_44,Average annual hours worked by employed master's degree holders aged 35-44,1840.28,I,Value imputed by a receiving agency
+GRC,Greece,MAS_HW_35_44,Average annual hours worked by employed master's degree holders aged 35-44,2005.276,I,Value imputed by a receiving agency
+HUN,Hungary,MAS_HW_35_44,Average annual hours worked by employed master's degree holders aged 35-44,1986.244,I,Value imputed by a receiving agency
+ISL,Iceland,MAS_HW_35_44,Average annual hours worked by employed master's degree holders aged 35-44,1883.648,I,Value imputed by a receiving agency
+LVA,Latvia,MAS_HW_35_44,Average annual hours worked by employed master's degree holders aged 35-44,1995.656,I,Value imputed by a receiving agency
+LTU,Lithuania,MAS_HW_35_44,Average annual hours worked by employed master's degree holders aged 35-44,1976.52,I,Value imputed by a receiving agency
+LUX,Luxembourg,MAS_HW_35_44,Average annual hours worked by employed master's degree holders aged 35-44,1890.252,I,Value imputed by a receiving agency
+POL,Poland,MAS_HW_35_44,Average annual hours worked by employed master's degree holders aged 35-44,2019.576,I,Value imputed by a receiving agency
+PRT,Portugal,MAS_HW_35_44,Average annual hours worked by employed master's degree holders aged 35-44,1956.136,I,Value imputed by a receiving agency
+SVK,Slovak Republic,MAS_HW_35_44,Average annual hours worked by employed master's degree holders aged 35-44,1942.148,I,Value imputed by a receiving agency
+SVN,Slovenia,MAS_HW_35_44,Average annual hours worked by employed master's degree holders aged 35-44,1989.52,I,Value imputed by a receiving agency
+SWE,Sweden,MAS_HW_35_44,Average annual hours worked by employed master's degree holders aged 35-44,1862.9,I,Value imputed by a receiving agency
+TUR,Türkiye,MAS_HW_35_44,Average annual hours worked by employed master's degree holders aged 35-44,2077.244,I,Value imputed by a receiving agency
+BGR,Bulgaria,MAS_HW_35_44,Average annual hours worked by employed master's degree holders aged 35-44,1995.344,I,Value imputed by a receiving agency
+HRV,Croatia,MAS_HW_35_44,Average annual hours worked by employed master's degree holders aged 35-44,1940.744,I,Value imputed by a receiving agency
+CYP,Cyprus,MAS_HW_35_44,Average annual hours worked by employed master's degree holders aged 35-44,1893.112,I,Value imputed by a receiving agency
+ROU,Romania,MAS_HW_35_44,Average annual hours worked by employed master's degree holders aged 35-44,2041.624,I,Value imputed by a receiving agency
+AUT,Austria,MAS_HW,Average annual hours worked by employed master's degree holders,1789.008,I,Value imputed by a receiving agency
+BEL,Belgium,MAS_HW,Average annual hours worked by employed master's degree holders,1963.208,I,Value imputed by a receiving agency
+EST,Estonia,MAS_HW,Average annual hours worked by employed master's degree holders,1902.368,I,Value imputed by a receiving agency
+FIN,Finland,MAS_HW,Average annual hours worked by employed master's degree holders,1800.708,I,Value imputed by a receiving agency
+DEU,Germany,MAS_HW,Average annual hours worked by employed master's degree holders,1881.932,I,Value imputed by a receiving agency
+GRC,Greece,MAS_HW,Average annual hours worked by employed master's degree holders,2041.26,I,Value imputed by a receiving agency
+HUN,Hungary,MAS_HW,Average annual hours worked by employed master's degree holders,2004.236,I,Value imputed by a receiving agency
+ISL,Iceland,MAS_HW,Average annual hours worked by employed master's degree holders,1896.024,I,Value imputed by a receiving agency
+LVA,Latvia,MAS_HW,Average annual hours worked by employed master's degree holders,1979.068,I,Value imputed by a receiving agency
+LTU,Lithuania,MAS_HW,Average annual hours worked by employed master's degree holders,1962.792,I,Value imputed by a receiving agency
+LUX,Luxembourg,MAS_HW,Average annual hours worked by employed master's degree holders,1923.636,I,Value imputed by a receiving agency
+POL,Poland,MAS_HW,Average annual hours worked by employed master's degree holders,2007.148,I,Value imputed by a receiving agency
+PRT,Portugal,MAS_HW,Average annual hours worked by employed master's degree holders,1991.444,I,Value imputed by a receiving agency
+SVK,Slovak Republic,MAS_HW,Average annual hours worked by employed master's degree holders,1937.988,I,Value imputed by a receiving agency
+SVN,Slovenia,MAS_HW,Average annual hours worked by employed master's degree holders,2006.992,I,Value imputed by a receiving agency
+SWE,Sweden,MAS_HW,Average annual hours worked by employed master's degree holders,1903.46,I,Value imputed by a receiving agency
+TUR,Türkiye,MAS_HW,Average annual hours worked by employed master's degree holders,2097.368,I,Value imputed by a receiving agency
+BGR,Bulgaria,MAS_HW,Average annual hours worked by employed master's degree holders,2003.716,I,Value imputed by a receiving agency
+HRV,Croatia,MAS_HW,Average annual hours worked by employed master's degree holders,1956.344,I,Value imputed by a receiving agency
+CYP,Cyprus,MAS_HW,Average annual hours worked by employed master's degree holders,1918.748,I,Value imputed by a receiving agency
+ROU,Romania,MAS_HW,Average annual hours worked by employed master's degree holders,2043.964,I,Value imputed by a receiving agency
+CZE,Czechia,MAS_HW,Average annual hours worked by employed master's degree holders,1951.664,I,Value imputed by a receiving agency
+DNK,Denmark,MAS_HW,Average annual hours worked by employed master's degree holders,1899.092,I,Value imputed by a receiving agency
+IRL,Ireland,MAS_HW,Average annual hours worked by employed master's degree holders,1911.468,I,Value imputed by a receiving agency
+ITA,Italy,MAS_HW,Average annual hours worked by employed master's degree holders,1839.708,I,Value imputed by a receiving agency
+NLD,Netherlands,MAS_HW,Average annual hours worked by employed master's degree holders,1788.54,I,Value imputed by a receiving agency
+NOR,Norway,MAS_HW,Average annual hours worked by employed master's degree holders,1895.4,I,Value imputed by a receiving agency
+CHE,Switzerland,MAS_HW,Average annual hours worked by employed master's degree holders,2019.94,I,Value imputed by a receiving agency
+MLT,Malta,MAS_HW,Average annual hours worked by employed master's degree holders,1957.956,I,Value imputed by a receiving agency
+CZE,Czechia,MAS_HW_45_54,Average annual hours worked by employed master's degree holders aged 45-54,2000.7,I,Value imputed by a receiving agency
+DNK,Denmark,MAS_HW_45_54,Average annual hours worked by employed master's degree holders aged 45-54,1947.712,I,Value imputed by a receiving agency
+IRL,Ireland,MAS_HW_45_54,Average annual hours worked by employed master's degree holders aged 45-54,1942.096,I,Value imputed by a receiving agency
+ITA,Italy,MAS_HW_45_54,Average annual hours worked by employed master's degree holders aged 45-54,1860.404,I,Value imputed by a receiving agency
+NLD,Netherlands,MAS_HW_45_54,Average annual hours worked by employed master's degree holders aged 45-54,1831.18,I,Value imputed by a receiving agency
+NOR,Norway,MAS_HW_45_54,Average annual hours worked by employed master's degree holders aged 45-54,1896.128,I,Value imputed by a receiving agency
+CHE,Switzerland,MAS_HW_45_54,Average annual hours worked by employed master's degree holders aged 45-54,2049.58,I,Value imputed by a receiving agency
+MLT,Malta,MAS_HW_45_54,Average annual hours worked by employed master's degree holders aged 45-54,2007.824,I,Value imputed by a receiving agency
+AUT,Austria,MAS_HW_45_54,Average annual hours worked by employed master's degree holders aged 45-54,1789.216,I,Value imputed by a receiving agency
+BEL,Belgium,MAS_HW_45_54,Average annual hours worked by employed master's degree holders aged 45-54,2026.804,I,Value imputed by a receiving agency
+EST,Estonia,MAS_HW_45_54,Average annual hours worked by employed master's degree holders aged 45-54,1906.684,I,Value imputed by a receiving agency
+FIN,Finland,MAS_HW_45_54,Average annual hours worked by employed master's degree holders aged 45-54,1825.668,I,Value imputed by a receiving agency
+DEU,Germany,MAS_HW_45_54,Average annual hours worked by employed master's degree holders aged 45-54,1876.992,I,Value imputed by a receiving agency
+GRC,Greece,MAS_HW_45_54,Average annual hours worked by employed master's degree holders aged 45-54,2095.34,I,Value imputed by a receiving agency
+HUN,Hungary,MAS_HW_45_54,Average annual hours worked by employed master's degree holders aged 45-54,2005.744,I,Value imputed by a receiving agency
+ISL,Iceland,MAS_HW_45_54,Average annual hours worked by employed master's degree holders aged 45-54,1952.08,I,Value imputed by a receiving agency
+LVA,Latvia,MAS_HW_45_54,Average annual hours worked by employed master's degree holders aged 45-54,1931.644,I,Value imputed by a receiving agency
+LTU,Lithuania,MAS_HW_45_54,Average annual hours worked by employed master's degree holders aged 45-54,1985.62,I,Value imputed by a receiving agency
+LUX,Luxembourg,MAS_HW_45_54,Average annual hours worked by employed master's degree holders aged 45-54,1915.836,I,Value imputed by a receiving agency
+POL,Poland,MAS_HW_45_54,Average annual hours worked by employed master's degree holders aged 45-54,2008.084,I,Value imputed by a receiving agency
+PRT,Portugal,MAS_HW_45_54,Average annual hours worked by employed master's degree holders aged 45-54,2023.476,I,Value imputed by a receiving agency
+SVK,Slovak Republic,MAS_HW_45_54,Average annual hours worked by employed master's degree holders aged 45-54,1942.824,I,Value imputed by a receiving agency
+SVN,Slovenia,MAS_HW_45_54,Average annual hours worked by employed master's degree holders aged 45-54,2042.144,I,Value imputed by a receiving agency
+SWE,Sweden,MAS_HW_45_54,Average annual hours worked by employed master's degree holders aged 45-54,1947.4,I,Value imputed by a receiving agency
+TUR,Türkiye,MAS_HW_45_54,Average annual hours worked by employed master's degree holders aged 45-54,2071.784,I,Value imputed by a receiving agency
+BGR,Bulgaria,MAS_HW_45_54,Average annual hours worked by employed master's degree holders aged 45-54,2002.104,I,Value imputed by a receiving agency
+HRV,Croatia,MAS_HW_45_54,Average annual hours worked by employed master's degree holders aged 45-54,1957.54,I,Value imputed by a receiving agency
+CYP,Cyprus,MAS_HW_45_54,Average annual hours worked by employed master's degree holders aged 45-54,1937.832,I,Value imputed by a receiving agency
+ROU,Romania,MAS_HW_45_54,Average annual hours worked by employed master's degree holders aged 45-54,2050.464,I,Value imputed by a receiving agency
+AUT,Austria,MAS_HW_25_34,Average annual hours worked by employed master's degree holders aged 25-34,1806.376,I,Value imputed by a receiving agency
+BEL,Belgium,MAS_HW_25_34,Average annual hours worked by employed master's degree holders aged 25-34,1895.452,I,Value imputed by a receiving agency
+EST,Estonia,MAS_HW_25_34,Average annual hours worked by employed master's degree holders aged 25-34,1893.268,I,Value imputed by a receiving agency
+FIN,Finland,MAS_HW_25_34,Average annual hours worked by employed master's degree holders aged 25-34,1808.04,I,Value imputed by a receiving agency
+DEU,Germany,MAS_HW_25_34,Average annual hours worked by employed master's degree holders aged 25-34,1910.22,I,Value imputed by a receiving agency
+GRC,Greece,MAS_HW_25_34,Average annual hours worked by employed master's degree holders aged 25-34,1987.18,I,Value imputed by a receiving agency
+HUN,Hungary,MAS_HW_25_34,Average annual hours worked by employed master's degree holders aged 25-34,2015.416,I,Value imputed by a receiving agency
+ISL,Iceland,MAS_HW_25_34,Average annual hours worked by employed master's degree holders aged 25-34,1839.032,I,Value imputed by a receiving agency
+LVA,Latvia,MAS_HW_25_34,Average annual hours worked by employed master's degree holders aged 25-34,2041,I,Value imputed by a receiving agency
+LTU,Lithuania,MAS_HW_25_34,Average annual hours worked by employed master's degree holders aged 25-34,1953.172,I,Value imputed by a receiving agency
+LUX,Luxembourg,MAS_HW_25_34,Average annual hours worked by employed master's degree holders aged 25-34,1985.932,I,Value imputed by a receiving agency
+POL,Poland,MAS_HW_25_34,Average annual hours worked by employed master's degree holders aged 25-34,2003.924,I,Value imputed by a receiving agency
+PRT,Portugal,MAS_HW_25_34,Average annual hours worked by employed master's degree holders aged 25-34,1986.504,I,Value imputed by a receiving agency
+SVK,Slovak Republic,MAS_HW_25_34,Average annual hours worked by employed master's degree holders aged 25-34,1941.992,I,Value imputed by a receiving agency
+SVN,Slovenia,MAS_HW_25_34,Average annual hours worked by employed master's degree holders aged 25-34,1998.88,I,Value imputed by a receiving agency
+SWE,Sweden,MAS_HW_25_34,Average annual hours worked by employed master's degree holders aged 25-34,1920.36,I,Value imputed by a receiving agency
+TUR,Türkiye,MAS_HW_25_34,Average annual hours worked by employed master's degree holders aged 25-34,2135.484,I,Value imputed by a receiving agency
+BGR,Bulgaria,MAS_HW_25_34,Average annual hours worked by employed master's degree holders aged 25-34,2015.26,I,Value imputed by a receiving agency
+HRV,Croatia,MAS_HW_25_34,Average annual hours worked by employed master's degree holders aged 25-34,1979.38,I,Value imputed by a receiving agency
+CYP,Cyprus,MAS_HW_25_34,Average annual hours worked by employed master's degree holders aged 25-34,1918.956,I,Value imputed by a receiving agency
+ROU,Romania,MAS_HW_25_34,Average annual hours worked by employed master's degree holders aged 25-34,2027.792,I,Value imputed by a receiving agency
+CZE,Czechia,MAS_HW_25_34,Average annual hours worked by employed master's degree holders aged 25-34,1915.784,I,Value imputed by a receiving agency
+DNK,Denmark,MAS_HW_25_34,Average annual hours worked by employed master's degree holders aged 25-34,1899.092,I,Value imputed by a receiving agency
+IRL,Ireland,MAS_HW_25_34,Average annual hours worked by employed master's degree holders aged 25-34,1910.844,I,Value imputed by a receiving agency
+ITA,Italy,MAS_HW_25_34,Average annual hours worked by employed master's degree holders aged 25-34,1825.668,I,Value imputed by a receiving agency
+NLD,Netherlands,MAS_HW_25_34,Average annual hours worked by employed master's degree holders aged 25-34,1811.784,I,Value imputed by a receiving agency
+NOR,Norway,MAS_HW_25_34,Average annual hours worked by employed master's degree holders aged 25-34,1912.716,I,Value imputed by a receiving agency
+CHE,Switzerland,MAS_HW_25_34,Average annual hours worked by employed master's degree holders aged 25-34,2071.784,I,Value imputed by a receiving agency
+MLT,Malta,MAS_HW_25_34,Average annual hours worked by employed master's degree holders aged 25-34,1945.372,I,Value imputed by a receiving agency
+AUT,Austria,PHD_HW_25_34,Average annual hours worked by employed doctorate holders aged 25-34,1838.46,I,Value imputed by a receiving agency
+CZE,Czechia,PHD_HW_25_34,Average annual hours worked by employed doctorate holders aged 25-34,1700.868,I,Value imputed by a receiving agency
+FIN,Finland,PHD_HW_25_34,Average annual hours worked by employed doctorate holders aged 25-34,1940.276,I,Value imputed by a receiving agency
+HUN,Hungary,PHD_HW_25_34,Average annual hours worked by employed doctorate holders aged 25-34,2054.364,I,Value imputed by a receiving agency
+IRL,Ireland,PHD_HW_25_34,Average annual hours worked by employed doctorate holders aged 25-34,1845.012,I,Value imputed by a receiving agency
+LTU,Lithuania,PHD_HW_25_34,Average annual hours worked by employed doctorate holders aged 25-34,1785.784,I,Value imputed by a receiving agency
+POL,Poland,PHD_HW_25_34,Average annual hours worked by employed doctorate holders aged 25-34,2010.112,I,Value imputed by a receiving agency
+SVN,Slovenia,PHD_HW_25_34,Average annual hours worked by employed doctorate holders aged 25-34,2042.352,I,Value imputed by a receiving agency
+CYP,Cyprus,PHD_HW_25_34,Average annual hours worked by employed doctorate holders aged 25-34,1747.668,I,Value imputed by a receiving agency
+AUT,Austria,PHD_HW_55_64,Average annual hours worked by employed doctorate holders aged 55-64,1933.204,I,Value imputed by a receiving agency
+CZE,Czechia,PHD_HW_55_64,Average annual hours worked by employed doctorate holders aged 55-64,1799.616,I,Value imputed by a receiving agency
+HUN,Hungary,PHD_HW_55_64,Average annual hours worked by employed doctorate holders aged 55-64,1952.08,I,Value imputed by a receiving agency
+IRL,Ireland,PHD_HW_55_64,Average annual hours worked by employed doctorate holders aged 55-64,1877.772,I,Value imputed by a receiving agency
+LTU,Lithuania,PHD_HW_55_64,Average annual hours worked by employed doctorate holders aged 55-64,1822.496,I,Value imputed by a receiving agency
+NOR,Norway,PHD_HW_55_64,Average annual hours worked by employed doctorate holders aged 55-64,2155.608,I,Value imputed by a receiving agency
+POL,Poland,PHD_HW_55_64,Average annual hours worked by employed doctorate holders aged 55-64,2047.552,I,Value imputed by a receiving agency
+PRT,Portugal,PHD_HW_55_64,Average annual hours worked by employed doctorate holders aged 55-64,1906.58,I,Value imputed by a receiving agency
+SVN,Slovenia,PHD_HW_55_64,Average annual hours worked by employed doctorate holders aged 55-64,2080.936,I,Value imputed by a receiving agency
+HRV,Croatia,PHD_HW_55_64,Average annual hours worked by employed doctorate holders aged 55-64,2028.208,I,Value imputed by a receiving agency
+EST,Estonia,PHD_HW_35_44,Average annual hours worked by employed doctorate holders aged 35-44,2038.816,I,Value imputed by a receiving agency
+EST,Estonia,PHD_HW_45_54,Average annual hours worked by employed doctorate holders aged 45-54,2074.644,I,Value imputed by a receiving agency
+IRL,Ireland,PHD_HW_45_54,Average annual hours worked by employed doctorate holders aged 45-54,1944.696,I,Value imputed by a receiving agency
+IRL,Ireland,PHD_HW_35_44,Average annual hours worked by employed doctorate holders aged 35-44,2093.26,I,Value imputed by a receiving agency
+LTU,Lithuania,PHD_HW_35_44,Average annual hours worked by employed doctorate holders aged 35-44,1934.244,I,Value imputed by a receiving agency
+LTU,Lithuania,PHD_HW_45_54,Average annual hours worked by employed doctorate holders aged 45-54,2070.016,I,Value imputed by a receiving agency
+NOR,Norway,PHD_HW_45_54,Average annual hours worked by employed doctorate holders aged 45-54,2321.228,I,Value imputed by a receiving agency
+PRT,Portugal,PHD_HW_35_44,Average annual hours worked by employed doctorate holders aged 35-44,1979.432,I,Value imputed by a receiving agency
+SVK,Slovak Republic,PHD_HW_35_44,Average annual hours worked by employed doctorate holders aged 35-44,1790.932,I,Value imputed by a receiving agency
+SVN,Slovenia,PHD_HW_35_44,Average annual hours worked by employed doctorate holders aged 35-44,2000.076,I,Value imputed by a receiving agency
+BGR,Bulgaria,PHD_HW,Average annual hours worked by employed doctorate holders,1954.108,I,Value imputed by a receiving agency
+HRV,Croatia,PHD_HW_45_54,Average annual hours worked by employed doctorate holders aged 45-54,1983.748,I,Value imputed by a receiving agency
+HRV,Croatia,PHD_HW_35_44,Average annual hours worked by employed doctorate holders aged 35-44,2077.816,I,Value imputed by a receiving agency
+MLT,Malta,MAS_HW_55_64,Average annual hours worked by employed master's degree holders aged 55-64,1940.588,I,Value imputed by a receiving agency
+MLT,Malta,PHD_HW,Average annual hours worked by employed doctorate holders,2027.48,I,Value imputed by a receiving agency
+EST,Estonia,PHD_HW_55_64,Average annual hours worked by employed doctorate holders aged 55-64,NA,Q,Missing value; suppressed
+ISL,Iceland,PHD_HW_45_54,Average annual hours worked by employed doctorate holders aged 45-54,NA,Q,Missing value; suppressed
+LVA,Latvia,PHD_HW_55_64,Average annual hours worked by employed doctorate holders aged 55-64,NA,Q,Missing value; suppressed
+LVA,Latvia,PHD_HW,Average annual hours worked by employed doctorate holders,NA,Q,Missing value; suppressed
+LVA,Latvia,PHD_HW_35_44,Average annual hours worked by employed doctorate holders aged 35-44,NA,Q,Missing value; suppressed
+SVK,Slovak Republic,PHD_HW_55_64,Average annual hours worked by employed doctorate holders aged 55-64,NA,Q,Missing value; suppressed
+SVK,Slovak Republic,PHD_HW_45_54,Average annual hours worked by employed doctorate holders aged 45-54,NA,Q,Missing value; suppressed
+BGR,Bulgaria,PHD_HW_55_64,Average annual hours worked by employed doctorate holders aged 55-64,NA,Q,Missing value; suppressed
+CYP,Cyprus,PHD_HW_55_64,Average annual hours worked by employed doctorate holders aged 55-64,NA,Q,Missing value; suppressed
+MLT,Malta,PHD_HW_45_54,Average annual hours worked by employed doctorate holders aged 45-54,NA,Q,Missing value; suppressed
+MLT,Malta,PHD_HW_35_44,Average annual hours worked by employed doctorate holders aged 35-44,NA,Q,Missing value; suppressed
+MLT,Malta,PHD_HW_55_64,Average annual hours worked by employed doctorate holders aged 55-64,NA,Q,Missing value; suppressed
+ROU,Romania,PHD_HW_35_44,Average annual hours worked by employed doctorate holders aged 35-44,NA,Q,Missing value; suppressed
+GRC,Greece,PHD_HW_25_34,Average annual hours worked by employed doctorate holders aged 25-34,NA,Q,Missing value; suppressed
+NOR,Norway,PHD_HW_25_34,Average annual hours worked by employed doctorate holders aged 25-34,NA,Q,Missing value; suppressed
+PRT,Portugal,PHD_HW_25_34,Average annual hours worked by employed doctorate holders aged 25-34,NA,Q,Missing value; suppressed
+SVK,Slovak Republic,PHD_HW_25_34,Average annual hours worked by employed doctorate holders aged 25-34,NA,Q,Missing value; suppressed
+HRV,Croatia,PHD_HW_25_34,Average annual hours worked by employed doctorate holders aged 25-34,NA,Q,Missing value; suppressed
+MLT,Malta,PHD_HW_25_34,Average annual hours worked by employed doctorate holders aged 25-34,NA,Q,Missing value; suppressed
+ESP,Spain,PHD_TOC_PERMXPHD_TOC,"Doctorate holders in indefinite contracts, % of employees with a doctorate",82.87962243,D,Definition differs
+ESP,Spain,MAS_TOC_PERMXMAS_TOC,"Master's degree holders in indefinite contracts, % of employees with a master's degree",82.8172981,D,Definition differs
+ESP,Spain,MAS_TOC_PERM_45_54XMAS_TOC_45_54,"Master's degree holders aged 45-54 in indefinite contracts, % of employees with a master's degree aged 45-54",88.07726686,D,Definition differs
+ESP,Spain,MAS_TOC_PERM_35_44XMAS_TOC_35_44,"Master's degree holders aged 35-44 in indefinite contracts, % of employees with a master's degree aged 35-44",85.55435338,D,Definition differs
+ESP,Spain,MAS_TOC_PERM_55_64XMAS_TOC_55_64,"Master's degree holders aged 55-64 in indefinite contracts, % of employees with a master's degree aged 55-64",92.07930676,D,Definition differs
+ESP,Spain,MAS_TOC_PERM_25_34XMAS_TOC_25_34,"Master's degree holders aged 25-34 in indefinite contracts, % of employees with a master's degree aged 25-34",65.11236422,D,Definition differs
+FRA,France,PHD_TOC_PERM_25_34XPHD_TOC_25_34,"Doctorate holders aged 25-34 in indefinite contracts, % of employees with a doctorate aged 25-34",69.09496868,D,Definition differs
+FRA,France,PHD_TOC_PERM_45_54XPHD_TOC_45_54,"Doctorate holders aged 45-54 in indefinite contracts, % of employees with a doctorate aged 45-54",96.53265778,D,Definition differs
+FRA,France,PHD_TOC_PERMXPHD_TOC,"Doctorate holders in indefinite contracts, % of employees with a doctorate",91.1404149,D,Definition differs
+FRA,France,PHD_TOC_PERM_35_44XPHD_TOC_35_44,"Doctorate holders aged 35-44 in indefinite contracts, % of employees with a doctorate aged 35-44",93.77215621,D,Definition differs
+FRA,France,PHD_TOC_PERM_55_64XPHD_TOC_55_64,"Doctorate holders aged 55-64 in indefinite contracts, % of employees with a doctorate aged 55-64",96.51175373,D,Definition differs
+FRA,France,MAS_TOC_PERMXMAS_TOC,"Master's degree holders in indefinite contracts, % of employees with a master's degree",90.21630498,D,Definition differs
+FRA,France,MAS_TOC_PERM_55_64XMAS_TOC_55_64,"Master's degree holders aged 55-64 in indefinite contracts, % of employees with a master's degree aged 55-64",94.7426015,D,Definition differs
+FRA,France,MAS_TOC_PERM_25_34XMAS_TOC_25_34,"Master's degree holders aged 25-34 in indefinite contracts, % of employees with a master's degree aged 25-34",84.88220145,D,Definition differs
+FRA,France,MAS_TOC_PERM_35_44XMAS_TOC_35_44,"Master's degree holders aged 35-44 in indefinite contracts, % of employees with a master's degree aged 35-44",92.66783866,D,Definition differs
+FRA,France,MAS_TOC_PERM_45_54XMAS_TOC_45_54,"Master's degree holders aged 45-54 in indefinite contracts, % of employees with a master's degree aged 45-54",95.28304154,D,Definition differs
+FRA,France,MAS_HW,Average annual hours worked by employed master's degree holders,2025.088,D,Definition differs
+FRA,France,MAS_HW_55_64,Average annual hours worked by employed master's degree holders aged 55-64,2125.656,D,Definition differs
+FRA,France,PHD_HW_35_44,Average annual hours worked by employed doctorate holders aged 35-44,1997.216,D,Definition differs
+FRA,France,MAS_HW_35_44,Average annual hours worked by employed master's degree holders aged 35-44,2052.648,D,Definition differs
+FRA,France,PHD_HW_55_64,Average annual hours worked by employed doctorate holders aged 55-64,1906.476,D,Definition differs
+FRA,France,PHD_HW_25_34,Average annual hours worked by employed doctorate holders aged 25-34,1876.94,D,Definition differs
+FRA,France,MAS_HW_45_54,Average annual hours worked by employed master's degree holders aged 45-54,2091.232,D,Definition differs
+FRA,France,PHD_HW,Average annual hours worked by employed doctorate holders,1959.568,D,Definition differs
+FRA,France,MAS_HW_25_34,Average annual hours worked by employed master's degree holders aged 25-34,1936.168,D,Definition differs
+FRA,France,PHD_HW_45_54,Average annual hours worked by employed doctorate holders aged 45-54,2011.828,D,Definition differs
+ESP,Spain,PHD_HW_35_44,Average annual hours worked by employed doctorate holders aged 35-44,1965.548,D,Definition differs
+ESP,Spain,PHD_HW_25_34,Average annual hours worked by employed doctorate holders aged 25-34,1615.588,D,Definition differs
+ESP,Spain,PHD_HW,Average annual hours worked by employed doctorate holders,1966.744,D,Definition differs
+ESP,Spain,MAS_HW_25_34,Average annual hours worked by employed master's degree holders aged 25-34,1882.036,D,Definition differs
+ESP,Spain,PHD_HW_45_54,Average annual hours worked by employed doctorate holders aged 45-54,2021.344,D,Definition differs
+ESP,Spain,PHD_HW_55_64,Average annual hours worked by employed doctorate holders aged 55-64,1998.308,D,Definition differs
+ESP,Spain,MAS_HW_35_44,Average annual hours worked by employed master's degree holders aged 35-44,1916.772,D,Definition differs
+ESP,Spain,MAS_HW_55_64,Average annual hours worked by employed master's degree holders aged 55-64,1940.432,D,Definition differs
+ESP,Spain,MAS_HW_45_54,Average annual hours worked by employed master's degree holders aged 45-54,1943.552,D,Definition differs
+ESP,Spain,MAS_HW,Average annual hours worked by employed master's degree holders,1922.284,D,Definition differs
+BRA,Brazil,MAS_EARNY_45_54,Average gross yearly earnings of employed master's degree holders aged 45-54,82091.72142,B,Time series break
+BRA,Brazil,MAS_EARNY,Average gross yearly earnings of employed master's degree holders,64942.35116,B,Time series break
+BRA,Brazil,MAS_EARNY_55_64,Average gross yearly earnings of employed master's degree holders aged 55-64,83129.90186,B,Time series break
+ITA,Italy,PHD_HW_25_34,Average annual hours worked by employed doctorate holders aged 25-34,1919.32,I,Value imputed by a receiving agency
+ITA,Italy,MAS_EARNY_35_44,Average gross yearly earnings of employed master's degree holders aged 35-44,58243.87452,I,Value imputed by a receiving agency
+ITA,Italy,PHD_EARNY_45_54,Average gross yearly earnings of employed doctorate holders aged 45-54,75559.45893,I,Value imputed by a receiving agency
+ITA,Italy,MAS_EARNY_45_54,Average gross yearly earnings of employed master's degree holders aged 45-54,69023.02706,I,Value imputed by a receiving agency
+ITA,Italy,MAS_HW_25_34,Average annual hours worked by employed master's degree holders aged 25-34,1842.88,I,Value imputed by a receiving agency
+ITA,Italy,PHD_EARNY_25_34,Average gross yearly earnings of employed doctorate holders aged 25-34,47647.70282,I,Value imputed by a receiving agency
+ITA,Italy,PHD_HW_55_64,Average annual hours worked by employed doctorate holders aged 55-64,1931.8,I,Value imputed by a receiving agency
+ITA,Italy,PHD_EARNY_55_64,Average gross yearly earnings of employed doctorate holders aged 55-64,87479.01641,I,Value imputed by a receiving agency
+ITA,Italy,MAS_HW,Average annual hours worked by employed master's degree holders,1853.8,I,Value imputed by a receiving agency
+ITA,Italy,MAS_HW_45_54,Average annual hours worked by employed master's degree holders aged 45-54,1872,I,Value imputed by a receiving agency
+ITA,Italy,MAS_HW_35_44,Average annual hours worked by employed master's degree holders aged 35-44,1842.36,I,Value imputed by a receiving agency
+ITA,Italy,PHD_HW_35_44,Average annual hours worked by employed doctorate holders aged 35-44,1891.76,I,Value imputed by a receiving agency
+ITA,Italy,PHD_HW_45_54,Average annual hours worked by employed doctorate holders aged 45-54,1882.92,I,Value imputed by a receiving agency
+ITA,Italy,MAS_HW_55_64,Average annual hours worked by employed master's degree holders aged 55-64,1851.2,I,Value imputed by a receiving agency
+ITA,Italy,MAS_EARNY,Average gross yearly earnings of employed master's degree holders,62855.2825,I,Value imputed by a receiving agency
+ITA,Italy,PHD_HW,Average annual hours worked by employed doctorate holders,1898.52,I,Value imputed by a receiving agency
+ITA,Italy,MAS_EARNY_25_34,Average gross yearly earnings of employed master's degree holders aged 25-34,44783.06231,I,Value imputed by a receiving agency
+ITA,Italy,MAS_EARNY_55_64,Average gross yearly earnings of employed master's degree holders aged 55-64,80594.24861,I,Value imputed by a receiving agency
+ITA,Italy,PHD_EARNY,Average gross yearly earnings of employed doctorate holders,70566.46229,I,Value imputed by a receiving agency
+ITA,Italy,PHD_EARNY_35_44,Average gross yearly earnings of employed doctorate holders aged 35-44,64790.84551,I,Value imputed by a receiving agency
+DNK,Denmark,PHD_HW_45_54,Average annual hours worked by employed doctorate holders aged 45-54,1714,D,Definition differs
+DNK,Denmark,MAS_HW,Average annual hours worked by employed master's degree holders,1599,D,Definition differs
+DNK,Denmark,MAS_HW_55_64,Average annual hours worked by employed master's degree holders aged 55-64,1687,D,Definition differs
+DNK,Denmark,MAS_HW_35_44,Average annual hours worked by employed master's degree holders aged 35-44,1612,D,Definition differs
+DNK,Denmark,PHD_HW,Average annual hours worked by employed doctorate holders,1657,D,Definition differs
+DNK,Denmark,MAS_HW_45_54,Average annual hours worked by employed master's degree holders aged 45-54,1687,D,Definition differs
+DNK,Denmark,PHD_HW_25_34,Average annual hours worked by employed doctorate holders aged 25-34,1549,D,Definition differs
+DNK,Denmark,PHD_HW_55_64,Average annual hours worked by employed doctorate holders aged 55-64,1722,D,Definition differs
+DNK,Denmark,PHD_HW_35_44,Average annual hours worked by employed doctorate holders aged 35-44,1631,D,Definition differs
+DNK,Denmark,MAS_HW_25_34,Average annual hours worked by employed master's degree holders aged 25-34,1504,D,Definition differs
+IRL,Ireland,MAS_EARNY,Average gross yearly earnings of employed master's degree holders,63915.12435,A,Normal value
+IRL,Ireland,PHD_EARNY_45_54,Average gross yearly earnings of employed doctorate holders aged 45-54,101507.7844,A,Normal value
+IRL,Ireland,MAS_EARNY_45_54,Average gross yearly earnings of employed master's degree holders aged 45-54,76291.59411,A,Normal value
+IRL,Ireland,PHD_EARNY_55_64,Average gross yearly earnings of employed doctorate holders aged 55-64,104892.8212,A,Normal value
+IRL,Ireland,PHD_EARNY,Average gross yearly earnings of employed doctorate holders,85993.75111,A,Normal value
+IRL,Ireland,MAS_EARNY_25_34,Average gross yearly earnings of employed master's degree holders aged 25-34,54530.27138,A,Normal value
+IRL,Ireland,PHD_EARNY_25_34,Average gross yearly earnings of employed doctorate holders aged 25-34,59707.18187,A,Normal value
+IRL,Ireland,MAS_EARNY_35_44,Average gross yearly earnings of employed master's degree holders aged 35-44,67666.30489,A,Normal value
+IRL,Ireland,PHD_EARNY_35_44,Average gross yearly earnings of employed doctorate holders aged 35-44,82139.87729,A,Normal value
+IRL,Ireland,MAS_EARNY_55_64,Average gross yearly earnings of employed master's degree holders aged 55-64,73629.17482,A,Normal value
+BRA,Brazil,PHD_HW_45_54,Average annual hours worked by employed doctorate holders aged 45-54,2107.214615,B,Time series break
+BRA,Brazil,PHD_HW_25_34,Average annual hours worked by employed doctorate holders aged 25-34,2301.257143,B,Time series break
+BRA,Brazil,MAS_HW_35_44,Average annual hours worked by employed master's degree holders aged 35-44,2236.729721,B,Time series break
+BRA,Brazil,MAS_HW_55_64,Average annual hours worked by employed master's degree holders aged 55-64,2056.682107,B,Time series break
+BRA,Brazil,MAS_HW_45_54,Average annual hours worked by employed master's degree holders aged 45-54,2186.838729,B,Time series break
+BRA,Brazil,MAS_HW_25_34,Average annual hours worked by employed master's degree holders aged 25-34,2351.870235,B,Time series break
+BRA,Brazil,PHD_EARNY_45_54,Average gross yearly earnings of employed doctorate holders aged 45-54,94569.85934,B,Time series break
+BRA,Brazil,PHD_HW_55_64,Average annual hours worked by employed doctorate holders aged 55-64,2045.35962,B,Time series break
+BRA,Brazil,MAS_HW,Average annual hours worked by employed master's degree holders,2237.399626,B,Time series break
+BRA,Brazil,PHD_EARNY,Average gross yearly earnings of employed doctorate holders,82375.04415,B,Time series break
+BRA,Brazil,PHD_EARNY_55_64,Average gross yearly earnings of employed doctorate holders aged 55-64,104021.4658,B,Time series break
+BRA,Brazil,PHD_HW_35_44,Average annual hours worked by employed doctorate holders aged 35-44,2141.593377,B,Time series break
+BRA,Brazil,PHD_HW,Average annual hours worked by employed doctorate holders,2130.44306,B,Time series break
