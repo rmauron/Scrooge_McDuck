@@ -15,9 +15,9 @@ Head to the **[analysis 1](analysis_1.qmd)** for the figures and a summary table
 
 Head to the **[analysis 2](analysis_2.qmd)** for the figures and a summary table.
 
-Head to the **[analysis 2](analysis_2.qmd)** for the figures and a summary table.
+Head to the **[analysis 3](analysis_3.qmd)** for the figures and a summary table.
 
-Head to the **[analysis 2](analysis_2.qmd)** for the figures and a summary table.
+Head to the **[analysis 4](analysis_4.qmd)** for the figures and a summary table.
 
 
 > This folder is your starting point for the Day-2 lab: four pages that render on their own but are
