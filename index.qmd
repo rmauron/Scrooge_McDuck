@@ -1,8 +1,8 @@
 ---
 title: "Scrooge McDuck"
 listing:
-  id: analysis_1
-  contents: analysis_1
+  id: analyses
+  contents: analysis_*.qmd
   type: table
   fields: [title, description]
   sort: title
