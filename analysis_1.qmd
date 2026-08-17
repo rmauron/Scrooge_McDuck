@@ -2,6 +2,59 @@
 title: "Analysis 1"
 ---
 
+“Does age pay? Earnings, job security and working hours among Master’s and Doctorate holders across countries.”
+
+Analysis of age-related data.
+Clean data first.
+We restricted the analysis to observations classified by OECD as normal values (OBS_STATUS_1 = "A"). When two normal observations were available for the same country, year and indicator, we used their arithmetic mean and flagged these cases for sensitivity analysis.
+
+```{r}
+#| label: setup
+#| message: false
+#| cache: true
+
+library(tidyverse)
+dat <- read_csv("./Scrooge_McDuck/filtered_reICO_data.csv")
+head(dat)
+colnames(dat)
+
+library(tidyverse)
+
+
+# Keep only age-specific variables
+age_data <- dat %>%
+  filter(
+    str_detect(
+      Indicator,
+      "aged 25-34|aged 35-44|aged 45-54|aged 55-64"
+    )
+  )
+
+# Keep observations classified as "Normal value"
+age_normal <- age_data %>%
+  filter(OBS_STATUS_1 == "A")
+
+#Coerce duplications into a mean
+age_normal_check <- age_normal %>%
+  group_by(REF_AREA, `Reference area`, VAR, Indicator) %>%
+  summarise(
+    n_values = n(),
+    value_min = min(OBS_VALUE),
+    value_max = max(OBS_VALUE),
+    value_mean = mean(OBS_VALUE),
+    difference = value_max - value_min,
+    pct_difference =
+      100 * difference / value_mean,
+    .groups = "drop"
+  )
+
+# Change column names to human readable
+age_normal_check %>% 
+    rename(Country = "Reference area", )
+
+
+```
+
 ```{r}
 #| label: setup
 #| message: false
