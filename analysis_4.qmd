@@ -1,6 +1,17 @@
 ---
-title: "Analysis 1"
+title: "Analysis 4"
+author: Raphaël Mauron
+date: today
+
 ---
+
+# Interactive map
+
+Here, we can use an interactive map to visualize the input data and some of the results.
+
+## Load, explore and prepare the data
+
+First we need to load and make sure of what we have as data.
 
 ```{r}
 #| label: setup
@@ -9,8 +20,133 @@ title: "Analysis 1"
 library(dplyr)
 library(ggplot2)
 library(ggokabeito)   # color-blind-safe (Okabe-Ito) scale
-
+library(tidyverse)
+library(readr)
 ```
+
+
+### Load data as a tibble
+
+```{r}
+#| label: load data
+#| message: false
+
+data_table <- read_csv("./filtered_reICO_data.csv")
+
+class(data_table)
+head(data_table)
+colnames(data_table)
+```
+
+
+#### some exploration
+
+```{r}
+unique(data_table$OBS_STATUS_1)
+range(data_table$OBS_VALUE)
+unique(data_table$Indicator)
+```
+
+
+## Pivot wider and reformat
+So education lvl, age groups, different percentages, working hours, etc. are a separate column.
+Reminder, wide format is best for exploration and statistics. Long format is for plotting.
+
+```{r}
+#| label: wrangle
+#| message: false
+
+# VAR is a structured code: "<numerator>X<denominator>" for shares, or a plain
+# code for levels. The numerator encodes education, measure and age band, e.g.
+#   PHD_TOC_PERM_35_44XPHD_TOC_35_44   MAS_EARNY_25_34   TOTWB_HAPPY_GESMTXTOTWB
+measure_labels <- c(
+  "_TOC_PERM"        = "pct_permanent_contract",
+  "_HW"              = "hours_worked",
+  "_EARNY"           = "earnings_gross_yearly",
+  "_HAPPY_GESMT"     = "pct_happy",
+  "_FINS_MEDHIGH"    = "pct_satisfied_finances",
+  "_TIMEUSE_MEDHIGH" = "pct_satisfied_leisure"
+)
+
+# Observed values first, then caveated, then imputed. Q is always a missing value.
+status_priority <- c("A", "B", "D", "U", "V", "I", "Q")
+
+data_long <- data_table |>
+  mutate(
+    num_code  = str_remove(VAR, "X.*$"),
+    core_code = num_code |>
+      str_remove("^(TOT|MAS|PHD)(WB)?") |>
+      str_remove("_\\d{2}_\\d{2}$"),
+    education = factor(str_extract(num_code, "^(TOT|MAS|PHD)"),
+                       levels = c("TOT", "MAS", "PHD"),
+                       labels = c("Total population", "Master's", "Doctorate")),
+    age_group = num_code |>
+      str_extract("\\d{2}_\\d{2}") |>
+      str_replace("_", "-") |>
+      replace_na("All ages") |>
+      factor(levels = c("All ages", "25-34", "35-44", "45-54", "55-64")),
+    measure   = unname(measure_labels[core_code])
+  )
+
+# Fail loud if a VAR code ever stops matching the pattern above.
+stopifnot(!anyNA(data_long$education), !anyNA(data_long$age_group),
+          !anyNA(data_long$measure))
+
+# 154 country x VAR pairs appear 2-3 times under different observation statuses.
+# Keep the best-status rows, then average whatever is still tied.
+data_long <- data_long |>
+  mutate(status_rank = match(OBS_STATUS_1, status_priority)) |>
+  slice_min(status_rank, by = c(REF_AREA, VAR), with_ties = TRUE) |>
+  summarise(
+    value    = if (all(is.na(OBS_VALUE))) NA_real_ else mean(OBS_VALUE, na.rm = TRUE),
+    n_source = n(),
+    .by = c(REF_AREA, `Reference area`, VAR, Indicator,
+            education, age_group, measure, `Observation status`)
+  ) |>
+  rename(iso3 = REF_AREA, country = `Reference area`, status = `Observation status`) |>
+  arrange(country, education, age_group, measure)
+
+# One row per country x education x age band, one column per measure.
+data_wide <- data_long |>
+  select(iso3, country, education, age_group, measure, value) |>
+  pivot_wider(names_from = measure, values_from = value) |>
+  arrange(country, education, age_group)
+
+# Correct the country name for Turkey since was encoded as latin1, and now back to UTF-8
+data_wide <- data_wide |> mutate(country = if_else(iso3 == "TUR", "Türkiye", country))
+
+# The original Indicator text cannot be a column in the wide table (each row
+# spans up to 6 indicators), so keep it as a lookup for axis labels / tooltips.
+indicator_dict <- data_long |>
+  distinct(education, age_group, measure, VAR, Indicator)
+```
+
+
+Check data_wide briefly
+
+```{r}
+head(data_wide)
+
+range(data_wide$earnings_gross_yearly, na.rm = TRUE)
+unique(data_wide$age_group)
+unique(data_wide$country)
+```
+
+
+### Save data_wide as new csv
+
+```{r}
+write_csv(data_wide, file = "./data_wide.csv")
+```
+
+
+### Load the new formated data
+
+```{r}
+data_wide <- read_csv("./data_wide.csv")
+glimpse(data_wide)
+```
+
 
 
 ```{r}
