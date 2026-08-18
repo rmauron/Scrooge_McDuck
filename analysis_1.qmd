@@ -140,8 +140,6 @@ age_tidy %>%
   filter(n > 1)
 ```
 
-If you wish to explore, how the data was distributed across countries, you can check that from @tbl-plot1. As you can see, the data was very unevenly distributed.
-
 
 ::: {.callout-note}
 ### Note on uneven data distribution
@@ -233,7 +231,7 @@ plot1_summary
 
 ```{r}
 #| label: tbl-plot1
-#| tbl-cap: "Number of countries available for analysis."
+#| tbl-cap: "Number of countries (N) available for analysis."
 #| column: margin
 #| echo: false
 plot1_summary %>%
@@ -243,7 +241,7 @@ plot1_summary %>%
       "Degree",
       "Outcome",
       "Age group",
-      "Number of countries"
+      "N"
     )
   )
 ```
