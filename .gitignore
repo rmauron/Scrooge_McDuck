@@ -10,3 +10,17 @@
 *_cache
 .Rprofile
 /renv/
+
+# Assembled input directory for the shinylive export (app.R + data copies).
+# Quarto never needs to see this one.
+/shinyMapApp/
+
+# 67 MB of webR + wasm build output, 189 files, rebuilt by export_shinylive.R.
+# Never commit it.
+#
+# One thing to know if the app frame in analysis_4.html ever renders blank after
+# a clean render: check whether Quarto has stopped copying this directory into
+# _site/ *because* it is gitignored. If so, move this entry to .git/info/exclude,
+# which git honours and Quarto does not read. The blank frame already debugged
+# here was a pre-render ordering problem, not this.
+/shinylive_app/
