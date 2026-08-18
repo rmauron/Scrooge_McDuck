@@ -1,24 +1,29 @@
 ---
-title: "Analysis 1"
+title: "Does age pay?"
+subtitle: "Earnings, job security and working hours among Master’s and Doctorate holders across countries."
+
+format:
+  html:
+    code-fold: true
 ---
 
-“Does age pay? Earnings, job security and working hours among Master’s and Doctorate holders across countries.”
+This is the analysis of age-related data in the OECD reICO dataset. It was used to figure out, if earnings, working hours and the rate of indefinite contracts depends on the age group, the academic degree (master vs doctorate) or on the country.
 
-Analysis of age-related data.
-Clean data first.
-We restricted the analysis to observations classified by OECD as normal values (OBS_STATUS_1 = "A"). When two normal observations were available for the same country, year and indicator, we used their arithmetic mean and flagged these cases for sensitivity analysis.
+If you wish to learn, how the data was tidied and filtered for the outputs on this page, feel free to explore the code below:
+
 
 ```{r}
 #| label: setup
 #| message: false
-#| cache: true
+#| cache: false
+#| output: false
+
+#We restricted the analysis to observations classified by OECD as normal values (OBS_STATUS_1 = "A"). When two normal observations were available for the same country, year and indicator, we used their arithmetic mean and flagged these cases for sensitivity analysis.
 
 library(tidyverse)
-dat <- read_csv("./Scrooge_McDuck/filtered_reICO_data.csv")
+dat <- read_csv("filtered_reICO_data.csv")
 head(dat)
 colnames(dat)
-
-library(tidyverse)
 
 
 # Keep only age-specific variables
@@ -135,19 +140,24 @@ age_tidy %>%
   filter(n > 1)
 ```
 
-Idea: an interactive table displaying numbers per group.
+If you wish to explore, how the data was distributed across countries, you can check that from @tbl-plot1. As you can see, the data was very unevenly distributed.
 
+
+::: {.callout-note}
+### Note on uneven data distribution
+The analysis results are based on a survey carried out in many countries across the world. Unfortunately, the responses are very unevenly distributed between countries. You can explore this further in @tbl-plot1. 
+:::
+
+### Question 1
+How do earnings, working hours, and job security change with age? Are the patterns different for Master’s and Doctorate holders?
+
+First, we need to tidy the data a bit more. If you wish to see, how this was done, follow the plot below.
 ```{r}
-age_tidy
-```
+#| label: plot1_setup
+#| message: false
+#| cache: false
+#| output: false
 
-
-PLOTTING
-
-Plot 1
-How do earnings, working hours, and job security differ across age groups, and are the patterns different for Master’s and Doctorate holders?
-
-```{r}
 #Only use consistent data
 plot1_data <- age_tidy %>%
   filter(
@@ -218,6 +228,40 @@ plot1_summary <- plot1_data %>%
 #inspect
 plot1_summary
 
+
+```
+
+```{r}
+#| label: tbl-plot1
+#| tbl-cap: "Number of countries available for analysis."
+#| column: margin
+#| echo: false
+plot1_summary %>%
+  select(degree, outcome, age_group, n_countries)%>%
+  knitr::kable(
+    col.names = c(
+      "Degree",
+      "Outcome",
+      "Age group",
+      "Number of countries"
+    )
+  )
+```
+
+And now we can visualize the data to answer the first question. First, we look at the change in the annual working ours, earnings and indefinite contracts as a median across all countries.  
+```{r}
+#| label: fig-plot1
+#| fig-cap: "Labour-market outcomes in age groups"
+#| fig-alt: >-
+#|   Line plots depicting percentage change in outcomes relative to the youngest age group (25-34 years). 
+#| message: false
+#| cache: false
+#| output: true
+
+
+#Plotting
+library(ggplot2)
+
 #Prepare facets
 plot1_summary <- plot1_summary %>%
   mutate(
@@ -233,8 +277,6 @@ plot1_summary <- plot1_summary %>%
     )
   )
 
-#Plot
-library(ggplot2)
 
 ggplot(
   plot1_summary,
@@ -284,13 +326,14 @@ ggplot(
 
 ```
 
-What can we learn from here?
-- Working hours do not change much during the course of the career, except for master´s degree holders, who tend to work 4% less at later ages (55-64 years).
-- Doctorate degree holders are more likely to be hired with indefinite contracts at the later stages of their career.
-- Earnings differ only in the later stages of life - from 45-54 years higher pay is evident for doctorate degree holders. 
+What can we learn from here? As you can see from @fig-plot1, 
+
+* Working hours do not change much during the course of the career, except for master´s degree holders, who tend to work 4% less at later ages (55-64 years).
+* Doctorate degree holders are more likely to be hired with indefinite contracts at the later stages of their career.
+* Earnings differ only in the later stages of life - from 45-54 years higher pay is evident for doctorate degree holders. 
 
 
-PLOT2
+### Question 2
 Does the age–earnings pattern depend on the country?
 
 ```{r}
@@ -572,7 +615,7 @@ ggplot(
 
 
 ```{r}
-#| label: setup
+#| label: setup1
 #| message: false
 #| cache: true
 library(dplyr)
