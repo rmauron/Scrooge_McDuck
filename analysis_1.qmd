@@ -48,11 +48,91 @@ age_normal_check <- age_normal %>%
     .groups = "drop"
   )
 
-# Change column names to human readable
-age_normal_check %>% 
-    rename(Country = "Reference area", )
 
+#Create tidy table
+age_tidy <- age_normal_check %>%
+  mutate(
+    
+    # Degree
+    degree = case_when(
+      str_starts(VAR, "MAS") ~ "Master",
+      str_starts(VAR, "PHD") ~ "Doctorate",
+      TRUE ~ NA_character_
+    ),
+    
+    # Age group
+    age_group = case_when(
+      str_detect(VAR, "25_34") ~ "25-34",
+      str_detect(VAR, "35_44") ~ "35-44",
+      str_detect(VAR, "45_54") ~ "45-54",
+      str_detect(VAR, "55_64") ~ "55-64",
+      TRUE ~ NA_character_
+    ),
+    
+    # Outcome
+    outcome = case_when(
+      str_detect(VAR, "EARNY") ~ "Earnings",
+      str_detect(VAR, "_HW")   ~ "Annual hours",
+      str_detect(VAR, "PERM")  ~ "Indefinite contract",
+      TRUE ~ NA_character_
+    ),
+    
+    # Put age groups in logical order
+    age_group = factor(
+      age_group,
+      levels = c("25-34", "35-44", "45-54", "55-64"),
+      ordered = TRUE
+    ),
+    
+    # Put degree categories in logical order
+    degree = factor(
+      degree,
+      levels = c("Master", "Doctorate")
+    ),
+    
+    # Flag cases where more than one normal value was averaged
+    duplicate_normal = n_values > 1
+  ) %>%
+  
+  select(
+    country_code = REF_AREA,
+    country = `Reference area`,
+    degree,
+    age_group,
+    outcome,
+    value = value_mean,
+    duplicate_normal,
+    n_normal_values = n_values,
+    value_min,
+    value_max,
+    difference,
+    pct_difference,
+    VAR
+  ) %>%
+  
+  arrange(
+    country,
+    degree,
+    outcome,
+    age_group
+  )
 
+#Check that all variables got converted and no NA values exist
+age_tidy %>%
+  filter(
+    is.na(degree) |
+    is.na(age_group) |
+    is.na(outcome)
+  )
+
+#Inspect coverage
+age_tidy %>%
+  count(degree, outcome, age_group)
+
+#Check that no duplicate values remain
+age_tidy %>%
+  count(country, degree, age_group, outcome) %>%
+  filter(n > 1)
 ```
 
 ```{r}
