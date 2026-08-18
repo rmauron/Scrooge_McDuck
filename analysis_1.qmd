@@ -334,9 +334,14 @@ What can we learn from here? As you can see from @fig-plot1,
 
 
 ### Question 2
-Does the age–earnings pattern depend on the country?
+Does the age–earnings pattern depend on the country of residence?
+For this analysis, we selected countries with all datapoints available. If you wish to see, how we did this, check out the code below:
 
 ```{r}
+#| label: plot2_setup
+#| message: false
+#| cache: false
+#| output: false
 #Find countries with 4 age groups for both MSc and PhD
 balanced_countries <- age_tidy %>%
   filter(
@@ -356,15 +361,8 @@ balanced_countries <- age_tidy %>%
   # Now check whether BOTH degrees are complete
   count(country, name = "n_degrees") %>%
   filter(n_degrees == 2) %>%
-  
   pull(country)
 
-
-#Look, what remained
-balanced_countries
-length(balanced_countries)
-print(paste0("Only ", length(balanced_countries), 
-" remain, including ", paste(balanced_countries, collapse = ", "),"."))
 
 #Organize data for heatmap
 heatmap_data <- age_tidy %>%
@@ -403,6 +401,20 @@ heatmap_data <- heatmap_data %>%
       levels = country_order
     )
   )
+
+```
+
+Only `{r} length(balanced_countries)` countries remain: `{r} paste(balanced_countries, collapse = ", ")`.
+
+
+```{r}
+#| label: fig-plot2
+#| fig-cap: "Age-earnings gradient across countries"
+#| fig-alt: >-
+#|   A heatmap depicting percentage change in earnings relative to the youngest age group (25-34 years) across countries. 
+#| message: false
+#| cache: false
+#| output: true
 
 #Heatmap
 ggplot(
@@ -449,11 +461,13 @@ ggplot(
 
 ```
 
-What do the results tell us?
-Aging is not generally a bad thing - in all countries, people in higher age groups earn more than young people between 25-34. However, in some countries the earnings decline in the age-group 55-64 years in comparison to people 10 years younger. You can check out your home country from plot X.
+What do the results in @fig-plot2 tell us?
 
-Plot 3
-Is it worth to have a PhD over MSc at older age?
+* Aging is not generally a bad thing - in all countries, people in higher age groups earn more than young people between 25-34. 
+* However, in some countries the earnings decline in the age-group 55-64 years in comparison to people 10 years younger. 
+
+### Question 3
+Is it overall worth to pursue a PhD over MSc? Does it pay off at older age? Or does this depend on the country you live in?
 
 ```{r}
 #Keep the youngest and oldest groups
@@ -606,13 +620,52 @@ ggplot(
   ) +
   
   theme_minimal()
-
-
-
-
-
 ```
 
+
+```{r}
+
+
+#Plot without visible data points
+ggplot(
+  degree_comparison,
+  aes(
+    x = reorder(country, phd_minus_master),
+    y = phd_minus_master
+  )
+) +
+  
+  geom_hline(
+    yintercept = 0,
+    linetype = "dashed"
+  ) +
+  
+  geom_segment(
+    aes(
+      xend = reorder(country, phd_minus_master),
+      y = 0,
+      yend = phd_minus_master
+    ),
+    linewidth = 0.7
+  ) +
+  
+  geom_point(
+    size = 3
+  ) +
+  
+  coord_flip() +
+  
+  labs(
+    title = "Is the age-earnings gradient stronger for doctorate holders?",
+    subtitle = "Difference between Doctorate and Master's 55-64 vs 25-34 earnings premiums",
+    x = NULL,
+    y = "Doctorate minus Master's age premium (percentage points)",
+    caption = "Positive values indicate a stronger age-earnings gradient among doctorate holders."
+  ) +
+  
+  theme_minimal()
+
+```
 
 ```{r}
 #| label: setup1
