@@ -286,6 +286,8 @@ ggplot(
 
 What can we learn from here?
 - Working hours do not change much during the course of the career, except for master´s degree holders, who tend to work 4% less at later ages (55-64 years).
+- Doctorate degree holders are more likely to be hired with indefinite contracts at the later stages of their career.
+- Earnings differ only in the later stages of life - from 45-54 years higher pay is evident for doctorate degree holders. 
 
 
 PLOT2
