@@ -407,13 +407,13 @@ ggplot(
 ```
 
 What do the results tell us?
-Aging is not generally a bad thing - in all countries, people in higher age groups earn more than young people between 25-34. You can check out your home country from plot X.
+Aging is not generally a bad thing - in all countries, people in higher age groups earn more than young people between 25-34. However, in some countries the earnings decline in the age-group 55-64 years in comparison to people 10 years younger. You can check out your home country from plot X.
 
 Plot 3
 Is it worth to have a PhD over MSc at older age?
 
 ```{r}
-#Keep youngst and oldest groups
+#Keep the youngest and oldest groups
 age_premium <- age_tidy %>%
   filter(
     outcome == "Earnings",
@@ -555,8 +555,8 @@ ggplot(
   coord_flip() +
   
   labs(
-    title = "Is the age-earnings gradient stronger for doctorate holders?",
-    subtitle = "Doctorate age premium minus Master's age premium",
+    title = "Is it worth to have a PhD?",
+    subtitle = "Earnings at doctorate age premium minus Master's age premium",
     x = NULL,
     y = "Difference in age premium (percentage points)",
     caption = "Age premium = percentage difference in earnings between ages 55-64 and 25-34."
