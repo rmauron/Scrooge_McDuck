@@ -135,6 +135,12 @@ age_tidy %>%
   filter(n > 1)
 ```
 
+Idea: an interactive table displaying numbers per group.
+
+```{r}
+age_tidy
+```
+
 
 PLOTTING
 
@@ -261,13 +267,13 @@ ggplot(
   ) +
   
   labs(
-    title = "How labour-market outcomes differ across age groups",
+    title = "Labour-market outcomes in age groups",
     subtitle = "Median within-country change relative to ages 25-34",
     x = "Age group",
     y = "Change relative to ages 25-34",
     linetype = "Degree",
     shape = "Degree",
-    caption = "Only normal observations are used. Country-degree groups must contain all four age groups."
+    caption = "Country-degree groups containing all four age groups displayed."
   ) +
   
   theme_minimal() +
