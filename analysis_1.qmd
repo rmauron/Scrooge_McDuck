@@ -469,7 +469,13 @@ What do the results in @fig-plot2 tell us?
 ### Question 3
 Is it overall worth to pursue a PhD over MSc? Does it pay off at older age? Or does this depend on the country you live in?
 
+This is how we rearranged the data:
 ```{r}
+#| label: plot3_setup
+#| message: false
+#| cache: false
+#| output: false
+
 #Keep the youngest and oldest groups
 age_premium <- age_tidy %>%
   filter(
@@ -484,7 +490,6 @@ age_premium <- age_tidy %>%
     age_group,
     value
   )
-
 
 #Make a wide table
 age_premium <- age_premium %>%
@@ -527,7 +532,20 @@ degree_comparison <- degree_comparison %>%
   
   arrange(phd_minus_master)
 
-#Plot
+
+```
+
+We chose a lollipop plot to depict the differences in earnings between doctorate and master degree holders at the age of 55-64 years in relation to the youngest age group of 25-34 years.
+```{r}
+#| label: fig-plot3
+#| fig-cap: "Worth of PhD at age 55-64 years"
+#| fig-alt: >-
+#|   A graph depicting percentage change between doctorate and master degree holder earnings at the age of 55-64 years relative to the youngest age group (25-34 years) across countries. 
+#| message: false
+#| cache: false
+#| output: true
+
+#Plot without visible data points
 ggplot(
   degree_comparison,
   aes(
@@ -566,8 +584,12 @@ ggplot(
   
   theme_minimal()
 
+```
 
-#Add values to plot
+```{r}
+#| echo: false
+#| output: false
+#Add values to the previous plot
 ggplot(
   degree_comparison,
   aes(
@@ -622,60 +644,14 @@ ggplot(
   theme_minimal()
 ```
 
+The results in @fig-plot3 show that
 
-```{r}
+* People holding a doctorate degree generally earn more by the end of their career in comparison to their colleagues with master degrees.
+* The opposite is true for Denmark.
+* In Norway and Finland, the degree does not matter that much and the increase in earnings is similar between doctorate and master degree owners.
 
 
-#Plot without visible data points
-ggplot(
-  degree_comparison,
-  aes(
-    x = reorder(country, phd_minus_master),
-    y = phd_minus_master
-  )
-) +
-  
-  geom_hline(
-    yintercept = 0,
-    linetype = "dashed"
-  ) +
-  
-  geom_segment(
-    aes(
-      xend = reorder(country, phd_minus_master),
-      y = 0,
-      yend = phd_minus_master
-    ),
-    linewidth = 0.7
-  ) +
-  
-  geom_point(
-    size = 3
-  ) +
-  
-  coord_flip() +
-  
-  labs(
-    title = "Is the age-earnings gradient stronger for doctorate holders?",
-    subtitle = "Difference between Doctorate and Master's 55-64 vs 25-34 earnings premiums",
-    x = NULL,
-    y = "Doctorate minus Master's age premium (percentage points)",
-    caption = "Positive values indicate a stronger age-earnings gradient among doctorate holders."
-  ) +
-  
-  theme_minimal()
 
-```
-
-```{r}
-#| label: setup1
-#| message: false
-#| cache: true
-library(dplyr)
-library(ggplot2)
-library(ggokabeito)   # color-blind-safe (Okabe-Ito) scale
-
-```
 
 
 ```{r}
