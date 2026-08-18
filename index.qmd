@@ -1,25 +1,120 @@
 ---
 title: "Scrooge McDuck"
-listing:
-  id: analyses
-  contents: analysis_*.qmd
-  type: table
-  fields: [title, description]
-  sort: title
-
+description: "Money, job security and happiness across 36 countries"
+page-layout: full
+title-block-banner: false
+toc: false
 ---
 
-Welcome. This is a small site about the **Scrooge McDuck**.
+::: {.hero-banner}
 
-Head to the **[analysis 1](analysis_1.qmd)** for the figures and a summary table.
+::: {.hero-copy}
+## Duck, Duck, PhD! Can money buy happiness?
 
-Head to the **[analysis 2](analysis_2.qmd)** for the figures and a summary table.
+Money, job security and happiness across 36 countries.
+:::
 
-Head to the **[analysis 3](analysis_3.qmd)** for the figures and a summary table.
+::: {.hero-logo}
+![](assets/scrooge-mcduck-web-logo.png){
+  fig-alt="Scrooge McDuck project logo"
+}
+:::
 
-Head to the **[analysis 4](analysis_4.qmd)** for the figures and a summary table.
+:::
 
 
-> This folder is your starting point for the Day-2 lab: four pages that render on their own but are
-> **not yet a project**. Your job is to add a `_quarto.yml` (and a `_brand.yml`) that turn them into a
-> navigable, branded website, then prepare it for publishing.
+::: {.intro-section}
+
+::: {.lead}
+A PhD can earn you a title, a specialised set of opinions and, occasionally, free coffee at a conference. But can it also bring better pay, job security and enough leisure time to enjoy the rewards?
+:::
+
+:::
+
+
+::: {.data-summary}
+
+Using data from the OECD **Research and Innovation Careers Observatory**, we explore:
+
+- **Work:** earnings, working hours and permanent contracts
+- **Well-being:** happiness, financial satisfaction and satisfaction with leisure time
+
+:::
+
+
+# Let's explore the data
+
+::: {.grid}
+
+::: {.g-col-6}
+### Is the good life included?
+
+Does happiness differ between the total population, Master's degree holders and doctorate holders?
+
+[Explore happiness](analysis_1.qmd){.btn .btn-primary}
+:::
+
+::: {.g-col-6}
+### Follow the money
+
+Do advanced-degree holders report higher earnings? How do those patterns change across countries and age groups?
+
+[Follow the money](analysis_2.qmd){.btn .btn-primary}
+:::
+
+::: {.g-col-6}
+### Home versus work
+
+Compare the country you come from with the country where you currently work.
+
+[Compare two countries](analysis_3.qmd){.btn .btn-primary}
+:::
+
+::: {.g-col-6}
+### Around the world
+
+Use our interactive map to explore countries, education levels and outcomes.
+
+[Explore the map](analysis_4.qmd){.btn .btn-primary}
+:::
+
+:::
+
+
+# From OECD extract to analysis-ready data
+
+We downloaded 1,359 records from the OECD **Research and Innovation Careers Observatory (ReICO)**, covering 36 countries. The data describe six aspects of work and well-being across different education levels and age groups.
+
+## Where the data come from
+
+ReICO does not rely on a single survey sent directly to Master's and doctorate holders. National contact points compile aggregated statistics from official sources, including labour-force and graduate surveys, population censuses, and administrative records on education, employment and taxation. The OECD processes these submissions and cross-checks them against international data sources where possible.
+
+The target population comprises residents aged 25–64. Results are reported for Master's and doctorate holders, with further breakdowns by age group.
+
+## How we prepared the data
+
+The downloaded indicator codes contained information about three variables:
+
+- **Education level:** total population, Master's degree or doctorate
+- **Age group:** total population aged 25–64, or the groups 25–34, 35–44, 45–54 and 55–64
+- **Measure:** gross annual earnings, annual hours worked, permanent contracts, happiness, financial satisfaction or satisfaction with leisure time
+
+To prepare the data for analysis, we decoded the OECD indicator labels, standardised country names and used the OECD observation-status metadata to resolve repeated records. We then reorganised the data so that each row represents one country, education level and age group.
+
+The final dataset contains 375 such combinations, with the six measures arranged in separate columns.
+
+[Read the OECD ReICO methodology](https://www.oecd.org/content/dam/oecd/en/about/programmes/oecd-data-collection-programme/science-technology-and-innovation/reico/oecd-reico-guidelines.pdf){.btn .btn-outline-primary}
+
+[Visit the OECD ReICO database](https://data-explorer.oecd.org/vis?df%5Bag%5D=OECD.STI.STP&df%5Bds%5D=DisseminateFinalDMZ&df%5Bid%5D=DSD_REICO_FULL%40DF_RDL&lc=en){.btn .btn-outline-primary}
+
+
+::: {.callout-important}
+## A note on interpretation
+
+All data refer to 2022. Income values are not always reported in a standardised currency, so direct comparisons between countries should be interpreted with caution.
+:::
+
+
+# The team
+
+This project was created by **Agne, Miren, Maryam and Raphaël** during RaukR 2026.

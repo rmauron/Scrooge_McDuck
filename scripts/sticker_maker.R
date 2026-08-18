@@ -53,7 +53,7 @@ centre_design <- image_composite(
   centre_design,
   duck,
   operator = "over",
-  offset = "+250-30"
+  offset = "+250+60"
 )
 
 # Title underneath the hand holding the money
@@ -196,7 +196,7 @@ scrooge_sticker <- sticker(
 
   # Hexagon styling
   h_fill = "#FFEAB0",
-  h_color = "#4C979F",
+  h_color = "#9f4c4c",
   h_size = 2.5,
 
   # Background highlight
@@ -208,9 +208,10 @@ scrooge_sticker <- sticker(
   l_alpha = 0.32,
 
 
-  white_around_sticker = TRUE,
-  filename = sticker_file,
+  white_around_sticker = FALSE,
+  filename ="assets/scrooge-mcduck-web-logo.png",
   dpi = 600
 )
 
 plot(scrooge_sticker)
+
