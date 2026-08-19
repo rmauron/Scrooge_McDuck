@@ -118,16 +118,9 @@ stopifnot(all(metrics$col %in% names(eu_sf)),
 
 
 
-### All six metrics at once: a 2 x 3 panel
+### All six metrics
 
-`facet_wrap()` is the wrong tool here. It shares one fill scale across panels,
-and these six measures live on incompatible ranges — percentages in the tens,
-hours in the thousands, earnings in the tens of thousands. A shared scale would
-render four panels uniformly pale and one uniformly dark. Six separate plots
-stitched with `patchwork` give each panel a scale, and a legend, of its own.
-
-`coord_sf()` does the cropping: Brazil, Colombia, Korea and the USA are in
-`data_wide` and would otherwise show up in every panel.
+Show all the quantitative metrics side by side.
 
 ```{r}
 #| label: metric-grid
@@ -161,15 +154,20 @@ wrap_plots(pmap(metrics, map_panel), nrow = 2, ncol = 3) +
   plot_annotation(title = paste(map_education, "-", map_age_group))
 ```
 
+  
 ## Correct the income values of Croatia:
 
+Croatia reports earnings in kuna while every other country is on the survey's
+harmonised unit. Mean gross yearly earnings across all EARNY variables:
+HRV 322 743, against 122 411 for Luxembourg, the next highest -- a 2.6x gap
+with no counterpart in any other indicator. Dividing by the irrevocable
+
+Dividing by the irrevocable
+HRK/EUR rate fixed at Croatia's euro entry (1 Jan 2023) lands Croatia at
+42 835, between Estonia and Poland, which matches its position elsewhere.
+
+
 ```{r}
-# Croatia reports earnings in kuna while every other country is on the survey's
-# harmonised unit. Mean gross yearly earnings across all EARNY variables:
-# HRV 322 743, against 122 411 for Luxembourg, the next highest -- a 2.6x gap
-# with no counterpart in any other indicator. Dividing by the irrevocable
-# HRK/EUR rate fixed at Croatia's euro entry (1 Jan 2023) lands Croatia at
-# 42 835, between Estonia and Poland, which matches its position elsewhere.
 HRK_PER_EUR <- 7.53450
 
 # Before/after, for the write-up. Run this *before* the mutate below.
@@ -189,6 +187,8 @@ data_wide <- data_wide |>
 
 ## The slice both maps draw
 
+Prepare the map data with the corrected data.
+
 ```{r}
 #| label: map-data2
 
@@ -202,33 +202,10 @@ eu_sf <- borders |>
             by = c("ISO3_CODE" = "iso3"))
 
 stopifnot(nrow(eu_sf) == nrow(borders))   # one row, one geometry, one country
-
-metrics <- tribble(
-  ~col,                     ~label,                     ~palette,
-  "pct_happy",              "Happy (%)",                "YlGnBu",
-  "pct_satisfied_finances", "Satisfied, finances (%)",  "YlGnBu",
-  "pct_satisfied_leisure",  "Satisfied, leisure (%)",   "YlGnBu",
-  "pct_permanent_contract", "Permanent contract (%)",   "YlGnBu",
-  "earnings_gross_yearly",  "Gross yearly earnings",    "YlOrBr",
-  "hours_worked",           "Hours worked per year",    "YlOrBr"
-)
-
-# Fail loud if a slice ever stops carrying one of the layers.
-stopifnot(all(metrics$col %in% names(eu_sf)),
-          !sapply(metrics$col, \(c) all(is.na(eu_sf[[c]]))))
 ```
 
 
-## All six metrics at once: a 2 x 3 panel
-
-`facet_wrap()` is the wrong tool here. It shares one fill scale across panels,
-and these six measures live on incompatible ranges — percentages in the tens,
-hours in the thousands, earnings in the tens of thousands. A shared scale would
-render four panels uniformly pale and one uniformly dark. Six separate plots
-stitched with `patchwork` give each panel a scale, and a legend, of its own.
-
-`coord_sf()` does the cropping: Brazil, Colombia, Korea and the USA are in
-`data_wide` and would otherwise show up in every panel.
+## All six metrics, Croatia corrected
 
 ```{r}
 #| label: metric-grid2
@@ -263,23 +240,12 @@ wrap_plots(pmap(metrics, map_panel), nrow = 2, ncol = 3) +
 ```
 
 
-## Master's over Doctorate: the same six metrics, twelve maps
+## Master's over Doctorate: the same six metrics
 
 The grid above fixes education, so it cannot show what the education level does to
 each measure. Here the six metrics are the columns and the two education levels
 are the rows: read down a column to compare Master's against Doctorate, across a
 row to compare measures within one level.
-
-Both cells of a column share one `limits`, and only with each other. Without
-that, `scale_fill_distiller()` would fit an independent range per panel and the
-darkest shade would mean something different in the top cell than in the bottom
-one -- which is exactly the comparison the column is there to support. Across
-columns the scales stay separate, for the reason given above: the six measures
-are on incompatible ranges.
-
-Each metric also carries its own gradient, so a column can be told from its
-neighbours by hue alone. That trades away the cool/warm split of the grid above,
-where the colour separated percentages from money and time.
 
 ```{r}
 #| label: metric-grid-education
@@ -287,10 +253,6 @@ where the colour separated percentages from money and time.
 #| fig-height: 8
 #| column: page
 
-# One slice per education level, joined exactly as above so each still carries
-# one geometry per country. `Master's` repeats the slice the grid above draws;
-# it is rebuilt here rather than reusing `eu_sf` so this figure keeps its two
-# levels even if `map_education` is later pointed somewhere else.
 edu_slice <- function(edu) {
   s <- borders |>
     left_join(filter(data_wide, education == edu, age_group == map_age_group),
@@ -302,8 +264,7 @@ edu_slice <- function(edu) {
 sf_mas <- edu_slice("Master's")
 sf_phd <- edu_slice("Doctorate")
 
-# Fail loud if a metric ever goes empty in both slices: `range()` below would
-# otherwise hand scale_fill_distiller() an infinite limit.
+# Fail if a metric ever goes empty in both slices: `range()`
 stopifnot(all(metrics$col %in% names(sf_phd)),
           !sapply(metrics$col, \(c) all(is.na(c(sf_mas[[c]], sf_phd[[c]])))))
 
@@ -328,8 +289,7 @@ edu_limits <- setNames(
   metrics$col
 )
 
-# Same recipe as map_panel(), with the slice, the gradient and the fill range
-# passed in, and the education level in a subtitle.
+# Map function
 map_panel_edu <- function(sf_slice, col, palette, limits, title, subtitle) {
   ggplot(sf_slice) +
     geom_sf(aes(fill = .data[[col]]), colour = "white", linewidth = 0.15) +
@@ -341,8 +301,6 @@ map_panel_edu <- function(sf_slice, col, palette, limits, title, subtitle) {
     labs(title = title, subtitle = subtitle, fill = NULL) +
     theme_void(base_size = 8) +
     theme(
-      # 6 columns leaves ~2.3 in of width per panel, so the metric name goes on
-      # the title line at 8 pt and the education level on its own line under it.
       plot.title        = element_text(size = 8, hjust = 0, margin = margin(b = 1)),
       plot.subtitle     = element_text(size = 7, hjust = 0, colour = "grey30",
                                        margin = margin(b = 4)),
@@ -354,10 +312,7 @@ map_panel_edu <- function(sf_slice, col, palette, limits, title, subtitle) {
     )
 }
 
-# One row per education level, metrics in the order `metrics` lists them, so
-# column j is the same metric in both rows. wrap_plots() fills by row, so the
-# two rows are simply concatenated. The colourbar under a column is drawn twice:
-# it is the same scale both times, which is the point.
+
 edu_row <- function(sf_slice, edu) {
   pmap(metrics, function(col, label, ...)    # gradient comes from edu_palettes
     map_panel_edu(sf_slice, col, edu_palettes[[col]], edu_limits[[col]],
@@ -370,22 +325,19 @@ wrap_plots(c(edu_row(sf_mas, "Master's"), edu_row(sf_phd, "Doctorate")),
 ```
 
 
-## With correct Croatia currency
+## We can explore it one by one
 
-
-**This is the recommended default.** Leaflet is the most mature interactive
-mapping package in R, it renders `sf` natively, and `addLayersControl()` gives
-you exactly the radio-button toggle you described — no Shiny server needed.
-
-The pattern: add one `addPolygons()` layer per metric, each with a `group =`
-label, then wire the group names into `addLayersControl()`. Legends accept the
-same `group =` argument, so they appear and disappear with their layer.
+Using leaflet, we can switch to the different layers easily!
 
 The radio buttons can only carry one dimension, and one geometry can only carry
 one row, so education and age band are fixed and the six measures are the
-toggle. Coverage forces that choice: the wellbeing measures are reported only at
+toggle. 
+
+Coverage forces that choice: the wellbeing measures are reported only at
 `All ages`, the labour measures only for Master's and Doctorate. `Master's` and
 `Doctorate` at `All ages` are therefore the only two slices with all six.
+
+In that case we fixed the age to `All ages` and education to `Master's`.
 
 
 ```{r}
@@ -456,41 +408,35 @@ function(el, x) {
 ```
 
 
-## Two metrics side by side: a Shiny companion
+## Two metrics side by side
 
-The map above toggles one metric at a time, which is the most `addLayersControl()`
-can do — radio buttons carry one dimension, and one geometry carries one row. The
-question it cannot answer is whether two metrics move together: for that you need
-both maps on screen at once, plus the scatter that pairs them country by country.
+Do any of these metrics actually correlate?
 
-That needs a server, so it lives in [`shinyMap.R`](shinyMap.R) rather than in this
-document. Keeping it out of the `.qmd` is deliberate: `quarto render` would have to
-switch the whole page to `server: shiny` to host it, and this project renders as a
-static website. The chunk below is `eval: false`, so the render never touches it.
+With the ShinyMap bellow, you can select any two of the metrics, and it will
+return there corresponding maps and there correlation scores, for both education
+level simultaneously.
+
+The interactivity we had above is not enough to let us do that.
+
+We need our new [`shinyMap.R`](shinyMap.R) kept out of the `.qmd` to avoid rendering
+issues.
 
 The app draws the same `data_wide` slices and reuses the leaflet recipe from
 `add_metric_layer()` above — `colorNumeric()` fill, `no data` labels for the 4-6
 countries missing per measure, the same `CartoDB.PositronNoLabels` tiles and the
-same fixed `eu_bbox`. What changes is that each metric gets its own map rather
-than being one toggled layer among six, which is what lets two of them sit side
-by side. Two metric selectors drive six panels: map 1, map 2 and their scatter
-for Master's on the first row, the same three for Doctorate on the second.
+same fixed `eu_bbox`. 
 
-Two things it does that the static figures cannot. Clicking a country on any map,
-or a point in any scatter, rings it in all six panels at once, which is how you
-tell whether a country sits high on one metric and low on the other. And the age
-band is selectable, with the metric menus annotated per band — coverage is uneven
-(the wellbeing measures exist only at `All ages`, the labour measures only per
-band), so the app says which pairs exist instead of quietly drawing blanks.
+What you can do:
+1. Select two metrics
+2. Visualize the correlation directly
+3. Click any country on the maps or on the scatter plots.
+4. Deepen your request by selecting age categories.
 
-Two smaller carry-overs from the figures above: each scatter reports its own
-Pearson and Spearman correlation with the `n` it was computed from, and a toggle
-puts both rows of a column on one shared colour scale — the `edu_limits` trick
-from the twelve-map grid, without which the darkest shade means something
-different in the Master's map than in the Doctorate one.
+Each scatter reports its own Pearson and Spearman correlation with the `n` it was
+computed from, and a toggle puts both rows of a column on one shared colour scale 
+— the `edu_limits` trick from the twelve-map grid, without which the darkest shade
+means something different in the Master's map than in the Doctorate one.
 
-Note that `shinyMap.R` re-applies the Croatia kuna correction from above. It reads
-`data_wide.csv`, and that file is written earlier in this document, before the fix.
 
 ```{r}
 #| label: launch-shiny
@@ -500,6 +446,7 @@ Note that `shinyMap.R` re-applies the Croatia kuna correction from above. It rea
 # This is the fast path while developing: real R, instant reload.
 shiny::runApp("shinyMap.R")
 ```
+
 
 ### Getting it into this page: R compiled to WebAssembly
 
