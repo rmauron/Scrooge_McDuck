@@ -428,15 +428,30 @@ main.content a:not(.btn) {
   border-bottom: 2px solid rgba(76, 151, 159, 0.35);
 }
 
+/*
+The track contains two identical sets.
+
+It starts with the first set shifted one full set-width
+to the left and then moves to zero. At that point, the
+second identical set occupies exactly the same position,
+so the animation can restart without a visible jump.
+*/
 .parade-track {
   display: flex;
-  align-items: flex-end;
   width: max-content;
+
+  transform: translateX(-50%);
   animation: parade-march-right 28s linear infinite;
+
   will-change: transform;
 }
 
-/* Both parade sets must contain the same images in the same order. */
+/*
+Each copy fills at least one complete browser width.
+
+The characters retain the same order and are distributed
+evenly across the banner.
+*/
 .parade-set {
   display: flex;
   flex-shrink: 0;
