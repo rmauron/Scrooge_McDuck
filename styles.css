@@ -412,20 +412,17 @@ main.content a:not(.btn) {
   color: #d8e0e2;
 }
 
-/* =========================================================
-10.  CHARACTER PARADE
-   ========================================================= */
-.character-parade {
-  /* Make the parade span the complete browser width */
-  width: 100vw;
-  margin-top: 3rem;
-  margin-left: calc(50% - 50vw);
 
+/* =========================================================
+   10. CHARACTER PARADE
+   ========================================================= */
+
+.character-parade {
+  width: 100%;
   box-sizing: border-box;
   overflow: hidden;
-
-  padding: 0.8rem 0;
-
+  margin-top: 3rem;
+  padding: 0.9rem 0;
   background-color: rgba(76, 151, 159, 0.12);
   border-top: 2px solid rgba(76, 151, 159, 0.35);
   border-bottom: 2px solid rgba(76, 151, 159, 0.35);
@@ -459,26 +456,19 @@ evenly across the banner.
   display: flex;
   flex-shrink: 0;
   align-items: flex-end;
-  justify-content: space-around;
-
-  width: 100vw;
-  min-width: 100vw;
-
-  box-sizing: border-box;
-  padding: 0 2.5rem;
+  justify-content: flex-start;
+  gap: 2.5rem;
+  padding-right: 2.5rem;
 }
 
 .parade-set img {
   display: block;
-
-  width: 140px;
+  flex-shrink: 0;
+  width: auto;
   height: 105px;
-
   object-fit: contain;
-  object-position: center bottom;
 }
 
-/* Pause when the pointer is over the parade */
 .character-parade:hover .parade-track {
   animation-play-state: paused;
 }
@@ -493,64 +483,10 @@ evenly across the banner.
   }
 }
 
-
-/* =========================================================
-   CHARACTER PARADE â€” DARK MODE
-   ========================================================= */
-
-body.quarto-dark .character-parade,
-html[data-bs-theme="dark"] body .character-parade {
+:is(body.quarto-dark, html[data-bs-theme="dark"] body)
+.character-parade {
   background-color: rgba(76, 151, 159, 0.16);
   border-color: rgba(128, 203, 210, 0.35);
-}
-
-
-/* =========================================================
-   CHARACTER PARADE â€” MOBILE
-   ========================================================= */
-
-@media (max-width: 768px) {
-  .character-parade {
-    margin-top: 2rem;
-    padding: 0.6rem 0;
-  }
-
-  .parade-set {
-    /*
-    Five characters need more than one phone screen.
-    Both repeated sets remain exactly the same width.
-    */
-    width: 190vw;
-    min-width: 190vw;
-
-    justify-content: space-around;
-    padding: 0 1rem;
-  }
-
-  .parade-set img {
-    width: 90px;
-    height: 75px;
-  }
-
-  .parade-track {
-    animation-duration: 22s;
-  }
-}
-
-
-/* =========================================================
-   ACCESSIBILITY: REDUCED MOTION
-   ========================================================= */
-
-@media (prefers-reduced-motion: reduce) {
-  .parade-track {
-    animation: none;
-    transform: none;
-  }
-
-  .parade-set[aria-hidden="true"] {
-    display: none;
-  }
 }
 
 
@@ -569,6 +505,19 @@ html[data-bs-theme="dark"] body .character-parade {
     grid-template-columns: minmax(0, 1fr) 170px;
   }
 
+  /* Return the logo to its grid position beside the heading. */
+  .hero-logo {
+    position: static;
+    top: auto;
+    right: auto;
+    z-index: auto;
+    justify-self: center;
+    transform: none;
+  }
+
+  .hero-logo img {
+    width: 170px;
+  }
 }
 
 
