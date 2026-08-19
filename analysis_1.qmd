@@ -1,5 +1,5 @@
 ---
-title: "Does age pay?"
+title: "Follow the money"
 subtitle: "Earnings, job security and working hours among Master’s and Doctorate holders across countries."
 
 format:
