@@ -4,14 +4,15 @@ description: "Money, job security and happiness across 36 countries"
 page-layout: full
 title-block-banner: false
 toc: false
+body-classes: home-page
 ---
 
-::: {.hero-banner}
+::: {.home-heading}
 
 ::: {.hero-copy}
 ## Duck, Duck, PhD! Can money buy happiness?
 
-Money, job security and happiness across 36 countries.
+Money, job security and happiness across 36 countries
 :::
 
 ::: {.hero-logo}
@@ -22,60 +23,50 @@ Money, job security and happiness across 36 countries.
 
 :::
 
-
 ::: {.intro-section}
 
 ::: {.lead}
-A PhD can earn you a title, a specialised set of opinions and, occasionally, free coffee at a conference. But can it also bring better pay, job security and enough leisure time to enjoy the rewards?
+**A PhD can earn you a title, a specialised set of opinions and, occasionally, free coffee at a conference.**  
+**But can it also bring better pay, job security and enough leisure time to enjoy the rewards?**
 :::
-
-:::
-
-
-::: {.data-summary}
-
-Using data from the OECD **Research and Innovation Careers Observatory**, we explore:
-
-- **Work:** earnings, working hours and permanent contracts
-- **Well-being:** happiness, financial satisfaction and satisfaction with leisure time
 
 :::
 
 
 # Let's explore the data
 
-::: {.grid}
-
-::: {.g-col-6}
-### Is the good life included?
-
-Does happiness differ between the total population, Master's degree holders and doctorate holders?
-
-[Explore happiness](analysis_1.qmd){.btn .btn-primary}
-:::
+::: {.grid .analysis-grid}
 
 ::: {.g-col-6}
 ### Follow the money
 
-Do advanced-degree holders report higher earnings? How do those patterns change across countries and age groups?
+How do earnings differ between Master's and PhD holders—and how do those patterns change across countries and age groups?
 
-[Follow the money](analysis_2.qmd){.btn .btn-primary}
+[Follow the money](analysis_1.qmd){.btn .btn-primary}
 :::
 
 ::: {.g-col-6}
-### Home versus work
+### Happiness on a map
 
-Compare the country you come from with the country where you currently work.
-
-[Compare two countries](analysis_3.qmd){.btn .btn-primary}
-:::
-
-::: {.g-col-6}
-### Around the world
-
-Use our interactive map to explore countries, education levels and outcomes.
+Use our interactive map to explore work and well-being across countries, education levels and age groups.
 
 [Explore the map](analysis_4.qmd){.btn .btn-primary}
+:::
+
+::: {.g-col-6}
+### Find your best match
+
+Tell us where you are from and what you want from working life—including your preferred earnings and working hours—and discover which country best matches your priorities.
+
+[Find your match](analysis_3.qmd){.btn .btn-primary}
+:::
+
+::: {.g-col-6}
+### Behind the data
+
+See how we cleaned, decoded and reshaped the original OECD records to create the dataset used throughout the project.
+
+[Explore the data wrangling](analysis_2.qmd){.btn .btn-primary}
 :::
 
 :::
@@ -111,10 +102,35 @@ The final dataset contains 375 such combinations, with the six measures arranged
 ::: {.callout-important}
 ## A note on interpretation
 
-All data refer to 2022. Income values are not always reported in a standardised currency, so direct comparisons between countries should be interpreted with caution.
+All data refer to 2022. <br> Income values are not always reported in a standardised currency, so direct comparisons between countries should be interpreted with caution.
 :::
 
 
 # The team
 
 This project was created by **Agne, Miren, Maryam and Raphaël** during RaukR 2026.
+
+
+```{=html}
+<div class="character-parade" aria-label="Duck character parade">
+  <div class="parade-track">
+
+    <div class="parade-set">
+      <img src="assets/parade/scrooge.png" alt="Scrooge McDuck">
+      <img src="assets/parade/donald.png" alt="Donald Duck">
+      <img src="assets/parade/nephews.png" alt="Huey, Dewey and Louie">
+      <img src="assets/parade/gyro.png" alt="Gyro Gearloose">
+      <img src="assets/parade/ludvig.png" alt="Ludwig von Drake">
+    </div>
+
+    <div class="parade-set" aria-hidden="true">
+      <img src="assets/parade/scrooge.png" alt="">
+      <img src="assets/parade/donald.png" alt="">
+      <img src="assets/parade/nephews.png" alt="">
+      <img src="assets/parade/gyro.png" alt="">
+      <img src="assets/parade/ludvig.png" alt="">
+    </div>
+
+  </div>
+</div>
+```

@@ -10,7 +10,7 @@ format:
 
 Here, we can use an interactive map to visualize the input data and some of the results.
 
-## Load the data
+## Load, explore and prepare the data
 
 First, we need to load and make sure of what we have as data.
 
@@ -34,6 +34,120 @@ library(DT)
 library(tidyverse)
 ```
 
+
+```{r}
+#| label: load-data
+#| message: false
+data_table <- readr::read_csv("./filtered_reICO_data.csv")
+```
+
+
+### some exploration
+
+```{r}
+#| label: checkdata
+#| message: false
+print(dplyr::glimpse(data_table))
+print(head(unique(data_table$Indicator), n = 15))
+print(paste0("and ", length(unique(data_table$Indicator))-15,  " more..."))
+```
+
+All the necessary information are located in the `data_table$Indicator` column. We need to fetch some more information from there.
+
+### Pivot wider and reformat
+So education lvl, age groups, different percentages, working hours, etc. become separate columns.
+
+
+```{r}
+#| label: wrangle
+#| message: false
+
+# VAR is a structured code: "<numerator>X<denominator>" for shares, or a plain
+# code for levels. The numerator encodes education, measure and age band, e.g.
+#   PHD_TOC_PERM_35_44XPHD_TOC_35_44   MAS_EARNY_25_34   TOTWB_HAPPY_GESMTXTOTWB
+measure_labels <- c(
+  "_TOC_PERM"        = "pct_permanent_contract",
+  "_HW"              = "hours_worked",
+  "_EARNY"           = "earnings_gross_yearly",
+  "_HAPPY_GESMT"     = "pct_happy",
+  "_FINS_MEDHIGH"    = "pct_satisfied_finances",
+  "_TIMEUSE_MEDHIGH" = "pct_satisfied_leisure"
+)
+
+# Observed values first, then caveated, then imputed. Q is always a missing value.
+status_priority <- c("A", "B", "D", "U", "V", "I", "Q")
+
+data_long <- data_table |>
+  dplyr::mutate(
+    num_code  = str_remove(VAR, "X.*$"),
+    core_code = num_code |>
+      str_remove("^(TOT|MAS|PHD)(WB)?") |>
+      str_remove("_\\d{2}_\\d{2}$"),
+    education = factor(str_extract(num_code, "^(TOT|MAS|PHD)"),
+                       levels = c("TOT", "MAS", "PHD"),
+                       labels = c("Total population", "Master's", "Doctorate")),
+    age_group = num_code |>
+      str_extract("\\d{2}_\\d{2}") |>
+      str_replace("_", "-") |>
+      replace_na("All ages") |>
+      factor(levels = c("All ages", "25-34", "35-44", "45-54", "55-64")),
+    measure   = unname(measure_labels[core_code])
+  )
+
+# Fail loud if a VAR code ever stops matching the pattern above.
+stopifnot(!anyNA(data_long$education), !anyNA(data_long$age_group),
+          !anyNA(data_long$measure))
+
+# 154 country x VAR pairs appear 2-3 times under different observation statuses.
+# Keep the best-status rows, then average whatever is still tied.
+data_long <- data_long |>
+  dplyr::mutate(status_rank = match(OBS_STATUS_1, status_priority)) |>
+  slice_min(status_rank, by = c(REF_AREA, VAR), with_ties = TRUE) |>
+  summarise(
+    value    = if (all(is.na(OBS_VALUE))) NA_real_ else mean(OBS_VALUE, na.rm = TRUE),
+    n_source = n(),
+    .by = c(REF_AREA, `Reference area`, VAR, Indicator,
+            education, age_group, measure, `Observation status`)
+  ) |>
+  rename(iso3 = REF_AREA, country = `Reference area`, status = `Observation status`) |>
+  arrange(country, education, age_group, measure)
+
+# One row per country x education x age band, one column per measure.
+data_wide <- data_long |>
+  select(iso3, country, education, age_group, measure, value) |>
+  pivot_wider(names_from = measure, values_from = value) |>
+  arrange(country, education, age_group)
+
+# Correct the country name for Turkey since was encoded as latin1, and now back to UTF-8
+data_wide <- data_wide |> dplyr::mutate(country = if_else(iso3 == "TUR", "Türkiye", country))
+
+# The original Indicator text cannot be a column in the wide table (each row
+# spans up to 6 indicators), so keep it as a lookup for axis labels / tooltips.
+indicator_dict <- data_long |>
+  distinct(education, age_group, measure, VAR, Indicator)
+```
+
+
+### Check data_wide briefly
+
+```{r}
+#| label: checkdata2
+#| message: false
+print(head(data_wide))
+print(unique(data_wide$education))
+print(unique(data_wide$age_group))
+print(range(data_wide$pct_happy, na.rm = TRUE))
+print(unique(data_wide$country))
+```
+
+
+### Save data_wide as new csv
+
+```{r}
+#| label: save-data-wide
+#| message: false
+write_csv(data_wide, file = "./data_wide.csv")
+```
 
 
 ### Load the new formated data
@@ -575,6 +689,44 @@ Two caveats worth knowing. The first load is heavy -- webR plus the `sf` stack
 visible startup pause; it caches afterwards. And the wasm app does not see
 `_brand.yml`, so it renders in the default Bootstrap theme rather than the site's
 teal and Albert Sans, while the locally launched version picks the brand up.
+
+
+```{r}
+datatable(data_wide)
+```
+
+
+```{r}
+
+```
+
+```{r}
+
+```
+
+
+```{r}
+
+```
+
+
+```{r}
+
+```
+
+```{r}
+
+```
+
+
+```{r}
+
+```
+
+
+```{r}
+
+```
 
 
 
