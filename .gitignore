@@ -10,6 +10,7 @@
 *_cache
 .Rprofile
 /renv/
+assets/scrooge-mcduck-centre.png
 
 # Assembled input directory for the shinylive export (app.R + data copies).
 # Quarto never needs to see this one.

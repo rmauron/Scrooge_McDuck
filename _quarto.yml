@@ -26,5 +26,7 @@ website:
 format:
   html:
     theme: [cosmo, brand]
+    css: styles.css
+    
 execute:
   freeze: auto
