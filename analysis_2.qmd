@@ -198,6 +198,7 @@ datatable(data_wide)
 ```{r}
 #| label: print-time
 #| message: false
+#| echo: false
 sessionInfo()
 ```
 
