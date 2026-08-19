@@ -1,0 +1,239 @@
+/* =========================================================
+   NAVIGATION BAR
+   ========================================================= */
+
+.navbar-brand {
+  font-size: 1.7rem;
+  font-weight: 700;
+}
+
+
+/* =========================================================
+   HIDE QUARTO'S AUTOMATIC TITLE
+   ========================================================= */
+
+#title-block-header {
+  display: none;
+}
+
+
+/* =========================================================
+   COMPACT HOMEPAGE BANNER
+   ========================================================= */
+
+.hero-banner {
+  /* Extend across the complete browser width */
+  width: 100vw;
+  box-sizing: border-box;
+  margin-left: calc(50% - 50vw);
+
+  /* Remove Quarto's gap below the navigation bar */
+  margin-top: -2.5rem;
+
+  /* Text on the left and logo on the right */
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 165px;
+  align-items: center;
+  gap: 1.5rem;
+
+  /* Banner spacing */
+  padding: 1.25rem max(2rem, calc((100vw - 1650px) / 2));
+
+  background-color: #4c979f;
+  color: white;
+}
+
+
+/* =========================================================
+   BANNER TEXT
+   ========================================================= */
+
+.hero-copy h2 {
+  margin: 0 0 0.5rem 0;
+  padding: 0;
+  border-bottom: none;
+
+  color: #9f4c4c;
+
+  text-shadow:
+    -1px -1px 0 #ffeab0,
+     1px -1px 0 #ffeab0,
+    -1px  1px 0 #ffeab0,
+     1px  1px 0 #ffeab0,
+     3px  3px 0 rgba(22, 56, 68, 0.45);
+
+  font-size: 1.8rem;
+  font-weight: 700;
+  line-height: 1.15;
+}
+
+.hero-copy p {
+  margin: 0;
+  color: white;
+  font-size: 1.05rem;
+  line-height: 1.4;
+}
+
+
+/* =========================================================
+   BANNER LOGO
+   ========================================================= */
+
+.hero-logo {
+  justify-self: center;
+
+  /*
+  First value: left/right
+  Second value: up/down
+
+  Negative horizontal value = move left
+  Positive horizontal value = move right
+  Negative vertical value = move up
+  Positive vertical value = move down
+  */
+  transform: translate(-4rem, -0.5rem);
+}
+
+.hero-logo img {
+  display: block;
+  width: 170px;
+  height: auto;
+  margin: 0;
+}
+
+.hero-logo p {
+  margin: 0;
+}
+
+
+/* =========================================================
+   HOMEPAGE INTRODUCTION
+   ========================================================= */
+
+.intro-section {
+  position: relative;
+
+  /* Space between the teal banner and introductory text */
+  margin-top: 2rem;
+
+  /* Leave room for the currency symbols */
+  padding: 1.5rem 6rem 1rem 6rem;
+}
+
+/* Introductory text */
+.intro-section p {
+  text-align: justify;
+  text-justify: inter-word;
+  hyphens: auto;
+  text-wrap: pretty;
+}
+
+/* Main introductory paragraph */
+.intro-section .lead {
+  /* Move it down between the currency symbols */
+  padding-top: 1.75rem;
+
+  /* Main desktop text size */
+  font-size: 1.25rem;
+  line-height: 1.55;
+}
+
+
+/* =========================================================
+   CURRENCY-SYMBOL COLUMNS
+   ========================================================= */
+
+.intro-section::before,
+.intro-section::after {
+  position: absolute;
+  top: 1.25rem;
+
+  color: rgba(47, 112, 119, 0.25);
+  font-family: serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: 1.9;
+
+  white-space: pre;
+}
+
+/* Left currency column */
+.intro-section::before {
+  content: "€\A $\A ¥\A £";
+  left: 1.5rem;
+}
+
+/* Right currency column */
+.intro-section::after {
+  content: "£\A ¥\A $\A €";
+  right: 1.5rem;
+}
+
+
+/* =========================================================
+   MOBILE LAYOUT
+   Applies only when the window is 768 px wide or narrower
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+  /* Navigation */
+  .navbar-brand {
+    font-size: 1.4rem;
+  }
+
+  /* Banner */
+  .hero-banner {
+    margin-top: -1.5rem;
+
+    grid-template-columns: minmax(0, 1fr) 85px;
+    gap: 0.75rem;
+
+    padding: 1rem 1.25rem;
+  }
+
+  /* Banner title */
+  .hero-copy h2 {
+    font-size: 1.6rem;
+    line-height: 1.2;
+  }
+
+  /* Banner subtitle */
+  .hero-copy p {
+    font-size: 0.9rem;
+  }
+
+  /* Logo position */
+  .hero-logo {
+    transform: translate(-0.5rem, -0.25rem);
+  }
+
+  /* Logo size */
+  .hero-logo img {
+    width: 80px;
+  }
+
+  /* Introduction */
+  .intro-section {
+    margin-top: 1.25rem;
+    padding: 1rem 0;
+  }
+
+  /* Hide decorative symbols on narrow screens */
+  .intro-section::before,
+  .intro-section::after {
+    display: none;
+  }
+
+  /* Left alignment is easier to read on narrow screens */
+  .intro-section p {
+    text-align: left;
+    hyphens: none;
+  }
+
+  .intro-section .lead {
+    padding-top: 0;
+    font-size: 1.15rem;
+    line-height: 1.5;
+  }
+}
