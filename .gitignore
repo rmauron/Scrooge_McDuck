@@ -11,7 +11,6 @@
 .Rprofile
 /renv/
 assets/scrooge-mcduck-centre.png
-boarders.geojson
 .DS_Store
 
 # Assembled input directory for the shinylive export (app.R + data copies).

@@ -145,6 +145,7 @@ print(unique(data_wide$country))
 ```{r}
 #| label: save-data-wide
 #| message: false
+#| eval: false
 write_csv(data_wide, file = "./data_wide_before_croatia.csv")
 ```
 
@@ -180,6 +181,7 @@ data_wide <- data_wide |>
 ```{r}
 #| label: save-data-wide-post-croatia
 #| message: false
+#| eval: false
 write_csv(data_wide, file = "./data_wide.csv")
 ```
 
