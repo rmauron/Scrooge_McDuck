@@ -11,18 +11,16 @@ project:
   pre-render: export_shinylive.R
 website:
   title: "Scrooge McDuck"
-  navbar:              # list the entries yourself
+  navbar:
     left:
-      - href: index.qmd
-        text: Home
       - href: analysis_1.qmd
-        text: Analysis 1
-      - href: analysis_2.qmd
-        text: Analysis 2
-      - href: analysis_3.qmd
-        text: Analysis 3
+        text: Follow the money
       - href: analysis_4.qmd
-        text: Analysis 4
+        text: Happiness on a map
+      - href: analysis_3.qmd
+        text: Find your match
+      - href: analysis_2.qmd
+        text: Behind the data
 format:
   html:
     theme: [cosmo, brand]

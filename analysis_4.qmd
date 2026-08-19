@@ -623,6 +623,44 @@ if (!dir.exists("shinylive_app/shinylive")) {
 :::
 
 
+```{r}
+datatable(data_wide)
+```
+
+
+```{r}
+
+```
+
+```{r}
+
+```
+
+
+```{r}
+
+```
+
+
+```{r}
+
+```
+
+```{r}
+
+```
+
+
+```{r}
+
+```
+
+
+```{r}
+
+```
+
+
 
 ```{r}
 #| label: print-time
