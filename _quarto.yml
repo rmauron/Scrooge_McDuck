@@ -1,9 +1,14 @@
 project:
   type: website
   output-dir: _site
-  brand: 
+  brand:
     light: _brand.yml
     dark: _brand-dark.yml
+  resources:           # the shinylive export is not a .qmd, so name it explicitly
+    - shinylive_app/**
+  # Must build the wasm bundle *before* the resources above are enumerated,
+  # otherwise only index.html reaches _site/ and the app frame renders blank.
+  pre-render: export_shinylive.R
 website:
   title: "Scrooge McDuck"
   navbar:              # list the entries yourself

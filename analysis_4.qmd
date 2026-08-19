@@ -1,56 +1,62 @@
 ---
-title: "Analysis 4"
+title: "Happiness on a map"
 author: Raphaël Mauron
 date: today
-
+format:
+  html:
+    code-fold: true
+    code-summary: "Show the code"
 ---
-
-# Interactive map
 
 Here, we can use an interactive map to visualize the input data and some of the results.
 
 ## Load, explore and prepare the data
 
-First we need to load and make sure of what we have as data.
+First, we need to load and make sure of what we have as data.
 
 ```{r}
 #| label: setup
 #| message: false
-#| cache: true
+
+# Not cached: on a cache hit knitr restores the chunk's *objects* but does not
+# re-attach its packages, so every later chunk loses str_remove(), glimpse(),
+# pivot_wider() and friends. Attaching them takes a second anyway.
 library(dplyr)
+library(stringr)
 library(ggplot2)
 library(ggokabeito)   # color-blind-safe (Okabe-Ito) scale
-library(tidyverse)
 library(readr)
+library(giscoR)
+library(sf)
+library(leaflet)
+library(patchwork)
+library(DT)
+library(tidyverse)
 ```
 
 
-### Load data as a tibble
-
 ```{r}
-#| label: load data
+#| label: load-data
 #| message: false
-
-data_table <- read_csv("./filtered_reICO_data.csv")
-
-class(data_table)
-head(data_table)
-colnames(data_table)
+data_table <- readr::read_csv("./filtered_reICO_data.csv")
 ```
 
 
-#### some exploration
+### some exploration
 
 ```{r}
-unique(data_table$OBS_STATUS_1)
-range(data_table$OBS_VALUE)
-unique(data_table$Indicator)
+#| label: checkdata
+#| message: false
+print(dplyr::glimpse(data_table))
+print(head(unique(data_table$Indicator), n = 15))
+print(paste0("and ", length(unique(data_table$Indicator))-15,  " more..."))
 ```
 
+All the necessary information are located in the `data_table$Indicator` column. We need to fetch some more information from there.
 
-## Pivot wider and reformat
-So education lvl, age groups, different percentages, working hours, etc. are a separate column.
-Reminder, wide format is best for exploration and statistics. Long format is for plotting.
+### Pivot wider and reformat
+So education lvl, age groups, different percentages, working hours, etc. become separate columns.
+
 
 ```{r}
 #| label: wrangle
@@ -72,7 +78,7 @@ measure_labels <- c(
 status_priority <- c("A", "B", "D", "U", "V", "I", "Q")
 
 data_long <- data_table |>
-  mutate(
+  dplyr::mutate(
     num_code  = str_remove(VAR, "X.*$"),
     core_code = num_code |>
       str_remove("^(TOT|MAS|PHD)(WB)?") |>
@@ -95,7 +101,7 @@ stopifnot(!anyNA(data_long$education), !anyNA(data_long$age_group),
 # 154 country x VAR pairs appear 2-3 times under different observation statuses.
 # Keep the best-status rows, then average whatever is still tied.
 data_long <- data_long |>
-  mutate(status_rank = match(OBS_STATUS_1, status_priority)) |>
+  dplyr::mutate(status_rank = match(OBS_STATUS_1, status_priority)) |>
   slice_min(status_rank, by = c(REF_AREA, VAR), with_ties = TRUE) |>
   summarise(
     value    = if (all(is.na(OBS_VALUE))) NA_real_ else mean(OBS_VALUE, na.rm = TRUE),
@@ -113,7 +119,7 @@ data_wide <- data_long |>
   arrange(country, education, age_group)
 
 # Correct the country name for Turkey since was encoded as latin1, and now back to UTF-8
-data_wide <- data_wide |> mutate(country = if_else(iso3 == "TUR", "Türkiye", country))
+data_wide <- data_wide |> dplyr::mutate(country = if_else(iso3 == "TUR", "Türkiye", country))
 
 # The original Indicator text cannot be a column in the wide table (each row
 # spans up to 6 indicators), so keep it as a lookup for axis labels / tooltips.
@@ -122,20 +128,24 @@ indicator_dict <- data_long |>
 ```
 
 
-Check data_wide briefly
+### Check data_wide briefly
 
 ```{r}
-head(data_wide)
-
-range(data_wide$earnings_gross_yearly, na.rm = TRUE)
-unique(data_wide$age_group)
-unique(data_wide$country)
+#| label: checkdata2
+#| message: false
+print(head(data_wide))
+print(unique(data_wide$education))
+print(unique(data_wide$age_group))
+print(range(data_wide$pct_happy, na.rm = TRUE))
+print(unique(data_wide$country))
 ```
 
 
 ### Save data_wide as new csv
 
 ```{r}
+#| label: save-data-wide
+#| message: false
 write_csv(data_wide, file = "./data_wide.csv")
 ```
 
@@ -143,8 +153,579 @@ write_csv(data_wide, file = "./data_wide.csv")
 ### Load the new formated data
 
 ```{r}
+#| label: load-data-wide
+#| message: false
 data_wide <- read_csv("./data_wide.csv")
-glimpse(data_wide)
+dplyr::glimpse(data_wide)
+```
+
+
+## Add geometry/maps borders
+
+To prepare the plotting into maps, we need some more information, notably the 
+borders of the country present.
+
+`giscoR` serves the official Eurostat GISCO boundaries
+
+
+```{r}
+#| label: geometry
+#| cache: true
+
+# Cached, and nothing invalidates it automatically: `dependson` only tracks
+# chunks that are themselves cached, and load-data-wide is not. If the country
+# set in data_wide ever changes, delete analysis_4_cache/ by hand.
+
+borders <- giscoR::gisco_get_countries( #get coordinates of the country present in our data_wide$iso3
+  resolution = "20",              # 1:20 million — plenty for a country map
+  epsg       = "4326",
+  country    = data_wide$iso3
+)
+
+borders <- sf::st_make_valid(borders) #check whether the borders are valid for sf
+
+# France, Spain, Portugal, Norway carry overseas/Arctic territory in GISCO,
+# so never trust the automatic bounds — set them explicitly.
+eu_bbox <- c(xmin = -12, ymin = 34, xmax = 32, ymax = 71)
+
+head(borders)
+```
+
+Borders is a tibble with each row representing a single country's borders information.
+
+### Join data_wide and borders
+
+Since for the plotting we want each country to appear only exactly once, we have to
+select 
+
+```{r}
+#| label: map-data
+
+# The slice the maps are fixed at. "Doctorate"/"Master's" x "All ages" are the
+# only combinations that carry all six measures (see the coverage note above).
+map_education <- "Master's"
+map_age_group <- "All ages"
+
+# `borders` stays geometry-only: one row per country, no measures attached.
+# data_wide has 11 rows per country (education x age band), so the join has to
+# happen against one slice at a time — see the map chunk.
+eu_sf <- borders |>
+  left_join(filter(data_wide, education == map_education, age_group == map_age_group),
+            by = c("ISO3_CODE" = "iso3"))
+
+stopifnot(nrow(eu_sf) == nrow(borders))   # one row, one geometry, one country
+
+metrics <- tribble(
+  ~col,                     ~label,                     ~palette,
+  "pct_happy",              "Happy (%)",                "YlGnBu",
+  "pct_satisfied_finances", "Satisfied, finances (%)",  "YlGnBu",
+  "pct_satisfied_leisure",  "Satisfied, leisure (%)",   "YlGnBu",
+  "pct_permanent_contract", "Permanent contract (%)",   "YlGnBu",
+  "earnings_gross_yearly",  "Gross yearly earnings",    "YlOrBr",
+  "hours_worked",           "Hours worked per year",    "YlOrBr"
+)
+
+# Fail loud if a slice ever stops carrying one of the layers.
+stopifnot(all(metrics$col %in% names(eu_sf)),
+          !sapply(metrics$col, \(c) all(is.na(eu_sf[[c]]))))
+```
+
+
+
+### All six metrics at once: a 2 x 3 panel
+
+`facet_wrap()` is the wrong tool here. It shares one fill scale across panels,
+and these six measures live on incompatible ranges — percentages in the tens,
+hours in the thousands, earnings in the tens of thousands. A shared scale would
+render four panels uniformly pale and one uniformly dark. Six separate plots
+stitched with `patchwork` give each panel a scale, and a legend, of its own.
+
+`coord_sf()` does the cropping: Brazil, Colombia, Korea and the USA are in
+`data_wide` and would otherwise show up in every panel.
+
+```{r}
+#| label: metric-grid
+#| fig-width: 12
+#| fig-height: 8
+map_panel <- function(col, label, palette) {
+  ggplot(eu_sf) +
+    geom_sf(aes(fill = .data[[col]]), colour = "white", linewidth = 0.15) +
+    coord_sf(xlim = eu_bbox[c("xmin", "xmax")],
+             ylim = eu_bbox[c("ymin", "ymax")], expand = FALSE) +
+    # direction = 1 because distiller defaults to -1, which would paint low
+    # values dark and silently invert every panel against the leaflet map.
+    scale_fill_distiller(palette = palette, direction = 1, na.value = "grey90",
+                         labels = scales::label_number(big.mark = " ")) +
+    labs(title = label, fill = NULL) +
+    theme_void(base_size = 9) +
+    theme(
+      plot.title        = element_text(size = 10, hjust = 0, margin = margin(b = 4)),
+      # without the bottom margin the row-1 colourbars land on the row-2 titles
+      # and the row-2 colourbars get clipped by the figure edge.
+      plot.margin       = margin(4, 6, 14, 6),
+      legend.position   = "bottom",
+      legend.margin     = margin(t = 6, b = 0),
+      legend.text       = element_text(size = 7),
+      legend.key.height = unit(3, "pt"),
+      legend.key.width  = unit(28, "pt")
+    )
+}
+
+wrap_plots(pmap(metrics, map_panel), nrow = 2, ncol = 3) +
+  plot_annotation(title = paste(map_education, "-", map_age_group))
+```
+
+## Correct the income values of Croatia:
+
+```{r}
+# Croatia reports earnings in kuna while every other country is on the survey's
+# harmonised unit. Mean gross yearly earnings across all EARNY variables:
+# HRV 322 743, against 122 411 for Luxembourg, the next highest -- a 2.6x gap
+# with no counterpart in any other indicator. Dividing by the irrevocable
+# HRK/EUR rate fixed at Croatia's euro entry (1 Jan 2023) lands Croatia at
+# 42 835, between Estonia and Poland, which matches its position elsewhere.
+HRK_PER_EUR <- 7.53450
+
+# Before/after, for the write-up. Run this *before* the mutate below.
+data_wide |>
+  filter(iso3 == "HRV", !is.na(earnings_gross_yearly)) |>
+  transmute(education, age_group,
+            as_reported = round(earnings_gross_yearly),
+            in_euro     = round(earnings_gross_yearly / HRK_PER_EUR))
+
+data_wide <- data_wide |>
+  dplyr::mutate(earnings_gross_yearly = if_else(iso3 == "HRV",
+                                         earnings_gross_yearly / HRK_PER_EUR,
+                                         earnings_gross_yearly))
+
+```
+
+
+## The slice both maps draw
+
+```{r}
+#| label: map-data2
+
+# The slice the maps are fixed at. "Doctorate"/"Master's" x "All ages" are the
+# only combinations that carry all six measures (see the coverage note above).
+map_education <- "Master's"
+map_age_group <- "All ages"
+
+eu_sf <- borders |>
+  left_join(filter(data_wide, education == map_education, age_group == map_age_group),
+            by = c("ISO3_CODE" = "iso3"))
+
+stopifnot(nrow(eu_sf) == nrow(borders))   # one row, one geometry, one country
+
+metrics <- tribble(
+  ~col,                     ~label,                     ~palette,
+  "pct_happy",              "Happy (%)",                "YlGnBu",
+  "pct_satisfied_finances", "Satisfied, finances (%)",  "YlGnBu",
+  "pct_satisfied_leisure",  "Satisfied, leisure (%)",   "YlGnBu",
+  "pct_permanent_contract", "Permanent contract (%)",   "YlGnBu",
+  "earnings_gross_yearly",  "Gross yearly earnings",    "YlOrBr",
+  "hours_worked",           "Hours worked per year",    "YlOrBr"
+)
+
+# Fail loud if a slice ever stops carrying one of the layers.
+stopifnot(all(metrics$col %in% names(eu_sf)),
+          !sapply(metrics$col, \(c) all(is.na(eu_sf[[c]]))))
+```
+
+
+## All six metrics at once: a 2 x 3 panel
+
+`facet_wrap()` is the wrong tool here. It shares one fill scale across panels,
+and these six measures live on incompatible ranges — percentages in the tens,
+hours in the thousands, earnings in the tens of thousands. A shared scale would
+render four panels uniformly pale and one uniformly dark. Six separate plots
+stitched with `patchwork` give each panel a scale, and a legend, of its own.
+
+`coord_sf()` does the cropping: Brazil, Colombia, Korea and the USA are in
+`data_wide` and would otherwise show up in every panel.
+
+```{r}
+#| label: metric-grid2
+#| fig-width: 12
+#| fig-height: 8
+map_panel <- function(col, label, palette) {
+  ggplot(eu_sf) +
+    geom_sf(aes(fill = .data[[col]]), colour = "white", linewidth = 0.15) +
+    coord_sf(xlim = eu_bbox[c("xmin", "xmax")],
+             ylim = eu_bbox[c("ymin", "ymax")], expand = FALSE) +
+    # direction = 1 because distiller defaults to -1, which would paint low
+    # values dark and silently invert every panel against the leaflet map.
+    scale_fill_distiller(palette = palette, direction = 1, na.value = "grey90",
+                         labels = scales::label_number(big.mark = " ")) +
+    labs(title = label, fill = NULL) +
+    theme_void(base_size = 9) +
+    theme(
+      plot.title        = element_text(size = 10, hjust = 0, margin = margin(b = 4)),
+      # without the bottom margin the row-1 colourbars land on the row-2 titles
+      # and the row-2 colourbars get clipped by the figure edge.
+      plot.margin       = margin(4, 6, 14, 6),
+      legend.position   = "bottom",
+      legend.margin     = margin(t = 6, b = 0),
+      legend.text       = element_text(size = 7),
+      legend.key.height = unit(3, "pt"),
+      legend.key.width  = unit(28, "pt")
+    )
+}
+
+wrap_plots(pmap(metrics, map_panel), nrow = 2, ncol = 3) +
+  plot_annotation(title = paste(map_education, "-", map_age_group))
+```
+
+
+## Master's over Doctorate: the same six metrics, twelve maps
+
+The grid above fixes education, so it cannot show what the education level does to
+each measure. Here the six metrics are the columns and the two education levels
+are the rows: read down a column to compare Master's against Doctorate, across a
+row to compare measures within one level.
+
+Both cells of a column share one `limits`, and only with each other. Without
+that, `scale_fill_distiller()` would fit an independent range per panel and the
+darkest shade would mean something different in the top cell than in the bottom
+one -- which is exactly the comparison the column is there to support. Across
+columns the scales stay separate, for the reason given above: the six measures
+are on incompatible ranges.
+
+Each metric also carries its own gradient, so a column can be told from its
+neighbours by hue alone. That trades away the cool/warm split of the grid above,
+where the colour separated percentages from money and time.
+
+```{r}
+#| label: metric-grid-education
+#| fig-width: 14
+#| fig-height: 8
+#| column: page
+
+# One slice per education level, joined exactly as above so each still carries
+# one geometry per country. `Master's` repeats the slice the grid above draws;
+# it is rebuilt here rather than reusing `eu_sf` so this figure keeps its two
+# levels even if `map_education` is later pointed somewhere else.
+edu_slice <- function(edu) {
+  s <- borders |>
+    left_join(filter(data_wide, education == edu, age_group == map_age_group),
+              by = c("ISO3_CODE" = "iso3"))
+  stopifnot(nrow(s) == nrow(borders))   # one row, one geometry, one country
+  s
+}
+
+sf_mas <- edu_slice("Master's")
+sf_phd <- edu_slice("Doctorate")
+
+# Fail loud if a metric ever goes empty in both slices: `range()` below would
+# otherwise hand scale_fill_distiller() an infinite limit.
+stopifnot(all(metrics$col %in% names(sf_phd)),
+          !sapply(metrics$col, \(c) all(is.na(c(sf_mas[[c]], sf_phd[[c]])))))
+
+# One gradient per metric. All six are ColorBrewer sequential ramps, so each is
+# still colour-blind safe on its own. Purples and PuRd are the closest pair of
+# the six, which is why they are not neighbouring columns; Greys is left out
+# because grey90 below already means "no data". Local to this figure --
+# `metrics$palette` still drives the 6-panel grid and the leaflet map.
+edu_palettes <- c(
+  pct_happy              = "PuRd",
+  pct_satisfied_finances = "Blues",
+  pct_satisfied_leisure  = "Greens",
+  pct_permanent_contract = "Purples",
+  earnings_gross_yearly  = "YlOrBr",
+  hours_worked           = "OrRd"
+)
+stopifnot(setequal(names(edu_palettes), metrics$col))
+
+# Per metric, not per panel: both rows of a column read off the same scale.
+edu_limits <- setNames(
+  lapply(metrics$col, \(col) range(c(sf_mas[[col]], sf_phd[[col]]), na.rm = TRUE)),
+  metrics$col
+)
+
+# Same recipe as map_panel(), with the slice, the gradient and the fill range
+# passed in, and the education level in a subtitle.
+map_panel_edu <- function(sf_slice, col, palette, limits, title, subtitle) {
+  ggplot(sf_slice) +
+    geom_sf(aes(fill = .data[[col]]), colour = "white", linewidth = 0.15) +
+    coord_sf(xlim = eu_bbox[c("xmin", "xmax")],
+             ylim = eu_bbox[c("ymin", "ymax")], expand = FALSE) +
+    scale_fill_distiller(palette = palette, direction = 1, limits = limits,
+                         na.value = "grey90",
+                         labels = scales::label_number(big.mark = " ")) +
+    labs(title = title, subtitle = subtitle, fill = NULL) +
+    theme_void(base_size = 8) +
+    theme(
+      # 6 columns leaves ~2.3 in of width per panel, so the metric name goes on
+      # the title line at 8 pt and the education level on its own line under it.
+      plot.title        = element_text(size = 8, hjust = 0, margin = margin(b = 1)),
+      plot.subtitle     = element_text(size = 7, hjust = 0, colour = "grey30",
+                                       margin = margin(b = 4)),
+      plot.margin       = margin(4, 4, 12, 4),
+      legend.position   = "bottom",
+      legend.text       = element_text(size = 6),
+      legend.key.height = unit(3, "pt"),
+      legend.key.width  = unit(20, "pt")
+    )
+}
+
+# One row per education level, metrics in the order `metrics` lists them, so
+# column j is the same metric in both rows. wrap_plots() fills by row, so the
+# two rows are simply concatenated. The colourbar under a column is drawn twice:
+# it is the same scale both times, which is the point.
+edu_row <- function(sf_slice, edu) {
+  pmap(metrics, function(col, label, ...)    # gradient comes from edu_palettes
+    map_panel_edu(sf_slice, col, edu_palettes[[col]], edu_limits[[col]],
+                  label, edu))
+}
+
+wrap_plots(c(edu_row(sf_mas, "Master's"), edu_row(sf_phd, "Doctorate")),
+           nrow = 2, ncol = 6) +
+  plot_annotation(title = paste("Master's over Doctorate -", map_age_group))
+```
+
+
+## With correct Croatia currency
+
+
+**This is the recommended default.** Leaflet is the most mature interactive
+mapping package in R, it renders `sf` natively, and `addLayersControl()` gives
+you exactly the radio-button toggle you described — no Shiny server needed.
+
+The pattern: add one `addPolygons()` layer per metric, each with a `group =`
+label, then wire the group names into `addLayersControl()`. Legends accept the
+same `group =` argument, so they appear and disappear with their layer.
+
+The radio buttons can only carry one dimension, and one geometry can only carry
+one row, so education and age band are fixed and the six measures are the
+toggle. Coverage forces that choice: the wellbeing measures are reported only at
+`All ages`, the labour measures only for Master's and Doctorate. `Master's` and
+`Doctorate` at `All ages` are therefore the only two slices with all six.
+
+
+```{r}
+#| label: leaflet-map2
+
+add_metric_layer <- function(map, col, label, palette) {
+  v   <- eu_sf[[col]]
+  pal <- colorNumeric(palette, domain = v, na.color = "#e8e8e8")
+  # 4-6 countries are missing per measure; say so rather than printing "NA".
+  txt <- ifelse(is.na(v), "no data",
+                formatC(v, format = "f", digits = 1, big.mark = " "))
+
+  map |>
+    addPolygons(
+      data         = eu_sf,
+      group        = label,
+      fillColor    = ~ pal(v),
+      fillOpacity  = 0.8,
+      color        = "white",
+      weight       = 1,
+      label        = ~ sprintf("%s: %s", NAME_ENGL, txt) |> lapply(htmltools::HTML),
+      highlightOptions = highlightOptions(weight = 3, color = "#333", bringToFront = TRUE)
+    ) |>
+    addLegend(
+      position = "bottomright", pal = pal, values = v,
+      title = label, group = label, opacity = 0.9
+    )
+}
+
+m <- leaflet(options = leafletOptions(minZoom = 3)) |>
+  addProviderTiles(providers$CartoDB.PositronNoLabels) |>
+  fitBounds(eu_bbox[["xmin"]], eu_bbox[["ymin"]], eu_bbox[["xmax"]], eu_bbox[["ymax"]])
+
+m <- reduce(
+  seq_len(nrow(metrics)),
+  \(map, i) add_metric_layer(map, metrics$col[i], metrics$label[i], metrics$palette[i]),
+  .init = m
+)
+
+m |>
+  addLayersControl(
+    baseGroups    = metrics$label,           # radio buttons: one metric at a time
+    options       = layersControlOptions(collapsed = FALSE)
+  ) |>
+  # leaflet ties legend visibility to overlayadd/overlayremove/groupadd/
+  # groupremove and has no baselayerchange handler, so with baseGroups every
+  # legend is added at init and never removed -- all six stack up at once.
+  # Translate the event the radio buttons do fire into the ones it listens for.
+  htmlwidgets::onRender("
+function(el, x) {
+  var map = this;
+  var groups = x.calls
+    .filter(function(c) { return c.method === 'addLegend'; })
+    .map(function(c) { return c.args[0].group; });
+
+  // addLayersControl already leaves only the first polygon layer visible;
+  // do the same for the legends.
+  groups.slice(1).forEach(function(g) { map.fire('groupremove', {name: g}); });
+
+  var shown = groups[0];
+  map.on('baselayerchange', function(e) {
+    if (e.name === shown) return;
+    map.fire('groupremove', {name: shown});
+    map.fire('groupadd',    {name: e.name});
+    shown = e.name;
+  });
+}")
+```
+
+
+## Two metrics side by side: a Shiny companion
+
+The map above toggles one metric at a time, which is the most `addLayersControl()`
+can do — radio buttons carry one dimension, and one geometry carries one row. The
+question it cannot answer is whether two metrics move together: for that you need
+both maps on screen at once, plus the scatter that pairs them country by country.
+
+That needs a server, so it lives in [`shinyMap.R`](shinyMap.R) rather than in this
+document. Keeping it out of the `.qmd` is deliberate: `quarto render` would have to
+switch the whole page to `server: shiny` to host it, and this project renders as a
+static website. The chunk below is `eval: false`, so the render never touches it.
+
+The app draws the same `data_wide` slices and reuses the leaflet recipe from
+`add_metric_layer()` above — `colorNumeric()` fill, `no data` labels for the 4-6
+countries missing per measure, the same `CartoDB.PositronNoLabels` tiles and the
+same fixed `eu_bbox`. What changes is that each metric gets its own map rather
+than being one toggled layer among six, which is what lets two of them sit side
+by side. Two metric selectors drive six panels: map 1, map 2 and their scatter
+for Master's on the first row, the same three for Doctorate on the second.
+
+Two things it does that the static figures cannot. Clicking a country on any map,
+or a point in any scatter, rings it in all six panels at once, which is how you
+tell whether a country sits high on one metric and low on the other. And the age
+band is selectable, with the metric menus annotated per band — coverage is uneven
+(the wellbeing measures exist only at `All ages`, the labour measures only per
+band), so the app says which pairs exist instead of quietly drawing blanks.
+
+Two smaller carry-overs from the figures above: each scatter reports its own
+Pearson and Spearman correlation with the `n` it was computed from, and a toggle
+puts both rows of a column on one shared colour scale — the `edu_limits` trick
+from the twelve-map grid, without which the darkest shade means something
+different in the Master's map than in the Doctorate one.
+
+Note that `shinyMap.R` re-applies the Croatia kuna correction from above. It reads
+`data_wide.csv`, and that file is written earlier in this document, before the fix.
+
+```{r}
+#| label: launch-shiny
+#| eval: false
+
+# From the project root. eval: false above -- this never runs during a render.
+# This is the fast path while developing: real R, instant reload.
+shiny::runApp("shinyMap.R")
+```
+
+### Getting it into this page: R compiled to WebAssembly
+
+The chunk above needs a live R process, which a rendered `.html` does not have.
+To make the app work *in this page* the R process has to move into the reader's
+browser, and that is what `shinylive` does: it ships webR -- R itself compiled to
+WebAssembly -- alongside wasm builds of every package the app loads. No server, no
+`shinyapps.io` account, and the result is still a static site.
+
+Every package this app needs is available as a wasm binary from
+[`repo.r-wasm.org`](https://repo.r-wasm.org): `shiny`, `bslib`, `dplyr`, `readr`,
+`sf`, `leaflet` and `plotly`.
+
+One thing had to change to make this work. `giscoR` fetched the boundaries over
+the network at startup, which a browser cannot do -- cross-origin requests to the
+GISCO service are blocked, and webR has no raw sockets. So the geometry is baked
+to a file once, here, from the very same `borders` object the static maps above
+are drawn from:
+
+```{r}
+#| label: save-borders
+
+# 2 decimal places is ~1 km at these latitudes, invisible at 1:20 million, and
+# it takes the file from 156 KB to 137 KB. Only the two columns the app uses.
+sf::st_write(
+  dplyr::select(borders, ISO3_CODE, NAME_ENGL),
+  "borders.geojson",
+  driver        = "GeoJSON",
+  delete_dsn    = TRUE,
+  quiet         = TRUE,
+  layer_options = "COORDINATE_PRECISION=2"
+)
+```
+
+Building the bundle is not a chunk in this document, and that is not a stylistic
+choice. Quarto expands the globs under `project: resources:` *before* it renders
+anything, so a `shinylive_app/` created partway through a render is discovered too
+late to be copied into `_site/`. What you get is a blank white frame: `index.html`
+does make it across, because Quarto spots it in the `src` below, while the 72 MB
+runtime sitting next to it does not.
+
+So the export lives in [`export_shinylive.R`](export_shinylive.R) and runs as a
+`pre-render` step, declared in `_quarto.yml` alongside the `resources:` entry it
+has to precede. It downloads webR and a wasm binary for every package the app
+loads, so the first build takes minutes; `shinylive` caches them afterwards.
+Pre-render scripts are not covered by `freeze: auto` and would otherwise re-export
+on every single render, so the script skips the work unless `shinyMap.R` is newer
+than the bundle. Delete `shinylive_app/` to force a rebuild after a data change.
+
+```{r}
+#| label: check-shinylive-export
+#| echo: false
+
+# The runtime, not just the page: index.html on its own renders as a blank frame,
+# which is easy to mistake for a broken app rather than a missing export.
+if (!dir.exists("shinylive_app/shinylive")) {
+  warning("shinylive_app/ is missing or incomplete -- check that the ",
+          "pre-render step in _quarto.yml ran; the frame below will be blank.",
+          call. = FALSE)
+}
+```
+
+::: {.column-screen-inset}
+```{=html}
+<iframe src="shinylive_app/index.html" width="100%" height="1040"
+        style="border: 1px solid #dee2e6; border-radius: 4px;">
+</iframe>
+```
+:::
+
+Two caveats worth knowing. The first load is heavy -- webR plus the `sf` stack
+(GDAL, PROJ and GEOS, all compiled to wasm) is tens of megabytes, so expect a
+visible startup pause; it caches afterwards. And the wasm app does not see
+`_brand.yml`, so it renders in the default Bootstrap theme rather than the site's
+teal and Albert Sans, while the locally launched version picks the brand up.
+
+
+```{r}
+datatable(data_wide)
+```
+
+
+```{r}
+
+```
+
+```{r}
+
+```
+
+
+```{r}
+
+```
+
+
+```{r}
+
+```
+
+```{r}
+
+```
+
+
+```{r}
+
+```
+
+
+```{r}
+
 ```
 
 
@@ -152,5 +733,5 @@ glimpse(data_wide)
 ```{r}
 #| label: print-time
 #| message: false
-cat(format(Sys.time()))
+sessionInfo()
 ```

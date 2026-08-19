@@ -1,16 +1,655 @@
 ---
-title: "Analysis 1"
+title: "Does age pay?"
+subtitle: "Earnings, job security and working hours among Master’s and Doctorate holders across countries."
+
+format:
+  html:
+    code-fold: true
 ---
+
+This is the analysis of age-related data in the OECD reICO dataset. It was used to figure out, if earnings, working hours and the rate of indefinite contracts depends on the age group, the academic degree (master vs doctorate) or on the country.
+
+If you wish to learn, how the data was tidied and filtered for the outputs on this page, feel free to explore the code below:
+
 
 ```{r}
 #| label: setup
 #| message: false
-#| cache: true
-library(dplyr)
-library(ggplot2)
-library(ggokabeito)   # color-blind-safe (Okabe-Ito) scale
+#| cache: false
+#| output: false
+
+#We restricted the analysis to observations classified by OECD as normal values (OBS_STATUS_1 = "A"). When two normal observations were available for the same country, year and indicator, we used their arithmetic mean and flagged these cases for sensitivity analysis.
+
+library(tidyverse)
+dat <- read_csv("filtered_reICO_data.csv")
+head(dat)
+colnames(dat)
+
+
+# Keep only age-specific variables
+age_data <- dat %>%
+  filter(
+    str_detect(
+      Indicator,
+      "aged 25-34|aged 35-44|aged 45-54|aged 55-64"
+    )
+  )
+
+# Keep observations classified as "Normal value"
+age_normal <- age_data %>%
+  filter(OBS_STATUS_1 == "A")
+
+#Coerce duplications into a mean
+age_normal_check <- age_normal %>%
+  group_by(REF_AREA, `Reference area`, VAR, Indicator) %>%
+  summarise(
+    n_values = n(),
+    value_min = min(OBS_VALUE),
+    value_max = max(OBS_VALUE),
+    value_mean = mean(OBS_VALUE),
+    difference = value_max - value_min,
+    pct_difference =
+      100 * difference / value_mean,
+    .groups = "drop"
+  )
+
+
+#Create tidy table
+age_tidy <- age_normal_check %>%
+  mutate(
+    
+    # Degree
+    degree = case_when(
+      str_starts(VAR, "MAS") ~ "Master",
+      str_starts(VAR, "PHD") ~ "Doctorate",
+      TRUE ~ NA_character_
+    ),
+    
+    # Age group
+    age_group = case_when(
+      str_detect(VAR, "25_34") ~ "25-34",
+      str_detect(VAR, "35_44") ~ "35-44",
+      str_detect(VAR, "45_54") ~ "45-54",
+      str_detect(VAR, "55_64") ~ "55-64",
+      TRUE ~ NA_character_
+    ),
+    
+    # Outcome
+    outcome = case_when(
+      str_detect(VAR, "EARNY") ~ "Earnings",
+      str_detect(VAR, "_HW")   ~ "Annual hours",
+      str_detect(VAR, "PERM")  ~ "Indefinite contract",
+      TRUE ~ NA_character_
+    ),
+    
+    # Put age groups in logical order
+    age_group = factor(
+      age_group,
+      levels = c("25-34", "35-44", "45-54", "55-64"),
+      ordered = TRUE
+    ),
+    
+    # Put degree categories in logical order
+    degree = factor(
+      degree,
+      levels = c("Master", "Doctorate")
+    ),
+    
+    # Flag cases where more than one normal value was averaged
+    duplicate_normal = n_values > 1
+  ) %>%
+  
+  select(
+    country_code = REF_AREA,
+    country = `Reference area`,
+    degree,
+    age_group,
+    outcome,
+    value = value_mean,
+    duplicate_normal,
+    n_normal_values = n_values,
+    value_min,
+    value_max,
+    difference,
+    pct_difference,
+    VAR
+  ) %>%
+  
+  arrange(
+    country,
+    degree,
+    outcome,
+    age_group
+  )
+
+#Check that all variables got converted and no NA values exist
+age_tidy %>%
+  filter(
+    is.na(degree) |
+    is.na(age_group) |
+    is.na(outcome)
+  )
+
+#Inspect coverage
+age_tidy %>%
+  count(degree, outcome, age_group)
+
+#Check that no duplicate values remain
+age_tidy %>%
+  count(country, degree, age_group, outcome) %>%
+  filter(n > 1)
+```
+
+
+::: {.callout-note}
+### Note on uneven data distribution
+The analysis results are based on a survey carried out in many countries across the world. Unfortunately, the responses are very unevenly distributed between countries. You can explore this further in @tbl-plot1. 
+:::
+
+### Question 1
+How do earnings, working hours, and job security change with age? Are the patterns different for Master’s and Doctorate holders?
+
+First, we need to tidy the data a bit more. If you wish to see, how this was done, follow the plot below.
+```{r}
+#| label: plot1_setup
+#| message: false
+#| cache: false
+#| output: false
+
+#Only use consistent data
+plot1_data <- age_tidy %>%
+  filter(
+    !is.na(country),
+    !is.na(degree),
+    !is.na(age_group),
+    !is.na(outcome),
+    !is.na(value)
+  ) %>%
+  
+  group_by(country, degree, outcome) %>%
+  
+  # Keep only cases where all 4 age groups are available
+  filter(n_distinct(age_group) == 4) %>%
+  
+  ungroup()
+
+#Number of countries:
+plot1_data %>%
+  distinct(country, degree, outcome) %>%
+  count(degree, outcome)
+
+#Create age-dependent change relative to 25-34 years
+plot1_data <- plot1_data %>%
+  group_by(country, degree, outcome) %>%
+  mutate(
+    baseline_25_34 = value[age_group == "25-34"],
+    
+    age_change = case_when(
+      
+      # Percentage change
+      outcome == "Earnings" ~
+        100 * (value / baseline_25_34 - 1),
+      
+      outcome == "Annual hours" ~
+        100 * (value / baseline_25_34 - 1),
+      
+      outcome == "Indefinite contract" ~
+        100 * (value / baseline_25_34 - 1)
+    )
+  ) %>%
+  ungroup()
+
+#Check
+plot1_data %>%
+  select(
+    country,
+    degree,
+    outcome,
+    age_group,
+    value,
+    baseline_25_34,
+    age_change
+  ) %>%
+  arrange(country, degree, outcome, age_group)
+
+#Summarize across countries, use median and 25th and 75th percentiles
+plot1_summary <- plot1_data %>%
+  group_by(degree, outcome, age_group) %>%
+  summarise(
+    median_change = median(age_change, na.rm = TRUE),
+    q25 = quantile(age_change, 0.25, na.rm = TRUE),
+    q75 = quantile(age_change, 0.75, na.rm = TRUE),
+    n_countries = n(),
+    .groups = "drop"
+  )
+
+#inspect
+plot1_summary
+
 
 ```
+
+```{r}
+#| label: tbl-plot1
+#| tbl-cap: "Number of countries (N) available for analysis."
+#| column: margin
+#| echo: false
+plot1_summary %>%
+  select(degree, outcome, age_group, n_countries)%>%
+  knitr::kable(
+    col.names = c(
+      "Degree",
+      "Outcome",
+      "Age group",
+      "N"
+    )
+  )
+```
+
+And now we can visualize the data to answer the first question. First, we look at the change in the annual working ours, earnings and indefinite contracts as a median across all countries.  
+```{r}
+#| label: fig-plot1
+#| fig-cap: "Labour-market outcomes in age groups"
+#| fig-alt: >-
+#|   Line plots depicting percentage change in outcomes relative to the youngest age group (25-34 years). 
+#| message: false
+#| cache: false
+#| output: true
+
+
+#Plotting
+library(ggplot2)
+
+#Prepare facets
+plot1_summary <- plot1_summary %>%
+  mutate(
+    outcome_label = case_when(
+      outcome == "Earnings" ~
+        "Earnings",
+      
+      outcome == "Annual hours" ~
+        "Annual working hours",
+      
+      outcome == "Indefinite contract" ~
+        "Indefinite contracts"
+    )
+  )
+
+
+ggplot(
+  plot1_summary,
+  aes(
+    x = age_group,
+    y = median_change,
+    group = degree
+  )
+) +
+  geom_hline(
+    yintercept = 0,
+    linetype = "dashed",
+    linewidth = 0.4
+  ) +
+  
+  geom_line(
+    aes(linetype = degree),
+    linewidth = 1
+  ) +
+  
+  geom_point(
+    aes(shape = degree),
+    size = 3
+  ) +
+  
+  facet_wrap(
+    ~ outcome_label,
+    scales = "free_y"
+  ) +
+  
+  labs(
+    title = "Labour-market outcomes in age groups",
+    subtitle = "Median within-country change relative to ages 25-34",
+    x = "Age group",
+    y = "Change relative to ages 25-34 (%)",
+    linetype = "Degree",
+    shape = "Degree",
+    caption = "Only country-degree groups containing all four age groups displayed."
+  ) +
+  
+  theme_minimal() +
+  
+  theme(
+    legend.position = "bottom",
+    strip.text = element_text(face = "bold")
+  )
+
+```
+
+What can we learn from here? As you can see from @fig-plot1, 
+
+* Working hours do not change much during the course of the career, except for master´s degree holders, who tend to work 4% less at later ages (55-64 years).
+* Doctorate degree holders are more likely to be hired with indefinite contracts at the later stages of their career.
+* Earnings differ only in the later stages of life - from 45-54 years higher pay is evident for doctorate degree holders. 
+
+
+### Question 2
+Does the age–earnings pattern depend on the country of residence?
+For this analysis, we selected countries with all datapoints available. If you wish to see, how we did this, check out the code below:
+
+```{r}
+#| label: plot2_setup
+#| message: false
+#| cache: false
+#| output: false
+#Find countries with 4 age groups for both MSc and PhD
+balanced_countries <- age_tidy %>%
+  filter(
+    outcome == "Earnings",
+    !is.na(value)
+  ) %>%
+  
+  group_by(country, degree) %>%
+  summarise(
+    n_age_groups = n_distinct(age_group),
+    .groups = "drop"
+  ) %>%
+  
+  # Complete age profile for the degree
+  filter(n_age_groups == 4) %>%
+  
+  # Now check whether BOTH degrees are complete
+  count(country, name = "n_degrees") %>%
+  filter(n_degrees == 2) %>%
+  pull(country)
+
+
+#Organize data for heatmap
+heatmap_data <- age_tidy %>%
+  filter(
+    outcome == "Earnings",
+    country %in% balanced_countries
+  ) %>%
+  
+  group_by(country, degree) %>%
+  
+  mutate(
+    earnings_25_34 = value[age_group == "25-34"],
+    
+    earnings_change =
+      100 * (value / earnings_25_34 - 1)
+  ) %>%
+  
+  ungroup()
+
+#Sort countries according to their older age earnings
+country_order <- heatmap_data %>%
+  filter(age_group == "55-64") %>%
+  group_by(country) %>%
+  summarise(
+    senior_premium = mean(earnings_change, na.rm = TRUE),
+    .groups = "drop"
+  ) %>%
+  arrange(senior_premium) %>%
+  pull(country)
+
+#Apply ordering
+heatmap_data <- heatmap_data %>%
+  mutate(
+    country = factor(
+      country,
+      levels = country_order
+    )
+  )
+
+```
+
+Only `{r} length(balanced_countries)` countries remain: `{r} paste(balanced_countries, collapse = ", ")`.
+
+
+```{r}
+#| label: fig-plot2
+#| fig-cap: "Age-earnings gradient across countries"
+#| fig-alt: >-
+#|   A heatmap depicting percentage change in earnings relative to the youngest age group (25-34 years) across countries. 
+#| message: false
+#| cache: false
+#| output: true
+
+#Heatmap
+ggplot(
+  heatmap_data,
+  aes(
+    x = age_group,
+    y = country,
+    fill = earnings_change
+  )
+) +
+  
+  geom_tile(
+    linewidth = 0.5
+  ) +
+  
+  geom_text(
+    aes(label = round(earnings_change, 0)),
+    size = 3
+  ) +
+  
+  facet_wrap(~ degree) +
+  
+  scale_fill_gradient2(
+    midpoint = 0,
+    name = "% difference\nfrom 25-34"
+  ) +
+  
+  labs(
+    title = "The age-earnings gradient across countries",
+    subtitle = "Earnings in each age group relative to ages 25-34 within the same country and degree",
+    x = "Age group",
+    y = NULL,
+    caption = "Balanced sample: countries with all four age groups for both Master and Doctorate holders."
+  ) +
+  
+  theme_minimal() +
+  
+  theme(
+    legend.position = "bottom",
+    panel.grid = element_blank(),
+    strip.text = element_text(face = "bold")
+  )
+
+
+```
+
+What do the results in @fig-plot2 tell us?
+
+* Aging is not generally a bad thing - in all countries, people in higher age groups earn more than young people between 25-34. 
+* However, in some countries the earnings decline in the age-group 55-64 years in comparison to people 10 years younger. 
+
+### Question 3
+Is it overall worth to pursue a PhD over MSc? Does it pay off at older age? Or does this depend on the country you live in?
+
+This is how we rearranged the data:
+```{r}
+#| label: plot3_setup
+#| message: false
+#| cache: false
+#| output: false
+
+#Keep the youngest and oldest groups
+age_premium <- age_tidy %>%
+  filter(
+    outcome == "Earnings",
+    age_group %in% c("25-34", "55-64"),
+    !is.na(value)
+  ) %>%
+  
+  select(
+    country,
+    degree,
+    age_group,
+    value
+  )
+
+#Make a wide table
+age_premium <- age_premium %>%
+  pivot_wider(
+    names_from = age_group,
+    values_from = value
+  )
+
+#Require both age groups
+age_premium <- age_premium %>%
+  drop_na(`25-34`, `55-64`)
+
+#Calculate age earnings premium
+age_premium <- age_premium %>%
+  mutate(
+    age_premium =
+      100 * (`55-64` / `25-34` - 1)
+  )
+
+#Reformat table to compare PhD vs MSc
+degree_comparison <- age_premium %>%
+  select(
+    country,
+    degree,
+    age_premium
+  ) %>%
+  
+  pivot_wider(
+    names_from = degree,
+    values_from = age_premium
+  ) %>%
+    drop_na(Master, Doctorate) # We need both degrees to compare them
+
+#PhD - MSc
+degree_comparison <- degree_comparison %>%
+  mutate(
+    phd_minus_master =
+      Doctorate - Master
+  ) %>%
+  
+  arrange(phd_minus_master)
+
+
+```
+
+We chose a lollipop plot to depict the differences in earnings between doctorate and master degree holders at the age of 55-64 years in relation to the youngest age group of 25-34 years.
+```{r}
+#| label: fig-plot3
+#| fig-cap: "Worth of PhD at age 55-64 years"
+#| fig-alt: >-
+#|   A graph depicting percentage change between doctorate and master degree holder earnings at the age of 55-64 years relative to the youngest age group (25-34 years) across countries. 
+#| message: false
+#| cache: false
+#| output: true
+
+#Plot without visible data points
+ggplot(
+  degree_comparison,
+  aes(
+    x = reorder(country, phd_minus_master),
+    y = phd_minus_master
+  )
+) +
+  
+  geom_hline(
+    yintercept = 0,
+    linetype = "dashed"
+  ) +
+  
+  geom_segment(
+    aes(
+      xend = reorder(country, phd_minus_master),
+      y = 0,
+      yend = phd_minus_master
+    ),
+    linewidth = 0.7
+  ) +
+  
+  geom_point(
+    size = 3
+  ) +
+  
+  coord_flip() +
+  
+  labs(
+    title = "Is the age-earnings gradient stronger for doctorate holders?",
+    subtitle = "Difference between Doctorate and Master's 55-64 vs 25-34 earnings premiums",
+    x = NULL,
+    y = "Doctorate minus Master's age premium (percentage points)",
+    caption = "Positive values indicate a stronger age-earnings gradient among doctorate holders."
+  ) +
+  
+  theme_minimal()
+
+```
+
+```{r}
+#| echo: false
+#| output: false
+#Add values to the previous plot
+ggplot(
+  degree_comparison,
+  aes(
+    x = reorder(country, phd_minus_master),
+    y = phd_minus_master
+  )
+) +
+  
+  geom_hline(
+    yintercept = 0,
+    linetype = "dashed"
+  ) +
+  
+  geom_segment(
+    aes(
+      xend = reorder(country, phd_minus_master),
+      y = 0,
+      yend = phd_minus_master
+    ),
+    linewidth = 0.7
+  ) +
+  
+  geom_point(
+    size = 3
+  ) +
+  
+  geom_text(
+    aes(
+      label = paste0(
+        round(phd_minus_master, 1),
+        " pp"
+      )
+    ),
+    hjust = ifelse(
+      degree_comparison$phd_minus_master >= 0,
+      -0.2,
+      1.2
+    ),
+    size = 3.2
+  ) +
+  
+  coord_flip() +
+  
+  labs(
+    title = "Is it worth to have a PhD?",
+    subtitle = "Earnings at doctorate age premium minus Master's age premium",
+    x = NULL,
+    y = "Difference in age premium (percentage points)",
+    caption = "Age premium = percentage difference in earnings between ages 55-64 and 25-34."
+  ) +
+  
+  theme_minimal()
+```
+
+The results in @fig-plot3 show that
+
+* People holding a doctorate degree generally earn more by the end of their career in comparison to their colleagues with master degrees.
+* The opposite is true for Denmark.
+* In Norway and Finland, the degree does not matter that much and the increase in earnings is similar between doctorate and master degree owners.
+
+
+
 
 
 ```{r}
