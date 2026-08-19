@@ -1,20 +1,1640 @@
 ---
-title: "Find your best match"
+title: "Find Your Best Match"
+format:
+  html:
+    code-copy: true
+    toc: true
+    toc-depth: 3
+    embed-resources: false
+engine: knitr
+
+filters:
+  - shinylive
+
 ---
 
-```{r}
-#| label: setup
-#| message: false
-#| cache: true
+
+The **Personalised Country Wellbeing Score (PCWS)** is an interactive country recommendation tool based on OECD wellbeing data. Rather than identifying one country as universally "best", the model evaluates countries according to a user's demographic profile and the aspects of wellbeing that matter most to that individual.
+
+The user provides:
+
+- education level
+- age group
+- desired annual income
+- preferred weekly working hours
+- the relative importance of happines, financial satisfication, leisure satisfaction, employment security, income and working hours. 
+
+These inputs are combined with OECD indicators to produce a personalised score for each country and a ranked recommendation.
+
+# Interpretation and limitations
+
+The Personalised Country Wellbeing Score should be interpreted as a **recommendation index**, not as an individual causal prediction of future happiness.
+
+The current dataset contains aggregated OECD observations rather than individual-level records. In addition, the wellbeing percentages and labour-market indicators are drawn from related but not identical demographic groupings.
+
+The model therefore answers a question closer to:
+
+> **Which countries have observed wellbeing and labour-market profiles that most closely match this user's characteristics and stated preferences?**
+
+It does not establish that moving to the highest-ranked country would cause that individual to become happier.
+
+The user-defined weighting system is also intentionally subjective. This is a feature of the model rather than an error: the purpose is to make the value judgements behind the recommendation visible and adjustable instead of embedding fixed assumptions about what everyone should value.
+
+
+## The wellbeing app
+
+::: {.column-screen-inset}
+```{shinylive-r}
+#| standalone: true
+#| viewerHeight: 1450
+## file: app.R
+
+library(shiny)
 library(dplyr)
 library(ggplot2)
-library(ggokabeito)   # color-blind-safe (Okabe-Ito) scale
+
+#Loading data
+#The CSV is embedded directly in this Shinylive application.
+#This means the browser app does not depend on the user's working directory.
+df <- read.csv(
+  "data_wide.csv",
+  stringsAsFactors = FALSE,
+  check.names = FALSE
+)
+
+#Making sure data is numeric
+df <- df %>%
+  mutate(
+    pct_happy = as.numeric(pct_happy),
+    pct_satisfied_finances = as.numeric(pct_satisfied_finances),
+    pct_satisfied_leisure = as.numeric(pct_satisfied_leisure),
+    pct_permanent_contract = as.numeric(pct_permanent_contract),
+    earnings_gross_yearly = as.numeric(earnings_gross_yearly),
+    hours_worked = as.numeric(hours_worked)
+  )
+
+#Making the functions for compatability
+#Transforming the values so that they match the other indicators % style on a scale of 0-100
+
+#Income compatability
+income_match <- function(country_income, desired_income) {
+
+  difference <- abs(country_income - desired_income)
+
+  # Exponential, No difference → score of 100. Bigger difference → rapidly smaller score.
+  #"Small differences are meaningful, but once two things are already very different, additional difference doesn't matter very much."
+  # differences near zero matter a lot; differences that are already large matter progressively less.
+  #smaller denominator → score falls faster → more sensitive to differences
+  #larger denominator → score falls slower → less sensitive to differences
+  #So the denominator defines the scale of difference that you consider substantial.
+
+  score <- 100 * exp(
+    -difference / desired_income
+  )
+
+  return(score)
+}
+
+#Numbers of working hours compatability
+hours_match <- function(country_hours, desired_hours) {
+
+  difference <- abs(country_hours - desired_hours)
+
+  #smaller 10 → score falls faster → more sensitive to differences
+  #larger 10 → score falls slower → less sensitive to differences
+  #when difference = 10, your score has fallen to exactly 100e−1≈36.8.
+
+  score <- 100 * exp(
+    -difference / 10
+  )
+
+  return(score)
+}
+
+#Education levels that can be combined with age-specific OECD work data
+available_education <- df %>%
+  filter(age_group != "All ages") %>%
+  distinct(education) %>%
+  pull(education)
+
+# ============================================================
+# USER INTERFACE
+# ============================================================
+
+ui <- fluidPage(
+
+  tags$style(HTML("
+    .wellbeing-result {
+      padding: 16px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      margin-bottom: 18px;
+    }
+    .shiny-input-container {
+      width: 100%;
+    }
+  ")),
+
+  titlePanel("Personalised Country Wellbeing Score"),
+
+  fluidRow(
+
+    column(
+      width = 4,
+
+      h3("Your profile"),
+
+      selectInput(
+        inputId = "education",
+        label = "Education",
+        choices = available_education
+      ),
+
+      selectInput(
+        inputId = "age_group",
+        label = "Age group",
+        choices = c("25-34", "35-44", "45-54", "55-64")
+      ),
+
+      numericInput(
+        inputId = "income",
+        label = "Desired annual income in €",
+        value = 100000,
+        min = 1,
+        step = 100
+      ),
+
+      numericInput(
+        inputId = "hours",
+        label = "Preferred working hours per week",
+        value = 35,
+        min = 1,
+        max = 100
+      ),
+
+      hr(),
+
+      #Letting the user decide what is most important for them, i.e. the weights for the model
+      h3("What matters most to you?"),
+      p("Set each factor from 0 = not important to 10 = extremely important."),
+
+      sliderInput(
+        "weight_happiness",
+        "Happiness",
+        min = 0,
+        max = 10,
+        value = 8,
+        step = 1
+      ),
+
+      sliderInput(
+        "weight_finance",
+        "Financial satisfaction",
+        min = 0,
+        max = 10,
+        value = 7,
+        step = 1
+      ),
+
+      sliderInput(
+        "weight_leisure",
+        "Leisure satisfaction",
+        min = 0,
+        max = 10,
+        value = 7,
+        step = 1
+      ),
+
+      sliderInput(
+        "weight_contract",
+        "Employment security",
+        min = 0,
+        max = 10,
+        value = 5,
+        step = 1
+      ),
+
+      sliderInput(
+        "weight_income",
+        "Income",
+        min = 0,
+        max = 10,
+        value = 7,
+        step = 1
+      ),
+
+      sliderInput(
+        "weight_hours",
+        "Working hours",
+        min = 0,
+        max = 10,
+        value = 7,
+        step = 1
+      )
+    ),
+
+    column(
+      width = 8,
+
+      # Making output placeholders
+      h2("Your recommended country"),
+      uiOutput("summary"),
+
+      h3("Why is this recommended to you?"),
+      uiOutput("why_country"),
+
+      plotOutput(
+        "contribution_plot",
+        height = "400px"
+      ),
+
+      hr(),
+
+      h2("Your top 10 countries"),
+      tableOutput("country_table"),
+
+      hr(),
+
+      h2("Comparison of your top 10 countries"),
+      plotOutput(
+        "country_plot",
+        height = "500px"
+      )
+    )
+  )
+)
+
+# ============================================================
+# SERVER
+# ============================================================
+
+server <- function(input, output, session) {
+
+  #Starting the Server
+
+  #Update the age choices so only age groups available for the chosen
+  #education level can be selected
+  observeEvent(input$education, {
+
+    available_ages <- df %>%
+      filter(
+        education == input$education,
+        age_group != "All ages"
+      ) %>%
+      distinct(age_group) %>%
+      pull(age_group)
+
+    updateSelectInput(
+      session,
+      "age_group",
+      choices = available_ages,
+      selected = if (input$age_group %in% available_ages) {
+        input$age_group
+      } else {
+        available_ages[1]
+      }
+    )
+  })
+
+  #Getting the user data, to get the correct reference group
+  results <- reactive({
+
+    #The wellbeing indicators are available by education at "All ages".
+    #Therefore these are retrieved separately from the age-specific
+    #labour market indicators.
+    wellbeing_data <- df %>%
+      filter(
+        education == input$education,
+        age_group == "All ages"
+      ) %>%
+      select(
+        iso3,
+        country,
+        pct_happy,
+        pct_satisfied_finances,
+        pct_satisfied_leisure
+      )
+
+    #Getting age-specific work and economic data for the user's education group
+    work_data <- df %>%
+      filter(
+        education == input$education,
+        age_group == input$age_group
+      ) %>%
+      select(
+        iso3,
+        country,
+        earnings_gross_yearly,
+        hours_worked,
+        pct_permanent_contract
+      )
+
+    #Combining the two OECD reference groups by country
+    data <- wellbeing_data %>%
+      inner_join(
+        work_data,
+        by = c("iso3", "country")
+      )
+
+    #Removing countries where one or more indicators required
+    #for the score are unavailable
+    data <- data %>%
+      filter(
+        !is.na(pct_happy),
+        !is.na(pct_satisfied_finances),
+        !is.na(pct_satisfied_leisure),
+        !is.na(earnings_gross_yearly),
+        !is.na(hours_worked),
+        !is.na(pct_permanent_contract)
+      )
+
+    #Check that we have data
+    validate(
+      need(
+        nrow(data) > 0,
+        "No complete data is available for this education and age combination."
+      )
+    )
+
+    #Getting the user input importance "weights"
+    weights <- c(
+      happiness = input$weight_happiness,
+      finance = input$weight_finance,
+      leisure = input$weight_leisure,
+      contract = input$weight_contract,
+      income = input$weight_income,
+      hours = input$weight_hours
+    )
+
+    #Normalising the weights so that the sum is always 1 (100%)
+    if (sum(weights) == 0) {
+      weights <- rep(1, length(weights))
+      names(weights) <- c(
+        "happiness", "finance", "leisure",
+        "contract", "income", "hours"
+      )
+    }
+
+    weights <- weights / sum(weights)
+
+    # Making the scores for the indicators, all except income and time from raw data
+    # + adding the contribution facotrs from the user
+    # + adding the total calculated country wellbeing score for the user
+    data <- data %>%
+      mutate(
+
+        happiness_score =
+          pct_happy,
+
+        contribution_happiness =
+          weights["happiness"] *
+          happiness_score,
+
+        finance_score =
+          pct_satisfied_finances,
+
+        contribution_finance =
+          weights["finance"] *
+          finance_score,
+
+        leisure_score =
+          pct_satisfied_leisure,
+
+        contribution_leisure =
+          weights["leisure"] *
+          leisure_score,
+
+        contract_score =
+          pct_permanent_contract,
+
+        contribution_contract =
+          weights["contract"] *
+          contract_score,
+
+        income_match_score =
+          income_match(
+            earnings_gross_yearly,
+            input$income
+          ),
+
+        contribution_income =
+          weights["income"] *
+          income_match_score,
+
+        hours_match_score =
+          hours_match(
+            hours_worked,
+            input$hours
+          ),
+
+        contribution_hours =
+          weights["hours"] *
+          hours_match_score,
+
+        personalised_score =
+          contribution_happiness +
+          contribution_finance +
+          contribution_leisure +
+          contribution_contract +
+          contribution_income +
+          contribution_hours
+      )
+
+    #Reformatting datatable, one country per row
+    #After combining the education and age reference groups there is already
+    #one usable row per country, so the columns are renamed here for the outputs.
+    data <- data %>%
+      arrange(desc(personalised_score)) %>%
+      mutate(
+        rank = row_number()
+      ) %>%
+      transmute(
+        rank = rank,
+        country = country,
+        iso3 = iso3,
+        score = personalised_score,
+        happiness = happiness_score,
+        finance = finance_score,
+        leisure = leisure_score,
+        contract = contract_score,
+        income = earnings_gross_yearly,
+        hours = hours_worked,
+        income_match = income_match_score,
+        hours_match = hours_match_score,
+        contribution_happiness = contribution_happiness,
+        contribution_finance = contribution_finance,
+        contribution_leisure = contribution_leisure,
+        contribution_contract = contribution_contract,
+        contribution_income = contribution_income,
+        contribution_hours = contribution_hours
+      )
+
+    return(data)
+  })
+
+  # The results
+  output$summary <- renderUI({
+
+    best <- results() %>%
+      slice(1)
+
+    tags$div(
+      class = "wellbeing-result",
+      tags$h2(
+        paste(
+          "Your recommended country is",
+          best$country
+        )
+      ),
+      tags$p(
+        paste0(
+          "Personalised Country Wellbeing Score: ",
+          round(best$score, 1),
+          " / 100"
+        )
+      )
+    )
+  })
+
+  # Why was that country selected for you?
+  output$why_country <- renderUI({
+
+    best <- results() %>%
+      slice(1)
+
+    contributions <- data.frame(
+      factor = c(
+        "Happiness",
+        "Financial satisfaction",
+        "Leisure satisfaction",
+        "Employment security",
+        "Income compatibility",
+        "Working-hours compatibility"
+      ),
+      contribution = c(
+        best$contribution_happiness,
+        best$contribution_finance,
+        best$contribution_leisure,
+        best$contribution_contract,
+        best$contribution_income,
+        best$contribution_hours
+      )
+    ) %>%
+      arrange(desc(contribution))
+
+    top_factors <- contributions %>%
+      slice_head(n = 3)
+
+    tags$div(
+      tags$p(
+        paste0(
+          best$country,
+          " ranks first for your profile."
+        )
+      ),
+      tags$p(
+        "Its three strongest contributors are:"
+      ),
+      tags$ol(
+        tags$li(top_factors$factor[1]),
+        tags$li(top_factors$factor[2]),
+        tags$li(top_factors$factor[3])
+      ),
+      tags$p(
+        paste0(
+          round(best$happiness, 1),
+          "% of the relevant education group report being happy."
+        )
+      ),
+      tags$p(
+        paste0(
+          "Income compatibility: ",
+          round(best$income_match, 1),
+          "/100. Working-hours compatibility: ",
+          round(best$hours_match, 1),
+          "/100."
+        )
+      )
+    )
+  })
+
+  # Weight contribution charts for the different indicators
+  output$contribution_plot <- renderPlot({
+
+    best <- results() %>%
+      slice(1)
+
+    contribution_data <- data.frame(
+      factor = c(
+        "Happiness",
+        "Financial satisfaction",
+        "Leisure",
+        "Employment security",
+        "Income match",
+        "Working hours"
+      ),
+      contribution = c(
+        best$contribution_happiness,
+        best$contribution_finance,
+        best$contribution_leisure,
+        best$contribution_contract,
+        best$contribution_income,
+        best$contribution_hours
+      )
+    )
+
+    ggplot(
+      contribution_data,
+      aes(
+        x = reorder(factor, contribution),
+        y = contribution
+      )
+    ) +
+      geom_col() +
+      coord_flip() +
+      labs(
+        title = paste(
+          "Why",
+          best$country,
+          "ranks first"
+        ),
+        x = NULL,
+        y = "Contribution to score"
+      ) +
+      theme_minimal()
+  })
+
+  #Your top 10 countries table
+  output$country_table <- renderTable({
+
+    results() %>%
+      slice_head(n = 10) %>%
+      transmute(
+        Rank = rank,
+        Country = country,
+        `Wellbeing Score` =
+          round(score, 1),
+        `Happy %` =
+          round(happiness, 1),
+        `Financially Satisfied %` =
+          round(finance, 1),
+        `Leisure Satisfied %` =
+          round(leisure, 1),
+        `Permanent Contract %` =
+          round(contract, 1),
+        `Income Match` =
+          round(income_match, 1),
+        `Hours Match` =
+          round(hours_match, 1)
+      )
+
+  }, striped = TRUE, bordered = TRUE, spacing = "s")
+
+  # Your top 10 countries plot
+  output$country_plot <- renderPlot({
+
+    plot_data <- results() %>%
+      slice_head(n = 10)
+
+    ggplot(
+      plot_data,
+      aes(
+        x = reorder(country, score),
+        y = score
+      )
+    ) +
+      geom_col() +
+      coord_flip() +
+      labs(
+        title = "Your Top 10 Country Matches",
+        x = NULL,
+        y = "Personalised Wellbeing Score"
+      ) +
+      theme_minimal()
+  })
+}
+
+shinyApp(
+  ui = ui,
+  server = server
+)
+
+
+## file: data_wide.csv
+iso3,country,education,age_group,pct_happy,pct_satisfied_finances,pct_satisfied_leisure,earnings_gross_yearly,hours_worked,pct_permanent_contract
+AUT,Austria,Total population,All ages,93.71,80.76,80.25,NA,NA,NA
+AUT,Austria,Master's,All ages,96.82,90.89,75.09,76931.21599,1789.008,90.02001583
+AUT,Austria,Master's,25-34,NA,NA,NA,53215.882,1806.376,77.78043817
+AUT,Austria,Master's,35-44,NA,NA,NA,72847.85534,1750.112,92.93967359
+AUT,Austria,Master's,45-54,NA,NA,NA,94959.27455,1789.216,95.98737889
+AUT,Austria,Master's,55-64,NA,NA,NA,110780.6835,1843.66,96.54107726
+AUT,Austria,Doctorate,All ages,97.66,94.85,76.95,98327.03529,1862.432,82.6187646
+AUT,Austria,Doctorate,25-34,NA,NA,NA,NA,1838.46,NA
+AUT,Austria,Doctorate,35-44,NA,NA,NA,NA,1786.2,85.53028399
+AUT,Austria,Doctorate,45-54,NA,NA,NA,NA,1891.188,90.47553411
+AUT,Austria,Doctorate,55-64,NA,NA,NA,130142.8748,1933.204,88.16088546
+BEL,Belgium,Total population,All ages,94.82,83.55,84.66,NA,NA,NA
+BEL,Belgium,Master's,All ages,98.13,92.93,83.83,76647.66657,1963.208,92.48214759
+BEL,Belgium,Master's,25-34,NA,NA,NA,58046.45449,1895.452,85.60773027
+BEL,Belgium,Master's,35-44,NA,NA,NA,78449.95732,1965.6,94.15295633
+BEL,Belgium,Master's,45-54,NA,NA,NA,91329.68187,2026.804,96.04189188
+BEL,Belgium,Master's,55-64,NA,NA,NA,96791.17202,1978.236,97.93337129
+BEL,Belgium,Doctorate,All ages,99.71,97.12,80.8,104724.7029,2153.736,86.83699933
+BEL,Belgium,Doctorate,25-34,NA,NA,NA,NA,1945.84,81.71730515
+BEL,Belgium,Doctorate,35-44,NA,NA,NA,104813.4438,2080.156,82.07661478
+BEL,Belgium,Doctorate,45-54,NA,NA,NA,110580.0353,2285.504,92.88228991
+BEL,Belgium,Doctorate,55-64,NA,NA,NA,NA,2390.076,100
+BRA,Brazil,Master's,All ages,NA,NA,NA,64942.35116,2237.399626,NA
+BRA,Brazil,Master's,25-34,NA,NA,NA,41123.14051,2351.870235,NA
+BRA,Brazil,Master's,35-44,NA,NA,NA,65972.70311,2236.729721,NA
+BRA,Brazil,Master's,45-54,NA,NA,NA,82091.72142,2186.838729,NA
+BRA,Brazil,Master's,55-64,NA,NA,NA,83129.90186,2056.682107,NA
+BRA,Brazil,Doctorate,All ages,NA,NA,NA,82375.04415,2130.44306,NA
+BRA,Brazil,Doctorate,25-34,NA,NA,NA,49810.42574,2301.257143,NA
+BRA,Brazil,Doctorate,35-44,NA,NA,NA,71977.40893,2141.593377,NA
+BRA,Brazil,Doctorate,45-54,NA,NA,NA,94569.85934,2107.214615,NA
+BRA,Brazil,Doctorate,55-64,NA,NA,NA,104021.4658,2045.35962,NA
+BGR,Bulgaria,Total population,All ages,74.97,32.56,49.23,NA,NA,NA
+BGR,Bulgaria,Master's,All ages,85.42,54.47,56.36,69257.17126,2003.716,98.90980609
+BGR,Bulgaria,Master's,25-34,NA,NA,NA,52752.81031,2015.26,98.75441234
+BGR,Bulgaria,Master's,35-44,NA,NA,NA,75993.25952,1995.344,98.92343358
+BGR,Bulgaria,Master's,45-54,NA,NA,NA,71082.49573,2002.104,98.56975671
+BGR,Bulgaria,Master's,55-64,NA,NA,NA,68624.18596,2007.824,99.51784073
+BGR,Bulgaria,Doctorate,All ages,91.36,55.57,64.16,66964.52728,1954.108,100
+BGR,Bulgaria,Doctorate,55-64,NA,NA,NA,NA,NA,NA
+COL,Colombia,Master's,All ages,NA,NA,NA,NA,2244.12564,NA
+COL,Colombia,Doctorate,All ages,NA,NA,NA,NA,2190.448549,NA
+HRV,Croatia,Total population,All ages,85.01,54.2,63.5,NA,NA,NA
+HRV,Croatia,Master's,All ages,91.98,79.03,66.79,293300.5747,1956.344,88.25047493
+HRV,Croatia,Master's,25-34,NA,NA,NA,224343.7891,1979.38,71.78593539
+HRV,Croatia,Master's,35-44,NA,NA,NA,318407.7126,1940.744,94.88090581
+HRV,Croatia,Master's,45-54,NA,NA,NA,346065.4897,1957.54,97.43370823
+HRV,Croatia,Master's,55-64,NA,NA,NA,332128.2886,1943.552,95.114727920000007
+HRV,Croatia,Doctorate,All ages,86.61,72.72,58.67,422212.3631,2005.9,87.07403815
+HRV,Croatia,Doctorate,25-34,NA,NA,NA,NA,NA,NA
+HRV,Croatia,Doctorate,35-44,NA,NA,NA,NA,2077.816,80.0459594
+HRV,Croatia,Doctorate,45-54,NA,NA,NA,NA,1983.748,100
+HRV,Croatia,Doctorate,55-64,NA,NA,NA,NA,2028.208,100
+CYP,Cyprus,Total population,All ages,91.44,68.22,66.08,NA,NA,NA
+CYP,Cyprus,Master's,All ages,95.5,85.16,64.45,61854.96812,1918.748,90.90737542
+CYP,Cyprus,Master's,25-34,NA,NA,NA,35771.12411,1918.956,87.22508399
+CYP,Cyprus,Master's,35-44,NA,NA,NA,61297.55835,1893.112,90.50344078
+CYP,Cyprus,Master's,45-54,NA,NA,NA,92841.40498,1937.832,96.24443545
+CYP,Cyprus,Master's,55-64,NA,NA,NA,93181.29264,1984.424,95.06135434
+CYP,Cyprus,Doctorate,All ages,95.45,91.35,70.39,75475.20733,1932.268,85.18125927
+CYP,Cyprus,Doctorate,25-34,NA,NA,NA,NA,1747.668,NA
+CYP,Cyprus,Doctorate,35-44,NA,NA,NA,58962.12905,1860.664,89.29303279
+CYP,Cyprus,Doctorate,45-54,NA,NA,NA,NA,2155.4,100
+CYP,Cyprus,Doctorate,55-64,NA,NA,NA,NA,NA,NA
+CZE,Czechia,Total population,All ages,82.77,72.65,70.96,NA,NA,NA
+CZE,Czechia,Master's,All ages,88.74,85.23,68.8,41955.54054,1951.664,95.16429425
+CZE,Czechia,Master's,25-34,NA,NA,NA,34849.83545,1915.784,92.59208372
+CZE,Czechia,Master's,35-44,NA,NA,NA,42572.38639,1923.948,93.93539855
+CZE,Czechia,Master's,45-54,NA,NA,NA,45837.61696,2000.7,96.66851477
+CZE,Czechia,Master's,55-64,NA,NA,NA,45043.5078,1969.292,98.37774708
+CZE,Czechia,Doctorate,All ages,92.83,82.97,60.96,53125.10695,2006.784,93.87874815
+CZE,Czechia,Doctorate,25-34,NA,NA,NA,NA,1700.868,91.01181305
+CZE,Czechia,Doctorate,35-44,NA,NA,NA,46447.51298,2189.98,92.75702896
+CZE,Czechia,Doctorate,45-54,NA,NA,NA,57995.5579,1964.976,94.52415813
+CZE,Czechia,Doctorate,55-64,NA,NA,NA,NA,1799.616,100
+DNK,Denmark,Total population,All ages,87.7,75.5,79.91,NA,NA,NA
+DNK,Denmark,Master's,All ages,90.24,86.31,76.59,80861.02063,1599,89.93212609
+DNK,Denmark,Master's,25-34,NA,NA,NA,57934.578420000005,1504,82.42659946
+DNK,Denmark,Master's,35-44,NA,NA,NA,80838.88664000001,1612,92.54794371
+DNK,Denmark,Master's,45-54,NA,NA,NA,105263.170705,1687,96.60887648
+DNK,Denmark,Master's,55-64,NA,NA,NA,113857.731035,1687,94.78310045
+DNK,Denmark,Doctorate,All ages,91.9,90.51,72.62,96241.61876000001,1657,85.65264293
+DNK,Denmark,Doctorate,25-34,NA,NA,NA,63652.23835,1549,NA
+DNK,Denmark,Doctorate,35-44,NA,NA,NA,80449.13758,1631,NA
+DNK,Denmark,Doctorate,45-54,NA,NA,NA,102477.4924,1714,NA
+DNK,Denmark,Doctorate,55-64,NA,NA,NA,105610.7722,1722,NA
+EST,Estonia,Total population,All ages,85.39,64.74,75.06,NA,NA,NA
+EST,Estonia,Master's,All ages,88.18,73.91,75.73,41001.9556,1902.368,97.87482074
+EST,Estonia,Master's,25-34,NA,NA,NA,42278.67925,1893.268,95.86352547
+EST,Estonia,Master's,35-44,NA,NA,NA,43898.14984,1933.724,98.10013853
+EST,Estonia,Master's,45-54,NA,NA,NA,42214.77287,1906.684,98.32415775
+EST,Estonia,Master's,55-64,NA,NA,NA,35308.08758,1868.412,99.12073538
+EST,Estonia,Doctorate,All ages,90.29,87.16,74.41,47389.99167,1954.732,100
+EST,Estonia,Doctorate,35-44,NA,NA,NA,46570.60829,2038.816,100
+EST,Estonia,Doctorate,45-54,NA,NA,NA,NA,2074.644,100
+EST,Estonia,Doctorate,55-64,NA,NA,NA,NA,NA,NA
+FIN,Finland,Total population,All ages,93.31,88.36,85.89,NA,NA,NA
+FIN,Finland,Master's,All ages,97.02,95.66,85.01,69721.36346,1800.708,85.15443419
+FIN,Finland,Master's,25-34,NA,NA,NA,53158.23184,1808.04,70.34841993
+FIN,Finland,Master's,35-44,NA,NA,NA,66398.42688,1778.088,87.41950469
+FIN,Finland,Master's,45-54,NA,NA,NA,85743.72565,1825.668,91.66319734
+FIN,Finland,Master's,55-64,NA,NA,NA,80833.51101,1795.144,93.21401276
+FIN,Finland,Doctorate,All ages,99.26,93.11,84.24,81270.33760999999,1815.476,70.79179243
+FIN,Finland,Doctorate,25-34,NA,NA,NA,59164.01206,1940.276,NA
+FIN,Finland,Doctorate,35-44,NA,NA,NA,71659.685055,1807.78,NA
+FIN,Finland,Doctorate,45-54,NA,NA,NA,87052.59541000001,1813.5,NA
+FIN,Finland,Doctorate,55-64,NA,NA,NA,91292.53679499999,1781.052,NA
+FRA,France,Total population,All ages,90.69,67.31,66.9,NA,NA,NA
+FRA,France,Master's,All ages,94.23,84.69,63.22,76782.11701,2025.088,90.21630498
+FRA,France,Master's,25-34,NA,NA,NA,52652.05135,1936.168,84.88220145
+FRA,France,Master's,35-44,NA,NA,NA,75166.34189,2052.648,92.66783866
+FRA,France,Master's,45-54,NA,NA,NA,108074.9968,2091.232,95.28304154
+FRA,France,Master's,55-64,NA,NA,NA,111095.2101,2125.656,94.7426015
+FRA,France,Doctorate,All ages,97.06,85.36,62.58,84057.05562,1959.568,91.1404149
+FRA,France,Doctorate,25-34,NA,NA,NA,NA,1876.94,69.09496868
+FRA,France,Doctorate,35-44,NA,NA,NA,70409.91953,1997.216,93.77215621
+FRA,France,Doctorate,45-54,NA,NA,NA,99317.99932,2011.828,96.53265778
+FRA,France,Doctorate,55-64,NA,NA,NA,97559.74594,1906.476,96.51175373
+DEU,Germany,Master's,All ages,NA,NA,NA,92962.37863,1881.932,88.34926626
+DEU,Germany,Master's,25-34,NA,NA,NA,74431.53966,1910.22,74.62526758
+DEU,Germany,Master's,35-44,NA,NA,NA,93290.63606,1840.28,92.13013281
+DEU,Germany,Master's,45-54,NA,NA,NA,108905.1964,1876.992,96.05579867
+DEU,Germany,Master's,55-64,NA,NA,NA,105820.4445,1905.592,96.63308715
+DEU,Germany,Doctorate,All ages,NA,NA,NA,136548.2377,2075.008,82.91620195
+DEU,Germany,Doctorate,25-34,NA,NA,NA,97141.47497,2079.792,54.20913199
+DEU,Germany,Doctorate,35-44,NA,NA,NA,124714.9057,1974.804,82.12220367
+DEU,Germany,Doctorate,45-54,NA,NA,NA,149990.1633,2105.584,91.73718002
+DEU,Germany,Doctorate,55-64,NA,NA,NA,169223.3313,2157.792,92.98552811
+GRC,Greece,Total population,All ages,85.75,47.86,52.67,NA,NA,NA
+GRC,Greece,Master's,All ages,92.65,70.13,54.69,44331.04653,2041.26,90.47117291
+GRC,Greece,Master's,25-34,NA,NA,NA,27954.95489,1987.18,83.17118266
+GRC,Greece,Master's,35-44,NA,NA,NA,43198.13753,2005.276,90.31684019
+GRC,Greece,Master's,45-54,NA,NA,NA,60817.94232,2095.34,94.2551152
+GRC,Greece,Master's,55-64,NA,NA,NA,53013.17068,2108.964,96.95602558
+GRC,Greece,Doctorate,All ages,97.66,88.46,72.64,59136.12053,2017.444,91.02587631
+GRC,Greece,Doctorate,25-34,NA,NA,NA,NA,NA,NA
+GRC,Greece,Doctorate,35-44,NA,NA,NA,NA,2055.664,81.9680577
+GRC,Greece,Doctorate,45-54,NA,NA,NA,NA,2087.02,96.43508943
+GRC,Greece,Doctorate,55-64,NA,NA,NA,NA,1826.708,100
+HUN,Hungary,Total population,All ages,87.81,59.92,68.8,NA,NA,NA
+HUN,Hungary,Master's,All ages,93.04,82.35,70.52,30086.50454,2004.236,98.66567376
+HUN,Hungary,Master's,25-34,NA,NA,NA,26810.96863,2015.416,98.22449234
+HUN,Hungary,Master's,35-44,NA,NA,NA,30449.25519,1986.244,98.49120679
+HUN,Hungary,Master's,45-54,NA,NA,NA,31198.35706,2005.744,99.35741679
+HUN,Hungary,Master's,55-64,NA,NA,NA,34093.33261,2014.636,98.88282998
+HUN,Hungary,Doctorate,All ages,84.41,81.82,71.64,46978.4527,2011.048,96.06024968
+HUN,Hungary,Doctorate,25-34,NA,NA,NA,NA,2054.364,85.08220503
+HUN,Hungary,Doctorate,35-44,NA,NA,NA,NA,1992.016,97.1169126
+HUN,Hungary,Doctorate,45-54,NA,NA,NA,NA,2049.32,100
+HUN,Hungary,Doctorate,55-64,NA,NA,NA,NA,1952.08,100
+ISL,Iceland,Total population,All ages,93.72,80.65,76.91,NA,NA,NA
+ISL,Iceland,Master's,All ages,95.41,90.66,75.84,68829.81988,1896.024,NA
+ISL,Iceland,Master's,25-34,NA,NA,NA,46659.75352,1839.032,NA
+ISL,Iceland,Master's,35-44,NA,NA,NA,66714.61319,1883.648,NA
+ISL,Iceland,Master's,45-54,NA,NA,NA,82996.04193,1952.08,NA
+ISL,Iceland,Master's,55-64,NA,NA,NA,75255.75683,1925.196,NA
+ISL,Iceland,Doctorate,All ages,97.96,91.98,71.78,114681.5508,2032.732,77.62777242
+ISL,Iceland,Doctorate,35-44,NA,NA,NA,NA,2025.296,NA
+ISL,Iceland,Doctorate,45-54,NA,NA,NA,NA,NA,NA
+ISL,Iceland,Doctorate,55-64,NA,NA,NA,NA,1950.52,NA
+IRL,Ireland,Total population,All ages,95.23,76.15,75.35,NA,NA,NA
+IRL,Ireland,Master's,All ages,98.18,88.86,72.78,67306.341215,1911.468,95.2966206
+IRL,Ireland,Master's,25-34,NA,NA,NA,58471.283755,1910.844,NA
+IRL,Ireland,Master's,35-44,NA,NA,NA,65926.271345,1913.392,NA
+IRL,Ireland,Master's,45-54,NA,NA,NA,81104.75630000001,1942.096,NA
+IRL,Ireland,Master's,55-64,NA,NA,NA,83443.296725,1834.664,NA
+IRL,Ireland,Doctorate,All ages,97.41,89.47,75.33,87515.76568499999,1952.756,NA
+IRL,Ireland,Doctorate,25-34,NA,NA,NA,59707.18187,1845.012,NA
+IRL,Ireland,Doctorate,35-44,NA,NA,NA,82139.87729,2093.26,NA
+IRL,Ireland,Doctorate,45-54,NA,NA,NA,101507.7844,1944.696,NA
+IRL,Ireland,Doctorate,55-64,NA,NA,NA,104892.8212,1877.772,NA
+ITA,Italy,Total population,All ages,89.02,79.02,78.48,NA,NA,NA
+ITA,Italy,Master's,All ages,91.68,88.87,83.42,58569.076665,1846.754,86.227719045
+ITA,Italy,Master's,25-34,NA,NA,NA,36512.643330000006,1834.274,65.67407753
+ITA,Italy,Master's,35-44,NA,NA,NA,63087.764630000005,1835.8339999999998,87.92130270000001
+ITA,Italy,Master's,45-54,NA,NA,NA,59849.1304,1866.202,93.01498273499999
+ITA,Italy,Master's,55-64,NA,NA,NA,70339.57693499999,1843.5819999999999,96.38250274
+ITA,Italy,Doctorate,All ages,91.92,94.97,85.05,62238.507225,1888.51,80.256805155
+ITA,Italy,Doctorate,25-34,NA,NA,NA,47647.70282,1912.7939999999999,47.23954877
+ITA,Italy,Doctorate,35-44,NA,NA,NA,62845.17776,1878.812,71.86396465
+ITA,Italy,Doctorate,45-54,NA,NA,NA,77147.39635,1874.964,92.65126171
+ITA,Italy,Doctorate,55-64,NA,NA,NA,98099.12205,1920.4119999999998,95.532989515
+KOR,Korea,Master's,All ages,NA,NA,NA,NA,1922.807725,81.46933982
+KOR,Korea,Master's,25-34,NA,NA,NA,NA,1941.848703,79.96635525
+KOR,Korea,Master's,35-44,NA,NA,NA,NA,1935.164526,82.26302478
+KOR,Korea,Master's,45-54,NA,NA,NA,NA,1938.757275,83.32226947
+KOR,Korea,Master's,55-64,NA,NA,NA,NA,1857.365903,78.16270179
+KOR,Korea,Doctorate,All ages,NA,NA,NA,NA,1913.561167,80.0874794
+KOR,Korea,Doctorate,25-34,NA,NA,NA,NA,1944.437759,77.38912502
+KOR,Korea,Doctorate,35-44,NA,NA,NA,NA,1976.388509,81.39314313
+KOR,Korea,Doctorate,45-54,NA,NA,NA,NA,1899.500527,82.49040152
+KOR,Korea,Doctorate,55-64,NA,NA,NA,NA,1853.644416,75.84879876
+LVA,Latvia,Total population,All ages,75.27,57.76,82.05,NA,NA,NA
+LVA,Latvia,Master's,All ages,81.08,73.25,84.5,40624.54252,1979.068,97.80859417
+LVA,Latvia,Master's,25-34,NA,NA,NA,38804.68569,2041,97.97148259
+LVA,Latvia,Master's,35-44,NA,NA,NA,50048.71185,1995.656,97.94425182
+LVA,Latvia,Master's,45-54,NA,NA,NA,43001.04513,1931.644,97.60941126
+LVA,Latvia,Master's,55-64,NA,NA,NA,32694.57183,1978.704,97.76273404
+LVA,Latvia,Doctorate,All ages,66.44,90.84,94.29,108295.8821,NA,NA
+LVA,Latvia,Doctorate,25-34,NA,NA,NA,NA,NA,NA
+LVA,Latvia,Doctorate,35-44,NA,NA,NA,NA,NA,NA
+LVA,Latvia,Doctorate,55-64,NA,NA,NA,NA,NA,NA
+LTU,Lithuania,Total population,All ages,80.33,66.26,65.95,NA,NA,NA
+LTU,Lithuania,Master's,All ages,85.55,81.12,67.71,55384.1807,1962.792,98.30914297
+LTU,Lithuania,Master's,25-34,NA,NA,NA,50427.11547,1953.172,98.07945732
+LTU,Lithuania,Master's,35-44,NA,NA,NA,68777.16007,1976.52,98.5095682
+LTU,Lithuania,Master's,45-54,NA,NA,NA,47735.70981,1985.62,97.94330183
+LTU,Lithuania,Master's,55-64,NA,NA,NA,47944.15613,1929.876,98.61328125
+LTU,Lithuania,Doctorate,All ages,84.3,85.6,79.34,81762.95277,1938.3,89.62388796
+LTU,Lithuania,Doctorate,25-34,NA,NA,NA,NA,1785.784,NA
+LTU,Lithuania,Doctorate,35-44,NA,NA,NA,NA,1934.244,77.77777778
+LTU,Lithuania,Doctorate,45-54,NA,NA,NA,NA,2070.016,96.89029657
+LTU,Lithuania,Doctorate,55-64,NA,NA,NA,NA,1822.496,98.8028169
+LUX,Luxembourg,Total population,All ages,94.12,73.26,67.49,NA,NA,NA
+LUX,Luxembourg,Master's,All ages,94.17,84.46,65.26,106341.8102,1923.636,94.13709422
+LUX,Luxembourg,Master's,25-34,NA,NA,NA,76743.36758,1985.932,90.0307306
+LUX,Luxembourg,Master's,35-44,NA,NA,NA,103469.7883,1890.252,97.16449926
+LUX,Luxembourg,Master's,45-54,NA,NA,NA,134492.5435,1915.836,96.03756299
+LUX,Luxembourg,Master's,55-64,NA,NA,NA,142695.719,1842.672,94.21039028
+LUX,Luxembourg,Doctorate,All ages,96.39,85.06,71.84,132770.8338,1989.52,85.98526201
+LUX,Luxembourg,Doctorate,25-34,NA,NA,NA,NA,1835.704,86.13264427
+LUX,Luxembourg,Doctorate,35-44,NA,NA,NA,116062.659,1877.928,88.30445545
+LUX,Luxembourg,Doctorate,45-54,NA,NA,NA,166708.3711,2068.144,89.18380889
+LUX,Luxembourg,Doctorate,55-64,NA,NA,NA,NA,2246.504,77.18684395
+MLT,Malta,Total population,All ages,90.16,76.21,73.89,NA,NA,NA
+MLT,Malta,Master's,All ages,92.23,90.91,71,62914.78172,2080,93.05181532
+MLT,Malta,Master's,25-34,NA,NA,NA,54563.026835,2080,95.89956916
+MLT,Malta,Master's,35-44,NA,NA,NA,69475.56551,2106,96.09612292
+MLT,Malta,Master's,45-54,NA,NA,NA,69586.99909,2095.6,85.17376105
+MLT,Malta,Master's,55-64,NA,NA,NA,55548.61815,1934.4,94.39324117
+MLT,Malta,Doctorate,All ages,92.05,91.09,69.73,103652.3472,2027.48,92.12662338
+MLT,Malta,Doctorate,25-34,NA,NA,NA,NA,NA,NA
+MLT,Malta,Doctorate,35-44,NA,NA,NA,NA,NA,NA
+MLT,Malta,Doctorate,45-54,NA,NA,NA,NA,NA,NA
+MLT,Malta,Doctorate,55-64,NA,NA,NA,NA,NA,NA
+NLD,Netherlands,Total population,All ages,95.1,89.2,87.63,NA,NA,NA
+NLD,Netherlands,Master's,All ages,96.6,93.87,87.25,92489.49993,1916.533879,80.44545644
+NLD,Netherlands,Master's,25-34,NA,NA,NA,73191.02709999999,1940.256209,65.75185792
+NLD,Netherlands,Master's,35-44,NA,NA,NA,98283.50428,1882.488378,85.28834414
+NLD,Netherlands,Master's,45-54,NA,NA,NA,117003.04639999999,1957.353788,90.54255711
+NLD,Netherlands,Master's,55-64,NA,NA,NA,112123.1796,1861.884338,90.76045994
+NLD,Netherlands,Doctorate,All ages,97.37,98.76,90.16,114267.04800000001,2008.493471,76.37913557
+NLD,Netherlands,Doctorate,25-34,NA,NA,NA,97368.7267,2030.63046,41.9547911
+NLD,Netherlands,Doctorate,35-44,NA,NA,NA,124312.3528,1998.346923,74.90725734
+NLD,Netherlands,Doctorate,45-54,NA,NA,NA,150000.7919,2046.852218,94.33621934
+NLD,Netherlands,Doctorate,55-64,NA,NA,NA,157662.5804,1957.702605,92.34215886
+NOR,Norway,Total population,All ages,88.36,82.39,79.84,NA,NA,NA
+NOR,Norway,Master's,All ages,91.2,91.48,77.52,88519.0126,1680,91.379555145
+NOR,Norway,Master's,25-34,NA,NA,NA,73329.245285,1681,84.39814578
+NOR,Norway,Master's,35-44,NA,NA,NA,84908.22623,1679,92.701433325
+NOR,Norway,Master's,45-54,NA,NA,NA,104300.08011,1684,95.69502148
+NOR,Norway,Master's,55-64,NA,NA,NA,113117.2686,1673,97.77530342
+NOR,Norway,Doctorate,All ages,92.99,90.01,75.75,92464.7262,1705,90.64798655000001
+NOR,Norway,Doctorate,25-34,NA,NA,NA,76399.42373,1695,69.60926194
+NOR,Norway,Doctorate,35-44,NA,NA,NA,90859.47683,1703,85.49296394999999
+NOR,Norway,Doctorate,45-54,NA,NA,NA,107479.6054,1709,95.726936185
+NOR,Norway,Doctorate,55-64,NA,NA,NA,116665.662,1707,94.75274725
+POL,Poland,Total population,All ages,92.21,69.03,70.02,NA,NA,NA
+POL,Poland,Master's,All ages,94.89,80.54,63.61,40349.79652,2007.148,92.038855710000007
+POL,Poland,Master's,25-34,NA,NA,NA,37198.44913,2003.924,85.20228748
+POL,Poland,Master's,35-44,NA,NA,NA,41107.27685,2019.576,93.62815599
+POL,Poland,Master's,45-54,NA,NA,NA,42345.75817,2008.084,96.01729011
+POL,Poland,Master's,55-64,NA,NA,NA,43076.67903,1959.88,94.76368272
+POL,Poland,Doctorate,All ages,95.09,86.98,67.34,45594.36713,2012.66,94.95556036
+POL,Poland,Doctorate,25-34,NA,NA,NA,44701.04605,2010.112,89.73221117
+POL,Poland,Doctorate,35-44,NA,NA,NA,40957.8904,2017.34,92.46690877
+POL,Poland,Doctorate,45-54,NA,NA,NA,51387.60818,1997.32,97.2112144
+POL,Poland,Doctorate,55-64,NA,NA,NA,54157.80787,2047.552,99.23645908
+PRT,Portugal,Total population,All ages,90.03,60.1,71.26,NA,NA,NA
+PRT,Portugal,Master's,All ages,94.18,78.12,65.03,49292.63536,1991.444,87.17461994
+PRT,Portugal,Master's,25-34,NA,NA,NA,32563.86493,1986.504,72.88015878
+PRT,Portugal,Master's,35-44,NA,NA,NA,42892.0814,1956.136,83.46447112
+PRT,Portugal,Master's,45-54,NA,NA,NA,54363.14504,2023.476,93.50088168
+PRT,Portugal,Master's,55-64,NA,NA,NA,71313.92598,1999.816,95.68975468
+PRT,Portugal,Doctorate,All ages,93.64,77.99,65.37,77412.92994,2096.172,77.62357352
+PRT,Portugal,Doctorate,25-34,NA,NA,NA,NA,NA,NA
+PRT,Portugal,Doctorate,35-44,NA,NA,NA,52725.88668,1979.432,NA
+PRT,Portugal,Doctorate,45-54,NA,NA,NA,78953.45567,2331.524,NA
+PRT,Portugal,Doctorate,55-64,NA,NA,NA,92594.67572,1906.58,NA
+ROU,Romania,Total population,All ages,82.88,73.82,74.34,NA,NA,NA
+ROU,Romania,Master's,All ages,92.33,89.58,84.65,47144.98371,2043.964,99.76874497
+ROU,Romania,Master's,25-34,NA,NA,NA,42687.0183,2027.792,99.38163191
+ROU,Romania,Master's,35-44,NA,NA,NA,46821.42713,2041.624,99.74917152
+ROU,Romania,Master's,45-54,NA,NA,NA,48426.4018,2050.464,99.8466
+ROU,Romania,Master's,55-64,NA,NA,NA,51289.73838,2040.948,99.83784224
+ROU,Romania,Doctorate,All ages,93.5,90.53,87.74,NA,1998.464,100
+ROU,Romania,Doctorate,25-34,NA,NA,NA,NA,NA,NA
+ROU,Romania,Doctorate,35-44,NA,NA,NA,NA,NA,NA
+ROU,Romania,Doctorate,45-54,NA,NA,NA,NA,NA,NA
+SVK,Slovak Republic,Total population,All ages,84.58,50.94,61.09,NA,NA,NA
+SVK,Slovak Republic,Master's,All ages,92.6,70.98,64.41,22805.94847,1937.988,97.50355217
+SVK,Slovak Republic,Master's,25-34,NA,NA,NA,20553.65167,1941.992,95.33083939
+SVK,Slovak Republic,Master's,35-44,NA,NA,NA,23910.65664,1942.148,98.34176007
+SVK,Slovak Republic,Master's,45-54,NA,NA,NA,23923.68043,1942.824,98.92260089
+SVK,Slovak Republic,Master's,55-64,NA,NA,NA,23428.03327,1912.768,97.93432276
+SVK,Slovak Republic,Doctorate,All ages,96.65,68.42,69.65,24531.15618,1849.38,95.40621012
+SVK,Slovak Republic,Doctorate,25-34,NA,NA,NA,NA,NA,NA
+SVK,Slovak Republic,Doctorate,35-44,NA,NA,NA,NA,1790.932,92.8258233
+SVK,Slovak Republic,Doctorate,45-54,NA,NA,NA,28184.46513,NA,NA
+SVK,Slovak Republic,Doctorate,55-64,NA,NA,NA,NA,NA,NA
+SVN,Slovenia,Total population,All ages,90.85,74.87,80.71,NA,NA,NA
+SVN,Slovenia,Master's,All ages,93.58,88.97,76.28,54779.11255,2006.992,92.79923828
+SVN,Slovenia,Master's,25-34,NA,NA,NA,40356.59149,1998.88,80.65198984
+SVN,Slovenia,Master's,35-44,NA,NA,NA,51786.63825,1989.52,94.28571429
+SVN,Slovenia,Master's,45-54,NA,NA,NA,66003.53968,2042.144,96.32305136
+SVN,Slovenia,Master's,55-64,NA,NA,NA,70091.60284,1992.9,97.61450382
+SVN,Slovenia,Doctorate,All ages,94.86,93.22,80.25,76627.41011,2042.404,94.71998233
+SVN,Slovenia,Doctorate,25-34,NA,NA,NA,NA,2042.352,74.09536693
+SVN,Slovenia,Doctorate,35-44,NA,NA,NA,63922.08065,2000.076,95.53721792
+SVN,Slovenia,Doctorate,45-54,NA,NA,NA,85048.90499,2058.628,96.40375971
+SVN,Slovenia,Doctorate,55-64,NA,NA,NA,92477.61972,2080.936,98.6859788
+ESP,Spain,Total population,All ages,93.24,69.41,69.71,NA,NA,NA
+ESP,Spain,Master's,All ages,94.77,83.15,67.54,60264.8179,1922.284,81.4895012
+ESP,Spain,Master's,25-34,NA,NA,NA,40529.23113,1882.036,67.7046934
+ESP,Spain,Master's,35-44,NA,NA,NA,55658.43418,1916.772,82.15405404
+ESP,Spain,Master's,45-54,NA,NA,NA,69611.6071,1943.552,87.30550846
+ESP,Spain,Master's,55-64,NA,NA,NA,82585.22015,1940.432,89.7690974
+ESP,Spain,Doctorate,All ages,95.28,90.85,68.02,76507.53425,1966.744,77.69038432
+ESP,Spain,Doctorate,25-34,NA,NA,NA,42374.47719,1615.588,60.29321529
+ESP,Spain,Doctorate,35-44,NA,NA,NA,66688.91847,1965.548,69.45431737
+ESP,Spain,Doctorate,45-54,NA,NA,NA,79622.2632,2021.344,84.83348232
+ESP,Spain,Doctorate,55-64,NA,NA,NA,103423.9787,1998.308,91.4838568
+SWE,Sweden,Total population,All ages,92.99,80.97,80,NA,NA,NA
+SWE,Sweden,Master's,All ages,94.02,87.81,79.39,62561.15625,1903.46,92.55504071
+SWE,Sweden,Master's,25-34,NA,NA,NA,50586.13386,1920.36,86.39234224
+SWE,Sweden,Master's,35-44,NA,NA,NA,62172.66387,1862.9,93.98989583
+SWE,Sweden,Master's,45-54,NA,NA,NA,72348.35969,1947.4,95.78969514
+SWE,Sweden,Master's,55-64,NA,NA,NA,72108.53948,1883.908,95.24448274
+SWE,Sweden,Doctorate,All ages,96.78,98.22,83.09,74968.78549,1994.98,88.10333525
+SWE,Sweden,Doctorate,25-34,NA,NA,NA,NA,1900.288,NA
+SWE,Sweden,Doctorate,35-44,NA,NA,NA,61839.89548,1969.188,NA
+SWE,Sweden,Doctorate,45-54,NA,NA,NA,84637.98408,2049.684,NA
+SWE,Sweden,Doctorate,55-64,NA,NA,NA,80460.40655,1991.132,NA
+CHE,Switzerland,Total population,All ages,95.4,83.84,81.93,NA,NA,NA
+CHE,Switzerland,Master's,All ages,96.78,88.18,78.34,102017.5806,1825.942,88.97081256
+CHE,Switzerland,Master's,25-34,NA,NA,NA,73029.63461,1865.126,78.56235032
+CHE,Switzerland,Master's,35-44,NA,NA,NA,98239.80264,1774.246,92.79724108
+CHE,Switzerland,Master's,45-54,NA,NA,NA,119151.8688,1862.965,95.66379274
+CHE,Switzerland,Master's,55-64,NA,NA,NA,121464.7819,1798.598,92.60413808
+CHE,Switzerland,Doctorate,All ages,96.07,94.35,79.47,161909.7394,1911.093,77.79580947
+CHE,Switzerland,Doctorate,25-34,NA,NA,NA,81675.3213,2007.554,51.75506503
+CHE,Switzerland,Doctorate,35-44,NA,NA,NA,115055.0276,1884.639,76.38711044
+CHE,Switzerland,Doctorate,45-54,NA,NA,NA,245669.3873,1917.18,93.41638998
+CHE,Switzerland,Doctorate,55-64,NA,NA,NA,156013.9598,1868.575,89.75858607
+TUR,Türkiye,Total population,All ages,87.29,33.32,35.37,NA,NA,NA
+TUR,Türkiye,Master's,All ages,91.05,53.7,48.57,25408.98368,2097.368,99.09234412
+TUR,Türkiye,Master's,25-34,NA,NA,NA,18497.82591,2135.484,98.76948723
+TUR,Türkiye,Master's,35-44,NA,NA,NA,26830.50576,2077.244,99.30361581
+TUR,Türkiye,Master's,45-54,NA,NA,NA,44557.9862,2071.784,99.12351703
+TUR,Türkiye,Master's,55-64,NA,NA,NA,31229.32471,2045.16,100
+TUR,Türkiye,Doctorate,All ages,88.32,64.7,46.04,32012.51017,2107.56,99.74496847
+TUR,Türkiye,Doctorate,25-34,NA,NA,NA,35998.25666,2187.796,99.08607199
+TUR,Türkiye,Doctorate,35-44,NA,NA,NA,28408.62891,2112.76,99.61519604
+TUR,Türkiye,Doctorate,45-54,NA,NA,NA,35529.10735,2092.376,100
+TUR,Türkiye,Doctorate,55-64,NA,NA,NA,NA,2077.4,100
+GBR,United Kingdom,Master's,All ages,NA,NA,NA,65457.58612,1751.074752,93.32352242
+GBR,United Kingdom,Master's,25-34,NA,NA,NA,57463.2102,1784.303785,91.16437558
+GBR,United Kingdom,Master's,35-44,NA,NA,NA,69490.36222,1778.45183,96.082759480000007
+GBR,United Kingdom,Master's,45-54,NA,NA,NA,71832.67565,1777.593751,94.55061722
+GBR,United Kingdom,Master's,55-64,NA,NA,NA,62706.82678,1564.31591,88.82441948
+GBR,United Kingdom,Doctorate,All ages,NA,NA,NA,75076.63875,1803.385373,91.09535497
+GBR,United Kingdom,Doctorate,25-34,NA,NA,NA,59594.51791,1794.611161,87.46570228
+GBR,United Kingdom,Doctorate,35-44,NA,NA,NA,75420.12795,1816.408965,89.50077868
+GBR,United Kingdom,Doctorate,45-54,NA,NA,NA,85096.65311,1805.252207,94.36912939
+GBR,United Kingdom,Doctorate,55-64,NA,NA,NA,82820.39899,1789.49991,94.39856847
+USA,United States,Master's,All ages,NA,NA,NA,105342.11,2092.725,NA
+USA,United States,Master's,25-34,NA,NA,NA,79938.71,2057.748,NA
+USA,United States,Master's,35-44,NA,NA,NA,105762.32,2098.158,NA
+USA,United States,Master's,45-54,NA,NA,NA,119054.84,2139.398,NA
+USA,United States,Master's,55-64,NA,NA,NA,115641.38,2057.083,NA
+USA,United States,Doctorate,All ages,NA,NA,NA,133226.19,2186.164,NA
+USA,United States,Doctorate,25-34,NA,NA,NA,95837.65,2138.805,NA
+USA,United States,Doctorate,35-44,NA,NA,NA,133457.02,2177.936,NA
+USA,United States,Doctorate,45-54,NA,NA,NA,150072.47,2236.876,NA
+USA,United States,Doctorate,55-64,NA,NA,NA,146613.28,2179.855,NA
 
 ```
+:::
 
+---
 
-```{r}
-#| label: print-time
-#| message: false
-cat(format(Sys.time()))
+# Methodology
+
+The following sections present the model in the same order in which the recommendation is constructed. Each section shows the code and how it works with the the model.
+
+## 1. Loading the packages and OECD data
+
+The OECD dataset is bundled directly inside the Shinylive application as `data_wide.csv`.
+
+```r
+library(shiny)
+library(dplyr)
+library(ggplot2)
+
+#Loading data
+#The CSV is embedded directly in this Shinylive application -> Browser app does not depend on the user's working directory.
+df <- read.csv(
+  "data_wide.csv",
+  stringsAsFactors = FALSE,
+  check.names = FALSE
+)
 ```
+
+---
+
+## 2. Preparing the numeric indicators
+
+The indicators used in mathematical calculations are explicitly converted to numeric variables.
+
+```r
+#Making sure data is numeric
+df <- df %>%
+  mutate(
+    pct_happy = as.numeric(pct_happy),
+    pct_satisfied_finances = as.numeric(pct_satisfied_finances),
+    pct_satisfied_leisure = as.numeric(pct_satisfied_leisure),
+    pct_permanent_contract = as.numeric(pct_permanent_contract),
+    earnings_gross_yearly = as.numeric(earnings_gross_yearly),
+    hours_worked = as.numeric(hours_worked)
+  )
+```
+
+### Role in the model
+
+The variables beginning with `pct_` are already expressed as percentages in the OECD data. For example, a value of `82` in `pct_happy` means that **82% of the relevant group reports being happy**.
+
+The percentage variables stays on their original 0–100 scale.
+
+---
+
+## 3. Measuring income and working-hours compatibility
+
+Income and working hours are measured in numerical values and not percentages. In this format it cannot be inserted into the same weighted score as the wellbeing indicators. Instead, the model converts the difference between observed earnings and the user's desired earnings into a 0–100 compatibility score. The same is applied to working hours. 
+
+An exact match between observed earnings and the user's desired income receives a compatibility score of `100`. As the difference increases, the score decreases.
+
+This means the model asks:
+
+> How closely do observed earnings in this country match the user's preferred income level?
+
+rather than:
+
+> Which country simply has the highest earnings?
+
+The PCWS is designed as a **personalised compatibility model**. A higher income is therefore not automatically treated as better. The exponential function gives relatively greater importance to differences close to the user's target and progressively less importance to additional differences once two values are already far apart.
+
+For the "Working hours" the denominator `10` controls how sensitive the score is to differences in working hours. It is a modelling assumption and should be interpreted as part of the model specification.
+
+```r
+#Making the functions for compatability
+#Transforming the values so that they match the other indicators % style on a scale of 0-100
+
+#Income compatability
+income_match <- function(country_income, desired_income) {
+
+  difference <- abs(country_income - desired_income)
+
+  # Exponential, No difference → score of 100. Bigger difference → rapidly smaller score.
+  #"Small differences are meaningful, but once two things are already very different, additional difference doesn't matter very much."
+  # differences near zero matter a lot; differences that are already large matter progressively less.
+  #smaller denominator → score falls faster → more sensitive to differences
+  #larger denominator → score falls slower → less sensitive to differences
+  #So the denominator defines the scale of difference that you consider substantial.
+
+  score <- 100 * exp(
+    -difference / desired_income
+  )
+
+  return(score)
+}
+
+#Numbers of working hours compatability
+hours_match <- function(country_hours, desired_hours) {
+
+  difference <- abs(country_hours - desired_hours)
+
+  #smaller 10 → score falls faster → more sensitive to differences
+  #larger 10 → score falls slower → less sensitive to differences
+  #when difference = 10, your score has fallen to exactly 100e−1≈36.8.
+
+  score <- 100 * exp(
+    -difference / 10
+  )
+
+  return(score)
+}
+```
+
+---
+
+
+
+---
+
+## 4. Restricting the model to only masters or PhD education categories
+
+Not every education category in the raw data can be linked to age-specific indicators. Here we identify education levels for which the data is avaliable.
+
+- **Education and age** determine which OECD groups are used as references.
+- **Desired income and working hours** determine how well each country matches the user's preferences.
+
+```r
+#Education levels that can be combined with age-specific OECD work data
+available_education <- df %>%
+  filter(age_group != "All ages") %>%
+  distinct(education) %>%
+  pull(education)
+```
+
+---
+
+## 5. Defining the user profile
+
+Description of the user and their personal preferences.
+
+```r
+selectInput(
+  inputId = "education",
+  label = "Education",
+  choices = available_education
+)
+
+selectInput(
+  inputId = "age_group",
+  label = "Age group",
+  choices = c("25-34", "35-44", "45-54", "55-64")
+)
+
+numericInput(
+  inputId = "income",
+  label = "Desired annual income in €",
+  value = 100000,
+  min = 1,
+  step = 100
+)
+
+numericInput(
+  inputId = "hours",
+  label = "Preferred working hours per week",
+  value = 35,
+  min = 1,
+  max = 100
+)
+```
+---
+
+## 6. Allowing the user to determine the importance of each dimension
+
+The model includes six dimensions:
+
+1. Happiness
+2. Financial satisfaction
+3. Leisure satisfaction
+4. Employment security
+5. Income compatibility 
+6. Working-hours compatibility.
+
+Instead of assigning fixed importance to these dimensions, the application allows the user to rate each factor from 0 to 10.
+
+```r
+#Letting the user decide what is most important for them, i.e. the weights for the model
+
+sliderInput(
+  "weight_happiness",
+  "Happiness",
+  min = 0,
+  max = 10,
+  value = 8,
+  step = 1
+)
+
+sliderInput(
+  "weight_finance",
+  "Financial satisfaction",
+  min = 0,
+  max = 10,
+  value = 7,
+  step = 1
+)
+
+sliderInput(
+  "weight_leisure",
+  "Leisure satisfaction",
+  min = 0,
+  max = 10,
+  value = 7,
+  step = 1
+)
+
+sliderInput(
+  "weight_contract",
+  "Employment security",
+  min = 0,
+  max = 10,
+  value = 5,
+  step = 1
+)
+
+sliderInput(
+  "weight_income",
+  "Income",
+  min = 0,
+  max = 10,
+  value = 7,
+  step = 1
+)
+
+sliderInput(
+  "weight_hours",
+  "Working hours",
+  min = 0,
+  max = 10,
+  value = 7,
+  step = 1
+)
+```
+---
+
+## 7. Updating the available age groups
+
+The Shiny server checks the user's selected education level and updates the age selector to contain only age groups that are actually available for that category.
+
+```r
+#Update the age choices so only age groups available for the chosen
+#education level can be selected
+observeEvent(input$education, {
+
+  available_ages <- df %>%
+    filter(
+      education == input$education,
+      age_group != "All ages"
+    ) %>%
+    distinct(age_group) %>%
+    pull(age_group)
+
+  updateSelectInput(
+    session,
+    "age_group",
+    choices = available_ages,
+    selected = if (input$age_group %in% available_ages) {
+      input$age_group
+    } else {
+      available_ages[1]
+    }
+  )
+})
+```
+
+---
+
+## 8. Combining the two OECD reference groups
+
+A central feature of the current dataset is that the wellbeing indicators and labour-market indicators are not available at exactly the same demographic level.
+
+The wellbeing percentages are available for the selected education group across `"All ages"`, while income, working hours and permanent-contract information are available for the selected education and age group.
+
+The model therefore retrieves the two sets of indicators separately and combines them by country.
+
+After the join, each country has one profile containing:
+
+- happiness for the selected education group
+- financial satisfaction for the selected education group
+- leisure satisfaction for the selected education group
+- age-specific earnings for the selected education group
+- age-specific working hours
+- age-specific permanent-contract prevalence
+
+This also introduces an important methodological limitation: the final score combines indicators from **related but not identical demographic aggregation levels**.
+
+
+```r
+#Getting the user data, to get the correct reference group
+
+#The wellbeing indicators are available by education at "All ages".
+#Therefore these are retrieved separately from the age-specific
+#labour market indicators.
+wellbeing_data <- df %>%
+  filter(
+    education == input$education,
+    age_group == "All ages"
+  ) %>%
+  select(
+    iso3,
+    country,
+    pct_happy,
+    pct_satisfied_finances,
+    pct_satisfied_leisure
+  )
+
+
+#Getting age-specific work and economic data for the user's education group
+work_data <- df %>%
+  filter(
+    education == input$education,
+    age_group == input$age_group
+  ) %>%
+  select(
+    iso3,
+    country,
+    earnings_gross_yearly,
+    hours_worked,
+    pct_permanent_contract
+  )
+
+
+#Combining the two OECD reference groups by country
+data <- wellbeing_data %>%
+  inner_join(
+    work_data,
+    by = c("iso3", "country")
+  )
+```
+---
+
+## 9. Handling missing country observations
+
+Some countries may still be missing one or more of the indicators required to calculate the complete score.
+To avoid `NaN` values and prevening the model from inventing or imputing observations that are not present in the OECD data only countries with complete information for all six score components remain in the ranking.
+
+Therefore the number of countries included in the ranking may vary between user profiles.
+
+```r
+#Removing countries where one or more indicators required
+#for the score are unavailable
+data <- data %>%
+  drop_na(
+    pct_happy,
+    pct_satisfied_finances,
+    pct_satisfied_leisure,
+    earnings_gross_yearly,
+    hours_worked,
+    pct_permanent_contract
+  )
+```
+---
+
+## 10. Converting the importance sliders into model weights
+
+The six slider values are first collected into a vector and then nornmalised so they always add up to 100%. 
+
+```r
+#Getting the user input importance "weights"
+weights <- c(
+  happiness = input$weight_happiness,
+  finance = input$weight_finance,
+  leisure = input$weight_leisure,
+  contract = input$weight_contract,
+  income = input$weight_income,
+  hours = input$weight_hours
+)
+```
+
+```r
+#Normalising the weights so that the sum is always 1 (100%)
+if (sum(weights) == 0) {
+  weights <- rep(1, length(weights))
+}
+
+weights <- weights / sum(weights)
+```
+---
+
+## 11. Calculating the Personalised Country Wellbeing Score
+
+Once the country indicators and user weights are available, each component is multiplied by its corresponding weight.
+
+The final score can be written as:
+
+\[
+PCWS_c =
+w_HH_c +
+w_FF_c +
+w_LL_c +
+w_EE_c +
+w_II_c +
+w_WW_c
+\]
+
+where:
+
+- \(H\) = happiness percentage
+- \(F\) = financial-satisfaction percentage
+- \(L\) = leisure-satisfaction percentage
+- \(E\) = permanent-contract percentage
+- \(I\) = income compatibility
+- \(W\) = working-hours compatibility
+- each \(w\) represents the user's normalised importance weight.
+
+
+All six component measures use a 0–100 scale, and the weights sum to 1. The final PCWS therefore also lies on a 0–100 scale.
+
+The score should be interpreted as a **weighted compatibility index**. It represents how strongly a country's observed profile matches the user's demographic characteristics and stated preferences.
+
+```r
+# Making the scores for the indicators, all except income and time from raw data
+# + adding the contribution facotrs from the user
+# + adding the total calculated country wellbeing score for the user
+data <- data %>%
+  mutate(
+
+    happiness_score =
+      pct_happy,
+
+    contribution_happiness =
+      weights["happiness"] *
+      happiness_score,
+
+
+    finance_score =
+      pct_satisfied_finances,
+
+    contribution_finance =
+      weights["finance"] *
+      finance_score,
+
+
+    leisure_score =
+      pct_satisfied_leisure,
+
+    contribution_leisure =
+      weights["leisure"] *
+      leisure_score,
+
+
+    contract_score =
+      pct_permanent_contract,
+
+    contribution_contract =
+      weights["contract"] *
+      contract_score,
+
+
+    income_match_score =
+      income_match(
+        earnings_gross_yearly,
+        input$income
+      ),
+
+    contribution_income =
+      weights["income"] *
+      income_match_score,
+
+
+    hours_match_score =
+      hours_match(
+        hours_worked,
+        input$hours
+      ),
+
+    contribution_hours =
+      weights["hours"] *
+      hours_match_score,
+
+
+    personalised_score =
+      contribution_happiness +
+      contribution_finance +
+      contribution_leisure +
+      contribution_contract +
+      contribution_income +
+      contribution_hours
+  )
+```
+---
+
+## 12. Ranking the countries
+
+After calculating the personalised score, the countries are ordered from highest to lowest.
+
+```r
+#Reformatting datatable, one country per row
+#After combining the education and age reference groups there is already
+#one usable row per country, so the columns are renamed here for the outputs.
+data <- data %>%
+  arrange(desc(personalised_score)) %>%
+  mutate(
+    rank = row_number()
+  ) %>%
+  transmute(
+    rank = rank,
+    country = country,
+    iso3 = iso3,
+    score = personalised_score,
+    happiness = happiness_score,
+    finance = finance_score,
+    leisure = leisure_score,
+    contract = contract_score,
+    income = earnings_gross_yearly,
+    hours = hours_worked,
+    income_match = income_match_score,
+    hours_match = hours_match_score,
+    contribution_happiness = contribution_happiness,
+    contribution_finance = contribution_finance,
+    contribution_leisure = contribution_leisure,
+    contribution_contract = contribution_contract,
+    contribution_income = contribution_income,
+    contribution_hours = contribution_hours
+  )
+```
+---
+
+## 13. Explaining the recommendation
+
+The three largest weighted contributions are reported as the main reasons the country ranked first.
+
+A large contribution can arise because:
+
+- the country performs strongly on that indicator
+- the user gives that indicator a high weight
+-  or all of the above
+
+```r
+# Why was that country selected for you?
+output$why_country <- renderUI({
+
+  best <- results() %>%
+    slice(1)
+
+  contributions <- tibble(
+    factor = c(
+      "Happiness",
+      "Financial satisfaction",
+      "Leisure satisfaction",
+      "Employment security",
+      "Income compatibility",
+      "Working-hours compatibility"
+    ),
+    contribution = c(
+      best$contribution_happiness,
+      best$contribution_finance,
+      best$contribution_leisure,
+      best$contribution_contract,
+      best$contribution_income,
+      best$contribution_hours
+    )
+  ) %>%
+    arrange(desc(contribution))
+
+  top_factors <- contributions %>%
+    slice_head(n = 3)
+})
+```
+---
+
+## 15. Presenting the top recommendations
+
+The application presents the results using a recommendation summary, a top-ten table and two graphical comparisons.
+
+```r
+#Your top 10 countries table
+output$country_table <- renderTable({
+
+  results() %>%
+    slice_head(n = 10) %>%
+    transmute(
+      Rank = rank,
+      Country = country,
+      `Wellbeing Score` =
+        round(score, 1),
+      `Happy %` =
+        round(happiness, 1),
+      `Financially Satisfied %` =
+        round(finance, 1),
+      `Leisure Satisfied %` =
+        round(leisure, 1),
+      `Permanent Contract %` =
+        round(contract, 1),
+      `Income Match` =
+        round(income_match, 1),
+      `Hours Match` =
+        round(hours_match, 1)
+    )
+
+}, striped = TRUE, bordered = TRUE, spacing = "s")
+```
+---

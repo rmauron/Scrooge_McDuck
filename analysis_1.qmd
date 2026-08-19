@@ -5,6 +5,9 @@ subtitle: "Earnings, job security and working hours among Master’s and Doctora
 format:
   html:
     code-fold: true
+
+page-layout: full
+body-classes: analysis-page
 ---
 
 This is the analysis of age-related data in the OECD reICO dataset. It was used to figure out, if earnings, working hours and the rate of indefinite contracts depends on the age group, the academic degree (master vs doctorate) or on the country.

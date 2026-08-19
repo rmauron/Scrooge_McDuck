@@ -1,5 +1,5 @@
 /* =========================================================
-   GLOBAL TYPOGRAPHY AND PAGE WIDTH
+   1. GLOBAL LAYOUT AND TYPOGRAPHY
    ========================================================= */
 
 html,
@@ -13,68 +13,52 @@ body {
 }
 
 /*
-Keep the main text readable and reserve space for the
-floating logo on wide screens.
+Keep the main text readable and reserve room for the
+floating homepage logo on wide screens.
 */
 main.content {
   width: min(1500px, calc(100vw - 6rem));
   max-width: none;
   box-sizing: border-box;
-
   padding-right: 230px;
-
   justify-self: center;
-
   margin-right: auto;
   margin-left: auto;
 }
 
-
-/* =========================================================
-   PAGE TYPOGRAPHY
-   ========================================================= */
-
-/* Main page-section headings */
 main.content h1 {
   margin-top: 3rem;
   margin-bottom: 1.5rem;
-
   font-size: 2.5rem;
   line-height: 1.15;
 }
 
-/* Secondary headings */
 main.content h2 {
   font-size: 1.9rem;
   line-height: 1.2;
 }
 
-/* Third-level headings */
 main.content h3 {
   margin-bottom: 0.75rem;
-
   font-size: 1.55rem;
   line-height: 1.25;
 }
 
-/* Normal paragraphs and lists */
 main.content p,
 main.content li {
   font-size: 1.1rem;
   line-height: 1.7;
 }
 
-/* Larger buttons */
 .btn {
   padding: 0.7rem 1.05rem;
-
   font-size: 1.05rem;
   line-height: 1.25;
 }
 
 
 /* =========================================================
-   NAVIGATION BAR
+   2. NAVIGATION BAR
    ========================================================= */
 
 .navbar-brand {
@@ -82,20 +66,54 @@ main.content li {
   font-weight: 700;
 }
 
-/* Navigation tabs */
 .navbar .nav-link {
   font-size: 1.15rem;
   font-weight: 500;
 }
 
-/* Slightly more breathing room between navigation links */
 .navbar-nav {
   gap: 0.35rem;
 }
 
+/* Highlight the tab corresponding to the current page. */
+.navbar-nav .nav-link.active,
+.navbar-nav .nav-link[aria-current="page"] {
+  color: #9f4c4c !important;
+  background-color: #ffeab0;
+  padding-right: 0.65rem;
+  padding-left: 0.65rem;
+  border-radius: 0.3rem;
+  box-shadow: 2px 2px 0 rgba(22, 56, 68, 0.35);
+  font-weight: 700;
+}
+
+.navbar-nav .nav-link.active:hover,
+.navbar-nav .nav-link[aria-current="page"]:hover {
+  color: #843f3f !important;
+  background-color: #ffdf89;
+}
+
+/*
+Highlight the website name only on the homepage.
+The class home-page is set in the index.qmd YAML.
+*/
+body.home-page .navbar-brand {
+  color: #9f4c4c !important;
+  background-color: #ffeab0;
+  padding: 0.35rem 0.65rem;
+  border-radius: 0.3rem;
+  box-shadow: 2px 2px 0 rgba(22, 56, 68, 0.35);
+  font-weight: 700;
+}
+
+body.home-page .navbar-brand:hover {
+  color: #843f3f !important;
+  background-color: #ffdf89;
+}
+
 
 /* =========================================================
-   HIDE QUARTO'S AUTOMATIC TITLE
+   3. QUARTO-GENERATED TITLE
    ========================================================= */
 
 #title-block-header {
@@ -104,154 +122,80 @@ main.content li {
 
 
 /* =========================================================
-   HOMEPAGE BANNER
+   4. HOMEPAGE HEADING
    ========================================================= */
 
-.hero-banner {
-  /*
-  Keep the banner content within Quarto's normal layout.
-  The pseudo-element below extends only the background.
-  */
+/*
+This replaces the former large teal hero banner. The title,
+subtitle and logo now sit in the ordinary page area beneath
+the navigation bar.
+*/
+.home-heading {
   position: relative;
-  isolation: isolate;
-
-  width: auto;
-  max-width: none;
-  box-sizing: border-box;
-
-  /*
-  No calculated horizontal margins are needed.
-  */
-  margin-left: 0;
-  margin-right: 0;
-
-  /* Remove Quarto's gap below the navigation bar */
-  margin-top: -2.5rem;
-
   display: grid;
   grid-template-columns: minmax(0, 1fr) 190px;
   align-items: center;
   gap: 2rem;
-
-  padding:
-    1.75rem
-    max(2.5rem, calc((100vw - 1750px) / 2));
-
-  background-color: #4c979f;
-  color: white;
+  width: min(1200px, 100%);
+  box-sizing: border-box;
+  margin: 2.75rem 0 0 0;
+  padding: 0;
+  color: var(--bs-body-color);
 }
 
-/*
-Extend only the teal background to both browser edges.
-
-This does not move the title, subtitle or logo.
-*/
-.hero-banner::before {
-  content: "";
-
-  position: absolute;
-  inset: 0;
-
-  background-color: #4c979f;
-
-  /*
-  Extend the teal background horizontally while limiting
-  it to the height of the banner.
-  */
-  box-shadow: 0 0 0 100vmax #4c979f;
-  clip-path: inset(0 -100vmax);
-
-  z-index: -1;
+.home-heading .hero-copy {
+  min-width: 0;
+  transform: none;
 }
 
-
-/* =========================================================
-   BANNER TEXT
-   ========================================================= */
-
-/*
-Move the title and subtitle towards the left on large screens.
-*/
-.hero-copy {
-  transform: translateX(
-    clamp(-22rem, -18vw, -10rem)
-  );
-}
-
-.hero-copy h2 {
+.home-heading .hero-copy h2 {
   margin: 0 0 1rem 0;
   padding: 0;
-  border-bottom: none;
-
+  border: none;
   color: #9f4c4c;
-
   text-shadow:
     -1px -1px 0 #ffeab0,
      1px -1px 0 #ffeab0,
     -1px  1px 0 #ffeab0,
      1px  1px 0 #ffeab0,
-     4px  4px 0 rgba(22, 56, 68, 0.45);
-
-  /* Larger main title */
-  font-size: 3.65rem;
+     4px  4px 0 rgba(22, 56, 68, 0.32);
+  font-size: 3.25rem;
   font-weight: 750;
   line-height: 1.08;
 }
 
-/*
-Style the subtitle as an intentional project strapline.
-*/
-.hero-copy p {
+.home-heading .hero-copy p {
   display: inline-block;
-
   margin: 0;
-  padding: 0.35rem 0.8rem;
-
-  color: white;
-  background-color: rgba(22, 56, 68, 0.18);
-
-  border-left: 4px solid #ffeab0;
-  border-radius: 0 0.25rem 0.25rem 0;
-
-  font-size: 1.5rem;
-  font-weight: 600;
+  padding: 0.4rem 0.85rem;
+  color: #163844;
+  background-color: rgba(76, 151, 159, 0.14);
+  border-left: 4px solid #4c979f;
+  border-radius: 0 0.3rem 0.3rem 0;
+  font-size: 1.35rem;
+  font-weight: 650;
   line-height: 1.4;
   letter-spacing: 0.01em;
 }
 
 
 /* =========================================================
-   FLOATING HOMEPAGE LOGO
+   5. HOMEPAGE LOGO
    ========================================================= */
 
+/* Float the logo alongside the page on wide screens. */
 .hero-logo {
   position: fixed;
-
-  /*
-  Vertical position:
-  increase to move down;
-  decrease to move up.
-  */
   top: 5.5rem;
-
-  /*
-  Horizontal position:
-  increase to move left;
-  decrease to move right.
-  */
   right: clamp(2rem, 4vw, 5rem);
-
   z-index: 1000;
-
   transform: none;
 }
 
 .hero-logo img {
   display: block;
-
   width: 185px;
   height: auto;
-
   margin: 0;
 }
 
@@ -261,32 +205,23 @@ Style the subtitle as an intentional project strapline.
 
 
 /* =========================================================
-   HOMEPAGE INTRODUCTION
+   6. HOMEPAGE INTRODUCTION
    ========================================================= */
 
 .intro-section {
   position: relative;
-
   width: min(1000px, 100%);
   box-sizing: border-box;
-
-  /*
-  Left aligned within the main content area.
-  */
-  margin: 3rem 0 1.5rem 0;
+  margin: 1.75rem 0 1.5rem 0;
   padding: 1.5rem 1.75rem;
-
   background-color: rgba(255, 234, 176, 0.32);
   border-left: 6px solid #9f4c4c;
   border-radius: 0.4rem;
-
-  box-shadow:
-    0 0.25rem 0.8rem rgba(22, 56, 68, 0.12);
+  box-shadow: 0 0.25rem 0.8rem rgba(22, 56, 68, 0.12);
 }
 
 .intro-section p {
   margin: 0;
-
   text-align: left;
   hyphens: none;
   text-wrap: pretty;
@@ -294,19 +229,18 @@ Style the subtitle as an intentional project strapline.
 
 .intro-section .lead {
   padding-top: 0;
-
   font-size: 1.4rem;
   font-weight: 700;
   line-height: 1.6;
 }
 
+
 /* =========================================================
-   DATA SUMMARY
+   7. DATA SUMMARY
    ========================================================= */
 
 .data-summary {
   width: min(1000px, 100%);
-
   margin: 1.5rem 0 2.75rem 0;
 }
 
@@ -318,7 +252,7 @@ Style the subtitle as an intentional project strapline.
 
 
 /* =========================================================
-   ANALYSIS GRID
+   8. ANALYSIS GRID
    ========================================================= */
 
 .analysis-grid {
@@ -326,66 +260,242 @@ Style the subtitle as an intentional project strapline.
   column-gap: 3rem;
 }
 
-/*
-Keep each analysis description compact instead of allowing
-the text to stretch across its entire half of the screen.
-*/
 .analysis-grid > .g-col-6 {
   max-width: 540px;
 }
 
-/* Analysis titles */
 .analysis-grid h3 {
   margin-top: 0;
   margin-bottom: 0.75rem;
-
   font-size: 1.55rem;
 }
 
-/* Analysis descriptions */
 .analysis-grid p {
   margin-bottom: 1rem;
-
   font-size: 1.1rem;
   line-height: 1.6;
 }
 
-/* Buttons underneath analysis descriptions */
 .analysis-grid .btn {
   margin-top: 0.25rem;
 }
 
 
 /* =========================================================
-   MEDIUM-SIZED WINDOWS
+   9. DARK MODE
    ========================================================= */
 
-/*
-On medium-sized windows, remove the space reserved for the
-floating logo and return the logo to the banner.
-*/
-@media (max-width: 1700px) {
+:is(body.quarto-dark, html[data-bs-theme="dark"] body) {
+  --bs-body-color: #e3e9eb;
+  --bs-heading-color: #f4f7f8;
+  --bs-secondary-color: #c4ced1;
+  color: #e3e9eb;
+}
 
+:is(body.quarto-dark, html[data-bs-theme="dark"] body)
+main.content {
+  color: #e3e9eb;
+}
+
+:is(body.quarto-dark, html[data-bs-theme="dark"] body)
+main.content h1,
+:is(body.quarto-dark, html[data-bs-theme="dark"] body)
+main.content h2,
+:is(body.quarto-dark, html[data-bs-theme="dark"] body)
+main.content h3,
+:is(body.quarto-dark, html[data-bs-theme="dark"] body)
+main.content h4 {
+  color: #f4f7f8;
+}
+
+:is(body.quarto-dark, html[data-bs-theme="dark"] body)
+main.content p,
+:is(body.quarto-dark, html[data-bs-theme="dark"] body)
+main.content li {
+  color: #d8e0e2;
+}
+
+:is(body.quarto-dark, html[data-bs-theme="dark"] body)
+main.content strong {
+  color: #f4f7f8;
+}
+
+/* Preserve the red, cream-outlined homepage title. */
+:is(body.quarto-dark, html[data-bs-theme="dark"] body)
+.home-heading .hero-copy h2 {
+  color: #9f4c4c !important;
+  -webkit-text-fill-color: #9f4c4c;
+  text-shadow:
+    -1px -1px 0 #ffeab0,
+     1px -1px 0 #ffeab0,
+    -1px  1px 0 #ffeab0,
+     1px  1px 0 #ffeab0,
+     3px  3px 0 rgba(22, 56, 68, 0.65) !important;
+}
+
+:is(body.quarto-dark, html[data-bs-theme="dark"] body)
+.home-heading .hero-copy p {
+  color: #f3f7f8;
+  background-color: rgba(76, 151, 159, 0.22);
+  border-left-color: #80cbd2;
+}
+
+:is(body.quarto-dark, html[data-bs-theme="dark"] body)
+.intro-section {
+  background-color: #26383d;
+  border-left-color: #d57979;
+  box-shadow: 0 0.3rem 1rem rgba(0, 0, 0, 0.3);
+}
+
+:is(body.quarto-dark, html[data-bs-theme="dark"] body)
+.intro-section p,
+:is(body.quarto-dark, html[data-bs-theme="dark"] body)
+.intro-section .lead,
+:is(body.quarto-dark, html[data-bs-theme="dark"] body)
+.intro-section strong {
+  color: #f2f5f6;
+}
+
+:is(body.quarto-dark, html[data-bs-theme="dark"] body)
+.analysis-grid h3 {
+  color: #f4f7f8;
+}
+
+:is(body.quarto-dark, html[data-bs-theme="dark"] body)
+.analysis-grid p {
+  color: #d2dbde;
+}
+
+:is(body.quarto-dark, html[data-bs-theme="dark"] body)
+.data-summary,
+:is(body.quarto-dark, html[data-bs-theme="dark"] body)
+.data-summary p,
+:is(body.quarto-dark, html[data-bs-theme="dark"] body)
+.data-summary li {
+  color: #d8e0e2;
+}
+
+:is(body.quarto-dark, html[data-bs-theme="dark"] body)
+main.content hr,
+:is(body.quarto-dark, html[data-bs-theme="dark"] body)
+main.content h2 {
+  border-color: rgba(255, 255, 255, 0.18);
+}
+
+:is(body.quarto-dark, html[data-bs-theme="dark"] body)
+main.content a:not(.btn) {
+  color: #80cbd2;
+}
+
+:is(body.quarto-dark, html[data-bs-theme="dark"] body)
+.btn-outline-primary {
+  color: #80cbd2;
+  border-color: #80cbd2;
+}
+
+:is(body.quarto-dark, html[data-bs-theme="dark"] body)
+.btn-outline-primary:hover {
+  color: #182326;
+  background-color: #80cbd2;
+  border-color: #80cbd2;
+}
+
+:is(body.quarto-dark, html[data-bs-theme="dark"] body)
+.callout {
+  color: #e3e9eb;
+}
+
+:is(body.quarto-dark, html[data-bs-theme="dark"] body)
+.callout p,
+:is(body.quarto-dark, html[data-bs-theme="dark"] body)
+.callout li {
+  color: #d8e0e2;
+}
+
+
+/* =========================================================
+   10. CHARACTER PARADE
+   ========================================================= */
+
+.character-parade {
+  width: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+  margin-top: 3rem;
+  padding: 0.9rem 0;
+  background-color: rgba(76, 151, 159, 0.12);
+  border-top: 2px solid rgba(76, 151, 159, 0.35);
+  border-bottom: 2px solid rgba(76, 151, 159, 0.35);
+}
+
+.parade-track {
+  display: flex;
+  align-items: flex-end;
+  width: max-content;
+  animation: parade-march-right 28s linear infinite;
+  will-change: transform;
+}
+
+/* Both parade sets must contain the same images in the same order. */
+.parade-set {
+  display: flex;
+  flex-shrink: 0;
+  align-items: flex-end;
+  justify-content: flex-start;
+  gap: 2.5rem;
+  padding-right: 2.5rem;
+}
+
+.parade-set img {
+  display: block;
+  flex-shrink: 0;
+  width: auto;
+  height: 105px;
+  object-fit: contain;
+}
+
+.character-parade:hover .parade-track {
+  animation-play-state: paused;
+}
+
+@keyframes parade-march-right {
+  from {
+    transform: translateX(-50%);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
+
+:is(body.quarto-dark, html[data-bs-theme="dark"] body)
+.character-parade {
+  background-color: rgba(76, 151, 159, 0.16);
+  border-color: rgba(128, 203, 210, 0.35);
+}
+
+
+/* =========================================================
+   11. MEDIUM-SIZED WINDOWS
+   ========================================================= */
+
+@media (max-width: 1700px) {
   main.content {
     width: min(1250px, calc(100vw - 4rem));
     padding-right: 0;
   }
 
-  /*
-  Return the title and subtitle to their normal position
-  when the window becomes narrower.
-  */
-  .hero-copy {
-    transform: none;
+  .home-heading {
+    width: 100%;
+    grid-template-columns: minmax(0, 1fr) 170px;
   }
 
+  /* Return the logo to its grid position beside the heading. */
   .hero-logo {
     position: static;
-
     top: auto;
     right: auto;
     z-index: auto;
-
     justify-self: center;
     transform: none;
   }
@@ -397,12 +507,10 @@ floating logo and return the logo to the banner.
 
 
 /* =========================================================
-   MOBILE LAYOUT
-   Applies when the window is 768px wide or narrower
+   12. MOBILE LAYOUT
    ========================================================= */
 
 @media (max-width: 768px) {
-
   html {
     font-size: 16px;
   }
@@ -412,11 +520,9 @@ floating logo and return the logo to the banner.
     padding-right: 0;
   }
 
-  /* Page headings */
   main.content h1 {
     margin-top: 2rem;
     margin-bottom: 1.25rem;
-
     font-size: 2rem;
     line-height: 1.15;
   }
@@ -435,7 +541,6 @@ floating logo and return the logo to the banner.
     line-height: 1.6;
   }
 
-  /* Navigation */
   .navbar-brand {
     font-size: 1.45rem;
   }
@@ -444,60 +549,58 @@ floating logo and return the logo to the banner.
     font-size: 1rem;
   }
 
-  /* Banner */
-  .hero-banner {
-    margin-top: -1.5rem;
-
-    grid-template-columns: minmax(0, 1fr) 80px;
-    gap: 0.75rem;
-
-    padding: 1.1rem 1.25rem;
+  /*
+  Homepage-specific mobile replacement: keep the heading and
+  logo compact and prevent either from overflowing the screen.
+  */
+  .home-heading {
+    grid-template-columns: minmax(0, 1fr) 76px;
+    align-items: center;
+    gap: 0.8rem;
+    width: 100%;
+    margin: 1.5rem 0 0 0;
   }
 
-  /* Banner text position */
-  .hero-copy {
+  .home-heading .hero-copy {
+    min-width: 0;
     transform: none;
   }
 
-  /* Banner title */
-  .hero-copy h2 {
-    font-size: 1.7rem;
-    line-height: 1.2;
+  .home-heading .hero-copy h2 {
+    margin-bottom: 0.7rem;
+    font-size: clamp(1.55rem, 6.6vw, 1.9rem);
+    line-height: 1.15;
+    overflow-wrap: anywhere;
   }
 
-  /* Banner subtitle */
-  .hero-copy p {
-    font-size: 1rem;
-    line-height: 1.4;
+  .home-heading .hero-copy p {
+    display: block;
+    width: fit-content;
+    max-width: 100%;
+    padding: 0.3rem 0.55rem;
+    font-size: 0.95rem;
+    line-height: 1.35;
   }
 
-  /*
-  Return the logo to its position inside the banner on
-  narrow screens so that it cannot cover the page.
-  */
-  .hero-logo {
+  .home-heading .hero-logo {
     position: static;
-
     top: auto;
     right: auto;
     z-index: auto;
-
-    justify-self: center;
+    justify-self: end;
+    align-self: center;
     transform: none;
   }
 
-  .hero-logo img {
-    width: 78px;
+  .home-heading .hero-logo img {
+    width: 72px;
+    max-width: 100%;
   }
 
-  /* Highlighted introduction box */
   .intro-section {
     width: 100%;
-    box-sizing: border-box;
-
-    margin: 1.5rem 0 1.25rem 0;
-    padding: 1.25rem;
-
+    margin: 1.25rem 0;
+    padding: 1.1rem;
     border-left-width: 4px;
   }
 
@@ -508,15 +611,12 @@ floating logo and return the logo to the banner.
 
   .intro-section .lead {
     padding-top: 0;
-
-    font-size: 1.15rem;
-    line-height: 1.55;
+    font-size: 1.1rem;
+    line-height: 1.5;
   }
 
-  /* Data summary */
   .data-summary {
     width: 100%;
-
     margin: 1rem 0 2rem 0;
   }
 
@@ -526,7 +626,6 @@ floating logo and return the logo to the banner.
     line-height: 1.6;
   }
 
-  /* Analysis grid */
   .analysis-grid {
     row-gap: 2rem;
     column-gap: 0;
@@ -544,9 +643,50 @@ floating logo and return the logo to the banner.
     font-size: 1rem;
   }
 
-  /* Buttons */
   .btn {
     padding: 0.65rem 0.9rem;
     font-size: 1rem;
+  }
+
+  .character-parade {
+    margin-top: 2rem;
+    padding: 0.6rem 0;
+  }
+
+  .parade-set {
+    gap: 1.5rem;
+    padding-right: 1.5rem;
+  }
+
+  .parade-set img {
+    height: 75px;
+  }
+
+  .parade-track {
+    animation-duration: 22s;
+  }
+}
+
+
+/* =========================================================
+   13. ACCESSIBILITY: REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .parade-track {
+    width: 100%;
+    transform: none;
+    animation: none;
+  }
+
+  .parade-set {
+    width: 100%;
+    justify-content: space-around;
+    gap: 1rem;
+    padding-right: 0;
+  }
+
+  .parade-set[aria-hidden="true"] {
+    display: none;
   }
 }

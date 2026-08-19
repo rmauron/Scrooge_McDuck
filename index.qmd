@@ -4,9 +4,10 @@ description: "Money, job security and happiness across 36 countries"
 page-layout: full
 title-block-banner: false
 toc: false
+body-classes: home-page
 ---
 
-::: {.hero-banner}
+::: {.home-heading}
 
 ::: {.hero-copy}
 ## Duck, Duck, PhD! Can money buy happiness?
@@ -22,11 +23,11 @@ Money, job security and happiness across 36 countries
 
 :::
 
-
 ::: {.intro-section}
 
 ::: {.lead}
-**A PhD can earn you a title, a specialised set of opinions and, occasionally, free coffee at a conference. <br> But can it also bring better pay, job security and enough leisure time to enjoy the rewards?**
+**A PhD can earn you a title, a specialised set of opinions and, occasionally, free coffee at a conference.**  
+**But can it also bring better pay, job security and enough leisure time to enjoy the rewards?**
 :::
 
 :::
@@ -101,10 +102,35 @@ The final dataset contains 375 such combinations, with the six measures arranged
 ::: {.callout-important}
 ## A note on interpretation
 
-All data refer to 2022. Income values are not always reported in a standardised currency, so direct comparisons between countries should be interpreted with caution.
+All data refer to 2022. <br> Income values are not always reported in a standardised currency, so direct comparisons between countries should be interpreted with caution.
 :::
 
 
 # The team
 
 This project was created by **Agne, Miren, Maryam and Raphaël** during RaukR 2026.
+
+
+```{=html}
+<div class="character-parade" aria-label="Duck character parade">
+  <div class="parade-track">
+
+    <div class="parade-set">
+      <img src="assets/parade/scrooge.png" alt="Scrooge McDuck">
+      <img src="assets/parade/donald.png" alt="Donald Duck">
+      <img src="assets/parade/nephews.png" alt="Huey, Dewey and Louie">
+      <img src="assets/parade/gyro.png" alt="Gyro Gearloose">
+      <img src="assets/parade/ludvig.png" alt="Ludwig von Drake">
+    </div>
+
+    <div class="parade-set" aria-hidden="true">
+      <img src="assets/parade/scrooge.png" alt="">
+      <img src="assets/parade/donald.png" alt="">
+      <img src="assets/parade/nephews.png" alt="">
+      <img src="assets/parade/gyro.png" alt="">
+      <img src="assets/parade/ludvig.png" alt="">
+    </div>
+
+  </div>
+</div>
+```
