@@ -10,7 +10,7 @@ format:
 
 Here, we can use an interactive map to visualize the input data and some of the results.
 
-## Load, explore and prepare the data
+## Load the data
 
 First, we need to load and make sure of what we have as data.
 
